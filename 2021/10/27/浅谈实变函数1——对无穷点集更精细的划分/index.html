@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="&amp;emsp;&amp;emsp;在数学分析中，我们常常处理的是连续函数，因为这种函数有着良好的性质，在微分与积分时可以得到比较好的结果。当然，我们偶尔也会处理仅在有限点处不连续的函数，它们在某些结果上从和连续函数并没有多大差别。 &amp;emsp;&amp;emsp;可是当考虑无限点处不连续的函数时，我们原有的方法失效了。一个典型的例子就是 f 在 [0,1] 上的Riemann积分，其中 f 形式如下所示：  f(x">
+  <meta name="description" content="&amp;emsp;&amp;emsp;在数学分析中，我们常常处理的是连续函数，因为这种函数有着良好的性质，在微分与积分时可以得到比较好的结果。当然，我们偶尔也会处理仅在有限点处不连续的函数，它们在某些结果上从和连续函数并没有多大差别。 &amp;emsp;&amp;emsp;可是当考虑无限点处不连续的函数时，我们原有的方法失效了。一个典型的例子就是 f 在$ [0,1] $上的Riemann积分，其中 f 形式如下所示：  f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈实变函数1——对无穷点集更精细的划分">
 <meta property="og:url" content="http://example.com/2021/10/27/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B01%E2%80%94%E2%80%94%E5%AF%B9%E6%97%A0%E7%A9%B7%E7%82%B9%E9%9B%86%E6%9B%B4%E7%B2%BE%E7%BB%86%E7%9A%84%E5%88%92%E5%88%86/index.html">
 <meta property="og:site_name" content="Shaw">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;在数学分析中，我们常常处理的是连续函数，因为这种函数有着良好的性质，在微分与积分时可以得到比较好的结果。当然，我们偶尔也会处理仅在有限点处不连续的函数，它们在某些结果上从和连续函数并没有多大差别。 &amp;emsp;&amp;emsp;可是当考虑无限点处不连续的函数时，我们原有的方法失效了。一个典型的例子就是 f 在 [0,1] 上的Riemann积分，其中 f 形式如下所示：  f(x">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;在数学分析中，我们常常处理的是连续函数，因为这种函数有着良好的性质，在微分与积分时可以得到比较好的结果。当然，我们偶尔也会处理仅在有限点处不连续的函数，它们在某些结果上从和连续函数并没有多大差别。 &amp;emsp;&amp;emsp;可是当考虑无限点处不连续的函数时，我们原有的方法失效了。一个典型的例子就是 f 在$ [0,1] $上的Riemann积分，其中 f 形式如下所示：  f">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-27T09:24:32.000Z">
-<meta property="article:modified_time" content="2021-10-29T09:05:03.634Z">
+<meta property="article:modified_time" content="2021-10-29T09:08:07.836Z">
 <meta property="article:author" content="Shaw">
 <meta property="article:tag" content="Real Analysis">
 <meta name="twitter:card" content="summary">
@@ -208,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 17:05:03" itemprop="dateModified" datetime="2021-10-29T17:05:03+08:00">2021-10-29</time>
+                <time title="Modified: 2021-10-29 17:08:07" itemprop="dateModified" datetime="2021-10-29T17:08:07+08:00">2021-10-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -232,28 +232,28 @@
 
       
         <p>&emsp;&emsp;在数学分析中，我们常常处理的是连续函数，因为这种函数有着良好的性质，在微分与积分时可以得到比较好的结果。当然，我们偶尔也会处理仅在有限点处不连续的函数，它们在某些结果上从和连续函数并没有多大差别。</p>
-<p>&emsp;&emsp;可是当考虑无限点处不连续的函数时，我们原有的方法失效了。一个典型的例子就是 f 在 [0,1] 上的Riemann积分，其中 f 形式如下所示：</p>
+<p>&emsp;&emsp;可是当考虑无限点处不连续的函数时，我们原有的方法失效了。一个典型的例子就是 f 在$ [0,1] $上的Riemann积分，其中 f 形式如下所示：</p>
 <script type="math/tex; mode=display">
 f(x)=
 \begin{cases}
 0, &\forall \ x \in [0,1]\bigcap \mathbb{Q}\\
 1, &\forall \ x \in [0,1]\bigcap \mathbb{Q}^c
-\end{cases}</script><p>也即该函数在无理点处取值为1，在有理点处取值为0。注意到这个函数在[0,1]上是Riemann不可积的。（这也促使我们需要从更高的观点来看待积分）</p>
+\end{cases}</script><p>也即该函数在无理点处取值为1，在有理点处取值为0。注意到这个函数在$ [0,1] $上是Riemann不可积的。（这也促使我们需要从更高的观点来看待积分）</p>
 <p>&emsp;&emsp;首先，我们将点集分为有限点集和无限点集：有限点集是很好处理的，重点是无限点集。这里我所说的“很好处理”，是指我们很容易判断一个集合的大小，有限点集的大小就是看这个集合中元素的个数，数数我们总是会的。而当我们面对一个无限点集时，我们并不好描述它的“无限”究竟是多么不加限制。</p>
 <p>&emsp;&emsp;先从有限集合获取灵感：</p>
 <p>&emsp;&emsp;1. 有限集合的大小定义为集合中元素的个数</p>
 <p>&emsp;&emsp;2. 有限集合A，B的大小比较是通过比较两集合元素多少。笨一点的方法是我们挑出A中一个元素，发现B中也能挑出一个元素，再从A中不重复的挑出一个元素，发现B中也能挑出一个元素……直至其中一个集合再也不能挑出元素来（例如B已经宣布告罄了），那么我们认为$|A|\ge|B|$。</p>
 <p>&emsp;&emsp;下面我们来给无穷点集进行<strong>更加精细的划分</strong>。</p>
-<p>&emsp;&emsp;1. 按着原先通过数数来得到集合大小（元素多少）的思路，我们考虑一种集合，<strong>这种集合可以以某种方式特定的数数方式一直进行下去，以至于集合中任给一个元素都在某一次数数中被数到</strong>。自然数集<script type="math/tex">\ \N\</script>显然就是我们所要求的集合。</p>
+<p>&emsp;&emsp;1. 按着原先通过数数来得到集合大小（元素多少）的思路，我们考虑一种集合，<strong>这种集合可以以某种方式特定的数数方式一直进行下去，以至于集合中任给一个元素都在某一次数数中被数到</strong>。自然数集<script type="math/tex">\ \mathbb{N}\</script>显然就是我们所要求的集合。</p>
 <p>&emsp;&emsp;2. 推广有限集合比较大小的思路，所谓“笨方法”其实就是再找两集合之间元素的一一映射（双射）。所以，对于两个无限集，我们如果能够找到一个<strong>双射</strong>，将两个集合的元素一一对应，那么我们可以认为这两个集合大小确实是相等的，且称这两个集合<strong>对等</strong>。</p>
-<p>&emsp;&emsp;利用以上两点，我们得到了一类特殊的无限点集——这类点集与$ \N  $都是对等的，称为<strong>可列集</strong>或<strong>可数集</strong>。我们所熟知的有理数集$ \Q $就是可数集。（而且如果你稍微思考一下，会发现这类无限点集应该是所有无限集中<strong>点的个数“最少”</strong>的了。）</p>
+<p>&emsp;&emsp;利用以上两点，我们得到了一类特殊的无限点集——这类点集与$ \mathbb{N}  $都是对等的，称为<strong>可列集</strong>或<strong>可数集</strong>。我们所熟知的有理数集$ \mathbb{Q} $就是可数集。（而且如果你稍微思考一下，会发现这类无限点集应该是所有无限集中<strong>点的个数“最少”</strong>的了。）</p>
 <p>&emsp;&emsp;这时候就有好奇宝宝要问了，那么这世界上有“不可数集”吗？答案是肯定的。Cantor给出了无理数不可数的证明。</p>
 <p>&emsp;&emsp;满怀欣喜地发现无限点集可以分为可数集和不可数集，我们自然希望它们在某些性质上确实是有本质不同的。接下来我们可以从不太严谨的论述中看到这一点。</p>
 <p>&emsp;&emsp;再赋予无限集多一点想象。现在从感觉上，可数集，不可数集和<strong>点密集到成区间的集合</strong>中都会有无穷多的点，但是我们还是难以体会其间关联与奥妙。没关系，这时候我们从“长度”（日后我们将其推广为测度）的观点来看待这个问题。我们过往常接触的区间都是有长度的。以闭区间$ [a,b] $为例，它的长度就是$ b-a $。既然如此，好奇宝宝可能又会问了：可数集的“长度”应该是多少呢？</p>
 <p>&emsp;&emsp;可数集既然是“点最少”的无限集，看来所谓的“无限”也并不是没有限制，我们不妨大胆假设它的“长度”为0。转化为数学语言，下面给它一个稍微有点启发性的证明。</p>
-<p>&emsp;&emsp;我们将可数集表示为$ \{ a_k\}_{k\in \N} $。长度为0，也就是说它的长度要多小有多小（通过$ \epsilon $的任意性来刻画）。为了计算方便，我们不妨用不相交的开区间盖住每个点，那么“点的长度”$ m(a_k) $可以用开区间长度来逼近，令$  a_k $对应的开区间长度不超过$ \frac{\epsilon}{2^k} $（这总是可以做到的）：</p>
+<p>&emsp;&emsp;我们将可数集表示为$ \{ a_k\}_{k\in \mathbb{N}} $。长度为0，也就是说它的长度要多小有多小（通过$ \epsilon $的任意性来刻画）。为了计算方便，我们不妨用不相交的开区间盖住每个点，那么“点的长度”$ m(a_k) $可以用开区间长度来逼近，令$  a_k $对应的开区间长度不超过$ \frac{\epsilon}{2^k} $（这总是可以做到的）：</p>
 <script type="math/tex; mode=display">
-\forall \epsilon >0,\ m(a_k)<\frac{\epsilon}{2^k} \ (\forall k\in \N)</script><p>将所有点的“长度”求和：</p>
+\forall \epsilon >0,\ m(a_k)<\frac{\epsilon}{2^k} \ (\forall k\in \mathbb{N})</script><p>将所有点的“长度”求和：</p>
 <script type="math/tex; mode=display">
 \forall \epsilon >0,\ \sum_{k=1}^{+\infty}{m(a_k)} = \sum_{k=1}^{+\infty}{\frac{\epsilon}{2^k}}<\epsilon</script><blockquote>
 <p>注：</p>
