@@ -205,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-11 12:44:47" itemprop="dateModified" datetime="2022-03-11T12:44:47+08:00">2022-03-11</time>
+                <time title="Modified: 2022-03-11 12:47:41" itemprop="dateModified" datetime="2022-03-11T12:47:41+08:00">2022-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,54 +242,36 @@
 <li>点击此处在 UCI 上 <a target="_blank" rel="noopener" href="https://archive-beta.ics.uci.edu/ml/datasets/iris">下载</a> Iris 数据集</li>
 </ol>
 <p>在整个数据集的分析过程中，我主要参考了 <a target="_blank" rel="noopener" href="https://www.kaggle.com/benhamner/python-data-visualizations">Python Data Visualizations | Kaggle</a> 这篇文章。至于参考的其他文章和资料，我会一并放在博客的最后。</p>
-<p>[TOC]</p>
-<h3 id="导入外部库"><a href="#导入外部库" class="headerlink" title="导入外部库"></a>导入外部库</h3><p>下面我们先导入一些必要的库。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># current version of seaborn generates a bunch of warnings that we&#x27;ll ignore</span></span><br><span class="line"><span class="keyword">import</span> warnings </span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.set_theme(style=<span class="string">&quot;white&quot;</span>, color_codes=<span class="literal">True</span>)</span><br><span class="line"><span class="comment">#调取operating system模块</span></span><br><span class="line"><span class="keyword">import</span> os </span><br><span class="line"><span class="comment">#import matplotlib.image as mpimg # mpimg 用于读取图片</span></span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">import</span> PIL.Image <span class="keyword">as</span> Image</span><br><span class="line"><span class="keyword">import</span> rpy2.robjects <span class="keyword">as</span> robjects</span><br></pre></td></tr></table></figure>
-
+<h3 id="导入外部包和模块"><a href="#导入外部包和模块" class="headerlink" title="导入外部包和模块"></a>导入外部包和模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># current version of seaborn generates a bunch of warnings that we&#x27;ll ignore</span></span><br><span class="line"><span class="keyword">import</span> warnings </span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.set_theme(style=<span class="string">&quot;white&quot;</span>, color_codes=<span class="literal">True</span>)</span><br><span class="line"><span class="comment">#调取operating system模块</span></span><br><span class="line"><span class="keyword">import</span> os </span><br><span class="line"><span class="comment">#import matplotlib.image as mpimg # mpimg 用于读取图片</span></span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">import</span> PIL.Image <span class="keyword">as</span> Image</span><br><span class="line"><span class="keyword">import</span> rpy2.robjects <span class="keyword">as</span> robjects</span><br></pre></td></tr></table></figure>
 <p><code>NumPy</code>库是 python 进行科学计算的基础库</p>
 <p><code>Pandas</code>是数据分析必不可少的库，提供了高性能，并且易于使用的数据存储结构 DataFrame 和 Series 结构</p>
 <p><code>Matplotlib</code>是常用的绘制的库，<code>Seaborn</code>是基于<code>Matplotlib</code>的图形可视化python包。 它提供了一种高度交互式界面，便于用户能够做出各种有吸引力的统计图表。</p>
 <p><code>Rpy2</code>的作用是链接python和R，使得在python环境下可以使用R中的命令和函数。（当然没有这个库并不影响我们进行正常的数据分析）</p>
 <p>如果发现没有相应的库，可以在 Anaconda Prompt 使用 pip 进行下载（以 rpy2 为例）：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install rpy2</span><br></pre></td></tr></table></figure>
-
 <h3 id="导入数据文件"><a href="#导入数据文件" class="headerlink" title="导入数据文件"></a>导入数据文件</h3><p>我将下载的 iris.csv 和 iris.data 文件和 python 脚本放在同一目录下，以下将展示这两种数据文件的导入</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path = <span class="string">&#x27;iris.csv&#x27;</span> <span class="comment"># 设置路径</span></span><br><span class="line">iris = pd.read_csv(path) <span class="comment"># 现在iris数据集已经变成了 DataFrame 结构</span></span><br></pre></td></tr></table></figure>
-
 <p>而 data 文件可以通过以下方式导入</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path = <span class="string">&#x27;iris.data&#x27;</span></span><br><span class="line">iris = pd.read_csv(path, sep=<span class="string">&#x27;,&#x27;</span>) <span class="comment"># seq表示分隔符</span></span><br></pre></td></tr></table></figure>
-
 <p>如果出现类似的报错 <code>No such file or directory: &#39;iris.csv&#39;</code>，那么检查一下当前工作目录 <code>cwd</code> (<code>current working dictionary</code>)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os <span class="comment">#调取operating system模块</span></span><br><span class="line">cwd = os.getcwd()</span><br><span class="line"><span class="built_in">print</span>(cwd)</span><br></pre></td></tr></table></figure>
-
 <p>然后会发现自己的数据集文件并不在这里面，接着我们更改工作目录</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.chdir(<span class="string">&#x27;这里输入你要的文件的完整路径&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>此时再重复之前第一步操作就可以了。</p>
 <h3 id="初步查看数据集信息"><a href="#初步查看数据集信息" class="headerlink" title="初步查看数据集信息"></a>初步查看数据集信息</h3><p>以下结果可以通过<code>print</code>函数进行输出</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看数据结构</span></span><br><span class="line"><span class="built_in">type</span>(iris) </span><br><span class="line"><span class="comment"># 查看数据集索引</span></span><br><span class="line">iris.index</span><br><span class="line"><span class="comment"># 查看数据集列名</span></span><br><span class="line">iris.columns</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Out[<span class="number">1</span>]:</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">pandas</span>.<span class="title">core</span>.<span class="title">frame</span>.<span class="title">DataFrame</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">RangeIndex</span>(<span class="params">start=<span class="number">0</span>, stop=<span class="number">150</span>, step=<span class="number">1</span></span>)</span></span><br><span class="line"><span class="class"><span class="title">Index</span>(<span class="params">[<span class="string">&#x27;Id&#x27;</span>, <span class="string">&#x27;SepalLengthCm&#x27;</span>, <span class="string">&#x27;SepalWidthCm&#x27;</span>, <span class="string">&#x27;PetalLengthCm&#x27;</span>, <span class="string">&#x27;PetalWidthCm&#x27;</span>,</span></span></span><br><span class="line"><span class="params"><span class="class">       <span class="string">&#x27;Species&#x27;</span>],</span></span></span><br><span class="line"><span class="params"><span class="class">      dtype=<span class="string">&#x27;object&#x27;</span></span>)</span></span><br></pre></td></tr></table></figure>
-
 <p>数据集总共有6列，其中<code>SepalLengthCm</code>表示花萼长，<code>SepalWidthCm</code>表示花萼宽；<code>PetalLengthCm</code>表示花瓣长，<code>PetalWidthCm</code>表示花瓣宽；<code>Species</code>表示物种。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看变量名、数据类型以及检查是否有缺失</span></span><br><span class="line">iris.info()</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Out[<span class="number">2</span>]:</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">pandas</span>.<span class="title">core</span>.<span class="title">frame</span>.<span class="title">DataFrame</span>&#x27;&gt;</span></span><br><span class="line"><span class="class"><span class="title">RangeIndex</span>:</span> <span class="number">150</span> entries, <span class="number">0</span> to <span class="number">149</span></span><br><span class="line">Data columns (total <span class="number">6</span> columns):</span><br><span class="line"> <span class="comment">#   Column         Non-Null Count  Dtype  </span></span><br><span class="line">---  ------         --------------  -----  </span><br><span class="line"> <span class="number">0</span>   Id             <span class="number">150</span> non-null    int64  </span><br><span class="line"> <span class="number">1</span>   SepalLengthCm  <span class="number">150</span> non-null    float64</span><br><span class="line"> <span class="number">2</span>   SepalWidthCm   <span class="number">150</span> non-null    float64</span><br><span class="line"> <span class="number">3</span>   PetalLengthCm  <span class="number">150</span> non-null    float64</span><br><span class="line"> <span class="number">4</span>   PetalWidthCm   <span class="number">150</span> non-null    float64</span><br><span class="line"> <span class="number">5</span>   Species        <span class="number">150</span> non-null    <span class="built_in">object</span> </span><br><span class="line">dtypes: float64(<span class="number">4</span>), int64(<span class="number">1</span>), <span class="built_in">object</span>(<span class="number">1</span>)</span><br><span class="line">memory usage: <span class="number">7.2</span>+ KB</span><br></pre></td></tr></table></figure>
-
 <p><code>iris.info()</code>可以将前面很多信息都显示出来。同时注意到这个数据集没有缺失值，这非常好！</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看5个表头数据</span></span><br><span class="line">iris.head(<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 查看5个表尾数据</span></span><br><span class="line">iris.tail(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Out[<span class="number">3</span>]</span><br><span class="line"><span class="comment"># 查看5个表头数据</span></span><br><span class="line">   Id  SepalLengthCm  SepalWidthCm  PetalLengthCm  PetalWidthCm      Species</span><br><span class="line"><span class="number">0</span>   <span class="number">1</span>            <span class="number">5.1</span>           <span class="number">3.5</span>            <span class="number">1.4</span>           <span class="number">0.2</span>  Iris-setosa</span><br><span class="line"><span class="number">1</span>   <span class="number">2</span>            <span class="number">4.9</span>           <span class="number">3.0</span>            <span class="number">1.4</span>           <span class="number">0.2</span>  Iris-setosa</span><br><span class="line"><span class="number">2</span>   <span class="number">3</span>            <span class="number">4.7</span>           <span class="number">3.2</span>            <span class="number">1.3</span>           <span class="number">0.2</span>  Iris-setosa</span><br><span class="line"><span class="number">3</span>   <span class="number">4</span>            <span class="number">4.6</span>           <span class="number">3.1</span>            <span class="number">1.5</span>           <span class="number">0.2</span>  Iris-setosa</span><br><span class="line"><span class="number">4</span>   <span class="number">5</span>            <span class="number">5.0</span>           <span class="number">3.6</span>            <span class="number">1.4</span>           <span class="number">0.2</span>  Iris-setosa</span><br><span class="line"><span class="comment"># 查看5个表尾数据</span></span><br><span class="line">      Id  SepalLengthCm  ...  PetalWidthCm         Species</span><br><span class="line"><span class="number">145</span>  <span class="number">146</span>            <span class="number">6.7</span>  ...           <span class="number">2.3</span>  Iris-virginica</span><br><span class="line"><span class="number">146</span>  <span class="number">147</span>            <span class="number">6.3</span>  ...           <span class="number">1.9</span>  Iris-virginica</span><br><span class="line"><span class="number">147</span>  <span class="number">148</span>            <span class="number">6.5</span>  ...           <span class="number">2.0</span>  Iris-virginica</span><br><span class="line"><span class="number">148</span>  <span class="number">149</span>            <span class="number">6.2</span>  ...           <span class="number">2.3</span>  Iris-virginica</span><br><span class="line"><span class="number">149</span>  <span class="number">150</span>            <span class="number">5.9</span>  ...           <span class="number">1.8</span>  Iris-virginica</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看一些描述性信息</span></span><br><span class="line">iris.describe()</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Out[<span class="number">4</span>]: </span><br><span class="line">               Id  SepalLengthCm  SepalWidthCm  PetalLengthCm  PetalWidthCm</span><br><span class="line">count  <span class="number">150.000000</span>     <span class="number">150.000000</span>    <span class="number">150.000000</span>     <span class="number">150.000000</span>    <span class="number">150.000000</span></span><br><span class="line">mean    <span class="number">75.500000</span>       <span class="number">5.843333</span>      <span class="number">3.054000</span>       <span class="number">3.758667</span>      <span class="number">1.198667</span></span><br><span class="line">std     <span class="number">43.445368</span>       <span class="number">0.828066</span>      <span class="number">0.433594</span>       <span class="number">1.764420</span>      <span class="number">0.763161</span></span><br><span class="line"><span class="built_in">min</span>      <span class="number">1.000000</span>       <span class="number">4.300000</span>      <span class="number">2.000000</span>       <span class="number">1.000000</span>      <span class="number">0.100000</span></span><br><span class="line"><span class="number">25</span>%     <span class="number">38.250000</span>       <span class="number">5.100000</span>      <span class="number">2.800000</span>       <span class="number">1.600000</span>      <span class="number">0.300000</span></span><br><span class="line"><span class="number">50</span>%     <span class="number">75.500000</span>       <span class="number">5.800000</span>      <span class="number">3.000000</span>       <span class="number">4.350000</span>      <span class="number">1.300000</span></span><br><span class="line"><span class="number">75</span>%    <span class="number">112.750000</span>       <span class="number">6.400000</span>      <span class="number">3.300000</span>       <span class="number">5.100000</span>      <span class="number">1.800000</span></span><br><span class="line"><span class="built_in">max</span>    <span class="number">150.000000</span>       <span class="number">7.900000</span>      <span class="number">4.400000</span>       <span class="number">6.900000</span>      <span class="number">2.500000</span></span><br></pre></td></tr></table></figure>
-
 <p><code>describe()</code>会自动给出样本的均值、标准差；极值、分位数信息</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看每种鸢尾花各有多少个样本</span></span><br><span class="line">iris[<span class="string">&quot;Species&quot;</span>].value_counts()</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Out[<span class="number">5</span>]: </span><br><span class="line">Iris-setosa        <span class="number">50</span></span><br><span class="line">Iris-versicolor    <span class="number">50</span></span><br><span class="line">Iris-virginica     <span class="number">50</span></span><br><span class="line">Name: Species, dtype: int64</span><br></pre></td></tr></table></figure>
-
 <p>Iris 数据集总共有150个数据，其中包括3个物种<code>setosa</code>，<code>versicolor</code>和<code>virginica</code>，每个物种各50个样本。</p>
 <details>  
     <summary><font size="3">Show Output</font></summary>
@@ -302,46 +284,35 @@
 
 <h3 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h3><p>我们可以直接通过 <code>pandas dataframe</code> 的 <code>plot()</code> 函数进行 <code>scatter</code> 散点图绘制</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分别将花瓣长宽、花萼长宽进行散点绘制</span></span><br><span class="line">iris.plot(kind=<span class="string">&quot;scatter&quot;</span>, x=<span class="string">&quot;SepalLengthCm&quot;</span>, y=<span class="string">&quot;SepalWidthCm&quot;</span>)</span><br><span class="line">iris.plot(kind=<span class="string">&quot;scatter&quot;</span>, x=<span class="string">&quot;PetalLengthCm&quot;</span>, y=<span class="string">&quot;PetalWidthCm&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/Iris-DataSet-Analysis/scatterplot_sl_sw.png"></p>
-<p><img src="/Iris-DataSet-Analysis/scatterplot_pl_pw.png"></p>
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/scatterplot_sl_sw.png" alt></p>
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/scatterplot_pl_pw.png" alt></p>
 <p>由下图的左下角推测我们可能可以直接通过花瓣分辨出一个物种（不过目前我们暂时还不知道这个物种是什么）。另外，我们可以观察到花瓣长宽之间有着很强的线性关系。</p>
 <h4 id="seaborn"><a href="#seaborn" class="headerlink" title="seaborn"></a>seaborn</h4><p>我们先来大体介绍一下 <code>seaborn</code> 库的方法：</p>
 <p>通过 <code>joinplot()</code> 函数来进行类似刚才的图像绘制, 同时还可以在旁边添加直方图</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.jointplot(x=<span class="string">&quot;SepalLengthCm&quot;</span>, y=<span class="string">&quot;SepalWidthCm&quot;</span>, data=iris, size=<span class="number">5</span>)</span><br><span class="line">sns.jointplot(x=<span class="string">&quot;PetalLengthCm&quot;</span>, y=<span class="string">&quot;PetalWidthCm&quot;</span>, data=iris, size=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/Iris-DataSet-Analysis/joinplot_sl_sw.png"></p>
-<p><img src="/Iris-DataSet-Analysis/joinplot_pl_pw.png"></p>
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/joinplot_sl_sw.png" alt></p>
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/joinplot_pl_pw.png" alt></p>
 <p>与刚刚的图像稍微有点不同，<code>joinplot</code>还可以在旁边显示出直方图。</p>
 <p>下面把物种信息也可视化</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sns.FacetGrid(iris, hue=<span class="string">&quot;Species&quot;</span>, size=<span class="number">5</span>) </span><br><span class="line">   .<span class="built_in">map</span>(plt.scatter, <span class="string">&quot;SepalLengthCm&quot;</span>, <span class="string">&quot;SepalWidthCm&quot;</span>) .add_legend()</span><br><span class="line">plt.show()</span><br><span class="line">sns.FacetGrid(iris, hue=<span class="string">&quot;Species&quot;</span>, size=<span class="number">5</span>) </span><br><span class="line">   .<span class="built_in">map</span>(plt.scatter, <span class="string">&quot;PetalLengthCm&quot;</span>, <span class="string">&quot;PetalWidthCm&quot;</span>) .add_legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/Iris-DataSet-Analysis/Scatter_sl_sw.png"></p>
-<p><img src="/Iris-DataSet-Analysis/Scatter_pl_pw.png"></p>
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/Scatter_sl_sw.png" alt></p>
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/Scatter_pl_pw.png" alt></p>
 <p>不出我们所料，由花瓣长-宽信息 <code>PetalLengthCm</code> ，<code>PetalWidthCm</code> 我们就直接可以辨别一个物种 <code>setosa</code>。</p>
 <p>绘制箱型图使用 <code>boxplot()</code> 函数，使用 <code>stripplot()</code> 函数将在原有图的基础上叠加散点。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sns.boxplot(x=<span class="string">&quot;Species&quot;</span>, y=<span class="string">&quot;PetalLengthCm&quot;</span>, data=iris)</span><br><span class="line">sns.stripplot(x=<span class="string">&quot;Species&quot;</span>, y=<span class="string">&quot;PetalLengthCm&quot;</span>, data=iris, jitter=<span class="literal">True</span>,</span><br><span class="line">              edgecolor=<span class="string">&quot;gray&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/Iris-DataSet-Analysis/boxplot_stripplot.png"></p>
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/boxplot_stripplot.png" alt></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将所有变量绘制成一张图</span></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>,<span class="number">10</span>))</span><br><span class="line">plt.suptitle(<span class="string">&quot;Boxplot &amp; StripPlot&quot;</span>, size=<span class="number">30</span>, y=<span class="number">0.95</span>)</span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">sns.boxplot(x=<span class="string">&quot;Species&quot;</span>, y=<span class="string">&quot;PetalLengthCm&quot;</span>, data=iris)</span><br><span class="line">sns.stripplot(x=<span class="string">&quot;Species&quot;</span>, y=<span class="string">&quot;PetalLengthCm&quot;</span>, data=iris, jitter=<span class="literal">True</span>, edgecolor=<span class="string">&quot;gray&quot;</span>)</span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">sns.boxplot(x=<span class="string">&quot;Species&quot;</span>, y=<span class="string">&quot;PetalWidthCm&quot;</span>, data=iris)</span><br><span class="line">sns.stripplot(x=<span class="string">&quot;Species&quot;</span>, y=<span class="string">&quot;PetalWidthCm&quot;</span>, data=iris, jitter=<span class="literal">True</span>, edgecolor=<span class="string">&quot;gray&quot;</span>)</span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">sns.boxplot(x=<span class="string">&quot;Species&quot;</span>, y=<span class="string">&quot;SepalLengthCm&quot;</span>, data=iris)</span><br><span class="line">sns.stripplot(x=<span class="string">&quot;Species&quot;</span>, y=<span class="string">&quot;SepalLengthCm&quot;</span>, data=iris, jitter=<span class="literal">True</span>, edgecolor=<span class="string">&quot;gray&quot;</span>)</span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">sns.boxplot(x=<span class="string">&quot;Species&quot;</span>, y=<span class="string">&quot;SepalWidthCm&quot;</span>, data=iris)</span><br><span class="line">sns.stripplot(x=<span class="string">&quot;Species&quot;</span>, y=<span class="string">&quot;SepalWidthCm&quot;</span>, data=iris, jitter=<span class="literal">True</span>, edgecolor=<span class="string">&quot;gray&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/03/09/Iris-DataSet-Analysis/BoxPlot & StripPlot.png" style="zoom:67%;">
-
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/BoxPlot & StripPlot.png" style="zoom:67%;"></p>
 <p>绘制箱型图使用 <code>violinplot()</code> 函数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将所有变量绘制成一张图</span></span><br><span class="line">plt.figure(figsize=(<span class="number">15</span>, <span class="number">10</span>))</span><br><span class="line">plt.suptitle(<span class="string">&quot;ViolinPlot&quot;</span>, size=<span class="number">30</span>, y=<span class="number">0.95</span>)</span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">sns.violinplot(x=<span class="string">&#x27;Species&#x27;</span>, y=<span class="string">&#x27;PetalLengthCm&#x27;</span>,data=iris)</span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">sns.violinplot(x=<span class="string">&#x27;Species&#x27;</span>, y=<span class="string">&#x27;PetalWidthCm&#x27;</span>,data=iris)</span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">sns.violinplot(x=<span class="string">&#x27;Species&#x27;</span>, y=<span class="string">&#x27;SepalLengthCm&#x27;</span>,data=iris)</span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">sns.violinplot(x=<span class="string">&#x27;Species&#x27;</span>, y=<span class="string">&#x27;SepalWidthCm&#x27;</span>,data=iris)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/03/09/Iris-DataSet-Analysis/ViolinPlot.png" style="zoom:67%;">
-
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/ViolinPlot.png" style="zoom:67%;"></p>
 <p>绘制核密度估计图</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 以花瓣长为例</span></span><br><span class="line">sns.FacetGrid(iris, hue=<span class="string">&quot;Species&quot;</span>, size=<span class="number">6</span>) \</span><br><span class="line">   .<span class="built_in">map</span>(sns.kdeplot, <span class="string">&quot;PetalLengthCm&quot;</span>) \</span><br><span class="line">   .add_legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <p>下面是双变量可视化方法：</p>
 <p>使用 <code>paitplot()</code> 方法绘制配对-核密度估计-散点图。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.pairplot(iris.drop(<span class="string">&quot;Id&quot;</span>, axis=<span class="number">1</span>), hue=<span class="string">&quot;Species&quot;</span>, size=<span class="number">3</span>, diag_kind=<span class="string">&quot;kde&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <p>注意到我们使用到了 <code>.drop()</code> 函数，同时设定参数 <code>axis=1</code> ，它表示将数据集里列名为 <code>Id</code> 的那一列信息都剔除之后剩下的数据。</p>
-<img src="/2022/03/09/Iris-DataSet-Analysis/PairPlot_kde.png" style="zoom:67%;">
-
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/PairPlot_kde.png" style="zoom:67%;"></p>
 <p>大致介绍一下函数参数所代表的含义：</p>
 <ul>
 <li><code>hue</code> 表示标签</li>
@@ -351,18 +322,12 @@
 </ul>
 <p>更改参数 <code>diag_kind</code> 为 <code>hist</code> 绘制配对-直方-散点图</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.pairplot(iris.drop(<span class="string">&quot;Id&quot;</span>, axis=<span class="number">1</span>), hue=<span class="string">&quot;Species&quot;</span>, size=<span class="number">3</span>, diag_kind=<span class="string">&quot;hist&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/03/09/Iris-DataSet-Analysis/PairPlot_hist.png" style="zoom:67%;">
-
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/PairPlot_hist.png" style="zoom:67%;"></p>
 <p>除了对角线上的图形，我们通过 <code>kind</code> 参数更改非对角线上图的绘制，例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 非对角线上为回归图</span></span><br><span class="line">sns.pairplot(iris.drop(<span class="string">&quot;Id&quot;</span>, axis=<span class="number">1</span>), hue=<span class="string">&quot;Species&quot;</span>, size=<span class="number">3</span>, diag_kind=<span class="string">&quot;kde&quot;</span>,</span><br><span class="line">             kind=<span class="string">&quot;reg&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/03/09/Iris-DataSet-Analysis/PairPlot_kde_reg.png" style="zoom:67%;">
-
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/PairPlot_kde_reg.png" style="zoom:67%;"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 非对角线上为核密度估计图</span></span><br><span class="line">sns.pairplot(iris.drop(<span class="string">&quot;Id&quot;</span>, axis=<span class="number">1</span>), hue=<span class="string">&quot;Species&quot;</span>, size=<span class="number">3</span>, diag_kind=<span class="string">&quot;kde&quot;</span>,</span><br><span class="line">             kind=<span class="string">&quot;kde&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/03/09/Iris-DataSet-Analysis/PairPlot_kde_kde.png" style="zoom:67%;">
-
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/PairPlot_kde_kde.png" style="zoom:67%;"></p>
 <p>（不过这些图看起来越来越花里胡哨了。。。</p>
 <p>最后我们再介绍相关系数矩阵图 <code>heatmap()</code> 绘制方法</p>
 <ul>
@@ -370,48 +335,35 @@
 <li><code>cmap</code> 参数用于调整颜色</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">7</span>, <span class="number">4</span>)) </span><br><span class="line"><span class="comment"># 利用 loc 进行列切片, 然后再计算 corr 相关系数矩阵</span></span><br><span class="line">sns.heatmap(iris.loc[:, <span class="string">&#x27;SepalLengthCm&#x27;</span>:<span class="string">&#x27;PetalWidthCm&#x27;</span>].corr(), annot=<span class="literal">True</span>, </span><br><span class="line">            cmap=sns.diverging_palette(<span class="number">10</span>, <span class="number">220</span>, sep=<span class="number">80</span>, n=<span class="number">7</span>))</span><br><span class="line"><span class="comment"># 也可以利用之前所用过的 drop</span></span><br><span class="line"><span class="comment"># sns.heatmap(iris.drop(&quot;Id&quot;, axis=1).corr(), annot=True,cmap=sns.diverging_palette(10, 220, sep=80, n=7))</span></span><br><span class="line">plt.title(<span class="string">&quot;HeatMap&quot;</span>, size=<span class="number">20</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/Iris-DataSet-Analysis/Heatmap.png"></p>
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/Heatmap.png" alt></p>
 <p>那么以上 <code>seaborn</code> 库的方法就已经大致介绍完了，接下来是一些 <code>pandas</code> 库的方法。</p>
 <h4 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h4><p>先是平平无奇的箱线图 <code>boxplot()</code> 绘制</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iris.drop(<span class="string">&quot;Id&quot;</span>, axis=<span class="number">1</span>).boxplot(by=<span class="string">&quot;Species&quot;</span>, figsize=(<span class="number">12</span>, <span class="number">6</span>))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/03/09/Iris-DataSet-Analysis/BoxPlot.png" style="zoom:80%;">
-
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/BoxPlot.png" style="zoom:80%;"></p>
 <p>此外我们还可以使用一些多维可视化方法例如Andrews曲线以及平行坐标方法。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pandas.plotting <span class="keyword">import</span> andrews_curves, parallel_coordinates</span><br><span class="line"><span class="comment"># Andrews 曲线图: 将每一个观测映射到一个函数上</span></span><br><span class="line">andrews_curves(iris.drop(<span class="string">&quot;Id&quot;</span>, axis=<span class="number">1</span>), <span class="string">&quot;Species&quot;</span>, color=</span><br><span class="line">               [<span class="string">&#x27;lightskyblue&#x27;</span>,<span class="string">&#x27;lightgreen&#x27;</span>,<span class="string">&#x27;orange&#x27;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/Iris-DataSet-Analysis/Andrews_curves.png"></p>
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/Andrews_curves.png" alt></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 平行坐标图</span></span><br><span class="line">parallel_coordinates(iris.drop(<span class="string">&quot;Id&quot;</span>, axis=<span class="number">1</span>), <span class="string">&quot;Species&quot;</span>, color=</span><br><span class="line">                     [<span class="string">&#x27;lightskyblue&#x27;</span>,<span class="string">&#x27;lightgreen&#x27;</span>,<span class="string">&#x27;orange&#x27;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/Iris-DataSet-Analysis/Parallel_coordinates.png"></p>
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/Parallel_coordinates.png" alt></p>
 <p>到这里，我们的数据可视化工作就已经进入到尾声了。</p>
 <h4 id="嵌入R代码进行可视化"><a href="#嵌入R代码进行可视化" class="headerlink" title="嵌入R代码进行可视化"></a>嵌入R代码进行可视化</h4><p>在<a target="_blank" rel="noopener" href="https://www.kaggle.com/upadorprofzs/basic-visualization-techniques">Basic visualization techniques | Kaggle</a>上我看到了关于这个数据集非常精致的一种可视化方法</p>
-<img src="/2022/03/09/Iris-DataSet-Analysis/ridgeline.png" style="zoom: 25%;">
-
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/ridgeline.png" style="zoom: 25%;"></p>
 <p>是不是挺惊艳的？</p>
 <p>可惜这是用R实现的，而且由于 <code>ggplot</code> 的部分功能并没有在python对应的 <code>plotnine</code> 实现，所以最终我选择了在python中嵌入R代码实现 <code>ggplot</code> 可视化功能这一十分愚蠢而猥琐的方法。</p>
 <p>首先导入我们所需要的库</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import matplotlib.image as mpimg # mpimg 用于读取图片</span></span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">import</span> PIL.Image <span class="keyword">as</span> Image</span><br><span class="line"><span class="keyword">import</span> rpy2.robjects <span class="keyword">as</span> robjects</span><br></pre></td></tr></table></figure>
-
 <p>我们将R代码保存在 <code>r_scripts</code> 中，然后使用 <code>robjects.r()</code> 运行该部分代码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">r_scripts = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">install.packages(&#x27;ggthemes&#x27;)</span></span><br><span class="line"><span class="string">install.packages(&#x27;tidyverse&#x27;)</span></span><br><span class="line"><span class="string">install.packages(&#x27;ggridges&#x27;)</span></span><br><span class="line"><span class="string">install.packages(&#x27;cowplot&#x27;)</span></span><br><span class="line"><span class="string">install.packages(&#x27;magick&#x27;)</span></span><br><span class="line"><span class="string">library(ggthemes)</span></span><br><span class="line"><span class="string">library(tidyverse)</span></span><br><span class="line"><span class="string">library(ggridges)</span></span><br><span class="line"><span class="string">library(cowplot)</span></span><br><span class="line"><span class="string">library(magick)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">getwd()</span></span><br><span class="line"><span class="string">setwd(&quot;C:/Users/xzy79/OneDrive/DISCIPLINE/DATA/Iris&quot;)</span></span><br><span class="line"><span class="string">dados &lt;- read.csv(&#x27;iris.csv&#x27;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">tema &lt;- theme(plot.title=element_text(size=24, hjust=.5, vjust=1, color=&quot;white&quot;),</span></span><br><span class="line"><span class="string">              axis.title.y=element_text(size=22, vjust=2, color=&quot;white&quot;),</span></span><br><span class="line"><span class="string">              axis.title.x=element_text(size=22, vjust=-1, color=&quot;white&quot;),</span></span><br><span class="line"><span class="string">              axis.text.x=element_text(size=22, color=&quot;white&quot;),</span></span><br><span class="line"><span class="string">              axis.text.y=element_text(size=22, color=&quot;white&quot;),</span></span><br><span class="line"><span class="string">              legend.position=&quot;None&quot;)</span></span><br><span class="line"><span class="string">options(repr.plot.width=17, repr.plot.height=13)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">sepallength &lt;- ggplot(data = dados, mapping = aes(x = SepalLengthCm, y = Species)) +</span></span><br><span class="line"><span class="string">  geom_density_ridges(mapping = aes(fill = Species), bandwidth=0.181,</span></span><br><span class="line"><span class="string">                      color = &quot;black&quot;, size = 1.5, alpha = .8) +</span></span><br><span class="line"><span class="string">  theme_solarized(light=FALSE)+</span></span><br><span class="line"><span class="string">  scale_colour_solarized(&#x27;blue&#x27;)+</span></span><br><span class="line"><span class="string">  xlab(&quot;Sepal Length&quot;) +</span></span><br><span class="line"><span class="string">  ggtitle(&quot;Sepal Length by Species&quot;) +</span></span><br><span class="line"><span class="string">  tema</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">sepalwidth &lt;- ggplot(data = dados, mapping = aes(x = SepalWidthCm, y = Species)) +</span></span><br><span class="line"><span class="string">  geom_density_ridges(mapping = aes(fill = Species), bandwidth=0.134,</span></span><br><span class="line"><span class="string">                      color = &quot;black&quot;, size = 1.5, alpha = .8) +</span></span><br><span class="line"><span class="string">  theme_economist() +</span></span><br><span class="line"><span class="string">  theme_solarized(light=FALSE)+</span></span><br><span class="line"><span class="string">  scale_colour_solarized(&#x27;blue&#x27;)+</span></span><br><span class="line"><span class="string">  xlab(&quot;Sepal Width&quot;) +</span></span><br><span class="line"><span class="string">  ggtitle(&quot;Sepal Width by Species&quot;) +</span></span><br><span class="line"><span class="string">  tema</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">petallength &lt;- ggplot(data = dados, mapping = aes(x = PetalLengthCm, y = Species)) +</span></span><br><span class="line"><span class="string">  geom_density_ridges(mapping = aes(fill = Species), bandwidth=0.155,</span></span><br><span class="line"><span class="string">                      color = &quot;black&quot;, size = 1.5, alpha = .8) +</span></span><br><span class="line"><span class="string">  theme_economist() +</span></span><br><span class="line"><span class="string">  theme_solarized(light=FALSE)+</span></span><br><span class="line"><span class="string">  scale_colour_solarized(&#x27;blue&#x27;)+</span></span><br><span class="line"><span class="string">  xlab(&quot;Petal Length&quot;) +</span></span><br><span class="line"><span class="string">  ggtitle(&quot;Petal Length by Species&quot;) +</span></span><br><span class="line"><span class="string">  tema</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">petalwidth &lt;- ggplot(data = dados, mapping = aes(x = PetalWidthCm, y = Species)) +</span></span><br><span class="line"><span class="string">  geom_density_ridges(mapping = aes(fill = Species), bandwidth=0.075,</span></span><br><span class="line"><span class="string">                      color = &quot;black&quot;, size = 1.5, alpha = .8) +</span></span><br><span class="line"><span class="string">  theme_economist() +</span></span><br><span class="line"><span class="string">  theme_solarized(light=FALSE) +</span></span><br><span class="line"><span class="string">  scale_colour_solarized(&#x27;blue&#x27;) +</span></span><br><span class="line"><span class="string">  xlab(&quot;Petal Width&quot;) +</span></span><br><span class="line"><span class="string">  ggtitle(&quot;Petal Width by Species&quot;) +</span></span><br><span class="line"><span class="string">  tema</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">figure &lt;- image_graph(width = 2048, height = 1536, res = 96)</span></span><br><span class="line"><span class="string">print(plot_grid(sepallength, sepalwidth, petallength, petalwidth, ncol=2, nrow=2))</span></span><br><span class="line"><span class="string">image &lt;- image_write(figure, path = NULL, format = &quot;png&quot;)</span></span><br><span class="line"><span class="string">image_write(figure, path = &#x27;ridgeline.png&#x27;, format = &#x27;png&#x27;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">robjects.r(r_scripts) </span><br></pre></td></tr></table></figure>
-
 <p>在刚刚的R代码中，我们将图像保存在png文件中，读取之后用 <code>imshow()</code> 输出图像</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">image_data = robjects.globalenv[<span class="string">&#x27;image&#x27;</span>]</span><br><span class="line">image = Image.<span class="built_in">open</span>(BytesIO(<span class="built_in">bytes</span>(image_data)))</span><br><span class="line"><span class="comment"># 或者从外部通过imread读取 png 文件</span></span><br><span class="line"><span class="comment">#image = mpimg.imread(&quot;ridgeline.png&quot;)</span></span><br><span class="line"><span class="comment">#image = Image.open(&#x27;ridgeline.png&#x27;)</span></span><br><span class="line"><span class="comment"># 分辨率参数-dpi，画布大小参数-figsize</span></span><br><span class="line"><span class="comment"># 如果存在显示不清晰的问题, 设置分辨率之后问题解决</span></span><br><span class="line">plt.figure(dpi=<span class="number">1000</span>, figsize=(<span class="number">8</span>, <span class="number">6</span>)) </span><br><span class="line">plt.imshow(image) <span class="comment"># 输出图像</span></span><br><span class="line">plt.axis(<span class="string">&#x27;off&#x27;</span>) <span class="comment"># 不显示坐标轴</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
 <h3 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h3><p>同样地，我们先导入必要的库</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split <span class="comment"># 切分数据集为训练集和测试集</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression <span class="comment"># 逻辑回归模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm <span class="comment">#最小二乘</span></span><br><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell <span class="comment"># 设置全部行输出</span></span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="数据集切分"><a href="#数据集切分" class="headerlink" title="数据集切分"></a>数据集切分</h4><p>利用 <code>sklearn</code> 函数 <code>train_test_split()</code> 将数据集分成训练数据集和测试数据集</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">train, test = train_test_split(iris, test_size=<span class="number">0.3</span>)</span><br><span class="line"><span class="comment">#print(train.shape)</span></span><br><span class="line"><span class="comment">#print(test.shape)</span></span><br></pre></td></tr></table></figure>
-
 <p>然后设定自变量和响应变量</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">train_X = train.loc[:, <span class="string">&#x27;SepalLengthCm&#x27;</span>:<span class="string">&#x27;PetalWidthCm&#x27;</span>]</span><br><span class="line">train_y = train.Species</span><br><span class="line">test_X = test.loc[:, <span class="string">&#x27;SepalLengthCm&#x27;</span>:<span class="string">&#x27;PetalWidthCm&#x27;</span>]</span><br><span class="line">test_y = test.Species</span><br></pre></td></tr></table></figure>
-
 <p>或者，我们也可以将两个步骤合起来</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X = iris.loc[:, <span class="string">&#x27;SepalLengthCm&#x27;</span>:<span class="string">&#x27;PetalWidthCm&#x27;</span>]</span><br><span class="line">y = iris.Species</span><br><span class="line">train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=<span class="number">0.3</span>)</span><br></pre></td></tr></table></figure>
-
 <p>如果你已经忘记了，那么再次提醒一下<code>.loc[:, &#39;SepalLengthCm&#39;:&#39;PetalWidthCm&#39;]</code>和 <code>.drop(&quot;Id&quot;, axis=1)</code>都可以达到同样的效果。</p>
 <h4 id="逻辑回归（sklearn）"><a href="#逻辑回归（sklearn）" class="headerlink" title="逻辑回归（sklearn）"></a>逻辑回归（sklearn）</h4><blockquote>
 <center><font size="5">题外话</font></center>
@@ -422,58 +374,57 @@
 <p>我们先大致介绍一下<code>sklearn</code>中的模型<code>LogisticRegression()</code>的一些参数</p>
 <ul>
 <li><code>penalty</code>表示惩罚项（正则化参数），可选为 <strong>l1</strong>，<strong>l2</strong> 默认为 <strong>l2</strong>。在传统线性模型中，这两种惩罚项实际上是对应着不同的最优化问题。</li>
-<li><code>C</code>是**大于 0 **的浮点数。C越小对损失函数的惩罚越重</li>
+<li><code>C</code>是<strong>大于 0 </strong>的浮点数。C越小对损失函数的惩罚越重</li>
 <li><code>solver</code>指定求解方式。可选有<strong>liblinear</strong>（梯度下降法），<strong>lbfgs</strong>（大型BFGS方法），<strong>newton-cg</strong>（牛顿-CG方法），<strong>sag</strong>（随机梯度下降），<strong>saga</strong>（随机梯度下降的优化）</li>
 </ul>
 <p>话不多说，开始训练。</p>
 <p>首先进行全变量模型的回归拟合</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lreg = LogisticRegression()</span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">lreg.fit(train_X, train_y)</span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">lreg_pred = lreg.predict(test_X)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The accuracy of the Logistics Regression is&quot;</span>,</span><br><span class="line">      metrics.accuracy_score(lreg_pred, test_y))</span><br></pre></td></tr></table></figure>
-
-<p>结果显示预测精度达到 $$95.56%$$。</p>
+<p>结果显示预测精度达到 <script type="math/tex">95.56\%</script>。</p>
 <p>接下来引入L1，L2惩罚项，我们来比较这两种方法的差异。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">lreg_l1 = LogisticRegression(penalty=<span class="string">&quot;l1&quot;</span>, C=<span class="number">0.5</span>, solver=<span class="string">&quot;liblinear&quot;</span>)</span><br><span class="line">lreg_l2 = LogisticRegression(penalty=<span class="string">&quot;l2&quot;</span>, C=<span class="number">0.5</span>, solver=<span class="string">&quot;liblinear&quot;</span>)</span><br><span class="line">lreg_l1.fit(train_X, train_y)</span><br><span class="line">lreg_l2.fit(train_X, train_y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置不同的惩罚参数C, 并将每一次结果保存在以下列表中</span></span><br><span class="line">l1_train_pred = []</span><br><span class="line">l2_train_pred = []</span><br><span class="line">l1_test_pred = []</span><br><span class="line">l2_test_pred = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> np.linspace(<span class="number">0.01</span>, <span class="number">2</span>, <span class="number">50</span>):</span><br><span class="line">    lreg_l1 = LogisticRegression(penalty=<span class="string">&quot;l1&quot;</span>, C=c, solver=<span class="string">&quot;liblinear&quot;</span>, max_iter=<span class="number">1000</span>)</span><br><span class="line">    lreg_l2 = LogisticRegression(penalty=<span class="string">&quot;l2&quot;</span>, C=c, solver=<span class="string">&quot;liblinear&quot;</span>, max_iter=<span class="number">1000</span>)</span><br><span class="line">    </span><br><span class="line">    lreg_l1.fit(train_X, train_y)</span><br><span class="line">    l1_train_pred.append(metrics.accuracy_score(lreg_l1.predict(train_X), train_y))</span><br><span class="line">    l1_test_pred.append(metrics.accuracy_score(lreg_l1.predict(test_X), test_y))</span><br><span class="line">    </span><br><span class="line">    lreg_l2.fit(train_X, train_y)</span><br><span class="line">    l2_train_pred.append(metrics.accuracy_score(lreg_l2.predict(train_X), train_y))</span><br><span class="line">    l2_test_pred.append(metrics.accuracy_score(lreg_l2.predict(test_X), test_y))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘图</span></span><br><span class="line">data = [l1_train_pred, l1_test_pred, l2_train_pred, l2_test_pred]</span><br><span class="line">label = [<span class="string">&quot;l1_train&quot;</span>, <span class="string">&quot;l1_test&quot;</span>, <span class="string">&quot;l2_train&quot;</span>, <span class="string">&quot;l2_test&quot;</span>]</span><br><span class="line">color = [<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;#FFA500&#x27;</span>, <span class="string">&#x27;#4169E1&#x27;</span>, <span class="string">&#x27;#00BFFF&#x27;</span>]</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">12</span>, <span class="number">6</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">    plt.plot(np.linspace(<span class="number">0.01</span>, <span class="number">2</span>, <span class="number">50</span>), data[i], label=label[i], color=color[i])</span><br><span class="line">plt.legend(loc=<span class="string">&quot;best&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/03/09/Iris-DataSet-Analysis/Lreg_compare_l1_l2.png" style="zoom:80%;">
-
+<p><img src="/2022/03/09/Iris-DataSet-Analysis/Lreg_compare_l1_l2.png" style="zoom:80%;"></p>
 <p>在很久以前，L2惩罚项是比较受到统计学家的青睐的，这是由于它涉及参数向量模长的平方，在计算过程中比较方便，相比之下，L1惩罚项是参数各分量的绝对值之和，会产生导数不连续的点。但随着计算机的发展，类似L1惩罚项这种计算已经不会成为一种困扰，同时L1惩罚项所对应的参数向量具有稀疏性的特点，所以L1惩罚项也变得越来越受人们的关注和使用。</p>
 <p>另外，在这里我还要提及一点，这可能也会是一些人的认识误区——那就是原本的模型和加了L1或者L2惩罚项的模型之间是否有着绝对的优劣之分。需要澄清的是，我们在统计上进行模型比较时，一定是在某个准则下来谈孰优孰劣的问题的，不同准则下得出的优劣比较结果可能不同。这里面涉及到两个问题，一是准则是否合理，是否符合实际情况，二是我们事先对数据做出的一些假定是否合理。这两个问题如果无法得到肯定的回答，那么我们就无法真的选出所谓“最优的”模型。</p>
 <p>举个例子，我们考虑传统的线性回归模型，假定数据的噪声满足<strong>正态分布</strong>，那么在<strong>均方误差最小化的准则</strong>下，我们的最优解就是最小二乘解。此时若是有人说加了L2惩罚项或是什么牛鬼蛇神的模型更好，那么你就知道他一定是在吹大牛。而假定数据的可加噪声为拉普拉斯噪声，那么（忘了在什么准则下的）最优解就是L1正则化模型所对应的解。</p>
 <h4 id="逻辑回归（statsmodels）"><a href="#逻辑回归（statsmodels）" class="headerlink" title="逻辑回归（statsmodels）"></a>逻辑回归（statsmodels）</h4><p>我们利用<code>statsmodels</code>模块中的广义线性模型来进行模型拟合。</p>
 <p>首先自定义多元逻辑回归函数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logitRegression</span>(<span class="params">data, train_test_split</span>):</span></span><br><span class="line">    <span class="comment"># 将数据分为训练数据集和测试数据集</span></span><br><span class="line">    trainSet, testSet = train_test_split(data, test_size=<span class="number">0.2</span>)</span><br><span class="line">    <span class="comment"># 训练模型并分析模型效果</span></span><br><span class="line">    lreg = trainModel(trainSet)</span><br><span class="line">    modelSummary(lreg)</span><br><span class="line">    interpretModel(lreg)</span><br><span class="line">    lreg = makePrediction(lreg, testSet)</span><br><span class="line">    <span class="comment">#evaluation(lreg)</span></span><br></pre></td></tr></table></figure>
-
 <p>（<code>evaluation()</code>函数功能尚未完成）</p>
 <p>其中调用的自定函数功能如下所示：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">函数名</th>
-<th align="center">功能</th>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">trainModel</td>
-<td align="center">训练模型</td>
+<tbody>
+<tr>
+<td style="text-align:center">trainModel</td>
+<td style="text-align:center">训练模型</td>
 </tr>
 <tr>
-<td align="center">modelSummary</td>
-<td align="center">模型统计分析</td>
+<td style="text-align:center">modelSummary</td>
+<td style="text-align:center">模型统计分析</td>
 </tr>
 <tr>
-<td align="center">interpretModel</td>
-<td align="center">模型解释</td>
+<td style="text-align:center">interpretModel</td>
+<td style="text-align:center">模型解释</td>
 </tr>
 <tr>
-<td align="center">makePrediction</td>
-<td align="center">模型预测</td>
+<td style="text-align:center">makePrediction</td>
+<td style="text-align:center">模型预测</td>
 </tr>
 <tr>
-<td align="center">evaluation</td>
-<td align="center">模型评价</td>
+<td style="text-align:center">evaluation</td>
+<td style="text-align:center">模型评价</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trainModel</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    搭建逻辑回归模型，并且训练模型</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    formula = <span class="string">&quot;Species_code ~ SepalLengthCm + SepalWidthCm + PetalLengthCm + PetalWidthCm&quot;</span></span><br><span class="line">    model = sm.GLM.from_formula(formula, data=data) <span class="comment"># 模型建立</span></span><br><span class="line">    lreg = model.fit() <span class="comment"># 模型拟合</span></span><br><span class="line">    <span class="keyword">return</span> lreg</span><br></pre></td></tr></table></figure>
-
 <p>在这里我们调用<code>sm</code>模块的<code>GLM.from_formula()</code>方法，然后将我们要拟合的形式保存在<code>formula</code>变量中作为参数输入。</p>
 <p>(未完待续)</p>
 
@@ -543,15 +494,15 @@
           <blockquote>
 <p>强奸，是一种违背被害人的意愿，使用暴力、胁迫或其他手段强行与被害人进行性交的强制性行为。</p>
 </blockquote>
-<p>&amp;nbsp;</p>
+<p>&nbsp;</p>
 <p>近日在阅读刑法学讲义时看到了这样一个问题：以自杀相威胁与女方发生关系，是否构成强奸？</p>
 <p>虽然凭借着最朴素的情感，我感觉可能是构成强奸的，但是对此仍有疑惑，为此咨询了一位曾经读法学的”法学老哥“（以下简称“法老”）。</p>
-<p>&amp;nbsp;</p>
+<p>&nbsp;</p>
 <p>我：法老，话说这种情况构成强奸吗？</p>
 <p>法老：应该构成吧。</p>
 <p>我：我也感觉是构成的。这明显不是女方自愿发生的行为，侵犯了女方的法益。</p>
 <p>法老：对的，不过还要看以自杀相威胁究竟算不算”胁迫“。</p>
-<p>&amp;nbsp;</p>
+<p>&nbsp;</p>
 <p>过了一会儿，法老：我咨询了一下其他人，我想确实是不构成的。</p>
 <p>我内心：？？？）</p>
 <p>法老：因为你不能以胁迫自己来强迫他人。</p>
@@ -561,7 +512,7 @@
 <p>我：在这里甚至不是男朋友。</p>
 <p>法老：对的。所以，去救了（同意性行为）就是自愿的行为。这从逻辑上是没有问题的。</p>
 <p>法老还补充道：上面的逻辑对不对，关键在于，对于一个正常人来讲，是不会在那种时候去想这些的义务之类的，所以就是，出于善良的同意行为，能不能受到法律保护的问题。</p>
-<p>&amp;nbsp;</p>
+<p>&nbsp;</p>
 <p>在逻辑上，“不能以伤害自己来胁迫他人，而没有’胁迫‘则不构成强奸”确实是正确的，但是我从情感上确实无法接受，希望未来能听到更多法律人的其他解释或异议，整理之后再做更新。</p>
 <p>最后：出门在外，还是要保持警惕之心，真要遇到这种情况不要傻傻地妥协，及时报警处理才是正确方式，切不要为自己过于泛滥的“善心”买单。</p>
 
@@ -700,21 +651,20 @@
 
       
           <p>上篇文章中有些尚未解答的问题，删去主要是为了文章的可读性与连贯性，避免读者陷入对证明的无端纠结中。本篇文章就这些问题进行解答，主要面向有“洁癖”的人。当然，有兴趣的同学也可以拓展自己的知识。</p>
-<p>&amp;nbsp;</p>
-<h3 id="可数集与不可数集之间的鸿沟"><a href="#可数集与不可数集之间的鸿沟" class="headerlink" title="可数集与不可数集之间的鸿沟"></a><center>可数集与不可数集之间的鸿沟</center></h3><h3 id><a href="#" class="headerlink" title></a></h3><p>&amp;emsp;&amp;emsp;上节我们讲到可数集是无限集中点的个数”最少“的一类集合。我们想知道能不能通过一些较为基础的操作使可数集变成不可数集（例如单纯增加可数集的个数），以此更深刻地了解两者的关联或差异。</p>
-<p>&amp;emsp;&amp;emsp;很显然，有限多个可数集仍是可数集，那么<strong>可数多个可数集的并</strong>仍是可数集吗，还是它们可以突破某些限制从而变成不可数集？</p>
-<p>&amp;emsp;&amp;emsp;答案是否定的，下面我们给出简单的证明。（仅考虑两两无交的情形即可）</p>
-<img src="/2021/11/03/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B02%E2%80%94%E2%80%94%E8%A1%A5%E5%85%85%E9%98%85%E8%AF%BB/Blog\public\images\可数多个可数集仍可数.png" alt="可数多个可数集仍可数" style="zoom: 50%;">
-
-<p>&amp;emsp;&amp;emsp;${a_{in}}_{n\in \mathbb{N}}\ $即图中所示每一行都是一个可数集，将他们按照横行排列。第一个下标$\ i\ $表示第$\ i\ $个可数集，而第二个下标表$\ n\ $示该可数集的第$\ n\ $个元素。如箭头所示将它们按顺序与自然数集$\ \mathbb{N} \ $一一对应，则可数多个可数集的并仍是可数集。</p>
-<p>&amp;nbsp;</p>
-<h3 id="有理数集是可数集"><a href="#有理数集是可数集" class="headerlink" title="有理数集是可数集"></a><center>有理数集是可数集</center></h3><p>&amp;emsp;&amp;emsp;（undone）</p>
-<p>&amp;nbsp;</p>
-<h3 id="无理数集是不可数集"><a href="#无理数集是不可数集" class="headerlink" title="无理数集是不可数集"></a><center>无理数集是不可数集</center></h3><p>&amp;emsp;&amp;emsp;不失一般性，仅在$\ [0,1] \ $上讨论这个问题即可。</p>
-<p>&amp;emsp;&amp;emsp;$\ [0,1] \ $长度不为0，那么$\ [0,1] \ $不可能是可数集。由于$\ [0,1] \ $中实数分为有理数和无理数，那么无理数集的“长度”理应为1，则它不可能是可数集。</p>
-<p>&amp;nbsp;</p>
-<h3 id="Cantor三分集的构造"><a href="#Cantor三分集的构造" class="headerlink" title="Cantor三分集的构造"></a><center>Cantor三分集的构造</center></h3><p>&amp;emsp;&amp;emsp;（undone）</p>
-<p>&amp;nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="可数集与不可数集之间的鸿沟"><a href="#可数集与不可数集之间的鸿沟" class="headerlink" title="可数集与不可数集之间的鸿沟"></a><center>可数集与不可数集之间的鸿沟</center></h3><h3 id><a href="#" class="headerlink" title=" "></a> </h3><p>&emsp;&emsp;上节我们讲到可数集是无限集中点的个数”最少“的一类集合。我们想知道能不能通过一些较为基础的操作使可数集变成不可数集（例如单纯增加可数集的个数），以此更深刻地了解两者的关联或差异。</p>
+<p>&emsp;&emsp;很显然，有限多个可数集仍是可数集，那么<strong>可数多个可数集的并</strong>仍是可数集吗，还是它们可以突破某些限制从而变成不可数集？</p>
+<p>&emsp;&emsp;答案是否定的，下面我们给出简单的证明。（仅考虑两两无交的情形即可）</p>
+<p><img src="/2021/11/03/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B02%E2%80%94%E2%80%94%E8%A1%A5%E5%85%85%E9%98%85%E8%AF%BB/Blog\public\images\可数多个可数集仍可数.png" alt="可数多个可数集仍可数" style="zoom: 50%;"></p>
+<p>&emsp;&emsp;$\{a_{in}\}_{n\in \mathbb{N}} $即图中所示每一行都是一个可数集，将他们按照横行排列。第一个下标$ i $表示第$ i $个可数集，而第二个下标表$ n $示该可数集的第$ n $个元素。如箭头所示将它们按顺序与自然数集$ \mathbb{N}  $一一对应，则可数多个可数集的并仍是可数集。</p>
+<p>&nbsp;</p>
+<h3 id="有理数集是可数集"><a href="#有理数集是可数集" class="headerlink" title="有理数集是可数集"></a><center>有理数集是可数集</center></h3><p>&emsp;&emsp;（undone）</p>
+<p>&nbsp;</p>
+<h3 id="无理数集是不可数集"><a href="#无理数集是不可数集" class="headerlink" title="无理数集是不可数集"></a><center>无理数集是不可数集</center></h3><p>&emsp;&emsp;不失一般性，仅在$ [0,1]  $上讨论这个问题即可。</p>
+<p>&emsp;&emsp;$ [0,1]  $长度不为0，那么$ [0,1]  $不可能是可数集。由于$ [0,1]  $中实数分为有理数和无理数，那么无理数集的“长度”理应为1，则它不可能是可数集。</p>
+<p>&nbsp;</p>
+<h3 id="Cantor三分集的构造"><a href="#Cantor三分集的构造" class="headerlink" title="Cantor三分集的构造"></a><center>Cantor三分集的构造</center></h3><p>&emsp;&emsp;（undone）</p>
+<p>&nbsp;</p>
 
       
     </div>
@@ -785,7 +735,7 @@
           <blockquote>
 <p>用良知驾驭我们之所学，而不因所学蒙蔽了良知。</p>
 </blockquote>
-<p>&amp;nbsp;</p>
+<p>&nbsp;</p>
 <h2 id="罪刑法定原则：对权力的严格约束"><a href="#罪刑法定原则：对权力的严格约束" class="headerlink" title="罪刑法定原则：对权力的严格约束"></a><center>罪刑法定原则：对权力的严格约束</center></h2>
       
     </div>
@@ -859,36 +809,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>&amp;emsp;&amp;emsp;在数学分析中，我们常常处理的是连续函数，因为这种函数有着良好的性质，在微分与积分时可以得到比较好的结果。当然，我们偶尔也会处理仅在有限点处不连续的函数，它们在某些结果上从和连续函数并没有多大差别。</p>
-<p>&amp;emsp;&amp;emsp;可是当考虑无限点处不连续的函数时，我们原有的方法失效了。一个典型的例子就是 f 在$\ [0,1]\ $上的Riemann积分，其中 f 形式如下所示：<br>$$<br>f(x)&#x3D;<br>\begin{cases}<br>0, &amp;\forall \ x \in [0,1]\bigcap \mathbb{Q}\<br>1, &amp;\forall \ x \in [0,1]\bigcap \mathbb{Q}^c<br>\end{cases}<br>$$<br>也即该函数在无理点处取值为1，在有理点处取值为0。注意到这个函数在$\ [0,1]\ $上是Riemann不可积的。（这也促使我们需要从更高的观点来看待积分）</p>
-<p>&amp;emsp;&amp;emsp;首先，我们将点集分为有限点集和无限点集：有限点集是很好处理的，重点是无限点集。这里我所说的“很好处理”，是指我们很容易判断一个集合的大小，有限点集的大小就是看这个集合中元素的个数，数数我们总是会的。而当我们面对一个无限点集时，我们并不好描述它的“无限”究竟是多么不加限制。</p>
-<p>&amp;emsp;&amp;emsp;先从有限集合获取灵感：</p>
-<p>&amp;emsp;&amp;emsp;1. 有限集合的大小定义为集合中元素的个数</p>
-<p>&amp;emsp;&amp;emsp;2. 有限集合A，B的大小比较是通过比较两集合元素多少。笨一点的方法是我们挑出A中一个元素，发现B中也能挑出一个元素，再从A中不重复的挑出一个元素，发现B中也能挑出一个元素……直至其中一个集合再也不能挑出元素来（例如B已经宣布告罄了），那么我们认为$|A|\ge|B|$。</p>
-<p>&amp;emsp;&amp;emsp;下面我们来给无穷点集进行<strong>更加精细的划分</strong>。</p>
-<p>&amp;emsp;&amp;emsp;1. 按着原先通过数数来得到集合大小（元素多少）的思路，我们考虑一种集合，<strong>这种集合可以以某种方式特定的数数方式一直进行下去，以至于集合中任给一个元素都在某一次数数中被数到</strong>。自然数集$$\ \mathbb{N}\ $$显然就是我们所要求的集合。</p>
-<p>&amp;emsp;&amp;emsp;2. 推广有限集合比较大小的思路，所谓“笨方法”其实就是再找两集合之间元素的一一映射（双射）。所以，对于两个无限集，我们如果能够找到一个<strong>双射</strong>，将两个集合的元素一一对应，那么我们可以认为这两个集合大小确实是相等的，且称这两个集合<strong>对等</strong>。</p>
-<p>&amp;emsp;&amp;emsp;利用以上两点，我们得到了一类特殊的无限点集——这类点集与$\ \mathbb{N} \ $都是对等的，称为<strong>可列集</strong>或<strong>可数集</strong>。我们所熟知的有理数集$\ \mathbb{Q}\ $就是可数集。（而且如果你稍微思考一下，会发现这类无限点集应该是所有无限集中<strong>点的个数“最少”</strong>的了。）</p>
-<p>&amp;emsp;&amp;emsp;这时候就有好奇宝宝要问了，那么这世界上有“不可数集”吗？答案是肯定的。Cantor给出了无理数不可数的证明。</p>
-<p>&amp;emsp;&amp;emsp;满怀欣喜地发现无限点集可以分为可数集和不可数集，我们自然希望它们在某些性质上确实是有本质不同的。接下来我们可以从不太严谨的论述中看到这一点。</p>
-<p>&amp;emsp;&amp;emsp;再赋予无限集多一点想象。现在从感觉上，可数集，不可数集和<strong>点密集到成区间的集合</strong>中都会有无穷多的点，但是我们还是难以体会其间关联与奥妙。没关系，这时候我们从“长度”（日后我们将其推广为测度）的观点来看待这个问题。我们过往常接触的区间都是有长度的。以闭区间$\ [a,b]\ $为例，它的长度就是$\ b-a\ $。既然如此，好奇宝宝可能又会问了：可数集的“长度”应该是多少呢？</p>
-<p>&amp;emsp;&amp;emsp;可数集既然是“点最少”的无限集，看来所谓的“无限”也并不是没有限制，我们不妨大胆假设它的“长度”为0。转化为数学语言，下面给它一个稍微有点启发性的证明。</p>
-<p>&amp;emsp;&amp;emsp;我们将可数集表示为$\ { a_k}<em>{k\in \mathbb{N}}\ $。长度为0，也就是说它的长度要多小有多小（通过$\ \epsilon\ $的任意性来刻画）。为了计算方便，我们不妨用不相交的开区间盖住每个点，那么“点的长度”$\ m(a_k)\ $可以用开区间长度来逼近，令$\  a_k\ $对应的开区间长度不超过$\ \frac{\epsilon}{2^k}\ $（这总是可以做到的）：<br>$$<br>\forall \epsilon &gt;0,\ m(a_k)&lt;\frac{\epsilon}{2^k} \ (\forall k\in \mathbb{N})<br>$$<br>将所有点的“长度”求和：<br>$$<br>\forall \epsilon &gt;0,\ \sum</em>{k&#x3D;1}^{+\infty}{m(a_k)} &#x3D; \sum_{k&#x3D;1}^{+\infty}{\frac{\epsilon}{2^k}}&lt;\epsilon<br>$$</p>
-<blockquote>
+          <p>&emsp;&emsp;在数学分析中，我们常常处理的是连续函数，因为这种函数有着良好的性质，在微分与积分时可以得到比较好的结果。当然，我们偶尔也会处理仅在有限点处不连续的函数，它们在某些结果上从和连续函数并没有多大差别。</p>
+<p>&emsp;&emsp;可是当考虑无限点处不连续的函数时，我们原有的方法失效了。一个典型的例子就是 f 在$ [0,1] $上的Riemann积分，其中 f 形式如下所示：</p>
+<script type="math/tex; mode=display">
+f(x)=
+\begin{cases}
+0, &\forall \ x \in [0,1]\bigcap \mathbb{Q}\\
+1, &\forall \ x \in [0,1]\bigcap \mathbb{Q}^c
+\end{cases}</script><p>也即该函数在无理点处取值为1，在有理点处取值为0。注意到这个函数在$ [0,1] $上是Riemann不可积的。（这也促使我们需要从更高的观点来看待积分）</p>
+<p>&emsp;&emsp;首先，我们将点集分为有限点集和无限点集：有限点集是很好处理的，重点是无限点集。这里我所说的“很好处理”，是指我们很容易判断一个集合的大小，有限点集的大小就是看这个集合中元素的个数，数数我们总是会的。而当我们面对一个无限点集时，我们并不好描述它的“无限”究竟是多么不加限制。</p>
+<p>&emsp;&emsp;先从有限集合获取灵感：</p>
+<p>&emsp;&emsp;1. 有限集合的大小定义为集合中元素的个数</p>
+<p>&emsp;&emsp;2. 有限集合A，B的大小比较是通过比较两集合元素多少。笨一点的方法是我们挑出A中一个元素，发现B中也能挑出一个元素，再从A中不重复的挑出一个元素，发现B中也能挑出一个元素……直至其中一个集合再也不能挑出元素来（例如B已经宣布告罄了），那么我们认为$|A|\ge|B|$。</p>
+<p>&emsp;&emsp;下面我们来给无穷点集进行<strong>更加精细的划分</strong>。</p>
+<p>&emsp;&emsp;1. 按着原先通过数数来得到集合大小（元素多少）的思路，我们考虑一种集合，<strong>这种集合可以以某种方式特定的数数方式一直进行下去，以至于集合中任给一个元素都在某一次数数中被数到</strong>。自然数集<script type="math/tex">\ \mathbb{N}\</script>显然就是我们所要求的集合。</p>
+<p>&emsp;&emsp;2. 推广有限集合比较大小的思路，所谓“笨方法”其实就是再找两集合之间元素的一一映射（双射）。所以，对于两个无限集，我们如果能够找到一个<strong>双射</strong>，将两个集合的元素一一对应，那么我们可以认为这两个集合大小确实是相等的，且称这两个集合<strong>对等</strong>。</p>
+<p>&emsp;&emsp;利用以上两点，我们得到了一类特殊的无限点集——这类点集与$ \mathbb{N}  $都是对等的，称为<strong>可列集</strong>或<strong>可数集</strong>。我们所熟知的有理数集$ \mathbb{Q} $就是可数集。（而且如果你稍微思考一下，会发现这类无限点集应该是所有无限集中<strong>点的个数“最少”</strong>的了。）</p>
+<p>&emsp;&emsp;这时候就有好奇宝宝要问了，那么这世界上有“不可数集”吗？答案是肯定的。Cantor给出了无理数不可数的证明。</p>
+<p>&emsp;&emsp;满怀欣喜地发现无限点集可以分为可数集和不可数集，我们自然希望它们在某些性质上确实是有本质不同的。接下来我们可以从不太严谨的论述中看到这一点。</p>
+<p>&emsp;&emsp;再赋予无限集多一点想象。现在从感觉上，可数集，不可数集和<strong>点密集到成区间的集合</strong>中都会有无穷多的点，但是我们还是难以体会其间关联与奥妙。没关系，这时候我们从“长度”（日后我们将其推广为测度）的观点来看待这个问题。我们过往常接触的区间都是有长度的。以闭区间$ [a,b] $为例，它的长度就是$ b-a $。既然如此，好奇宝宝可能又会问了：可数集的“长度”应该是多少呢？</p>
+<p>&emsp;&emsp;可数集既然是“点最少”的无限集，看来所谓的“无限”也并不是没有限制，我们不妨大胆假设它的“长度”为0。转化为数学语言，下面给它一个稍微有点启发性的证明。</p>
+<p>&emsp;&emsp;我们将可数集表示为$ \{ a_k\}_{k\in \mathbb{N}} $。长度为0，也就是说它的长度要多小有多小（通过$ \epsilon $的任意性来刻画）。为了计算方便，我们不妨用不相交的开区间盖住每个点，那么“点的长度”$ m(a_k) $可以用开区间长度来逼近，令$  a_k $对应的开区间长度不超过$ \frac{\epsilon}{2^k} $（这总是可以做到的）：</p>
+<script type="math/tex; mode=display">
+\forall \epsilon >0,\ m(a_k)<\frac{\epsilon}{2^k} \ (\forall k\in \mathbb{N})</script><p>将所有点的“长度”求和：</p>
+<script type="math/tex; mode=display">
+\forall \epsilon >0,\ \sum_{k=1}^{+\infty}{m(a_k)} = \sum_{k=1}^{+\infty}{\frac{\epsilon}{2^k}}<\epsilon</script><blockquote>
 <p>注：</p>
 <ol>
-<li>这里“点的长度”的符号$\ m(a_n)\ $并不规范，只是为了描述方便。</li>
+<li>这里“点的长度”的符号$ m(a_n) $并不规范，只是为了描述方便。</li>
 <li>这个证明反映了可数集无限的“有限性”：既然可数集与自然数对等，那么我们可以通过指标k来控制可数集中的每一个点，将这种限制加到每一个点的“长度”上，以期在求和之后仍能达到任意小的结果。</li>
 </ol>
 </blockquote>
-<p>&amp;emsp;&amp;emsp;对于不可数集，情况则有所不同了。例如**$\ [0,1]\ $上有理数集“长度”为0<strong>。对于不可数集，我们就不一定能得到这么好的结果了，事实上不可数集Cantor三分集“长度”为0，而</strong>$\ [0,1]\ $上无理数集“长度”为1**。</p>
+<p>&emsp;&emsp;对于不可数集，情况则有所不同了。例如<strong>$ [0,1] $上有理数集“长度”为0</strong>。对于不可数集，我们就不一定能得到这么好的结果了，事实上不可数集Cantor三分集“长度”为0，而<strong>$ [0,1] $上无理数集“长度”为1</strong>。</p>
 <blockquote>
 <p>注：</p>
 <ol>
 <li>我们并没有得到关于可数集与不可数集的本质刻画。虽然可数集“长度”一定为0，但是反过来“长度”为0并不一定是可数集。</li>
 </ol>
 </blockquote>
-<p>&amp;emsp;&amp;emsp;至此我们对无限集的理解又加深了一步。</p>
+<p>&emsp;&emsp;至此我们对无限集的理解又加深了一步。</p>
 
       
     </div>
@@ -965,57 +924,57 @@
           <blockquote>
 <p>用良知驾驭我们之所学，而不因所学蒙蔽了良知。</p>
 </blockquote>
-<p>&amp;nbsp;</p>
-<h2 id="刑法：犯罪人的大宪章"><a href="#刑法：犯罪人的大宪章" class="headerlink" title="刑法：犯罪人的大宪章"></a><center>刑法：犯罪人的大宪章</center></h2><p>&amp;nbsp;</p>
-<h3 id="刑法的起源"><a href="#刑法的起源" class="headerlink" title="刑法的起源"></a>刑法的起源</h3><p>&amp;nbsp;</p>
+<p>&nbsp;</p>
+<h2 id="刑法：犯罪人的大宪章"><a href="#刑法：犯罪人的大宪章" class="headerlink" title="刑法：犯罪人的大宪章"></a><center>刑法：犯罪人的大宪章</center></h2><p>&nbsp;</p>
+<h3 id="刑法的起源"><a href="#刑法的起源" class="headerlink" title="刑法的起源"></a>刑法的起源</h3><p>&nbsp;</p>
 <p><strong>神授说</strong></p>
-<p>&amp;nbsp;</p>
+<p>&nbsp;</p>
 <p><strong>战争说</strong></p>
-<p>&amp;emsp;&amp;emsp;刑起于兵、兵刑同一，最初的刑罚就是对在氏族战争中的战败者、叛乱者和违反军纪者的处罚。远古时期，兵刑并未严格区分，奴隶主用甲兵征讨异族，用刑罚来统治已被征服的氏族，兵与刑的区别是“刑外”与“刑内”的关系。</p>
+<p>&emsp;&emsp;刑起于兵、兵刑同一，最初的刑罚就是对在氏族战争中的战败者、叛乱者和违反军纪者的处罚。远古时期，兵刑并未严格区分，奴隶主用甲兵征讨异族，用刑罚来统治已被征服的氏族，兵与刑的区别是“刑外”与“刑内”的关系。</p>
 <p><strong>社会契约理论</strong></p>
-<p>&amp;emsp;&amp;emsp;社会契约理论认为，国家与法的形成，起源于早期人们为了获得生存的社会保障，自愿转让本属于个人的一些自然权利而缔结的社会契约。为了保障自己的利益，缔约者同意如果自己侵犯了公众的利益，就应当接受惩罚。</p>
+<p>&emsp;&emsp;社会契约理论认为，国家与法的形成，起源于早期人们为了获得生存的社会保障，自愿转让本属于个人的一些自然权利而缔结的社会契约。为了保障自己的利益，缔约者同意如果自己侵犯了公众的利益，就应当接受惩罚。</p>
 <blockquote>
 <p>正是这种需要迫使人们割让自己的一部分自由，而且，无疑每个人都希望交给公共保存的那份自由尽量少些，只要足以让别人保护自己就行了。这一份份最少量自由的结晶形成惩罚。</p>
 <p>——[意]贝卡利亚：《论犯罪与刑罚》</p>
 </blockquote>
 <p><strong>正义理论</strong></p>
-<p>&amp;emsp;&amp;emsp;国家处罚犯罪人，就是满足犯罪人“报复的权利”，而这样做正是对犯罪人人格的尊重。换言之，国家有义务对犯罪人施以刑罚。</p>
+<p>&emsp;&emsp;国家处罚犯罪人，就是满足犯罪人“报复的权利”，而这样做正是对犯罪人人格的尊重。换言之，国家有义务对犯罪人施以刑罚。</p>
 <blockquote>
 <p>“如果不这样做，……是对正义的公开违犯”。</p>
 <p>——[德]康德：《法的形而上学原理》</p>
 </blockquote>
-<p>&amp;emsp;&amp;emsp;黑格尔用否定之否定学说来为刑罚的正义理论背书：</p>
+<p>&emsp;&emsp;黑格尔用否定之否定学说来为刑罚的正义理论背书：</p>
 <blockquote>
 <p>犯罪是对法的否定，刑罚是对犯罪的否定，所以刑罚不过是否定之否定，刑罚具有自在自为的正义，加于犯罪人的刑罚不但是自在正义的，因为这种刑罚同时是他自在地存在的意志，是他的自由的定在，是它的法，所以是正义的；不仅如此，而且它是在犯人自身中立定的法，处罚他，正是尊敬他是理性的存在。如果国家不对犯罪人处以刑罚，他就得不到这种尊重。<br>——[德]黑格尔：《法哲学原理》</p>
 </blockquote>
-<p>&amp;nbsp;</p>
-<h3 id="刑法是道德伦理的最低要求"><a href="#刑法是道德伦理的最低要求" class="headerlink" title="刑法是道德伦理的最低要求"></a>刑法是道德伦理的最低要求</h3><p>&amp;nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="刑法是道德伦理的最低要求"><a href="#刑法是道德伦理的最低要求" class="headerlink" title="刑法是道德伦理的最低要求"></a>刑法是道德伦理的最低要求</h3><p>&nbsp;</p>
 <p><strong>刑法的目的</strong></p>
-<p>&amp;emsp;&amp;emsp;规范违反说：为了维护一定的伦理秩序，犯罪违反了伦理规范，行为本身就是错误的。</p>
-<p>&amp;emsp;&amp;emsp;法益侵犯说：犯罪是对法律要保护的利益的侵犯</p>
+<p>&emsp;&emsp;规范违反说：为了维护一定的伦理秩序，犯罪违反了伦理规范，行为本身就是错误的。</p>
+<p>&emsp;&emsp;法益侵犯说：犯罪是对法律要保护的利益的侵犯</p>
 <p><strong>道义论与功利论之争</strong></p>
-<p>&amp;emsp;&amp;emsp;道义论关注行为正义，功利论则关注结果正义。</p>
-<p>&amp;emsp;&amp;emsp;行为正义最骄傲的表达就是即便天塌下来，正义也必须得到践行，其代表人物是康德。</p>
+<p>&emsp;&emsp;道义论关注行为正义，功利论则关注结果正义。</p>
+<p>&emsp;&emsp;行为正义最骄傲的表达就是即便天塌下来，正义也必须得到践行，其代表人物是康德。</p>
 <blockquote>
 <p>道德本来就不教导我们如何使自己幸福，而是教导我们如何使自己无愧于幸福。</p>
 <p>——[德]康德</p>
 </blockquote>
-<p>&amp;emsp;&amp;emsp;至于结果正义，最为人熟知的就是英国法理学家边沁的功利主义，判断行为对错的最终标准是看行为能否增进人的幸福快乐，法律的正义一定要体现最大多数的最大利益。</p>
+<p>&emsp;&emsp;至于结果正义，最为人熟知的就是英国法理学家边沁的功利主义，判断行为对错的最终标准是看行为能否增进人的幸福快乐，法律的正义一定要体现最大多数的最大利益。</p>
 <p><strong>入罪与出罪</strong></p>
-<p>&amp;emsp;&amp;emsp;法益作为入罪的基础，而伦理作为出罪的依据。</p>
-<p>&amp;emsp;&amp;emsp;在入罪层面上必须考虑行为是否侵犯了法益，如果一种行为没有侵犯法益，那就不构成犯罪。(司法者必须积极加以证明一种符合法条德行为侵害了一定的法益，否则行为就不构成犯罪。)</p>
+<p>&emsp;&emsp;法益作为入罪的基础，而伦理作为出罪的依据。</p>
+<p>&emsp;&emsp;在入罪层面上必须考虑行为是否侵犯了法益，如果一种行为没有侵犯法益，那就不构成犯罪。(司法者必须积极加以证明一种符合法条德行为侵害了一定的法益，否则行为就不构成犯罪。)</p>
 <blockquote>
 <p>典例：伪造货币罪</p>
 <p>伪造货币罪所侵犯的法益是货币的公共信用，即货币作为一般等价物给人们提供的交易信心。所以制造作为魔术道具的假币并不构成伪造货币罪。哪怕一些假币被制造、发行，甚至在一定范围内进入流通领域，但是民众并不会因为这些假币的存在就不敢使用真币，真币的公共信用并没有受到动摇，那么就没有构成对法益的侵犯。</p>
 </blockquote>
-<p>&amp;emsp;&amp;emsp;在出罪层面上必须考虑伦理道德的需要。一种侵犯法益的行为也不一定是犯罪，除非它是伦理道德所谴责的，对于伦理所容忍所鼓励的行为，没有必要发动刑罚权，这是对刑罚权的第二层限制。用道德来减缓法律的刚性的消极道德主义是合理的。</p>
+<p>&emsp;&emsp;在出罪层面上必须考虑伦理道德的需要。一种侵犯法益的行为也不一定是犯罪，除非它是伦理道德所谴责的，对于伦理所容忍所鼓励的行为，没有必要发动刑罚权，这是对刑罚权的第二层限制。用道德来减缓法律的刚性的消极道德主义是合理的。</p>
 <blockquote>
 <p>典例：正当防卫</p>
 <p>某女生遭遇张三的性侵，女生拼命反抗，把张三踹到河里面，张三后溺毙而亡。</p>
 <p>女生的行为虽然侵犯了张三的生命权，但是这种行为在伦理道德上并不值得谴责，甚至是值得鼓励的。正当防卫制度的一个重要立法价值就是鼓励民众和不法侵害做斗争。</p>
 </blockquote>
-<p>&amp;nbsp;</p>
-<h3 id="不受约束的刑罚权，比犯罪更可怕"><a href="#不受约束的刑罚权，比犯罪更可怕" class="headerlink" title="不受约束的刑罚权，比犯罪更可怕"></a>不受约束的刑罚权，比犯罪更可怕</h3><p>&amp;nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="不受约束的刑罚权，比犯罪更可怕"><a href="#不受约束的刑罚权，比犯罪更可怕" class="headerlink" title="不受约束的刑罚权，比犯罪更可怕"></a>不受约束的刑罚权，比犯罪更可怕</h3><p>&nbsp;</p>
 <p><strong>刑法对刑法的束缚</strong></p>
 <p>刑法规定了犯罪和刑罚，刑罚是对犯罪的惩罚，而刑法则是对刑罚的约束。</p>
 <p>一个国家对付犯罪并不需要刑事法律，没有刑法并不妨碍国家对犯罪的有效打击和镇压。而且没有立法的犯罪打击可能是更加灵活、有效、及时与便利的。如果从这个角度讲，刑法本身是多余和伪善的，它除了在宣传上有美化国家权力的作用外，反而束缚了国家机器面对犯罪的反应速度与灵敏度。</p>
@@ -1102,12 +1061,12 @@
           <blockquote>
 <p>用良知驾驭我们之所学，而不因所学蒙蔽了良知。</p>
 </blockquote>
-<p>&amp;nbsp;</p>
+<p>&nbsp;</p>
 <p><strong>公平与正义</strong></p>
 <p>法律要追求公平和正义，刑法更是如此，如果没有对客观真理的持守，法律必然沦为一种工具，技术主义的法学思维就可以为任何结论提<br>供精致的论证，同时也以所谓的专业意见拒绝民众一切的意见与质疑。</p>
 <p>永远不要在自己看重的立场上附着不加边际的价值，要接受对立观点的合理性。专业人士也必须俯下身段，倾听民众朴素的智慧。</p>
-<p>&amp;nbsp;</p>
-<p><strong>良法而制&amp;ensp;普遍遵守</strong></p>
+<p>&nbsp;</p>
+<p><strong>良法而制&ensp;普遍遵守</strong></p>
 <p>亚里士多德定义法治的基本内涵有二：良法而制、普遍遵守。法律永远要追求共性的良善，去真正满足每个人心灵深处的正义感。唯此，法律才可能获得普遍的遵守。</p>
 
       
@@ -1258,12 +1217,12 @@
 <hr>
 <h2 id="Ideas-for-abstract-algebra"><a href="#Ideas-for-abstract-algebra" class="headerlink" title="Ideas for abstract algebra"></a><center>Ideas for abstract algebra</center></h2><hr>
 <h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>A set contains some <strong>certain</strong> elements. (Not mathematical definition)</p>
-<p>&amp;nbsp;</p>
+<p>&nbsp;</p>
 <h3 id="relation"><a href="#relation" class="headerlink" title="relation"></a>relation</h3><p><em>Def : (relation)</em></p>
-<p>&amp;emsp;&amp;emsp;On a set X , we can define a relation R (not unique). For any two elements in set X, we can tell whether these two elements have a relation, denoted by a ~ b or aRb. We use the former notation more frequently.</p>
-<p>&amp;nbsp;</p>
+<p>&emsp;&emsp;On a set X , we can define a relation R (not unique). For any two elements in set X, we can tell whether these two elements have a relation, denoted by a ~ b or aRb. We use the former notation more frequently.</p>
+<p>&nbsp;</p>
 <h3 id="equivalence"><a href="#equivalence" class="headerlink" title="equivalence"></a>equivalence</h3><p><em>Def 1: (equivalence relation)</em></p>
-<p>&amp;emsp;&amp;emsp;If a relation R on set X (denoted by ~) satisfies three conditions:</p>
+<p>&emsp;&emsp;If a relation R on set X (denoted by ~) satisfies three conditions:</p>
 <ul>
 <li><p>Reflexive: a ~ a.</p>
 </li>
@@ -1276,23 +1235,23 @@
 <blockquote>
 <p>The equivalence relation is an extension of the concept “equality”.</p>
 </blockquote>
-<p>&amp;nbsp;</p>
+<p>&nbsp;</p>
 <p><em>Def 2: (equivalence class)</em></p>
-<p>&amp;emsp;&amp;emsp;Consider a set [a] as<br>$$<br>[a]&#x3D;{x\in X|x \sim a}<br>$$<br>&amp;emsp;&amp;emsp;then [a] is a equivalence class which contains every element having equivalence relation with a.</p>
-<p>Of course, “a” is just a representative of the set [a]. Pick any b from [a], we have [a] &#x3D; [b].</p>
+<p>&emsp;&emsp;Consider a set [a] as</p>
+<script type="math/tex; mode=display">
+[a]=\{x\in X|x \sim a\}</script><p>&emsp;&emsp;then [a] is a equivalence class which contains every element having equivalence relation with a.</p>
+<p>Of course, “a” is just a representative of the set [a]. Pick any b from [a], we have [a] = [b].</p>
 <blockquote>
 <p>[a] and [b] have different forms, but is the same in nature.</p>
-</blockquote>
-<blockquote>
 <p>Any element in X belongs to a unique equivalence class given equivalence relation “ ~ “.</p>
 </blockquote>
-<p>&amp;nbsp;</p>
+<p>&nbsp;</p>
 <p><em>Theorem 1:</em></p>
-<p>&amp;emsp;&amp;emsp;An equivalence relation “ ~ “ on a set X gives a division of X.</p>
-<p>&amp;nbsp;</p>
-<h3 id="quotient-set"><a href="#quotient-set" class="headerlink" title="quotient set"></a>quotient set</h3><p>&amp;nbsp;</p>
-<h3 id="group"><a href="#group" class="headerlink" title="group"></a>group</h3><p>&amp;nbsp;</p>
-<h3 id="subgroup"><a href="#subgroup" class="headerlink" title="subgroup"></a>subgroup</h3><p>&amp;nbsp;</p>
+<p>&emsp;&emsp;An equivalence relation “ ~ “ on a set X gives a division of X.</p>
+<p>&nbsp;</p>
+<h3 id="quotient-set"><a href="#quotient-set" class="headerlink" title="quotient set"></a>quotient set</h3><p>&nbsp;</p>
+<h3 id="group"><a href="#group" class="headerlink" title="group"></a>group</h3><p>&nbsp;</p>
+<h3 id="subgroup"><a href="#subgroup" class="headerlink" title="subgroup"></a>subgroup</h3><p>&nbsp;</p>
 <h3 id="quotient-group"><a href="#quotient-group" class="headerlink" title="quotient group"></a>quotient group</h3>
       
     </div>
