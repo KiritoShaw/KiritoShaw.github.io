@@ -174,6 +174,766 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/12/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97%E4%B9%8B%E5%A4%84%E7%90%86%E7%BC%BA%E5%A4%B1%E5%80%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/12/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97%E4%B9%8B%E5%A4%84%E7%90%86%E7%BC%BA%E5%A4%B1%E5%80%BC/" class="post-title-link" itemprop="url">数据清洗之处理缺失值</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-03-12 14:49:58 / Modified: 14:51:29" itemprop="dateCreated datePublished" datetime="2022-03-12T14:49:58+08:00">2022-03-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E2%80%9CData-Cleaning%E2%80%9D/" itemprop="url" rel="index"><span itemprop="name">“Data Cleaning”</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="缺失数据处理"><a href="#缺失数据处理" class="headerlink" title="缺失数据处理"></a>缺失数据处理</h2><h4 id="丢弃缺失值-通过自动化工作流补全"><a href="#丢弃缺失值-通过自动化工作流补全" class="headerlink" title="丢弃缺失值 & 通过自动化工作流补全"></a><center>丢弃缺失值 & 通过自动化工作流补全</center></h4><blockquote>
+<p>这是来自 Kaggle Learn 的 Data Cleaning 课程。</p>
+<p>在这个课程中，你将会学习如何处理一些常见的数据清洗问题，自己动手完成五个练习，它们都是一些真实的、杂乱的数据集。</p>
+</blockquote>
+<h3 id="初窥数据集"><a href="#初窥数据集" class="headerlink" title="初窥数据集"></a>初窥数据集</h3><p>首先我们导入将要使用到的库和数据集。作为范例，这里使用到了美国足球比赛发生事件的数据集。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用的模块</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读入所有数据</span></span><br><span class="line">nfl_data = pd.read_csv(<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置随机种子以供复现</span></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>当我们获得一个新的数据集的时候，我们需要做的第一件事情就是查看其中的一部分数据。这将有助于确定数据是否正确读入并且给我们一些进行下一步操作的启示。在这一案例中，缺失数据将会以<code>NaN</code>或者<code>None</code>的形式出现。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看数据集的前五行</span></span><br><span class="line">nfl_data.head()</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Date</th>
+<th>GameID</th>
+<th>Drive</th>
+<th>qtr</th>
+<th>down</th>
+<th>time</th>
+<th>TimeUnder</th>
+<th>TimeSecs</th>
+<th>PlayTimeDiff</th>
+<th>SideofField</th>
+<th>…</th>
+<th>yacEPA</th>
+<th>Home_WP_pre</th>
+<th>Away_WP_pre</th>
+<th>Home_WP_post</th>
+<th>Away_WP_post</th>
+<th>Win_Prob</th>
+<th>WPA</th>
+<th>airWPA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>2009-09-10</td>
+<td>2009091000</td>
+<td>1</td>
+<td>1</td>
+<td>NaN</td>
+<td>15:00</td>
+<td>15</td>
+<td>3600.0</td>
+<td>0.0</td>
+<td>TEN</td>
+<td>…</td>
+<td>NaN</td>
+<td>0.485675</td>
+<td>0.514325</td>
+<td>0.546433</td>
+<td>0.453567</td>
+<td>0.485675</td>
+<td>0.060758</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2009-09-10</td>
+<td>2009091000</td>
+<td>1</td>
+<td>1</td>
+<td>1.0</td>
+<td>14:53</td>
+<td>15</td>
+<td>3593.0</td>
+<td>7.0</td>
+<td>PIT</td>
+<td>…</td>
+<td>1.146076</td>
+<td>0.546433</td>
+<td>0.453567</td>
+<td>0.551088</td>
+<td>0.448912</td>
+<td>0.546433</td>
+<td>0.004655</td>
+<td>-0.032244</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2009-09-10</td>
+<td>2009091000</td>
+<td>1</td>
+<td>1</td>
+<td>2.0</td>
+<td>14:16</td>
+<td>15</td>
+<td>3556.0</td>
+<td>37.0</td>
+<td>PIT</td>
+<td>…</td>
+<td>NaN</td>
+<td>0.551088</td>
+<td>0.448912</td>
+<td>0.510793</td>
+<td>0.489207</td>
+<td>0.551088</td>
+<td>-0.040295</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2009-09-10</td>
+<td>2009091000</td>
+<td>1</td>
+<td>1</td>
+<td>3.0</td>
+<td>13:35</td>
+<td>14</td>
+<td>3515.0</td>
+<td>41.0</td>
+<td>PIT</td>
+<td>…</td>
+<td>-5.031425</td>
+<td>0.510793</td>
+<td>0.489207</td>
+<td>0.461217</td>
+<td>0.538783</td>
+<td>0.510793</td>
+<td>-0.049576</td>
+<td>0.106663</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2009-09-10</td>
+<td>2009091000</td>
+<td>1</td>
+<td>1</td>
+<td>4.0</td>
+<td>13:27</td>
+<td>14</td>
+<td>3507.0</td>
+<td>8.0</td>
+<td>PIT</td>
+<td>…</td>
+<td>NaN</td>
+<td>0.461217</td>
+<td>0.538783</td>
+<td>0.558929</td>
+<td>0.441071</td>
+<td>0.461217</td>
+<td>0.097712</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>啊啊啊我们已经可以看到缺失数据的存在了！</p>
+<h3 id="数据集中到底有多少缺失数据点呢？"><a href="#数据集中到底有多少缺失数据点呢？" class="headerlink" title="数据集中到底有多少缺失数据点呢？"></a>数据集中到底有多少缺失数据点呢？</h3><p>下面我们看看每一列都有多少缺失值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 得到每一行缺失值的个数</span></span><br><span class="line">missing_values_count = nfl_data.isnull().<span class="built_in">sum</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 前十列的缺失值个数</span></span><br><span class="line">missing_values_count[<span class="number">0</span>:<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Column Name</th>
+<th style="text-align:center">Missing value numbers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Date</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">GameID</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">Drive</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">qtr</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">down</td>
+<td style="text-align:center">61154</td>
+</tr>
+<tr>
+<td style="text-align:center">time</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">TimeUnder</td>
+<td style="text-align:center">224</td>
+</tr>
+<tr>
+<td style="text-align:center">TimeSecs</td>
+<td style="text-align:center">224</td>
+</tr>
+<tr>
+<td style="text-align:center">PlayTimeDiff</td>
+<td style="text-align:center">444</td>
+</tr>
+<tr>
+<td style="text-align:center">SideofField</td>
+<td style="text-align:center">528</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>看起来数据集中的缺失值还不少。此时计算数据的缺失百分比有助于我们俩了解问题的严重性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 总共有多少缺失值</span></span><br><span class="line">total_cells = np.product(nfl_data.shape)</span><br><span class="line">total_missing = missing_values_count.<span class="built_in">sum</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 缺失数据所占百分比</span></span><br><span class="line">percent_missing = (total_missing/total_cells)*<span class="number">100</span></span><br><span class="line"><span class="built_in">print</span>(percent_missing)</span><br><span class="line"></span><br><span class="line">Out[<span class="number">1</span>]:</span><br><span class="line"><span class="number">24.87214126835169</span></span><br></pre></td></tr></table></figure>
+<p>哦偶，几乎四分之一的数据产生了缺失。那么下一步，我们就是要更仔细地查看一下每一列地缺失情况并且搞清楚究竟发生了什么状况。</p>
+<h3 id="搞清楚为什么数据会缺失"><a href="#搞清楚为什么数据会缺失" class="headerlink" title="搞清楚为什么数据会缺失"></a>搞清楚为什么数据会缺失</h3><p><strong>数据直觉</strong>（或者说是<strong>数据敏感度</strong>？）是我们在进入数据科学领域非常关键的一点，简单来说就是要真切的对手头的数据进行观察并且尝试搞清楚为什么它会这样子以及它会对我们的数据分析产生什么影响。这可能会是数据科学令人感到非常沮丧的一部分，特别是当你初入一个领域并且没有相关的经验的时候。当面对缺失值的时候，你需要利用你的直觉想清楚为什么这个值会缺失。其中有一个十分重要的问题，或许你可以常常反问自己。</p>
+<blockquote>
+<p><strong>Is this value missing because it wasn’t recorded or because it doesn’t exist?</strong></p>
+<p>这个值缺失究竟是因为它没有被记录还是因为它不存在？</p>
+</blockquote>
+<p>如果一个数据缺失仅仅是因为它压根不存在，那么你根本不需要费劲去猜它原来究竟是什么，你可能只是想让它保持<code>NaN</code>就行了。如果一个数据缺失是因为它没有被记录，那么你可以根据这一列的其他数据尝试去猜它的值究竟是什么。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 前十列缺失值个数</span></span><br><span class="line">missing_values_count[<span class="number">0</span>:<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+<p>(undone)</p>
+<h3 id="丢弃缺失值"><a href="#丢弃缺失值" class="headerlink" title="丢弃缺失值"></a>丢弃缺失值</h3><p>如果你很着急或者没有什么理由搞清楚这些缺失值产生的原因，那么你可以选择简单地把含有缺失值的行或者列直接删除。（贴士：我通常不建议在一些重要的项目上使用这种方法，往往花费时间去浏览你的数据并且将每一列中所含缺失值都看一遍以真正了解你的数据集）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除所有带有缺失值的行（样本点）</span></span><br><span class="line">nfl_data.dropna()</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Date</th>
+<th>GameID</th>
+<th>Drive</th>
+<th>qtr</th>
+<th>down</th>
+<th>time</th>
+<th>TimeUnder</th>
+<th>TimeSecs</th>
+<th>PlayTimeDiff</th>
+<th>SideofField</th>
+<th>…</th>
+<th>yacEPA</th>
+<th>Home_WP_pre</th>
+<th>Away_WP_pre</th>
+<th>Home_WP_post</th>
+<th>Away_WP_post</th>
+<th>Win_Prob</th>
+<th>WPA</th>
+<th>airWPA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>好家伙，看起来我们直接将所有数据都删除了！这是因为我们的每一行数据中都至少含有一个缺失值。移除至少含一个缺失值的那些列或许更有可行性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除所有至少有一个缺失值的列</span></span><br><span class="line">columns_with_na_dropped = nfl_data.dropna(axis=<span class="number">1</span>)</span><br><span class="line">columns_with_na_dropped.head()</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Date</th>
+<th>GameID</th>
+<th>Drive</th>
+<th>qtr</th>
+<th>TimeUnder</th>
+<th>ydstogo</th>
+<th>ydsnet</th>
+<th>PlayAttempted</th>
+<th>Yards.Gained</th>
+<th>sp</th>
+<th>…</th>
+<th>Timeout_Indicator</th>
+<th>Timeout_Team</th>
+<th>posteam_timeouts_pre</th>
+<th>HomeTimeouts_Remaining_Pre</th>
+<th>AwayTimeouts_Remaining_Pre</th>
+<th>HomeTimeouts_Remaining_Post</th>
+<th>AwayTimeouts_Remaining_Post</th>
+<th>ExPoint_Prob</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>2009-09-10</td>
+<td>2009091000</td>
+<td>1</td>
+<td>1</td>
+<td>15</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>39</td>
+<td>0</td>
+<td>…</td>
+<td>0</td>
+<td>None</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2009-09-10</td>
+<td>2009091000</td>
+<td>1</td>
+<td>1</td>
+<td>15</td>
+<td>10</td>
+<td>5</td>
+<td>1</td>
+<td>5</td>
+<td>0</td>
+<td>…</td>
+<td>0</td>
+<td>None</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2009-09-10</td>
+<td>2009091000</td>
+<td>1</td>
+<td>1</td>
+<td>15</td>
+<td>5</td>
+<td>2</td>
+<td>1</td>
+<td>-3</td>
+<td>0</td>
+<td>…</td>
+<td>0</td>
+<td>None</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2009-09-10</td>
+<td>2009091000</td>
+<td>1</td>
+<td>1</td>
+<td>14</td>
+<td>8</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>…</td>
+<td>0</td>
+<td>None</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2009-09-10</td>
+<td>2009091000</td>
+<td>1</td>
+<td>1</td>
+<td>14</td>
+<td>8</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>…</td>
+<td>0</td>
+<td>None</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我们丢失了多少数据</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Columns in orginal dataset: %d \n&quot;</span> % nfl_data.shape[<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Columns with na&#x27;s dropped: %d \n&quot;</span> % columns_with_na_dropped.shape[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">Out[<span class="number">2</span>]:</span><br><span class="line">Columns <span class="keyword">in</span> original dataset: <span class="number">102</span></span><br><span class="line">Columns <span class="keyword">with</span> na<span class="string">&#x27;s dropped: 41</span></span><br></pre></td></tr></table></figure>
+<p>这样子我们丢失了不少数据，但是至少我们成功从我们的数据中移除了所有<code>NaN</code>数据。</p>
+<h3 id="自动填充缺失值"><a href="#自动填充缺失值" class="headerlink" title="自动填充缺失值"></a>自动填充缺失值</h3><p>另一种选择时尝试填补这些缺失值，在下一部分，我们只取该数据集的一小部分以方便我们将数据输出。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取NFL数据集中的一个小部分</span></span><br><span class="line">subset_nfl_data =  nfl_data.loc[:, <span class="string">&#x27;EPA&#x27;</span>:<span class="string">&#x27;Season&#x27;</span>].head()</span><br><span class="line">subset_nfl_data</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>EPA</th>
+<th>airEPA</th>
+<th>yacEPA</th>
+<th>Home_WP_pre</th>
+<th>Away_WP_pre</th>
+<th>Home_WP_post</th>
+<th>Away_WP_post</th>
+<th>Win_Prob</th>
+<th>WPA</th>
+<th>airWPA</th>
+<th>yacWPA</th>
+<th>Season</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>2.014474</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.485675</td>
+<td>0.514325</td>
+<td>0.546433</td>
+<td>0.453567</td>
+<td>0.485675</td>
+<td>0.060758</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0.077907</td>
+<td>-1.068169</td>
+<td>1.146076</td>
+<td>0.546433</td>
+<td>0.453567</td>
+<td>0.551088</td>
+<td>0.448912</td>
+<td>0.546433</td>
+<td>0.004655</td>
+<td>-0.032244</td>
+<td>0.036899</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-1.402760</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.551088</td>
+<td>0.448912</td>
+<td>0.510793</td>
+<td>0.489207</td>
+<td>0.551088</td>
+<td>-0.040295</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-1.712583</td>
+<td>3.318841</td>
+<td>-5.031425</td>
+<td>0.510793</td>
+<td>0.489207</td>
+<td>0.461217</td>
+<td>0.538783</td>
+<td>0.510793</td>
+<td>-0.049576</td>
+<td>0.106663</td>
+<td>-0.156239</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2.097796</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.461217</td>
+<td>0.538783</td>
+<td>0.558929</td>
+<td>0.441071</td>
+<td>0.461217</td>
+<td>0.097712</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2009</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>我们可以使用<code>pandas</code>的<code>fillna()</code>函数对数据框中的元素进行填充。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将所有NA值替换为0</span></span><br><span class="line">subset_nfl_data.fillna(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>EPA</th>
+<th>airEPA</th>
+<th>yacEPA</th>
+<th>Home_WP_pre</th>
+<th>Away_WP_pre</th>
+<th>Home_WP_post</th>
+<th>Away_WP_post</th>
+<th>Win_Prob</th>
+<th>WPA</th>
+<th>airWPA</th>
+<th>yacWPA</th>
+<th>Season</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>2.014474</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.485675</td>
+<td>0.514325</td>
+<td>0.546433</td>
+<td>0.453567</td>
+<td>0.485675</td>
+<td>0.060758</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0.077907</td>
+<td>-1.068169</td>
+<td>1.146076</td>
+<td>0.546433</td>
+<td>0.453567</td>
+<td>0.551088</td>
+<td>0.448912</td>
+<td>0.546433</td>
+<td>0.004655</td>
+<td>-0.032244</td>
+<td>0.036899</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-1.402760</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.551088</td>
+<td>0.448912</td>
+<td>0.510793</td>
+<td>0.489207</td>
+<td>0.551088</td>
+<td>-0.040295</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-1.712583</td>
+<td>3.318841</td>
+<td>-5.031425</td>
+<td>0.510793</td>
+<td>0.489207</td>
+<td>0.461217</td>
+<td>0.538783</td>
+<td>0.510793</td>
+<td>-0.049576</td>
+<td>0.106663</td>
+<td>-0.156239</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2.097796</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.461217</td>
+<td>0.538783</td>
+<td>0.558929</td>
+<td>0.441071</td>
+<td>0.461217</td>
+<td>0.097712</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>2009</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将所有 NA 替换为同一列中紧随其后的值，</span></span><br><span class="line"><span class="comment"># 然后将所有剩余的NA替换为 0</span></span><br><span class="line">subset_nfl_data.fillna(method=<span class="string">&quot;bfill&quot;</span>, axis=<span class="number">0</span>).fillna(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>EPA</th>
+<th>airEPA</th>
+<th>yacEPA</th>
+<th>Home_WP_pre</th>
+<th>Away_WP_pre</th>
+<th>Home_WP_post</th>
+<th>Away_WP_post</th>
+<th>Win_Prob</th>
+<th>WPA</th>
+<th>airWPA</th>
+<th>yacWPA</th>
+<th>Season</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>2.014474</td>
+<td>-1.068169</td>
+<td>1.146076</td>
+<td>0.485675</td>
+<td>0.514325</td>
+<td>0.546433</td>
+<td>0.453567</td>
+<td>0.485675</td>
+<td>0.060758</td>
+<td>-0.032244</td>
+<td>0.036899</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0.077907</td>
+<td>-1.068169</td>
+<td>1.146076</td>
+<td>0.546433</td>
+<td>0.453567</td>
+<td>0.551088</td>
+<td>0.448912</td>
+<td>0.546433</td>
+<td>0.004655</td>
+<td>-0.032244</td>
+<td>0.036899</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>2</td>
+<td>-1.402760</td>
+<td>3.318841</td>
+<td>-5.031425</td>
+<td>0.551088</td>
+<td>0.448912</td>
+<td>0.510793</td>
+<td>0.489207</td>
+<td>0.551088</td>
+<td>-0.040295</td>
+<td>0.106663</td>
+<td>-0.156239</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-1.712583</td>
+<td>3.318841</td>
+<td>-5.031425</td>
+<td>0.510793</td>
+<td>0.489207</td>
+<td>0.461217</td>
+<td>0.538783</td>
+<td>0.510793</td>
+<td>-0.049576</td>
+<td>0.106663</td>
+<td>-0.156239</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2.097796</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.461217</td>
+<td>0.538783</td>
+<td>0.558929</td>
+<td>0.441071</td>
+<td>0.461217</td>
+<td>0.097712</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>2009</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> learntools.core <span class="keyword">import</span> binder </span><br><span class="line">binder.bind(<span class="built_in">globals</span>())</span><br><span class="line"><span class="keyword">from</span> learntools.data_cleaning.ex1 <span class="keyword">import</span> *</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Setup Complete!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Take a first look at the data</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#modules we&#x27;ll use</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># read in all our data</span></span><br><span class="line">sf_permits = pd.read_csv(<span class="string">&quot;../input/building-permit-applications-data/Building_Permits.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># set seed fot reproducibility</span></span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># check the head of the dataset</span></span><br><span class="line">sf_permits.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># How many missing data points do we have?</span></span><br><span class="line">missing_values_count = sf_permits.isnull().<span class="built_in">sum</span>()</span><br><span class="line">total_cells = np.product(sf_permits.shape)</span><br><span class="line">total_missing = missing_values_count.<span class="built_in">sum</span>()</span><br><span class="line">percent_missing = (total_missing/total_cells)*<span class="number">100</span></span><br><span class="line"><span class="built_in">print</span>(percent_missing)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Figure out why the data is missing</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># drop missing values: rows</span></span><br><span class="line">columns_with_na_dropped = sf_permits.dropna()</span><br><span class="line"><span class="built_in">print</span>(columns_with_na_dropped.shape[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># undone</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/09/Iris-DataSet-Analysis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1155,118 +1915,6 @@ f(x)=
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/20/Brief-Talk-for-Abstract-Algebra/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/20/Brief-Talk-for-Abstract-Algebra/" class="post-title-link" itemprop="url">Brief Talk for Abstract Algebra</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-20 17:40:42" itemprop="dateCreated datePublished" datetime="2021-10-20T17:40:42+08:00">2021-10-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-22 12:54:47" itemprop="dateModified" datetime="2021-10-22T12:54:47+08:00">2021-10-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>The problem about ideas for studying abstract algebra and … are going to be discussed in the post.</p>
-<hr>
-<h2 id="Ideas-for-abstract-algebra"><a href="#Ideas-for-abstract-algebra" class="headerlink" title="Ideas for abstract algebra"></a><center>Ideas for abstract algebra</center></h2><hr>
-<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>A set contains some <strong>certain</strong> elements. (Not mathematical definition)</p>
-<p>&nbsp;</p>
-<h3 id="relation"><a href="#relation" class="headerlink" title="relation"></a>relation</h3><p><em>Def : (relation)</em></p>
-<p>&emsp;&emsp;On a set X , we can define a relation R (not unique). For any two elements in set X, we can tell whether these two elements have a relation, denoted by a ~ b or aRb. We use the former notation more frequently.</p>
-<p>&nbsp;</p>
-<h3 id="equivalence"><a href="#equivalence" class="headerlink" title="equivalence"></a>equivalence</h3><p><em>Def 1: (equivalence relation)</em></p>
-<p>&emsp;&emsp;If a relation R on set X (denoted by ~) satisfies three conditions:</p>
-<ul>
-<li><p>Reflexive: a ~ a.</p>
-</li>
-<li><p>Symmetry: If a ~ b, then b ~ a.</p>
-</li>
-<li><p>Transitive:  If a ~ b, b ~ c, then a ~ c. </p>
-<p>then the relation R is called an equivalence relation on set X.</p>
-</li>
-</ul>
-<blockquote>
-<p>The equivalence relation is an extension of the concept “equality”.</p>
-</blockquote>
-<p>&nbsp;</p>
-<p><em>Def 2: (equivalence class)</em></p>
-<p>&emsp;&emsp;Consider a set [a] as</p>
-<script type="math/tex; mode=display">
-[a]=\{x\in X|x \sim a\}</script><p>&emsp;&emsp;then [a] is a equivalence class which contains every element having equivalence relation with a.</p>
-<p>Of course, “a” is just a representative of the set [a]. Pick any b from [a], we have [a] = [b].</p>
-<blockquote>
-<p>[a] and [b] have different forms, but is the same in nature.</p>
-<p>Any element in X belongs to a unique equivalence class given equivalence relation “ ~ “.</p>
-</blockquote>
-<p>&nbsp;</p>
-<p><em>Theorem 1:</em></p>
-<p>&emsp;&emsp;An equivalence relation “ ~ “ on a set X gives a division of X.</p>
-<p>&nbsp;</p>
-<h3 id="quotient-set"><a href="#quotient-set" class="headerlink" title="quotient set"></a>quotient set</h3><p>&nbsp;</p>
-<h3 id="group"><a href="#group" class="headerlink" title="group"></a>group</h3><p>&nbsp;</p>
-<h3 id="subgroup"><a href="#subgroup" class="headerlink" title="subgroup"></a>subgroup</h3><p>&nbsp;</p>
-<h3 id="quotient-group"><a href="#quotient-group" class="headerlink" title="quotient group"></a>quotient group</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1338,20 +1986,20 @@ f(x)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
