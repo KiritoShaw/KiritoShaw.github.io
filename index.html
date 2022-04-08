@@ -174,6 +174,256 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/08/Option-Price-Binary-Tree-Modeling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/08/Option-Price-Binary-Tree-Modeling/" class="post-title-link" itemprop="url">Option Price - Binary Tree Modeling</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-04-08 14:06:47 / Modified: 14:08:21" itemprop="dateCreated datePublished" datetime="2022-04-08T14:06:47+08:00">2022-04-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mathematical-Finance/" itemprop="url" rel="index"><span itemprop="name">Mathematical Finance</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a><center>第一部分</center></h3><p>已知某股票当前价格为100美元，股票波动率为25%，无风险利率为5%。考虑以该股票为标的的资产的期权。</p>
+<h5 id="无股息"><a href="#无股息" class="headerlink" title="无股息"></a>无股息</h5><blockquote>
+<p>假设股票在期权有效期内不支付股息，取步数为500，1000，1500，2000，利用二叉树模型对有效期为半年、执行价格为100美元的欧式和美式看涨、看跌期权定价，并针对数值结果进行合理的分析。</p>
+</blockquote>
+<p>看涨期权则是估计这个股票会涨，可以在未来以一定的价格买进；看跌期权是估计股价会跌，可以在未来以一定价格卖出。</p>
+<p>美式期权<code>(American options)</code>是指允许期权的持有人在期权的有效期的到期日之前任何一天均可履行合约的期权；欧式期权<code>(European options)</code>是指仅允许期权的持有人在期权的有效期最后一天方可履行合约的期权。</p>
+<center>代码示例</center>
+
+<p>以欧式看涨期权为例：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">btm_EurCall</span><span class="params">(S0, K, vol, r, T, N)</span> </span></span><br><span class="line"><span class="comment">% 初始化参数</span></span><br><span class="line">dt = T/N; </span><br><span class="line">u = <span class="built_in">exp</span>(vol*<span class="built_in">sqrt</span>(dt));</span><br><span class="line">d = <span class="number">1</span>/u;</span><br><span class="line">p = (<span class="built_in">exp</span>(r*dt)-d)/(u-d);</span><br><span class="line"><span class="comment">% 创建期权价格数组并进行初始化</span></span><br><span class="line">V = <span class="built_in">zeros</span>(<span class="number">2</span>*N+<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = -N:<span class="number">2</span>:N</span><br><span class="line">    <span class="comment">% 最终节点期权的收益为到期日股票价格S_T减去执行价格K的正部</span></span><br><span class="line">    V(<span class="built_in">j</span>+N+<span class="number">1</span>) = <span class="built_in">max</span>(S0*u^<span class="built_in">j</span>-K, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 倒推</span></span><br><span class="line"><span class="keyword">for</span> n = N<span class="number">-1</span>:<span class="number">-1</span>:<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = -n:<span class="number">2</span>:n</span><br><span class="line">        <span class="comment">% 当前期权价格由前一步相邻两个期权价格以无风险期望贴现</span></span><br><span class="line">        V(<span class="built_in">j</span>+N+<span class="number">1</span>) = (p*V(<span class="built_in">j</span>+<span class="number">1</span>+N+<span class="number">1</span>) + (<span class="number">1</span>-p)*V(<span class="built_in">j</span><span class="number">-1</span>+N+<span class="number">1</span>))*<span class="built_in">exp</span>(-r*dt);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 返回初始时刻期权价格</span></span><br><span class="line">y = V(N+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<center>数值结果</center>
+
+<p>首先我们先进行参数设定：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">S0 = <span class="number">100</span>; <span class="comment">% 股票初始价格</span></span><br><span class="line">r = <span class="number">0.05</span>; <span class="comment">% 无风险利率</span></span><br><span class="line">K = <span class="number">100</span>; <span class="comment">% 敲定价格</span></span><br><span class="line">N = <span class="number">100</span>:<span class="number">100</span>:<span class="number">2000</span>; <span class="comment">% 步数</span></span><br><span class="line">T = <span class="number">0.5</span>; <span class="comment">% 到期日时间</span></span><br><span class="line">vol = <span class="number">0.25</span>; <span class="comment">% 股票波动率</span></span><br></pre></td></tr></table></figure>
+<p>以下是二叉树模型在不同步数设置下（<code>100:100:2000</code>）给出的数值结果：</p>
+<ol>
+<li><p>欧式看涨期权定价</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">eurcall = [];</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(N)</span><br><span class="line">    call = btm_EurCall(S0, K, vol, r, T, N(<span class="built_in">i</span>));</span><br><span class="line">    eurcall = [eurcall, call];</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">[blscall, blsput] = blsprice(S0, K, r, T, vol);</span><br><span class="line"><span class="built_in">plot</span>(N, eurcall, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line">hline = refline([<span class="number">0</span> blscall]);</span><br><span class="line">hline.Color = <span class="string">&#x27;r&#x27;</span>;</span><br><span class="line">ylim([<span class="number">8.242</span>, blscall+<span class="number">0.002</span>])</span><br><span class="line">xlabel(<span class="string">&#x27;steps&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;European Call Option Price&#x27;</span>)</span><br><span class="line"><span class="built_in">legend</span>(&#123;<span class="string">&#x27;Erucall&#x27;</span>,<span class="string">&#x27;blsprice&#x27;</span>&#125;, <span class="string">&#x27;Location&#x27;</span>, <span class="string">&#x27;SouthEast&#x27;</span>)</span><br><span class="line"><span class="built_in">hold</span> off</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/1.png" style="zoom:50%;"></p>
+<p>图中所示红线为<code>Black Scholes</code>所计算的期权价格，可以看到随着步数的增加，欧式看涨期权的价格逐渐逼近<code>blsprice</code>。</p>
+</li>
+<li><p>欧式看跌期权定价</p>
+<p>类似上述的代码，我们可以得到不同步数设置下由二叉树模型所得的期权价格</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/2.png" style="zoom:50%;"></p>
+<p>同样的，红线所示为<code>Black Scholes</code>所计算出的期权价格，我们的数值结果随着步数的增加同样在不断逼近该价格。结合第一点欧式看涨期权我们可以直观的看到欧式看涨期权的价格更贵。</p>
+</li>
+<li><p>美式看涨期权定价</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">amcall = [];</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(N)</span><br><span class="line">    call = btm_AmCall(S0, K, vol, r, T, N(<span class="built_in">i</span>));</span><br><span class="line">    amcall = [amcall, call];</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">plot</span>(N, amcall, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;steps&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;American Call Option Price&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/3.png" style="zoom:50%;"></p>
+</li>
+<li><p>美式看跌期权定价</p>
+<p>相应的我们也给出美式看跌期权的数值结果</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/4.png" style="zoom:50%;"></p>
+</li>
+</ol>
+<p>下面我们将美式期权与欧式期权进行横向对比：</p>
+<ol>
+<li><p>欧式看涨期权与美式看涨期权对比</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/5.png" style="zoom:50%;"></p>
+<p>虽然美式看涨期权赋予期权持有人在到期日之前行使期权的权利，理论上美式期权的价格理应更高，但是由于看涨期权持有人在到期日之前行使期权并不能使他获得更多收益，所以在不派发股息的情况下，欧式与美式看涨期权价格并没有区别。</p>
+</li>
+<li><p>欧式看跌期权与美式看跌期权对比</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/6.png" style="zoom:50%;"></p>
+<p>前面说到欧式与美式看涨期权价格在不派发股息的情况下并没有不同，但是对于看跌期权，情况则有所不同，美式看跌期权价格要比欧式看跌期权价格更高。</p>
+</li>
+</ol>
+<h5 id="上升-敲出期权"><a href="#上升-敲出期权" class="headerlink" title="上升-敲出期权"></a>上升-敲出期权</h5><blockquote>
+<p>仍然假设股票不支付股息，取步数为500，100，1500，200，利用二叉树模型对有效期为半年、执行价格为100美元的欧式和美式上升-敲出期权的价格，并针对结果给出金融解释。</p>
+</blockquote>
+<p>鲨鱼鳍期权又称为敲出期权<code>(knock-out options)</code>，属于障碍期权<code>(barrier options)</code>的一种。期权合约会事先设置好标的资产的价格区间，如果在合约约定的时间范围内，标的资产价格始终处于该区间中，这个期权就是一个普通的看涨或看跌期权；一旦标的资产价格跳出了该区间，该期权将自动敲出作废。鲨鱼鳍期权作为一种<strong>路径依赖</strong>的期权，<strong>限定了投资者可获的最大收益</strong>，所以相对于香草期权<strong>更便宜</strong>，对于相信标的资产在未来一段时间内会发生确定方向的变化，但是不会越过障碍价格的投资者非常有吸引力。</p>
+<p>下表以上升-敲出看涨期权为例展示了多头方到期日的收益（期权价格不计入其中）</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>上升-敲出看涨期权的到期收益</th>
+<th style="text-align:center">标的资产到期价格</th>
+<th style="text-align:center">看涨期权多头到期日收益</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标的资产在合约期间不超过障碍价格</td>
+<td style="text-align:center">$S_T&gt;=K$</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">$S_T&gt;K$</td>
+<td style="text-align:center">$S_T-K$</td>
+</tr>
+<tr>
+<td>标的资产在合约期间超过了障碍价格</td>
+<td style="text-align:center">$S_T&gt;=K$</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">$S_T&gt;K$</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>注意到对于一般的路径有关期权，我们并不能直接通过二叉树模型对期权进行定价，因为期权在到期日的收益依赖于股票价格路径，树末端节点处的收益并不明确。但是对于上述这种障碍期权，我们仍然可以使用二叉树模型对其进行定价。</p>
+<center>代码示例</center>
+
+<p>以美式上升-敲出期权为例：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">btm_AmUpAndOut</span><span class="params">(S0, K, vol, r, T, N, H)</span></span></span><br><span class="line"><span class="comment">% 参数初始化</span></span><br><span class="line">dt = T/N;</span><br><span class="line">u = <span class="built_in">exp</span>(vol*<span class="built_in">sqrt</span>(dt));</span><br><span class="line">d = <span class="number">1</span>/u;</span><br><span class="line">p = (<span class="built_in">exp</span>(r*dt)-d)/(u-d);</span><br><span class="line">k = <span class="built_in">ceil</span>(<span class="built_in">log</span>(H/S0)/<span class="built_in">log</span>(u)); <span class="comment">% 障碍</span></span><br><span class="line"><span class="comment">% 创建期权价格数组并进行初始化</span></span><br><span class="line">V = <span class="built_in">zeros</span>(<span class="number">2</span>*N+<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = -N:<span class="number">2</span>:N</span><br><span class="line">    V(<span class="built_in">j</span>+N+<span class="number">1</span>) = <span class="built_in">max</span>(S0*u^<span class="built_in">j</span>-K, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 倒推</span></span><br><span class="line"><span class="keyword">for</span> n = N<span class="number">-1</span>:<span class="number">-1</span>:<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = -n:<span class="number">2</span>:n</span><br><span class="line">        <span class="comment">% 当前期权价格为以下两者之间取最大值:</span></span><br><span class="line">        <span class="comment">% 1. 前一步相邻两个期权价格以无风险期望贴现</span></span><br><span class="line">        <span class="comment">% 2. 当前直接行使期权获得的收益</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">j</span> &lt; k</span><br><span class="line">            V(<span class="built_in">j</span>+N+<span class="number">1</span>) = <span class="built_in">max</span>((p*V(<span class="built_in">j</span>+<span class="number">1</span>+N+<span class="number">1</span>)+(<span class="number">1</span>-p)*V(<span class="built_in">j</span><span class="number">-1</span>+N+<span class="number">1</span>))*<span class="built_in">exp</span>(-r*dt), S0*u^<span class="built_in">j</span>-K);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            V(<span class="built_in">j</span>+N+<span class="number">1</span>) = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">end</span>      </span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 返回初始时刻期权价格</span></span><br><span class="line">y = V(N+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<center>数值结果</center>
+
+<p>我们首先进行参数的设定：假定障碍价格H为140</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">S0 = <span class="number">100</span>; <span class="comment">% 股票初始价格</span></span><br><span class="line">r = <span class="number">0.05</span>; <span class="comment">% 无风险利率</span></span><br><span class="line">K = <span class="number">100</span>; <span class="comment">% 敲定价格</span></span><br><span class="line">N = <span class="number">100</span>:<span class="number">100</span>:<span class="number">2000</span>; <span class="comment">% 步数</span></span><br><span class="line">T = <span class="number">0.5</span>; <span class="comment">% 到期日时间</span></span><br><span class="line">vol = <span class="number">0.25</span>; <span class="comment">% 股票波动率</span></span><br><span class="line">H = <span class="number">140</span>; <span class="comment">% 障碍价格 </span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>欧式上升-敲出期权</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/17.png" style="zoom:50%;"></p>
+</li>
+<li><p>美式上升-敲出期权</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/18.png" style="zoom:50%;"></p>
+</li>
+</ol>
+<p>设置步数为2000，我们研究在不同障碍价格设定对欧式、美式上升-敲出期权的影响：</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/19.png" style="zoom:50%;"></p>
+<p>可以看到障碍价格对欧式期权的影响要比美式期权的影响更大。直观上这也很好理解：美式期权赋予期权持有人在到期日之前行使期权的权利，所以当股票价格逼近障碍价格时，美式期权持有人很有可能提前行使期权。</p>
+<h5 id="支付连续股息"><a href="#支付连续股息" class="headerlink" title="支付连续股息"></a>支付连续股息</h5><blockquote>
+<p>假设股票支付连续股息，股票收益率为2%，取步数为500，1000，1500，2000，利用二叉树模型对有效期为半年、执行价格为100美元的欧式、美式看涨、看跌期权定价，并针对数值结果进行合理的分析。</p>
+</blockquote>
+<p>假设某股票支付连续收益率为$ q $的股息。在风险中性世界里股息收益率加上资产收益<code>(capital gain)</code>率的总和等于$ 𝑟$，股息收益率为$ 𝑞$，因此资本收益率为$ 𝑟−𝑞$。</p>
+<ol>
+<li><p>资本收益率的变化最终会导致股价上涨概率$ p $的变化</p>
+<script type="math/tex; mode=display">
+p = \frac{e^{(r-q)\Delta t}-d}{u-d}</script></li>
+<li><p>在风险中性世界里，期权的价格等于其未来价格的数学期望以无风险利率$ r $进行贴现</p>
+<script type="math/tex; mode=display">
+f = [p*f_u + (1-p)*f_d]e^{-r\Delta t}</script></li>
+</ol>
+<center>代码示例</center>
+
+<p>以美式看涨期权为例：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">btm_AmCall_ctDiv</span><span class="params">(S0, K, vol, r, T, N, q)</span></span></span><br><span class="line"><span class="comment">% 参数初始化</span></span><br><span class="line">dt = T/N;</span><br><span class="line">u = <span class="built_in">exp</span>(vol*<span class="built_in">sqrt</span>(dt));</span><br><span class="line">d = <span class="number">1</span>/u;</span><br><span class="line">p = (<span class="built_in">exp</span>((r-q)*dt)-d)/(u-d); <span class="comment">% 连续支付股息导致股票上涨概率发生变化</span></span><br><span class="line"><span class="comment">% 创建期权价格数组并进行初始化</span></span><br><span class="line">V = <span class="built_in">zeros</span>(<span class="number">2</span>*N+<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = -N:<span class="number">2</span>:N</span><br><span class="line">    V(<span class="built_in">j</span>+N+<span class="number">1</span>) = <span class="built_in">max</span>(S0*u^<span class="built_in">j</span>-K, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 倒推</span></span><br><span class="line"><span class="keyword">for</span> n = N<span class="number">-1</span>:<span class="number">-1</span>:<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = -n:<span class="number">2</span>:n</span><br><span class="line">        <span class="comment">% 当前期权价格为以下两者之间取最大值:</span></span><br><span class="line">        <span class="comment">% 1. 前一步相邻两个期权价格以无风险期望贴现</span></span><br><span class="line">        <span class="comment">% 2. 当前直接行使期权获得的收益</span></span><br><span class="line">        V(<span class="built_in">j</span>+N+<span class="number">1</span>) = <span class="built_in">max</span>((p*V(<span class="built_in">j</span>+<span class="number">1</span>+N+<span class="number">1</span>)+(<span class="number">1</span>-p)*V(<span class="built_in">j</span><span class="number">-1</span>+N+<span class="number">1</span>))*<span class="built_in">exp</span>(-r*dt), S0*u^<span class="built_in">j</span>-K);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 返回初始时刻期权价格</span></span><br><span class="line">y = V(N+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<center>数值结果</center>
+
+<p>首先我们先进行参数设定：设定股票收益率为2%</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">S0 = <span class="number">100</span>; <span class="comment">% 股票初始价格</span></span><br><span class="line">r = <span class="number">0.05</span>; <span class="comment">% 无风险利率</span></span><br><span class="line">K = <span class="number">100</span>; <span class="comment">% 敲定价格</span></span><br><span class="line">N = <span class="number">100</span>:<span class="number">100</span>:<span class="number">2000</span>; <span class="comment">% 步数</span></span><br><span class="line">T = <span class="number">0.5</span>; <span class="comment">% 到期日时间</span></span><br><span class="line">vol = <span class="number">0.25</span>; <span class="comment">% 股票波动率</span></span><br><span class="line">q = <span class="number">0.02</span>; <span class="comment">% 股息率</span></span><br></pre></td></tr></table></figure>
+<p>在呈现支付连续股息的结果时，将同时与无股息情形进行比较</p>
+<ol>
+<li><p>看涨期权</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/7.png" style="zoom:50%;"></p>
+<p>在支付连续股息的情况下，看涨期权的价格下降，这是由于</p>
+</li>
+<li><p>看跌期权</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/8.png" style="zoom:50%;"></p>
+<p>在支付连续股息的情况下，看跌期权价格有所上升。这是因为股息的存在降低了资本收益率，导致股票价格上涨的概率降低，而这对于看跌期权是有益的。</p>
+</li>
+</ol>
+<h5 id="支付一次性股息"><a href="#支付一次性股息" class="headerlink" title="支付一次性股息"></a>支付一次性股息</h5><blockquote>
+<p>假设该股票将于2个月后一次性支付股息，金额为当时股价的2%，取步数为500，1000，1500，2000，利用二叉树模型对有效期为半年、执行价格为100美元的欧式和美式看涨、看跌期权定价，并针对数值结果给出合理的分析。</p>
+</blockquote>
+<p>假定股票只在某个离散时刻点上支付一次股息，而且股息为当时股价的$ \delta $倍，其他参数与没有股息情形下一样。</p>
+<center>代码示例</center>
+
+<p>以美式看跌期权为例：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">btm_AmPut_Div</span><span class="params">(S0, K, vol, r, T, N, delta, date)</span></span></span><br><span class="line"><span class="comment">% 参数初始化</span></span><br><span class="line">dt = T/N;</span><br><span class="line">u = <span class="built_in">exp</span>(vol*<span class="built_in">sqrt</span>(dt));</span><br><span class="line">d = <span class="number">1</span>/u;</span><br><span class="line">p = (<span class="built_in">exp</span>(r*dt)-d)/(u-d);</span><br><span class="line"><span class="built_in">i</span> = <span class="built_in">ceil</span>(N*date/T); <span class="comment">% 派发一次性股息对应的节点</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 创建期权价格数组并进行初始化</span></span><br><span class="line">V = <span class="built_in">zeros</span>(<span class="number">2</span>*N+<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = -N:<span class="number">2</span>:N</span><br><span class="line">    V(<span class="built_in">j</span>+N+<span class="number">1</span>) = <span class="built_in">max</span>(S0*u^<span class="built_in">j</span>*delta-K, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 倒推</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% 除息日之后</span></span><br><span class="line"><span class="keyword">for</span> n = N<span class="number">-1</span>:<span class="number">-1</span>:<span class="built_in">i</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = -n:<span class="number">2</span>:n</span><br><span class="line">        <span class="comment">% 当前期权价格为以下两者之间取最大值:</span></span><br><span class="line">        <span class="comment">% 1. 前一步相邻两个期权价格以无风险期望贴现</span></span><br><span class="line">        <span class="comment">% 2. 当前直接行使期权获得的收益</span></span><br><span class="line">        V(<span class="built_in">j</span>+N+<span class="number">1</span>) = <span class="built_in">max</span>((p*V(<span class="built_in">j</span>+<span class="number">1</span>+N+<span class="number">1</span>)+(<span class="number">1</span>-p)*V(<span class="built_in">j</span><span class="number">-1</span>+N+<span class="number">1</span>))*<span class="built_in">exp</span>(-r*dt), K-S0*u^<span class="built_in">j</span>*(<span class="number">1</span>-delta));</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 除息日之前</span></span><br><span class="line"><span class="keyword">for</span> n = <span class="built_in">i</span><span class="number">-1</span>:<span class="number">-1</span>:<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = -n:<span class="number">2</span>:n</span><br><span class="line">        V(<span class="built_in">j</span>+N+<span class="number">1</span>) = <span class="built_in">max</span>((p*V(<span class="built_in">j</span>+<span class="number">1</span>+N+<span class="number">1</span>)+(<span class="number">1</span>-p)*V(<span class="built_in">j</span><span class="number">-1</span>+N+<span class="number">1</span>))*<span class="built_in">exp</span>(-r*dt), K-S0*u^<span class="built_in">j</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 返回初始时刻期权价格</span></span><br><span class="line">y = V(N+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<center>数值结果</center>
+
+<p>首先我们先进行参数设定：设置一次性股息收益率为当前股票价格的2%，同时假设股息派发时间为2个月之后</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">S0 = <span class="number">100</span>; <span class="comment">% 股票初始价格</span></span><br><span class="line">r = <span class="number">0.05</span>; <span class="comment">% 无风险利率</span></span><br><span class="line">K = <span class="number">100</span>; <span class="comment">% 敲定价格</span></span><br><span class="line">N = <span class="number">100</span>:<span class="number">100</span>:<span class="number">2000</span>; <span class="comment">% 步数</span></span><br><span class="line">T = <span class="number">0.5</span>; <span class="comment">% 到期日时间</span></span><br><span class="line">vol = <span class="number">0.25</span>; <span class="comment">% 股票波动率</span></span><br><span class="line">delta = <span class="number">0.02</span>; <span class="comment">% 一次性股息收益率</span></span><br><span class="line">date = <span class="number">1</span>/<span class="number">6</span>; <span class="comment">% 股息派发时间</span></span><br></pre></td></tr></table></figure>
+<p>下面我们将直接将支付一次性股息的情形与无股息情形进行对比：</p>
+<ol>
+<li><p>欧式看涨期权</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/13.png" style="zoom:50%;"></p>
+</li>
+<li><p>欧式看跌期权</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/14.png" style="zoom:50%;"></p>
+</li>
+<li><p>美式看涨期权</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/15.png" style="zoom:50%;"></p>
+</li>
+<li><p>美式看跌期权</p>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/16.png" style="zoom:50%;"></p>
+</li>
+</ol>
+<h3 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a><center>第二部分</center></h3><p>已知某股票波动率为25%，无风险利率为5%。考虑以该股票为原生资产的半年期、敲定价格为100美元的欧式看涨、看跌期权。</p>
+<blockquote>
+<p>利用二叉树模型求出初始股票价格为$ 90:1:110 $时的欧式看涨、看跌期权的初始价格，并计算出相应的Delta值。</p>
+</blockquote>
+<p>假设在二叉树的某个节点上，股票价格和期权价格分别为$ S_i $和$ f_i $，下一步股票价格可能上涨到$ uS_i $或者降为$ dS_i $，相应的期权价格变成$ f_{i,u} $或者$ f_{i,d} $。</p>
+<p>由无套利定价方法，我们知道看涨期权出售方可持有$\Delta = \frac{f_{i,u}-f_{i,d}}{uS_i-dS_i} $单位股票对冲掉卖出一份看涨期权所带来的风险。</p>
+<p>由于每一个节点所计算出来的$ \Delta $值不同，所以我们在利用股票和期权进行风险对冲时，我们需要不断调整所持股票的数量。</p>
+<blockquote>
+<p>已知蝶式期权时一种欧式期权，它在到期日的收益等于</p>
+<script type="math/tex; mode=display">
+max\{0,min\{S_T-90, 110-S_T\}\}</script><p>利用二叉树模型求出初始股票价格为$ 90:1:110 $时的蝶式期权的初始价格，并计算出相应点的Delta值。</p>
+</blockquote>
+<center>代码示例</center>
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">btm_EurButterfly</span><span class="params">(S0, vol, r, T, N)</span> </span></span><br><span class="line"><span class="comment">% 初始化参数</span></span><br><span class="line">dt = T/N; </span><br><span class="line">u = <span class="built_in">exp</span>(vol*<span class="built_in">sqrt</span>(dt));</span><br><span class="line">d = <span class="number">1</span>/u;</span><br><span class="line">p = (<span class="built_in">exp</span>(r*dt)-d)/(u-d);</span><br><span class="line"><span class="comment">% 创建期权价格数组并进行初始化</span></span><br><span class="line">V = <span class="built_in">zeros</span>(<span class="number">2</span>*N+<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = -N:<span class="number">2</span>:N</span><br><span class="line">    <span class="comment">% 最终节点期权的收益为到期日股票价格S_T减去执行价格K的正部</span></span><br><span class="line">    V(<span class="built_in">j</span>+N+<span class="number">1</span>) = <span class="built_in">max</span>(<span class="built_in">min</span>(S0*u^<span class="built_in">j</span><span class="number">-90</span>, <span class="number">110</span>-S0*u^<span class="built_in">j</span>), <span class="number">0</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 倒推</span></span><br><span class="line"><span class="keyword">for</span> n = N<span class="number">-1</span>:<span class="number">-1</span>:<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = -n:<span class="number">2</span>:n</span><br><span class="line">        <span class="comment">% 当前期权价格由前一步相邻两个期权价格以无风险期望贴现</span></span><br><span class="line">        V(<span class="built_in">j</span>+N+<span class="number">1</span>) = (p*V(<span class="built_in">j</span>+<span class="number">1</span>+N+<span class="number">1</span>) + (<span class="number">1</span>-p)*V(<span class="built_in">j</span><span class="number">-1</span>+N+<span class="number">1</span>))*<span class="built_in">exp</span>(-r*dt);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">% 返回初始时刻期权价格</span></span><br><span class="line">y = V(N+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<center>数值结果</center>
+
+<p>参数设定：设置股票价格为<code>90:1:110</code></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">S0 = <span class="number">90</span>:<span class="number">1</span>:<span class="number">110</span>; <span class="comment">% 股票初始价格</span></span><br><span class="line">r = <span class="number">0.05</span>; <span class="comment">% 无风险利率</span></span><br><span class="line">K = <span class="number">100</span>; <span class="comment">% 敲定价格</span></span><br><span class="line">N = <span class="number">2000</span>; <span class="comment">% 步数</span></span><br><span class="line">T = <span class="number">0.5</span>; <span class="comment">% 到期日时间</span></span><br><span class="line">vol = <span class="number">0.25</span>; <span class="comment">% 股票波动率</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(S0)</span><br><span class="line">    BF = btm_EurButterfly(S0(<span class="built_in">i</span>), vol, r, T, N);</span><br><span class="line">    eurBF = [eurBF, BF];</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">plot</span>(S0, eurBF, <span class="string">&#x27;*&#x27;</span>, LineStyle=<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">xlabel(<span class="string">&#x27;S_0 / Dollar&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;European Butterfly Options Price&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/2022/04/08/Option-Price-Binary-Tree-Modeling/20.png" style="zoom:50%;"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/15/%E4%B8%89%E4%B8%AD%E6%B1%87%E6%8A%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1875,89 +2125,6 @@ f(x)=
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/23/%E3%80%8A%E5%88%91%E6%B3%95%E5%AD%A6%E8%AE%B2%E4%B9%89%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E2%80%94%E2%80%94%E5%89%8D%E8%A8%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/23/%E3%80%8A%E5%88%91%E6%B3%95%E5%AD%A6%E8%AE%B2%E4%B9%89%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B01%E2%80%94%E2%80%94%E5%89%8D%E8%A8%80/" class="post-title-link" itemprop="url">《刑法学讲义》阅读笔记1——前言</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-23 22:00:37" itemprop="dateCreated datePublished" datetime="2021-10-23T22:00:37+08:00">2021-10-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-29 16:57:54" itemprop="dateModified" datetime="2021-10-29T16:57:54+08:00">2021-10-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Criminal-Law/" itemprop="url" rel="index"><span itemprop="name">Criminal Law</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>用良知驾驭我们之所学，而不因所学蒙蔽了良知。</p>
-</blockquote>
-<p>&nbsp;</p>
-<p><strong>公平与正义</strong></p>
-<p>法律要追求公平和正义，刑法更是如此，如果没有对客观真理的持守，法律必然沦为一种工具，技术主义的法学思维就可以为任何结论提<br>供精致的论证，同时也以所谓的专业意见拒绝民众一切的意见与质疑。</p>
-<p>永远不要在自己看重的立场上附着不加边际的价值，要接受对立观点的合理性。专业人士也必须俯下身段，倾听民众朴素的智慧。</p>
-<p>&nbsp;</p>
-<p><strong>良法而制&ensp;普遍遵守</strong></p>
-<p>亚里士多德定义法治的基本内涵有二：良法而制、普遍遵守。法律永远要追求共性的良善，去真正满足每个人心灵深处的正义感。唯此，法律才可能获得普遍的遵守。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2029,14 +2196,14 @@ f(x)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
