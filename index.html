@@ -174,6 +174,142 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/15/Introduction-to-Numerical-Optimization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/15/Introduction-to-Numerical-Optimization/" class="post-title-link" itemprop="url">Introduction to Numerical Optimization</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-15 20:17:03" itemprop="dateCreated datePublished" datetime="2022-04-15T20:17:03+08:00">2022-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-16 13:43:20" itemprop="dateModified" datetime="2022-04-16T13:43:20+08:00">2022-04-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Numerical-Optimization/" itemprop="url" rel="index"><span itemprop="name">Numerical Optimization</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h3><p>Our goals is to find values of the variables that optimize the objectives. Often the variables are restricted, or constrained, in some way.</p>
+<p>There is no universal optimization algorithm but rather a collection of algorithms, each of which is tailored to a particular type of optimization problem.</p>
+<ul>
+<li>optimality conditions: checking that the current set of variables is indeed the solution of the problem</li>
+<li>sensitivity analysis: reveals the sensitivity of the solution to changes in the model and data.</li>
+</ul>
+<h3 id="Mathematical-Formulation"><a href="#Mathematical-Formulation" class="headerlink" title="Mathematical Formulation"></a>Mathematical Formulation</h3><p>We introduce some notations first:</p>
+<ul>
+<li>x is the vector of variables, also called unknowns or parameters</li>
+<li>f is the objective function, a (scalar) function of x that we want to maximize or minimize</li>
+<li>$c_i $are constraint functions, which are scalar functions of x that define equations and inequalities that the unknown vector x must satisfy</li>
+</ul>
+<p>Optimization problem can be written as follows by using the notations above:</p>
+<script type="math/tex; mode=display">
+\min_{x \in \R^n}\ f(x)& s.t.\ 
+\begin{cases}
+c_i(x) = 0& i \in \mathcal{I}\\
+c_i(x)\ge 0& i \in \mathcal{E}
+\end{cases}</script><p>Here $\mathcal{I} $and $\mathcal{E} $are sets of indexes for equality and inequality constraints, respectively.</p>
+<ul>
+<li>feasible region: the set of points satisfying all the constraints</li>
+</ul>
+<h3 id="Continuous-versus-Discrete-Optimization"><a href="#Continuous-versus-Discrete-Optimization" class="headerlink" title="Continuous versus Discrete Optimization"></a>Continuous versus Discrete Optimization</h3><h4 id="discrete-optimization"><a href="#discrete-optimization" class="headerlink" title="discrete optimization"></a>discrete optimization</h4><p>The defining feature of a discrete optimization problem is that the unknown x is drawn from a finite (but often very large) set.</p>
+<h4 id="continuous-optimization"><a href="#continuous-optimization" class="headerlink" title="continuous optimization"></a>continuous optimization</h4><p>The feasible set is usually uncountably infinite, as when the components of x are allowed to be real numbers.</p>
+<p>Continuous optimization problems are normally easier to solve because the smoothness of the functions makes it possible to use objective and constraint information at a particular point x to deduce information about the function’s behavior at all points close to x.</p>
+<p>Continuous optimization techniques often play an important role in solving discrete optimization problems.</p>
+<h3 id="Constrained-and-Unconstrained-Optimization"><a href="#Constrained-and-Unconstrained-Optimization" class="headerlink" title="Constrained and Unconstrained Optimization"></a>Constrained and Unconstrained Optimization</h3><h4 id="unconstrained-optimization"><a href="#unconstrained-optimization" class="headerlink" title="unconstrained optimization"></a>unconstrained optimization</h4><ul>
+<li>$\mathcal{I} = \mathcal{E} = \empty$</li>
+<li>replacement the constraints by the penalization terms added to objective function</li>
+</ul>
+<h4 id="constrained-optimization"><a href="#constrained-optimization" class="headerlink" title="constrained optimization"></a>constrained optimization</h4><h3 id="Stochastic-and-Deterministic-Optimization"><a href="#Stochastic-and-Deterministic-Optimization" class="headerlink" title="Stochastic and Deterministic Optimization"></a>Stochastic and Deterministic Optimization</h3><p>Stochastic optimization algorithms use these quantifications of the uncertainty to produce solutions that optimize the expected performance of the model.</p>
+<ul>
+<li>chance-constrained optimization: in which we ensure that the variables satisfy the given constraints to some specified probability</li>
+<li>robust optimization: certain constraints are required to hold for all possible values of the uncertain data</li>
+</ul>
+<h3 id="Convexity"><a href="#Convexity" class="headerlink" title="Convexity"></a>Convexity</h3><p>First of all, we consider convex set.</p>
+<h4 id="convex-set"><a href="#convex-set" class="headerlink" title="convex set"></a>convex set</h4><p>When we say a set is convex, it follows that for $\forall x \in S$ and $y\in S$, we have</p>
+<script type="math/tex; mode=display">
+\alpha x + (1-\alpha)y \in S \quad \forall \alpha\in[0,1]</script><h4 id="convex-function"><a href="#convex-function" class="headerlink" title="convex function"></a>convex function</h4><ul>
+<li><p>convex function: if its domain S is a convex set and if for any two points x and y in S, the following property is satisfied</p>
+<script type="math/tex; mode=display">
+f(\alpha x+(1-\alpha)y)\le\alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,1]</script></li>
+<li><p>strictly convex function: whenever $x \ne y$</p>
+<script type="math/tex; mode=display">
+f(\alpha x+(1-\alpha)y)\lt \alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,1]</script></li>
+<li><p>convex function</p>
+</li>
+</ul>
+<h4 id="global-solution"><a href="#global-solution" class="headerlink" title="global solution"></a>global solution</h4><p>If the objective function in the optimization problem and the feasible region are both convex, then any local solution of the problem is in fact a global solution.</p>
+<h4 id="convex-programming"><a href="#convex-programming" class="headerlink" title="convex programming"></a>convex programming</h4><p>A special case of the general constrained optimization problem in which</p>
+<ul>
+<li>the objective function is convex</li>
+<li>the equality constrain function $c_i(\cdot), i\in\mathcal{E}$, are linear</li>
+<li>the inequality constrain function $c_i(\cdot), i\in\mathcal{I}$, are concave</li>
+</ul>
+<h3 id="Optimization-Algorithm"><a href="#Optimization-Algorithm" class="headerlink" title="Optimization Algorithm"></a>Optimization Algorithm</h3><p>Most strategies make use of the values of the objective function f, $c_i$, the constraint functions, and possibly the first and second derivatives of these functions. Some algorithms accumulate information gathered at previous iterations, while others use only local information obtained at the current point.</p>
+<p>Aspects of judging whether the algorithm is a good or not:</p>
+<ul>
+<li>Robustness</li>
+<li>Efficiency</li>
+<li>Accuracy</li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>Numerical Optimization (2nd) by Jorge Nocedal, Stephen J. Wright</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/15/%E5%9B%9B%E4%B8%AD%E6%B1%87%E6%8A%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1962,118 +2098,6 @@ max\{0,min\{S_T-90, 110-S_T\}\}</script><p>利用二叉树模型求出初始股�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/27/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B01%E2%80%94%E2%80%94%E5%AF%B9%E6%97%A0%E7%A9%B7%E7%82%B9%E9%9B%86%E6%9B%B4%E7%B2%BE%E7%BB%86%E7%9A%84%E5%88%92%E5%88%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/27/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B01%E2%80%94%E2%80%94%E5%AF%B9%E6%97%A0%E7%A9%B7%E7%82%B9%E9%9B%86%E6%9B%B4%E7%B2%BE%E7%BB%86%E7%9A%84%E5%88%92%E5%88%86/" class="post-title-link" itemprop="url">浅谈实变函数1——对无穷点集更精细的划分</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-27 17:24:32" itemprop="dateCreated datePublished" datetime="2021-10-27T17:24:32+08:00">2021-10-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 15:44:30" itemprop="dateModified" datetime="2021-11-03T15:44:30+08:00">2021-11-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>&emsp;&emsp;在数学分析中，我们常常处理的是连续函数，因为这种函数有着良好的性质，在微分与积分时可以得到比较好的结果。当然，我们偶尔也会处理仅在有限点处不连续的函数，它们在某些结果上从和连续函数并没有多大差别。</p>
-<p>&emsp;&emsp;可是当考虑无限点处不连续的函数时，我们原有的方法失效了。一个典型的例子就是 f 在$ [0,1] $上的Riemann积分，其中 f 形式如下所示：</p>
-<script type="math/tex; mode=display">
-f(x)=
-\begin{cases}
-0, &\forall \ x \in [0,1]\bigcap \mathbb{Q}\\
-1, &\forall \ x \in [0,1]\bigcap \mathbb{Q}^c
-\end{cases}</script><p>也即该函数在无理点处取值为1，在有理点处取值为0。注意到这个函数在$ [0,1] $上是Riemann不可积的。（这也促使我们需要从更高的观点来看待积分）</p>
-<p>&emsp;&emsp;首先，我们将点集分为有限点集和无限点集：有限点集是很好处理的，重点是无限点集。这里我所说的“很好处理”，是指我们很容易判断一个集合的大小，有限点集的大小就是看这个集合中元素的个数，数数我们总是会的。而当我们面对一个无限点集时，我们并不好描述它的“无限”究竟是多么不加限制。</p>
-<p>&emsp;&emsp;先从有限集合获取灵感：</p>
-<p>&emsp;&emsp;1. 有限集合的大小定义为集合中元素的个数</p>
-<p>&emsp;&emsp;2. 有限集合A，B的大小比较是通过比较两集合元素多少。笨一点的方法是我们挑出A中一个元素，发现B中也能挑出一个元素，再从A中不重复的挑出一个元素，发现B中也能挑出一个元素……直至其中一个集合再也不能挑出元素来（例如B已经宣布告罄了），那么我们认为$|A|\ge|B|$。</p>
-<p>&emsp;&emsp;下面我们来给无穷点集进行<strong>更加精细的划分</strong>。</p>
-<p>&emsp;&emsp;1. 按着原先通过数数来得到集合大小（元素多少）的思路，我们考虑一种集合，<strong>这种集合可以以某种方式特定的数数方式一直进行下去，以至于集合中任给一个元素都在某一次数数中被数到</strong>。自然数集<script type="math/tex">\ \mathbb{N}\</script>显然就是我们所要求的集合。</p>
-<p>&emsp;&emsp;2. 推广有限集合比较大小的思路，所谓“笨方法”其实就是再找两集合之间元素的一一映射（双射）。所以，对于两个无限集，我们如果能够找到一个<strong>双射</strong>，将两个集合的元素一一对应，那么我们可以认为这两个集合大小确实是相等的，且称这两个集合<strong>对等</strong>。</p>
-<p>&emsp;&emsp;利用以上两点，我们得到了一类特殊的无限点集——这类点集与$ \mathbb{N}  $都是对等的，称为<strong>可列集</strong>或<strong>可数集</strong>。我们所熟知的有理数集$ \mathbb{Q} $就是可数集。（而且如果你稍微思考一下，会发现这类无限点集应该是所有无限集中<strong>点的个数“最少”</strong>的了。）</p>
-<p>&emsp;&emsp;这时候就有好奇宝宝要问了，那么这世界上有“不可数集”吗？答案是肯定的。Cantor给出了无理数不可数的证明。</p>
-<p>&emsp;&emsp;满怀欣喜地发现无限点集可以分为可数集和不可数集，我们自然希望它们在某些性质上确实是有本质不同的。接下来我们可以从不太严谨的论述中看到这一点。</p>
-<p>&emsp;&emsp;再赋予无限集多一点想象。现在从感觉上，可数集，不可数集和<strong>点密集到成区间的集合</strong>中都会有无穷多的点，但是我们还是难以体会其间关联与奥妙。没关系，这时候我们从“长度”（日后我们将其推广为测度）的观点来看待这个问题。我们过往常接触的区间都是有长度的。以闭区间$ [a,b] $为例，它的长度就是$ b-a $。既然如此，好奇宝宝可能又会问了：可数集的“长度”应该是多少呢？</p>
-<p>&emsp;&emsp;可数集既然是“点最少”的无限集，看来所谓的“无限”也并不是没有限制，我们不妨大胆假设它的“长度”为0。转化为数学语言，下面给它一个稍微有点启发性的证明。</p>
-<p>&emsp;&emsp;我们将可数集表示为$ \{ a_k\}_{k\in \mathbb{N}} $。长度为0，也就是说它的长度要多小有多小（通过$ \epsilon $的任意性来刻画）。为了计算方便，我们不妨用不相交的开区间盖住每个点，那么“点的长度”$ m(a_k) $可以用开区间长度来逼近，令$  a_k $对应的开区间长度不超过$ \frac{\epsilon}{2^k} $（这总是可以做到的）：</p>
-<script type="math/tex; mode=display">
-\forall \epsilon >0,\ m(a_k)<\frac{\epsilon}{2^k} \ (\forall k\in \mathbb{N})</script><p>将所有点的“长度”求和：</p>
-<script type="math/tex; mode=display">
-\forall \epsilon >0,\ \sum_{k=1}^{+\infty}{m(a_k)} = \sum_{k=1}^{+\infty}{\frac{\epsilon}{2^k}}<\epsilon</script><blockquote>
-<p>注：</p>
-<ol>
-<li>这里“点的长度”的符号$ m(a_n) $并不规范，只是为了描述方便。</li>
-<li>这个证明反映了可数集无限的“有限性”：既然可数集与自然数对等，那么我们可以通过指标k来控制可数集中的每一个点，将这种限制加到每一个点的“长度”上，以期在求和之后仍能达到任意小的结果。</li>
-</ol>
-</blockquote>
-<p>&emsp;&emsp;对于不可数集，情况则有所不同了。例如<strong>$ [0,1] $上有理数集“长度”为0</strong>。对于不可数集，我们就不一定能得到这么好的结果了，事实上不可数集Cantor三分集“长度”为0，而<strong>$ [0,1] $上无理数集“长度”为1</strong>。</p>
-<blockquote>
-<p>注：</p>
-<ol>
-<li>我们并没有得到关于可数集与不可数集的本质刻画。虽然可数集“长度”一定为0，但是反过来“长度”为0并不一定是可数集。</li>
-</ol>
-</blockquote>
-<p>&emsp;&emsp;至此我们对无限集的理解又加深了一步。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2145,14 +2169,14 @@ f(x)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
