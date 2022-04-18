@@ -30,7 +30,7 @@
 <meta property="og:description" content="ReviewReminded that the general form of the optimization problem is as follows  \min_{x\in\R^n} f(x)\quad s.t.\ \begin{cases} c_i(x)&#x3D;0\quad i \in \mathcal{E}\\ c_i(x)\ge 0\quad i \in \mathcal{I} \end{">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-17T00:59:10.000Z">
-<meta property="article:modified_time" content="2022-04-17T01:32:25.190Z">
+<meta property="article:modified_time" content="2022-04-18T05:22:11.843Z">
 <meta property="article:author" content="Shaw">
 <meta name="twitter:card" content="summary">
 
@@ -199,10 +199,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-04-17 08:59:10 / Modified: 09:32:25" itemprop="dateCreated datePublished" datetime="2022-04-17T08:59:10+08:00">2022-04-17</time>
+              <time title="Created: 2022-04-17 08:59:10" itemprop="dateCreated datePublished" datetime="2022-04-17T08:59:10+08:00">2022-04-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-18 13:22:11" itemprop="dateModified" datetime="2022-04-18T13:22:11+08:00">2022-04-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -248,7 +254,32 @@ f(x^*)\le f(x)\quad for\ all\ x\in\mathcal{N}</script><p>A point that satisfies 
 <script type="math/tex; mode=display">
 \exist\ \mathcal{N}\ s.t.\ f(x^*)\lt f(x),\ \forall x\in\mathcal{N}with\ x\ne x^*</script><p>The last type of minimizer is called an isolated minimizer, which there is a neighborhood $ \mathcal{N} $ of $ x^<em> $ such that $ x^</em> $ is the only local minimizer in $ \mathcal{N} $.</p>
 <p>All isolated local minimizers are strict, while the reverse does not hold.</p>
-<h3 id="Recognizing-A-Local-Minimum"><a href="#Recognizing-A-Local-Minimum" class="headerlink" title="Recognizing A Local Minimum"></a>Recognizing A Local Minimum</h3>
+<h3 id="Recognizing-A-Local-Minimum"><a href="#Recognizing-A-Local-Minimum" class="headerlink" title="Recognizing A Local Minimum"></a>Recognizing A Local Minimum</h3><p>It seems that we have to check all the points to make sure none of them has a smaller function value then as $ x^<em>$’s did. Fortunately, supposing the objective function to be twice continuously differentiable, we may be able to tell that whether $ x^</em> $is a local minimizer by examining just the gradient $ \triangledown f(x^<em>) $and the Hessian matrix $ \triangledown^2 f(x^</em>)$.</p>
+<h4 id="Theorem-Taylor’s-Theorem"><a href="#Theorem-Taylor’s-Theorem" class="headerlink" title="Theorem (Taylor’s Theorem)"></a>Theorem (Taylor’s Theorem)</h4><p>suppose that $ f:\R^n\rightarrow\R $is continuously differentiable and that $p \in \R^n$. Then we have that </p>
+<script type="math/tex; mode=display">
+f(x+p)=f(x)+\triangledown f(x+tp)^{T}p</script><p>for some $t\in (0,1)$. Moreover, if f is twice continuously differentiable, we have that </p>
+<script type="math/tex; mode=display">
+\triangledown f(x+p)=\triangledown f(x) + \int_{0}^{1}\triangledown^2f(x+tp)pdt</script><p>and that </p>
+<script type="math/tex; mode=display">
+f(x+p)=f(x)+\triangledown f(x)^{T}p+\frac 1{2}p^T\triangledown^2f(x+tp)p</script><p>for some $t\in (0,1)$.</p>
+<h4 id="Theorem-First-Order-Necessary-Conditions"><a href="#Theorem-First-Order-Necessary-Conditions" class="headerlink" title="Theorem (First-Order Necessary Conditions)"></a>Theorem (First-Order Necessary Conditions)</h4><p>If $ x^<em> $ is local minimizer and f is continuously differentiable in an open neighborhood of $ x^</em> $, then $ \triangledown f(x^*)=0$.</p>
+<h4 id="Theorem-Second-Order-Necessary-Conditions"><a href="#Theorem-Second-Order-Necessary-Conditions" class="headerlink" title="Theorem (Second-Order Necessary Conditions)"></a>Theorem (Second-Order Necessary Conditions)</h4><p>If $ x^<em> $is a local minimizer of f and $ \triangledown^2f $ exists and is continuous in an open neighborhood of $ x^</em> $, then $ \triangledown f(x^<em>)=0 $and $ \triangledown^2 f(x^</em>) $is positive semidefinite.</p>
+<h4 id="Theorem-Second-Order-Sufficient-Conditions"><a href="#Theorem-Second-Order-Sufficient-Conditions" class="headerlink" title="Theorem (Second-Order Sufficient Conditions)"></a>Theorem (Second-Order Sufficient Conditions)</h4><p>Suppose that  $ \triangledown^2f $ is continuous in an open neighborhood of $ x^<em> $, and that $ \triangledown f(x^</em>)=0 $and $ \triangledown^2 f(x^<em>) $is positive definite. Then $ x^</em> $ is a strict local minimizer of f.</p>
+<h4 id="Theorem-Transformation-from-local-m-to-global-m"><a href="#Theorem-Transformation-from-local-m-to-global-m" class="headerlink" title="Theorem (Transformation from local-m to global-m)"></a>Theorem (Transformation from local-m to global-m)</h4><p>When f is convex, any local minimizer $ x^<em> $is a global minimizer of f. If in addition f is differentiable, then any stationary point $ x^</em> $is a global minimizer of f.</p>
+<h3 id="Overview-of-Algorithm"><a href="#Overview-of-Algorithm" class="headerlink" title="Overview of Algorithm"></a>Overview of Algorithm</h3><p>Our idea is simple. Beginning at a starting point $ x_0$, optimization algorithms generate a sequence of iterates $ \{x_k\}_{k=0}^{\infty} $ that terminate when either no more progress can be made or when it seems that a solution point has been approximated by current point $ x_k $with sufficient accuracy.</p>
+<p>Intuitively, when we generate such a sequence of iterates, we hope that the corresponding function value sequence $ \{f(x_k)\}_{k=0}^{\infty} $ ought to decease (if we try to solve a minimization problem, otherwise to increase when facing a maximization problem) or at least we can decrease the objective function value $ f(x_k) $ with several steps of iteration, that is $ f(x_k)\lt f(x_{k-m})$.</p>
+<p>There are two fundamental strategies for moving from the current point $ x_k $to a new iterate $ x_{k+1}$. Most of the algorithms describe in this book follow one of these approaches.</p>
+<h4 id="two-strategies-line-search-and-trust-region"><a href="#two-strategies-line-search-and-trust-region" class="headerlink" title="two strategies: line search and trust region"></a>two strategies: line search and trust region</h4><h4 id="line-search"><a href="#line-search" class="headerlink" title="line search"></a>line search</h4><p>In the <strong>line search</strong> strategy, the algorithm chooses a <strong>direction</strong> $ p_k $and searches along this direction from the current iterate $ x_k $for a new iterate with a lower function value. The distance to move along $ p_k $can be found by approximately solving the following one dimensional minimization problem to find a <strong>step length</strong> $ \alpha$:</p>
+<script type="math/tex; mode=display">
+\min_{\alpha\gt 0}f(x_k+\alpha p_k)</script><p>By solving the problem above exactly, we would derive the maximum benefit from the direction $ p_k$, but an exact minimization may be expensive. Instead, the line search algorithm generates a limited number of trial step lengths until it finds one that loosely approximates the minimum of the problem above.</p>
+<h4 id="trust-region"><a href="#trust-region" class="headerlink" title="trust region"></a>trust region</h4><p>In the second algorithmic strategy, known as trust region, the information gathered about f is used to construct a model function $ m_k $whose behavior near the current point $ x_k $is similar to that of the actual objective function f. Because the model $ m_k $may be a good approximation of f when x is far from $ x_k$. In other words, we restrict the search for a minimizer of $ m_k $to some region around $ x_k$. In other words, we find the candidate step p by approximately solving the following subproblem:</p>
+<script type="math/tex; mode=display">
+\min_{p}m_k(x_k+p),\quad wherex_k+p\ lies\ inside\ the\ trust\ region</script><p>If the candidates solution does not produce a sufficient decrease in f, we conclude that the trust region is too large, and we shrink it and re-solve the problem.</p>
+<p>The model $ m_k $in the problem above is usually defined to be a quadratic function of the form </p>
+<script type="math/tex; mode=display">
+m_k(x_k+p)=f_k+p^T\triangledown f_k+\frac1{2}p^TB_kp</script><p>where $ f_k$, $\triangledown f_k$, and $B_k $are scalar, vector, and matrix, respectively. The matrix $ B_k $is either the Hessian $ \triangledown^2f_k $or some approximation to it.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>Numerical Optimization (2nd) by Jorge Nocedal, Stephen J. Wright</p>
+
     </div>
 
     
@@ -325,7 +356,7 @@ f(x^*)\le f(x)\quad for\ all\ x\in\mathcal{N}</script><p>A point that satisfies 
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Review"><span class="nav-number">1.</span> <span class="nav-text">Review</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-Is-A-Solution"><span class="nav-number">2.</span> <span class="nav-text">What Is A Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#global-minimizer"><span class="nav-number">2.1.</span> <span class="nav-text">global minimizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#local-minimizer"><span class="nav-number">2.2.</span> <span class="nav-text">local minimizer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recognizing-A-Local-Minimum"><span class="nav-number">3.</span> <span class="nav-text">Recognizing A Local Minimum</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Review"><span class="nav-number">1.</span> <span class="nav-text">Review</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-Is-A-Solution"><span class="nav-number">2.</span> <span class="nav-text">What Is A Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#global-minimizer"><span class="nav-number">2.1.</span> <span class="nav-text">global minimizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#local-minimizer"><span class="nav-number">2.2.</span> <span class="nav-text">local minimizer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recognizing-A-Local-Minimum"><span class="nav-number">3.</span> <span class="nav-text">Recognizing A Local Minimum</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Theorem-Taylor%E2%80%99s-Theorem"><span class="nav-number">3.1.</span> <span class="nav-text">Theorem (Taylor’s Theorem)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Theorem-First-Order-Necessary-Conditions"><span class="nav-number">3.2.</span> <span class="nav-text">Theorem (First-Order Necessary Conditions)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Theorem-Second-Order-Necessary-Conditions"><span class="nav-number">3.3.</span> <span class="nav-text">Theorem (Second-Order Necessary Conditions)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Theorem-Second-Order-Sufficient-Conditions"><span class="nav-number">3.4.</span> <span class="nav-text">Theorem (Second-Order Sufficient Conditions)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Theorem-Transformation-from-local-m-to-global-m"><span class="nav-number">3.5.</span> <span class="nav-text">Theorem (Transformation from local-m to global-m)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overview-of-Algorithm"><span class="nav-number">4.</span> <span class="nav-text">Overview of Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#two-strategies-line-search-and-trust-region"><span class="nav-number">4.1.</span> <span class="nav-text">two strategies: line search and trust region</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#line-search"><span class="nav-number">4.2.</span> <span class="nav-text">line search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#trust-region"><span class="nav-number">4.3.</span> <span class="nav-text">trust region</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
