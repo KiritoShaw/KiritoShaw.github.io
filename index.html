@@ -227,7 +227,7 @@
 <h4 id="样本信息"><a href="#样本信息" class="headerlink" title="样本信息"></a>样本信息</h4><p>样本信息即从总体抽取的样本给我们的提供的信息。人们希望通过样本信息对总体的某些特征进行较为精确的统计推断。没有样本就没有统计学可言。</p>
 <h4 id="先验信息"><a href="#先验信息" class="headerlink" title="先验信息"></a>先验信息</h4><p>先验信息是在抽样之前有关统计问题的一些信息，一般来说，先验信息主要来源于经验和历史资料。很显然，成熟而靠谱的经验有助于我们得到更加精确的结论。例如一个常饮牛奶加茶的女士声称她能辨别出先倒进杯子的究竟是牛奶还是茶。对此统计学家做了十次试验，结果发现她每次都正确说出来了。而当无知的统计学家妄自尊大地想自己去尝试辨别（盲猜）时，却只成功猜中了4次。在这种情况下，我们确实看到了经验对于推断产生的影响。</p>
 <p>基于上述三种信息进行的统计推断称为贝叶斯统计学。它与经典的统计学的主要差别在于是否利用先验信息。另外，它们在使用样本信息上也是有差别的。贝叶斯学派重视已出现的样本观察值，而对尚未发生的样本观察值不予考虑。贝叶斯学派很重视先验信息的收集、挖掘和加工，使它数量化，形成先验分布，参加到统计推断中来，以提高统计推断的质量。</p>
-<p>更具体地说，贝叶斯学派的最基本的观点就是：任一个未知量$ \theta $都可以看作一个随机变量，应用一个概率分布去描述对$ \theta $的未知情况。当然这个分布在未进行抽样之前就已经给出了，所以也被称为先验分布，或简称先验（prior）。而频率学派则认为$ \theta $是一个常量，并不存在任何的不确定性。</p>
+<p>更具体地说，贝叶斯学派的最基本的观点就是：任一个未知量$\ \theta\ $都可以看作一个随机变量，应用一个概率分布去描述对$\ \theta\ $的未知情况。当然这个分布在未进行抽样之前就已经给出了，所以也被称为先验分布，或简称先验（prior）。而频率学派则认为$\ \theta\ $是一个常量，并不存在任何的不确定性。</p>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
 
       
@@ -310,39 +310,39 @@ c_i(x)=0\quad i \in \mathcal{E}\\
 c_i(x)\ge 0\quad i \in \mathcal{I}
 \end{cases}</script><p>Now in unconstrained optimization, we minimize an objective function that depends on real variables, with no restrictions at all on the values of these variables. The mathematical formulation is</p>
 <script type="math/tex; mode=display">
-\min_{x\in\R^n}f(x)</script><p>where $ x\in\R^n $ is a real vector with $ n\ge 1 $ components and $ f:\R^n\rightarrow\R $ is a smooth function.</p>
-<h3 id="What-Is-A-Solution"><a href="#What-Is-A-Solution" class="headerlink" title="What Is A Solution"></a>What Is A Solution</h3><h4 id="global-minimizer"><a href="#global-minimizer" class="headerlink" title="global minimizer"></a>global minimizer</h4><p>We say a point $ x^* $ is a global minimizer if </p>
+\min_{x\in\R^n}f(x)</script><p>where $\ x\in\R^n\ $ is a real vector with $\ n\ge 1\ $ components and $\ f:\R^n\rightarrow\R\ $ is a smooth function.</p>
+<h3 id="What-Is-A-Solution"><a href="#What-Is-A-Solution" class="headerlink" title="What Is A Solution"></a>What Is A Solution</h3><h4 id="global-minimizer"><a href="#global-minimizer" class="headerlink" title="global minimizer"></a>global minimizer</h4><p>We say a point $\ x^*\ $ is a global minimizer if </p>
 <script type="math/tex; mode=display">
-f(x^*)\le f(x)\quad for\ all\ x\in\R^n</script><h4 id="local-minimizer"><a href="#local-minimizer" class="headerlink" title="local minimizer"></a>local minimizer</h4><p>Then a local minimizer is that the point is only achieves the smallest value of f in its neighborhood. Formally, we say a point $ x^<em> $ is a local minimizer if there is a neighborhood $ \mathcal{N} $ of $ x^</em> $ such that  </p>
+f(x^*)\le f(x)\quad for\ all\ x\in\R^n</script><h4 id="local-minimizer"><a href="#local-minimizer" class="headerlink" title="local minimizer"></a>local minimizer</h4><p>Then a local minimizer is that the point is only achieves the smallest value of f in its neighborhood. Formally, we say a point $\ x^<em>\ $ is a local minimizer if there is a neighborhood $\ \mathcal{N}\ $ of $\ x^</em>\ $ such that  </p>
 <script type="math/tex; mode=display">
-f(x^*)\le f(x)\quad for\ all\ x\in\mathcal{N}</script><p>A point that satisfies this definition is sometimes called a weak local minimizer. A strict local minimizer is then the outright winner in its neighborhood. Formally, A point $ x^* $ is a strict local minimizer</p>
+f(x^*)\le f(x)\quad for\ all\ x\in\mathcal{N}</script><p>A point that satisfies this definition is sometimes called a weak local minimizer. A strict local minimizer is then the outright winner in its neighborhood. Formally, A point $\ x^*\ $ is a strict local minimizer</p>
 <script type="math/tex; mode=display">
-\exist\ \mathcal{N}\ s.t.\ f(x^*)\lt f(x),\ \forall x\in\mathcal{N}with\ x\ne x^*</script><p>The last type of minimizer is called an isolated minimizer, which there is a neighborhood $ \mathcal{N} $ of $ x^<em> $ such that $ x^</em> $ is the only local minimizer in $ \mathcal{N} $.</p>
+\exist\ \mathcal{N}\ s.t.\ f(x^*)\lt f(x),\ \forall x\in\mathcal{N}with\ x\ne x^*</script><p>The last type of minimizer is called an isolated minimizer, which there is a neighborhood $\ \mathcal{N}\ $ of $\ x^<em>\ $ such that $\ x^</em>\ $ is the only local minimizer in $\ \mathcal{N}\ $.</p>
 <p>All isolated local minimizers are strict, while the reverse does not hold.</p>
-<h3 id="Recognizing-A-Local-Minimum"><a href="#Recognizing-A-Local-Minimum" class="headerlink" title="Recognizing A Local Minimum"></a>Recognizing A Local Minimum</h3><p>It seems that we have to check all the points to make sure none of them has a smaller function value then as $ x^<em>$’s did. Fortunately, supposing the objective function to be twice continuously differentiable, we may be able to tell that whether $ x^</em> $is a local minimizer by examining just the gradient $ \triangledown f(x^<em>) $and the Hessian matrix $ \triangledown^2 f(x^</em>)$.</p>
-<h4 id="Theorem-Taylor’s-Theorem"><a href="#Theorem-Taylor’s-Theorem" class="headerlink" title="Theorem (Taylor’s Theorem)"></a>Theorem (Taylor’s Theorem)</h4><p>suppose that $ f:\R^n\rightarrow\R $is continuously differentiable and that $p \in \R^n$. Then we have that </p>
+<h3 id="Recognizing-A-Local-Minimum"><a href="#Recognizing-A-Local-Minimum" class="headerlink" title="Recognizing A Local Minimum"></a>Recognizing A Local Minimum</h3><p>It seems that we have to check all the points to make sure none of them has a smaller function value then as $\ x^<em>$’s did. Fortunately, supposing the objective function to be twice continuously differentiable, we may be able to tell that whether $\ x^</em>\ $is a local minimizer by examining just the gradient $\ \triangledown f(x^<em>)\ $and the Hessian matrix $\ \triangledown^2 f(x^</em>)$.</p>
+<h4 id="Theorem-Taylor’s-Theorem"><a href="#Theorem-Taylor’s-Theorem" class="headerlink" title="Theorem (Taylor’s Theorem)"></a>Theorem (Taylor’s Theorem)</h4><p>suppose that $\ f:\R^n\rightarrow\R\ $is continuously differentiable and that $p \in \R^n$. Then we have that </p>
 <script type="math/tex; mode=display">
 f(x+p)=f(x)+\triangledown f(x+tp)^{T}p</script><p>for some $t\in (0,1)$. Moreover, if f is twice continuously differentiable, we have that </p>
 <script type="math/tex; mode=display">
 \triangledown f(x+p)=\triangledown f(x) + \int_{0}^{1}\triangledown^2f(x+tp)pdt</script><p>and that </p>
 <script type="math/tex; mode=display">
 f(x+p)=f(x)+\triangledown f(x)^{T}p+\frac 1{2}p^T\triangledown^2f(x+tp)p</script><p>for some $t\in (0,1)$.</p>
-<h4 id="Theorem-First-Order-Necessary-Conditions"><a href="#Theorem-First-Order-Necessary-Conditions" class="headerlink" title="Theorem (First-Order Necessary Conditions)"></a>Theorem (First-Order Necessary Conditions)</h4><p>If $ x^<em> $ is local minimizer and f is continuously differentiable in an open neighborhood of $ x^</em> $, then $ \triangledown f(x^*)=0$.</p>
-<h4 id="Theorem-Second-Order-Necessary-Conditions"><a href="#Theorem-Second-Order-Necessary-Conditions" class="headerlink" title="Theorem (Second-Order Necessary Conditions)"></a>Theorem (Second-Order Necessary Conditions)</h4><p>If $ x^<em> $is a local minimizer of f and $ \triangledown^2f $ exists and is continuous in an open neighborhood of $ x^</em> $, then $ \triangledown f(x^<em>)=0 $and $ \triangledown^2 f(x^</em>) $is positive semidefinite.</p>
-<h4 id="Theorem-Second-Order-Sufficient-Conditions"><a href="#Theorem-Second-Order-Sufficient-Conditions" class="headerlink" title="Theorem (Second-Order Sufficient Conditions)"></a>Theorem (Second-Order Sufficient Conditions)</h4><p>Suppose that  $ \triangledown^2f $ is continuous in an open neighborhood of $ x^<em> $, and that $ \triangledown f(x^</em>)=0 $and $ \triangledown^2 f(x^<em>) $is positive definite. Then $ x^</em> $ is a strict local minimizer of f.</p>
-<h4 id="Theorem-Transformation-from-local-m-to-global-m"><a href="#Theorem-Transformation-from-local-m-to-global-m" class="headerlink" title="Theorem (Transformation from local-m to global-m)"></a>Theorem (Transformation from local-m to global-m)</h4><p>When f is convex, any local minimizer $ x^<em> $is a global minimizer of f. If in addition f is differentiable, then any stationary point $ x^</em> $is a global minimizer of f.</p>
-<h3 id="Overview-of-Algorithm"><a href="#Overview-of-Algorithm" class="headerlink" title="Overview of Algorithm"></a>Overview of Algorithm</h3><p>Our idea is simple. Beginning at a starting point $ x_0$, optimization algorithms generate a sequence of iterates $ \{x_k\}_{k=0}^{\infty} $ that terminate when either no more progress can be made or when it seems that a solution point has been approximated by current point $ x_k $with sufficient accuracy.</p>
-<p>Intuitively, when we generate such a sequence of iterates, we hope that the corresponding function value sequence $ \{f(x_k)\}_{k=0}^{\infty} $ ought to decease (if we try to solve a minimization problem, otherwise to increase when facing a maximization problem) or at least we can decrease the objective function value $ f(x_k) $ with several steps of iteration, that is $ f(x_k)\lt f(x_{k-m})$.</p>
-<p>There are two fundamental strategies for moving from the current point $ x_k $to a new iterate $ x_{k+1}$. Most of the algorithms describe in this book follow one of these approaches.</p>
-<h4 id="two-strategies-line-search-and-trust-region"><a href="#two-strategies-line-search-and-trust-region" class="headerlink" title="two strategies: line search and trust region"></a>two strategies: line search and trust region</h4><h4 id="line-search"><a href="#line-search" class="headerlink" title="line search"></a>line search</h4><p>In the <strong>line search</strong> strategy, the algorithm chooses a <strong>direction</strong> $ p_k $and searches along this direction from the current iterate $ x_k $for a new iterate with a lower function value. The distance to move along $ p_k $can be found by approximately solving the following one dimensional minimization problem to find a <strong>step length</strong> $ \alpha$:</p>
+<h4 id="Theorem-First-Order-Necessary-Conditions"><a href="#Theorem-First-Order-Necessary-Conditions" class="headerlink" title="Theorem (First-Order Necessary Conditions)"></a>Theorem (First-Order Necessary Conditions)</h4><p>If $\ x^<em>\ $ is local minimizer and f is continuously differentiable in an open neighborhood of $\ x^</em>\ $, then $\ \triangledown f(x^*)=0$.</p>
+<h4 id="Theorem-Second-Order-Necessary-Conditions"><a href="#Theorem-Second-Order-Necessary-Conditions" class="headerlink" title="Theorem (Second-Order Necessary Conditions)"></a>Theorem (Second-Order Necessary Conditions)</h4><p>If $\ x^<em>\ $is a local minimizer of f and $\ \triangledown^2f\ $ exists and is continuous in an open neighborhood of $\ x^</em>\ $, then $\ \triangledown f(x^<em>)=0\ $and $\ \triangledown^2 f(x^</em>)\ $is positive semidefinite.</p>
+<h4 id="Theorem-Second-Order-Sufficient-Conditions"><a href="#Theorem-Second-Order-Sufficient-Conditions" class="headerlink" title="Theorem (Second-Order Sufficient Conditions)"></a>Theorem (Second-Order Sufficient Conditions)</h4><p>Suppose that  $\ \triangledown^2f\ $ is continuous in an open neighborhood of $\ x^<em>\ $, and that $\ \triangledown f(x^</em>)=0\ $and $\ \triangledown^2 f(x^<em>)\ $is positive definite. Then $\ x^</em>\ $ is a strict local minimizer of f.</p>
+<h4 id="Theorem-Transformation-from-local-m-to-global-m"><a href="#Theorem-Transformation-from-local-m-to-global-m" class="headerlink" title="Theorem (Transformation from local-m to global-m)"></a>Theorem (Transformation from local-m to global-m)</h4><p>When f is convex, any local minimizer $\ x^<em>\ $is a global minimizer of f. If in addition f is differentiable, then any stationary point $\ x^</em>\ $is a global minimizer of f.</p>
+<h3 id="Overview-of-Algorithm"><a href="#Overview-of-Algorithm" class="headerlink" title="Overview of Algorithm"></a>Overview of Algorithm</h3><p>Our idea is simple. Beginning at a starting point $\ x_0$, optimization algorithms generate a sequence of iterates $\ \{x_k\}_{k=0}^{\infty}\ $ that terminate when either no more progress can be made or when it seems that a solution point has been approximated by current point $\ x_k\ $with sufficient accuracy.</p>
+<p>Intuitively, when we generate such a sequence of iterates, we hope that the corresponding function value sequence $\ \{f(x_k)\}_{k=0}^{\infty}\ $ ought to decease (if we try to solve a minimization problem, otherwise to increase when facing a maximization problem) or at least we can decrease the objective function value $\ f(x_k)\ $ with several steps of iteration, that is $\ f(x_k)\lt f(x_{k-m})$.</p>
+<p>There are two fundamental strategies for moving from the current point $\ x_k\ $to a new iterate $\ x_{k+1}$. Most of the algorithms describe in this book follow one of these approaches.</p>
+<h4 id="two-strategies-line-search-and-trust-region"><a href="#two-strategies-line-search-and-trust-region" class="headerlink" title="two strategies: line search and trust region"></a>two strategies: line search and trust region</h4><h4 id="line-search"><a href="#line-search" class="headerlink" title="line search"></a>line search</h4><p>In the <strong>line search</strong> strategy, the algorithm chooses a <strong>direction</strong> $\ p_k\ $and searches along this direction from the current iterate $\ x_k\ $for a new iterate with a lower function value. The distance to move along $\ p_k\ $can be found by approximately solving the following one dimensional minimization problem to find a <strong>step length</strong> $\ \alpha$:</p>
 <script type="math/tex; mode=display">
-\min_{\alpha\gt 0}f(x_k+\alpha p_k)</script><p>By solving the problem above exactly, we would derive the maximum benefit from the direction $ p_k$, but an exact minimization may be expensive. Instead, the line search algorithm generates a limited number of trial step lengths until it finds one that loosely approximates the minimum of the problem above.</p>
-<h4 id="trust-region"><a href="#trust-region" class="headerlink" title="trust region"></a>trust region</h4><p>In the second algorithmic strategy, known as trust region, the information gathered about f is used to construct a model function $ m_k $whose behavior near the current point $ x_k $is similar to that of the actual objective function f. Because the model $ m_k $may be a good approximation of f when x is far from $ x_k$. In other words, we restrict the search for a minimizer of $ m_k $to some region around $ x_k$. In other words, we find the candidate step p by approximately solving the following subproblem:</p>
+\min_{\alpha\gt 0}f(x_k+\alpha p_k)</script><p>By solving the problem above exactly, we would derive the maximum benefit from the direction $\ p_k$, but an exact minimization may be expensive. Instead, the line search algorithm generates a limited number of trial step lengths until it finds one that loosely approximates the minimum of the problem above.</p>
+<h4 id="trust-region"><a href="#trust-region" class="headerlink" title="trust region"></a>trust region</h4><p>In the second algorithmic strategy, known as trust region, the information gathered about f is used to construct a model function $\ m_k\ $whose behavior near the current point $\ x_k\ $is similar to that of the actual objective function f. Because the model $\ m_k\ $may be a good approximation of f when x is far from $\ x_k$. In other words, we restrict the search for a minimizer of $\ m_k\ $to some region around $\ x_k$. In other words, we find the candidate step p by approximately solving the following subproblem:</p>
 <script type="math/tex; mode=display">
 \min_{p}m_k(x_k+p),\quad wherex_k+p\ lies\ inside\ the\ trust\ region</script><p>If the candidates solution does not produce a sufficient decrease in f, we conclude that the trust region is too large, and we shrink it and re-solve the problem.</p>
-<p>The model $ m_k $in the problem above is usually defined to be a quadratic function of the form </p>
+<p>The model $\ m_k\ $in the problem above is usually defined to be a quadratic function of the form </p>
 <script type="math/tex; mode=display">
-m_k(x_k+p)=f_k+p^T\triangledown f_k+\frac1{2}p^TB_kp</script><p>where $ f_k$, $\triangledown f_k$, and $B_k $are scalar, vector, and matrix, respectively. The matrix $ B_k $is either the Hessian $ \triangledown^2f_k $or some approximation to it.</p>
+m_k(x_k+p)=f_k+p^T\triangledown f_k+\frac1{2}p^TB_kp</script><p>where $\ f_k$, $\triangledown f_k$, and $B_k\ $are scalar, vector, and matrix, respectively. The matrix $\ B_k\ $is either the Hessian $\ \triangledown^2f_k\ $or some approximation to it.</p>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>Numerical Optimization (2nd) by Jorge Nocedal, Stephen J. Wright</p>
 
       
@@ -427,7 +427,7 @@ m_k(x_k+p)=f_k+p^T\triangledown f_k+\frac1{2}p^TB_kp</script><p>where $ f_k$, $\
 <ul>
 <li>x is the vector of variables, also called unknowns or parameters</li>
 <li>f is the objective function, a (scalar) function of x that we want to maximize or minimize</li>
-<li>$c_i $are constraint functions, which are scalar functions of x that define equations and inequalities that the unknown vector x must satisfy</li>
+<li>$c_i\ $are constraint functions, which are scalar functions of x that define equations and inequalities that the unknown vector x must satisfy</li>
 </ul>
 <p>Optimization problem can be written as follows by using the notations above:</p>
 <script type="math/tex; mode=display">
@@ -435,7 +435,7 @@ m_k(x_k+p)=f_k+p^T\triangledown f_k+\frac1{2}p^TB_kp</script><p>where $ f_k$, $\
 \begin{cases}
 c_i(x) = 0\quad i \in \mathcal{E}\\
 c_i(x)\ge 0\quad i \in \mathcal{I}
-\end{cases}</script><p>Here $ \mathcal{I} $and $ \mathcal{E} $are sets of indexes for equality and inequality constraints, respectively.</p>
+\end{cases}</script><p>Here $\ \mathcal{I}\ $and $\ \mathcal{E}\ $are sets of indexes for equality and inequality constraints, respectively.</p>
 <ul>
 <li>feasible region: the set of points satisfying all the constraints</li>
 </ul>
@@ -740,12 +740,12 @@ f(\alpha x+(1-\alpha)y)\lt \alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,
 <h5 id="支付连续股息"><a href="#支付连续股息" class="headerlink" title="支付连续股息"></a>支付连续股息</h5><blockquote>
 <p>假设股票支付连续股息，股票收益率为2%，取步数为500，1000，1500，2000，利用二叉树模型对有效期为半年、执行价格为100美元的欧式、美式看涨、看跌期权定价，并针对数值结果进行合理的分析。</p>
 </blockquote>
-<p>假设某股票支付连续收益率为$ q $的股息。在风险中性世界里股息收益率加上资产收益<code>(capital gain)</code>率的总和等于$ 𝑟$，股息收益率为$ 𝑞$，因此资本收益率为$ 𝑟−𝑞$。</p>
+<p>假设某股票支付连续收益率为$\ q\ $的股息。在风险中性世界里股息收益率加上资产收益<code>(capital gain)</code>率的总和等于$\ 𝑟$，股息收益率为$\ 𝑞$，因此资本收益率为$\ 𝑟−𝑞$。</p>
 <ol>
-<li><p>资本收益率的变化最终会导致股价上涨概率$ p $的变化</p>
+<li><p>资本收益率的变化最终会导致股价上涨概率$\ p\ $的变化</p>
 <script type="math/tex; mode=display">
 p = \frac{e^{(r-q)\Delta t}-d}{u-d}</script></li>
-<li><p>在风险中性世界里，期权的价格等于其未来价格的数学期望以无风险利率$ r $进行贴现</p>
+<li><p>在风险中性世界里，期权的价格等于其未来价格的数学期望以无风险利率$\ r\ $进行贴现</p>
 <script type="math/tex; mode=display">
 f = [p*f_u + (1-p)*f_d]e^{-r\Delta t}</script></li>
 </ol>
@@ -771,7 +771,7 @@ f = [p*f_u + (1-p)*f_d]e^{-r\Delta t}</script></li>
 <h5 id="支付一次性股息"><a href="#支付一次性股息" class="headerlink" title="支付一次性股息"></a>支付一次性股息</h5><blockquote>
 <p>假设该股票将于2个月后一次性支付股息，金额为当时股价的2%，取步数为500，1000，1500，2000，利用二叉树模型对有效期为半年、执行价格为100美元的欧式和美式看涨、看跌期权定价，并针对数值结果给出合理的分析。</p>
 </blockquote>
-<p>假定股票只在某个离散时刻点上支付一次股息，而且股息为当时股价的$ \delta $倍，其他参数与没有股息情形下一样。</p>
+<p>假定股票只在某个离散时刻点上支付一次股息，而且股息为当时股价的$\ \delta\ $倍，其他参数与没有股息情形下一样。</p>
 <center>代码示例</center>
 
 <p>以美式看跌期权为例：</p>
@@ -797,15 +797,15 @@ f = [p*f_u + (1-p)*f_d]e^{-r\Delta t}</script></li>
 </ol>
 <h3 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a><center>第二部分</center></h3><p>已知某股票波动率为25%，无风险利率为5%。考虑以该股票为原生资产的半年期、敲定价格为100美元的欧式看涨、看跌期权。</p>
 <blockquote>
-<p>利用二叉树模型求出初始股票价格为$ 90:1:110 $时的欧式看涨、看跌期权的初始价格，并计算出相应的Delta值。</p>
+<p>利用二叉树模型求出初始股票价格为$\ 90:1:110\ $时的欧式看涨、看跌期权的初始价格，并计算出相应的Delta值。</p>
 </blockquote>
-<p>假设在二叉树的某个节点上，股票价格和期权价格分别为$ S_i $和$ f_i $，下一步股票价格可能上涨到$ uS_i $或者降为$ dS_i $，相应的期权价格变成$ f_{i,u} $或者$ f_{i,d} $。</p>
-<p>由无套利定价方法，我们知道看涨期权出售方可持有$\Delta = \frac{f_{i,u}-f_{i,d}}{uS_i-dS_i} $单位股票对冲掉卖出一份看涨期权所带来的风险。</p>
-<p>由于每一个节点所计算出来的$ \Delta $值不同，所以我们在利用股票和期权进行风险对冲时，我们需要不断调整所持股票的数量。</p>
+<p>假设在二叉树的某个节点上，股票价格和期权价格分别为$\ S_i\ $和$\ f_i\ $，下一步股票价格可能上涨到$\ uS_i\ $或者降为$\ dS_i\ $，相应的期权价格变成$\ f_{i,u}\ $或者$\ f_{i,d}\ $。</p>
+<p>由无套利定价方法，我们知道看涨期权出售方可持有$\Delta = \frac{f_{i,u}-f_{i,d}}{uS_i-dS_i}\ $单位股票对冲掉卖出一份看涨期权所带来的风险。</p>
+<p>由于每一个节点所计算出来的$\ \Delta\ $值不同，所以我们在利用股票和期权进行风险对冲时，我们需要不断调整所持股票的数量。</p>
 <blockquote>
 <p>已知蝶式期权时一种欧式期权，它在到期日的收益等于</p>
 <script type="math/tex; mode=display">
-max\{0,min\{S_T-90, 110-S_T\}\}</script><p>利用二叉树模型求出初始股票价格为$ 90:1:110 $时的蝶式期权的初始价格，并计算出相应点的Delta值。</p>
+max\{0,min\{S_T-90, 110-S_T\}\}</script><p>利用二叉树模型求出初始股票价格为$\ 90:1:110\ $时的蝶式期权的初始价格，并计算出相应点的Delta值。</p>
 </blockquote>
 <center>代码示例</center>
 
