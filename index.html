@@ -199,7 +199,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-04-30 10:42:06 / Modified: 11:27:28" itemprop="dateCreated datePublished" datetime="2022-04-30T10:42:06+08:00">2022-04-30</time>
+              <time title="Created: 2022-04-30 10:42:06 / Modified: 13:46:25" itemprop="dateCreated datePublished" datetime="2022-04-30T10:42:06+08:00">2022-04-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -228,6 +228,23 @@
 <h4 id="先验信息"><a href="#先验信息" class="headerlink" title="先验信息"></a>先验信息</h4><p>先验信息是在抽样之前有关统计问题的一些信息，一般来说，先验信息主要来源于经验和历史资料。很显然，成熟而靠谱的经验有助于我们得到更加精确的结论。例如一个常饮牛奶加茶的女士声称她能辨别出先倒进杯子的究竟是牛奶还是茶。对此统计学家做了十次试验，结果发现她每次都正确说出来了。而当无知的统计学家妄自尊大地想自己去尝试辨别（盲猜）时，却只成功猜中了4次。在这种情况下，我们确实看到了经验对于推断产生的影响。</p>
 <p>基于上述三种信息进行的统计推断称为贝叶斯统计学。它与经典的统计学的主要差别在于是否利用先验信息。另外，它们在使用样本信息上也是有差别的。贝叶斯学派重视已出现的样本观察值，而对尚未发生的样本观察值不予考虑。贝叶斯学派很重视先验信息的收集、挖掘和加工，使它数量化，形成先验分布，参加到统计推断中来，以提高统计推断的质量。</p>
 <p>更具体地说，贝叶斯学派的最基本的观点就是：任一个未知量$\ \theta\ $都可以看作一个随机变量，应用一个概率分布去描述对$\ \theta\ $的未知情况。当然这个分布在未进行抽样之前就已经给出了，所以也被称为先验分布，或简称先验（prior）。而频率学派则认为$\ \theta\ $是一个常量，并不存在任何的不确定性。</p>
+<h3 id="sect-1-2-贝叶斯公式"><a href="#sect-1-2-贝叶斯公式" class="headerlink" title="$\sect 1.2$ 贝叶斯公式"></a><center>$\sect 1.2$ 贝叶斯公式</center></h3><h4 id="贝叶斯公式的密度函数形式"><a href="#贝叶斯公式的密度函数形式" class="headerlink" title="贝叶斯公式的密度函数形式"></a>贝叶斯公式的密度函数形式</h4><ol>
+<li><p>依赖于参数$\ \theta\ $的密度函数在经典统计中记为$p(x;\theta)$或者$p_\theta(x)$，它表示在参数空间$\Theta=\{\theta\}$中不同的$\ \theta\ $对应的不同的分布。可在贝叶斯统计中记为$\ p(x|\theta)$，它表示在随机变量给定某个值时，总体指标$\ X\ $的条件分布。</p>
+</li>
+<li><p>根据参数$\ \theta\ $的先验信息确定先验分布$\ \pi(\theta)\ $。</p>
+</li>
+<li><p>从贝叶斯观点看，样本$\ \vec{x}=(x_1,…,x_n)\ $的产生要分二步进行：</p>
+<ul>
+<li><p>首先设想从先验分布$\ \pi(\theta)\ $产生一个样本$\ \theta\ $，这一步是人们看不到的；</p>
+</li>
+<li><p>第二步是从总体分布$\ p(x|\theta)\ $产生一个样本$\ \vec{x}=(x_1,…,x_n)\ $，这个样本是具体的，是人们能看得到的。此样本的$\ \vec{x}\ $发生的概率是与如下联合密度函数成正比</p>
+<script type="math/tex; mode=display">
+p(\vec{x}|\theta')=\prod_{i=1}^{n}p(x_i|\theta')</script><p>这个联合密度函数综合了总体信息和样本信息，常称为似然函数，记为$\ L(\theta’)$。在有了样本观察值之后，总体和样本信息中所含$\ \theta \ $的信息都被包含在似然函数$\ L(\theta’)\ $中。</p>
+</li>
+</ul>
+</li>
+<li></li>
+</ol>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
 
       
