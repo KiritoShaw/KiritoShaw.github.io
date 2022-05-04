@@ -174,6 +174,98 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-2-%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%8E%A8%E6%96%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-2-%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%8E%A8%E6%96%AD/" class="post-title-link" itemprop="url">贝叶斯统计 2 贝叶斯推断</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-05-04 13:11:03 / Modified: 15:41:08" itemprop="dateCreated datePublished" datetime="2022-05-04T13:11:03+08:00">2022-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Bayesian-Statistics/" itemprop="url" rel="index"><span itemprop="name">Bayesian Statistics</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="S-2-1-条件方法"><a href="#S-2-1-条件方法" class="headerlink" title="$\S 2.1\ $条件方法"></a><center>$\S 2.1\ $条件方法</center></h3><p>统计学中有一种重要的观点称为“条件观点”，即只考虑已出现的数据（样本观察值），而认为未出现的数据与推断无关。后验分布$\ \pi(\theta|\bold{x})\ $是在样本$\ \bold{x}\ $给定下$\ \theta\ $的条件分布，基于后验分布的统计推断就践行了这样的观点。基于条件观点提出的统计推断方法称为条件方法。</p>
+<h3 id="S-2-2-估计"><a href="#S-2-2-估计" class="headerlink" title="$\S 2.2\ $估计"></a><center>$\S 2.2\ $估计</center></h3><h4 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h4><p>设$\ \theta\ $是总体分布$\ p(x|\theta)$中的参数，为估计该参数可从总体中随机抽取一个样本$\ \bold{x}=(x_1,…,x_n)$，同时依据参数的先验信息选择一个先验分布（第三章将会讨论这个问题），用贝叶斯公式算得后验分布$\ \pi(\theta|\bold{x})\ $。最后，如果硬要我们拿出一个$\ \theta\ $的估计值出来，我们可以选用后验分布的某个位置特征值，如众数、中位数或者期望。</p>
+<p>以下三个估计都成为$\ \theta\ $的贝叶斯估计：</p>
+<ul>
+<li>最大后验估计$\ \hat\theta_{MD}$：使后验密度$\ \pi(\theta|\bold{x})\ $达到最大值的$\ \theta$</li>
+<li>后验中位数估计$\ \hat\theta_{Me}$：后验分布的中位数</li>
+<li>后验期望估计$\ \hat\theta_{E}$：后验分布的期望值</li>
+</ul>
+<p>在这里提及以下事实：</p>
+<ul>
+<li>显然对于非对称后验分布，我们所得出来的估计量可能并不相同，在实际情况中需要再进行选择。而一条指导性意见是两个估计量在小样本上的解释性是否有哪个更优。</li>
+<li>有时候我们所得的贝叶斯估计就是经典统计中的极大似然估计，例如在二项分布场合下，取特殊先验为均分分布的$\ \theta\ $，它的最大后验估计就是经典统计中的极大似然估计。贝叶斯学派对这种现象的看法是：任何使用经典统计的人都在自觉或者不自觉地使用贝叶斯推断，与其不自觉地使用，还不如主动选取更合适的先验分布使推断更富有意义。当然频率学派并不会接受这种观点，因为贝叶斯学派尚未证明：总体分布$\ p(x|\theta)\ $中参数的任一经典估计都存在一个先验分布，使得其贝叶斯估计就是该经典统计。</li>
+</ul>
+<p>更多更详细的内容请查阅参考文献《贝叶斯统计》第37至39页。</p>
+<h4 id="贝叶斯估计的误差"><a href="#贝叶斯估计的误差" class="headerlink" title="贝叶斯估计的误差"></a>贝叶斯估计的误差</h4><p>在得到一个估计值之后，我们往往需要知道这个估计值究竟有多靠谱，能不能放心的在实际生活中进行使用，此时我们就需要考虑一个误差的问题了。而衡量误差很自然的想法就是利用方差或者是标准差，好在我们已经有关于参数$\ \theta\ $的后验分布，所以最好而又最简单的方法就是用$\ \theta\ $对$\ \hat\theta\ $的后验均方差或其平方根来度量。</p>
+<p>设参数$\ \theta\ $的后验分布$\ \pi(\theta|\bold{x})\ $，贝叶斯估计为$\ \hat\theta\ $，则$\ (\theta-\hat\theta)^2\ $的后验期望</p>
+<script type="math/tex; mode=display">
+MSE(\hat\theta|\bold{x})=E^{\theta|\bold{x}}[(\theta-\hat\theta)^2]</script><p>称为$\ \hat\theta\ $的后验均方差，而其平方根$\ [MSE(\hat\theta|\bold{x})]^{1/2}\ $称为$\ \hat\theta\ $的后验标准误。其中符号$\ E^{\theta|\bold{x}}\ $表示用条件分布$\ \pi(\theta|\bold{x})\ $求期望。在连续情形下，有</p>
+<script type="math/tex; mode=display">
+E^{\theta|\bold{x}}[(\theta-\hat\theta)^2]=\int_{\Theta}(\theta-\hat\theta)^2\pi(\theta|\bold{x})d\theta</script><p>经过简单的推断，我们还可以得到后验均方差与后验均值之间的关系</p>
+<script type="math/tex; mode=display">
+MSE(\hat\theta|\bold{x})=Var(\theta|\bold{x})+(\hat\theta_E-\hat\theta)^2</script><p>其中$\ \hat\theta_E=E(\theta|\bold{x})$。</p>
+<h3 id="S-2-3-区间估计"><a href="#S-2-3-区间估计" class="headerlink" title="$\S 2.3\ $区间估计"></a><center>$\S 2.3\ $区间估计</center></h3><p>由于贝叶斯学派将参数$\ \theta\ $视为随机变量，所以我们可以很自然的讨论关于$\ \theta\ $的区间估计问题。我们将这种区间称为贝叶斯可信区间。</p>
+<p>而在经典统计中，我们也有类似的给出置信区间的结果。相比之下，置信区间就让人感觉有些摸不着头脑了。比如说我们在95%的置信水平下得到关于$\ \theta\ $的置信区间，此时我们并不允许说$\ \theta\ $落在此区间内的<strong>概率</strong>是0.95，因为对于非随机的常量$\ \theta$，我们并不能言及概率。事实上，给定一个置信区间，常量$\ \theta\ $要么落在置信区间内，要么不落在置信区间内，是一个确定性事件。我们只能以曲线救国的方式将置信区间视为<strong>随机置信区间</strong>说：“在100次使用这个置信区间时，大约有90次能盖住$\ \theta$。”而此种频率解释对仅使用一次或两次的人来说是毫无意义的。很多人还是会下意识将求得的置信区间当作可信区间去使用和理解。</p>
+<h3 id="S-2-4-假设检验"><a href="#S-2-4-假设检验" class="headerlink" title="$\S 2.4\ $假设检验"></a><center>$\S 2.4\ $假设检验</center></h3><h3 id="S-2-5-预测"><a href="#S-2-5-预测" class="headerlink" title="$\S 2.5\ $预测"></a><center>$\S 2.5\ $预测</center></h3><h3 id="S-2-6-似然原理"><a href="#S-2-6-似然原理" class="headerlink" title="$\S 2.6\ $似然原理"></a><center>$\S 2.6\ $似然原理</center></h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-1-%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83%E4%B8%8E%E5%90%8E%E9%AA%8C%E5%88%86%E5%B8%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +297,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-02 16:00:10" itemprop="dateModified" datetime="2022-05-02T16:00:10+08:00">2022-05-02</time>
+                <time title="Modified: 2022-05-04 13:40:29" itemprop="dateModified" datetime="2022-05-04T13:40:29+08:00">2022-05-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -234,7 +326,7 @@
 <h4 id="先验信息"><a href="#先验信息" class="headerlink" title="先验信息"></a>先验信息</h4><p>先验信息是在抽样之前有关统计问题的一些信息，一般来说，先验信息主要来源于经验和历史资料。很显然，成熟而靠谱的经验有助于我们得到更加精确的结论。例如一个常饮牛奶加茶的女士声称她能辨别出先倒进杯子的究竟是牛奶还是茶。对此统计学家做了十次试验，结果发现她每次都正确说出来了。而当无知的统计学家妄自尊大地想自己去尝试辨别（盲猜）时，却只成功猜中了4次。在这种情况下，我们确实看到了经验对于推断产生的影响。</p>
 <p>基于上述三种信息进行的统计推断称为贝叶斯统计学。它与经典的统计学的主要差别在于是否利用先验信息。另外，它们在使用样本信息上也是有差别的。贝叶斯学派重视已出现的样本观察值，而对尚未发生的样本观察值不予考虑。贝叶斯学派很重视先验信息的收集、挖掘和加工，使它数量化，形成先验分布，参加到统计推断中来，以提高统计推断的质量。</p>
 <p>更具体地说，贝叶斯学派的最基本的观点就是：任一个未知量$\ \theta\ $都可以看作一个随机变量，应用一个概率分布去描述对$\ \theta\ $的未知情况。当然这个分布在未进行抽样之前就已经给出了，所以也被称为先验分布，或简称先验（prior）。而频率学派则认为$\ \theta\ $是一个常量，并不存在任何的不确定性。</p>
-<h3 id="sect-1-2-贝叶斯公式"><a href="#sect-1-2-贝叶斯公式" class="headerlink" title="$\sect 1.2\ $贝叶斯公式"></a><center>$\sect 1.2\ $贝叶斯公式</center></h3><h4 id="贝叶斯公式的密度函数形式"><a href="#贝叶斯公式的密度函数形式" class="headerlink" title="贝叶斯公式的密度函数形式"></a>贝叶斯公式的密度函数形式</h4><ol>
+<h3 id="S-1-2-贝叶斯公式"><a href="#S-1-2-贝叶斯公式" class="headerlink" title="$\S 1.2\ $贝叶斯公式"></a><center>$\S 1.2\ $贝叶斯公式</center></h3><h4 id="贝叶斯公式的密度函数形式"><a href="#贝叶斯公式的密度函数形式" class="headerlink" title="贝叶斯公式的密度函数形式"></a>贝叶斯公式的密度函数形式</h4><ol>
 <li><p>依赖于参数$\ \theta\ $的密度函数在经典统计中记为$p(x;\theta)$或者$p_\theta(x)$，它表示在参数空间$\Theta=\{\theta\}$中不同的$\ \theta\ $对应的不同的分布。可在贝叶斯统计中记为$\ p(x|\theta)$，它表示在随机变量给定某个值时，总体指标$\ X\ $的条件分布。</p>
 </li>
 <li><p>根据参数$\ \theta\ $的先验信息确定先验分布$\ \pi(\theta)\ $。</p>
@@ -266,7 +358,7 @@ m(\bold{x})=\int_{\Theta}h(\bold{x},\theta)d\theta=\int_{\Theta}p(\bold{x}|\thet
 \pi(\theta_i|\bold{x})=\frac{p(\bold{x}|\theta_i)\pi(\theta_i)}{\sum_jp(\bold{x}|\theta_j)\pi(\theta_j)},\quad i=1,2,...</script></li>
 </ol>
 <h4 id="后验分布是三种信息的综合"><a href="#后验分布是三种信息的综合" class="headerlink" title="后验分布是三种信息的综合"></a>后验分布是三种信息的综合</h4><p>一般来说，先验分布$\ \pi(\theta)\ $是反映人们在抽样之前对$\ \theta\ $的认识，后验分布$\ \pi(\theta|\bold{x})$则是反映了人们在抽样之后对$\ \theta\ $的认识。两者的差异是由于样本$\ \bold{x}\ $出现后（获得总体信息和样本信息）人们对$\ \theta\ $认识（先验信息）的一种调整。</p>
-<h3 id="sect-1-3-共轭先验分布"><a href="#sect-1-3-共轭先验分布" class="headerlink" title="$\sect 1.3\ $共轭先验分布"></a><center>$\sect 1.3\ $共轭先验分布</center></h3><h4 id="共轭先验分布"><a href="#共轭先验分布" class="headerlink" title="共轭先验分布"></a>共轭先验分布</h4><p>共轭先验分布想法的产生源于我们希望先验分布和后验分布能具有某种一样的函数形式（它们可能会依赖于某些<strong>超参数</strong>，即先验分布中所含的未知参数），而随着新样本信息的获得，我们可以在同一个分布函数形式框架下仅通过超参数的改变就能更新后验分布，这将给我们的计算带来很大的便利。</p>
+<h3 id="S-1-3-共轭先验分布"><a href="#S-1-3-共轭先验分布" class="headerlink" title="$\S 1.3\ $共轭先验分布"></a><center>$\S 1.3\ $共轭先验分布</center></h3><h4 id="共轭先验分布"><a href="#共轭先验分布" class="headerlink" title="共轭先验分布"></a>共轭先验分布</h4><p>共轭先验分布想法的产生源于我们希望先验分布和后验分布能具有某种一样的函数形式（它们可能会依赖于某些<strong>超参数</strong>，即先验分布中所含的未知参数），而随着新样本信息的获得，我们可以在同一个分布函数形式框架下仅通过超参数的改变就能更新后验分布，这将给我们的计算带来很大的便利。</p>
 <p>可以想象到这是一种“实时驱动型”的迭代更新方式，每当有一个新样本出现，我们就可以将上一次更新后的后验分布视为先验分布，再进行一次参数更新，如此进行下去。</p>
 <p>我们给共轭先验一个文字性的定义：设$\ \theta\ $是总体分布中的参数（或参数向量），$\ \pi(\theta)\ $是$\ \theta\ $的先验密度函数，假如由抽样信息算得的后验密度函数与$\ \pi(\theta)\ $有相同的函数形式，则称$\ \pi(\theta)\ $是$\ \theta\ $的（自然）共轭先验分布。</p>
 <h4 id="后验分布的计算"><a href="#后验分布的计算" class="headerlink" title="后验分布的计算"></a>后验分布的计算</h4><p>经由$\ \sect 1.2\ $的分析，我们已经知道了后验分布可以通过以下方式进行计算：</p>
@@ -324,7 +416,7 @@ m(\bold{x})=\int_{\Theta}h(\bold{x},\theta)d\theta=\int_{\Theta}p(\bold{x}|\thet
 </tbody>
 </table>
 </div>
-<h3 id="sect-1-4-超参数及其确定"><a href="#sect-1-4-超参数及其确定" class="headerlink" title="$\sect 1.4\ $超参数及其确定"></a><center>$\sect 1.4\ $超参数及其确定</center></h3><p>前面我们已经提到过超参数这个概念了。其实超参数的定义非常简单，就是先验分布中所含的未知参数。（看到这个定义时我们很容易产生一个自然的想法：如果参数可以是随机的，那么超参数是不是可以是随机的并服从一个先验分布。当然，这种想法是没有任何问题的，并且这在贝叶斯统计中称为多层先验——我们将在第三章再进行介绍。）</p>
+<h3 id="S-1-4-超参数及其确定"><a href="#S-1-4-超参数及其确定" class="headerlink" title="$\S 1.4\ $超参数及其确定"></a><center>$\S 1.4\ $超参数及其确定</center></h3><p>前面我们已经提到过超参数这个概念了。其实超参数的定义非常简单，就是先验分布中所含的未知参数。（看到这个定义时我们很容易产生一个自然的想法：如果参数可以是随机的，那么超参数是不是可以是随机的并服从一个先验分布。当然，这种想法是没有任何问题的，并且这在贝叶斯统计中称为多层先验——我们将在第三章再进行介绍。）</p>
 <p>一般来说，共轭先验分布常含有超参数，而无信息先验分布一般不含有超参数，例如均分分布（等概率的取值表示大自然对参数的取值并没有任何偏好）。</p>
 <p>共轭先验分布是一种有信息的先验分布，故其中所含的超参数应充分利用各种先验信息来进行确定。</p>
 <p>如果以二项分布为例，二项分布成功概率$\ \theta\ $的共轭先验分布是贝塔分布$\ Be(\alpha,\beta)$，$\alpha,\beta\ $是超参数。我们可以通过以下几种方法进行超参数的确定：</p>
@@ -335,7 +427,7 @@ m(\bold{x})=\int_{\Theta}h(\bold{x},\theta)d\theta=\int_{\Theta}p(\bold{x}|\thet
 <li>其他方法</li>
 </ol>
 <p>详细过程不予赘述，如果感兴趣的话可以直接阅读茆诗松所著《贝叶斯统计》第2版的P20~23或是相关的文献。</p>
-<h3 id="sect-1-5-多参数模型"><a href="#sect-1-5-多参数模型" class="headerlink" title="$\sect 1.5\ $多参数模型"></a><center>$\sect 1.5\ $多参数模型</center></h3><h3 id="sect-1-6-充分统计量"><a href="#sect-1-6-充分统计量" class="headerlink" title="$\sect 1.6\ $充分统计量"></a><center>$\sect 1.6\ $充分统计量</center></h3><h4 id="充分统计量"><a href="#充分统计量" class="headerlink" title="充分统计量"></a>充分统计量</h4><p>在简化统计问题中，充分统计量是一个非常重要的概念。（回顾一下什么叫做统计量：一个仅有样本决定，而与参数无关的量，也即当我获得样本的观察值时，统计量的值也随之确定）</p>
+<h3 id="S-1-5-多参数模型"><a href="#S-1-5-多参数模型" class="headerlink" title="$\S 1.5\ $多参数模型"></a><center>$\S 1.5\ $多参数模型</center></h3><h3 id="S-1-6-充分统计量"><a href="#S-1-6-充分统计量" class="headerlink" title="$\S 1.6\ $充分统计量"></a><center>$\S 1.6\ $充分统计量</center></h3><h4 id="充分统计量"><a href="#充分统计量" class="headerlink" title="充分统计量"></a>充分统计量</h4><p>在简化统计问题中，充分统计量是一个非常重要的概念。（回顾一下什么叫做统计量：一个仅有样本决定，而与参数无关的量，也即当我获得样本的观察值时，统计量的值也随之确定）</p>
 <p>引入充分统计量的想法如下：首先我们需要认识到样本是我们进行一切统计推断的基础，它提供了我们进行统计推断的一切“证据”（或者说信息），所以没有样本就没有统计推断。而统计量是我们对样本进行的信息加工和处理。在加工的过程中，统计量所含的信息必定只减不增。而所谓充分性则是说我们在这个加工过程中应该要能把包含未知参数的全部信息都提取出来。</p>
 <p>用数学语言来描述这件事情（经典统计中的充分统计量）可能就稍微难以理解一点：设$\ \bold{x}=(x_1,…,x_n)\ $是来自分布函数$\ F(x|\theta)\ $的一个样本，$\ T=T(\bold{x})\ $是统计量。假如在给定$\ T(\bold{x})=t\ $的条件下，$\ x\ $的条件分布与$\ \theta\ $无关，则称该统计量为$\ \theta\ $的充分统计量。</p>
 <p>一般情况下，直接运用定义进行验证一个统计量的充分性是困难的，所幸我们有因子分解定理保证这种充分性的充要条件。</p>
@@ -2182,74 +2274,6 @@ max\{0,min\{S_T-90, 110-S_T\}\}</script><p>利用二叉树模型求出初始股�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/03/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B03%E2%80%94%E2%80%94Riemann%E7%A7%AF%E5%88%86%E4%B8%8ELebesgue%E7%A7%AF%E5%88%86%E7%9B%B8%E5%90%8C%E7%9A%84%E7%A0%94%E7%A9%B6%E6%80%9D%E8%B7%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/03/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B03%E2%80%94%E2%80%94Riemann%E7%A7%AF%E5%88%86%E4%B8%8ELebesgue%E7%A7%AF%E5%88%86%E7%9B%B8%E5%90%8C%E7%9A%84%E7%A0%94%E7%A9%B6%E6%80%9D%E8%B7%AF/" class="post-title-link" itemprop="url">浅谈实变函数3——Riemann积分与Lebesgue积分相同的研究思路</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-11-03 16:11:02 / Modified: 20:01:26" itemprop="dateCreated datePublished" datetime="2021-11-03T16:11:02+08:00">2021-11-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Riemann积分的原始定义"><a href="#Riemann积分的原始定义" class="headerlink" title="Riemann积分的原始定义"></a><center>Riemann积分的原始定义</center></h3><p>点分区间、求和、取极限。这是我们定义Riemann积分的三部曲。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2321,7 +2345,7 @@ max\{0,min\{S_T-90, 110-S_T\}\}</script><p>利用二叉树模型求出初始股�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
