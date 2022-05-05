@@ -30,7 +30,7 @@
 <meta property="og:description" content="$\S 2.1\ $条件方法统计学中有一种重要的观点称为“条件观点”，即只考虑已出现的数据（样本观察值），而认为未出现的数据与推断无关。后验分布$\ \pi(\theta|\mathbf{x})\ $是在样本$\ \mathbf{x}\ $给定下$\ \theta\ $的条件分布，基于后验分布的统计推断就践行了这样的观点。我们将基于条件观点提出的统计推断方法称为条件方法。 $\S 2.2\ $估计">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-04T05:11:03.000Z">
-<meta property="article:modified_time" content="2022-05-05T05:12:26.618Z">
+<meta property="article:modified_time" content="2022-05-05T05:16:07.350Z">
 <meta property="article:author" content="Shaw">
 <meta name="twitter:card" content="summary">
 
@@ -207,7 +207,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-05 13:12:26" itemprop="dateModified" datetime="2022-05-05T13:12:26+08:00">2022-05-05</time>
+                <time title="Modified: 2022-05-05 13:16:07" itemprop="dateModified" datetime="2022-05-05T13:16:07+08:00">2022-05-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -254,11 +254,11 @@
 <h4 id="贝叶斯估计的误差"><a href="#贝叶斯估计的误差" class="headerlink" title="贝叶斯估计的误差"></a>贝叶斯估计的误差</h4><p>在得到一个估计值之后，我们往往需要知道这个估计值究竟有多靠谱，能不能放心的在实际生活中进行使用，此时我们就需要考虑一个误差的问题了。而衡量误差很自然的想法就是利用方差或者是标准差，好在我们已经有关于参数$\ \theta\ $的后验分布，所以最好而又最简单的方法就是用$\ \theta\ $对$\ \hat\theta\ $的后验均方差或其平方根来度量。</p>
 <p>设参数$\ \theta\ $的后验分布$\ \pi(\theta|\mathbf{x})\ $，贝叶斯估计为$\ \hat\theta\ $，则$\ (\theta-\hat\theta)^2\ $的后验期望</p>
 <script type="math/tex; mode=display">
-MSE(\hat\theta|\bold{x})=E^{\theta|\bold{x}}[(\theta-\hat\theta)^2]</script><p>称为$\ \hat\theta\ $的后验均方差，而其平方根$\ [MSE(\hat\theta|\mathbf{x})]^{1/2}\ $称为$\ \hat\theta\ $的后验标准误。其中符号$\ E^{\theta|\mathbf{x}}\ $表示用条件分布$\ \pi(\theta|\mathbf{x})\ $求期望。在连续情形下，有</p>
+MSE(\hat\theta|\mathbf{x})=E^{\theta|\mathbf{x}}[(\theta-\hat\theta)^2]</script><p>称为$\ \hat\theta\ $的后验均方差，而其平方根$\ [MSE(\hat\theta|\mathbf{x})]^{1/2}\ $称为$\ \hat\theta\ $的后验标准误。其中符号$\ E^{\theta|\mathbf{x}}\ $表示用条件分布$\ \pi(\theta|\mathbf{x})\ $求期望。在连续情形下，有</p>
 <script type="math/tex; mode=display">
-E^{\theta|\bold{x}}[(\theta-\hat\theta)^2]=\int_{\Theta}(\theta-\hat\theta)^2\pi(\theta|\bold{x})d\theta</script><p>经过简单的推断，我们还可以得到后验均方差与后验均值之间的关系</p>
+E^{\theta|\mathbf{x}}[(\theta-\hat\theta)^2]=\int_{\Theta}(\theta-\hat\theta)^2\pi(\theta|\mathbf{x})d\theta</script><p>经过简单的推断，我们还可以得到后验均方差与后验均值之间的关系</p>
 <script type="math/tex; mode=display">
-MSE(\hat\theta|\bold{x})=Var(\theta|\bold{x})+(\hat\theta_E-\hat\theta)^2</script><p>其中$\ \hat\theta_E=E(\theta|\mathbf{x})$。</p>
+MSE(\hat\theta|\mathbf{x})=Var(\theta|\mathbf{x})+(\hat\theta_E-\hat\theta)^2</script><p>其中$\ \hat\theta_E=E(\theta|\mathbf{x})$。</p>
 <h3 id="S-2-3-区间估计"><a href="#S-2-3-区间估计" class="headerlink" title="$\S 2.3\ $区间估计"></a><center>$\S 2.3\ $区间估计</center></h3><p>由于贝叶斯学派将参数$\ \theta\ $视为随机变量，所以我们可以很自然的讨论关于$\ \theta\ $的区间估计问题。我们将这种区间称为贝叶斯可信区间。</p>
 <p>而在经典统计中，我们也有类似的给出置信区间的结果。相比之下，置信区间就让人感觉有些摸不着头脑了。比如说我们在95%的置信水平下得到关于$\ \theta\ $的置信区间，此时我们并不允许说$\ \theta\ $落在此区间内的<strong>概率</strong>是0.95，因为对于非随机的常量$\ \theta$，我们并不能言及概率。事实上，给定一个置信区间，常量$\ \theta\ $要么落在置信区间内，要么不落在置信区间内，是一个确定性事件。我们只能以曲线救国的方式将置信区间视为<strong>随机置信区间</strong>说：“在100次使用这个置信区间时，大约有90次能盖住$\ \theta$。”而此种频率解释对仅使用一次或两次的人来说是毫无意义的。很多人还是会下意识将求得的置信区间当作可信区间去使用和理解。</p>
 <h3 id="S-2-4-假设检验"><a href="#S-2-4-假设检验" class="headerlink" title="$\S 2.4\ $假设检验"></a><center>$\S 2.4\ $假设检验</center></h3><h3 id="S-2-5-预测"><a href="#S-2-5-预测" class="headerlink" title="$\S 2.5\ $预测"></a><center>$\S 2.5\ $预测</center></h3><h3 id="S-2-6-似然原理"><a href="#S-2-6-似然原理" class="headerlink" title="$\S 2.6\ $似然原理"></a><center>$\S 2.6\ $似然原理</center></h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>

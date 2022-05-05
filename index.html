@@ -205,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-05 13:12:26" itemprop="dateModified" datetime="2022-05-05T13:12:26+08:00">2022-05-05</time>
+                <time title="Modified: 2022-05-05 13:16:07" itemprop="dateModified" datetime="2022-05-05T13:16:07+08:00">2022-05-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,11 +245,11 @@
 <h4 id="贝叶斯估计的误差"><a href="#贝叶斯估计的误差" class="headerlink" title="贝叶斯估计的误差"></a>贝叶斯估计的误差</h4><p>在得到一个估计值之后，我们往往需要知道这个估计值究竟有多靠谱，能不能放心的在实际生活中进行使用，此时我们就需要考虑一个误差的问题了。而衡量误差很自然的想法就是利用方差或者是标准差，好在我们已经有关于参数$\ \theta\ $的后验分布，所以最好而又最简单的方法就是用$\ \theta\ $对$\ \hat\theta\ $的后验均方差或其平方根来度量。</p>
 <p>设参数$\ \theta\ $的后验分布$\ \pi(\theta|\mathbf{x})\ $，贝叶斯估计为$\ \hat\theta\ $，则$\ (\theta-\hat\theta)^2\ $的后验期望</p>
 <script type="math/tex; mode=display">
-MSE(\hat\theta|\bold{x})=E^{\theta|\bold{x}}[(\theta-\hat\theta)^2]</script><p>称为$\ \hat\theta\ $的后验均方差，而其平方根$\ [MSE(\hat\theta|\mathbf{x})]^{1/2}\ $称为$\ \hat\theta\ $的后验标准误。其中符号$\ E^{\theta|\mathbf{x}}\ $表示用条件分布$\ \pi(\theta|\mathbf{x})\ $求期望。在连续情形下，有</p>
+MSE(\hat\theta|\mathbf{x})=E^{\theta|\mathbf{x}}[(\theta-\hat\theta)^2]</script><p>称为$\ \hat\theta\ $的后验均方差，而其平方根$\ [MSE(\hat\theta|\mathbf{x})]^{1/2}\ $称为$\ \hat\theta\ $的后验标准误。其中符号$\ E^{\theta|\mathbf{x}}\ $表示用条件分布$\ \pi(\theta|\mathbf{x})\ $求期望。在连续情形下，有</p>
 <script type="math/tex; mode=display">
-E^{\theta|\bold{x}}[(\theta-\hat\theta)^2]=\int_{\Theta}(\theta-\hat\theta)^2\pi(\theta|\bold{x})d\theta</script><p>经过简单的推断，我们还可以得到后验均方差与后验均值之间的关系</p>
+E^{\theta|\mathbf{x}}[(\theta-\hat\theta)^2]=\int_{\Theta}(\theta-\hat\theta)^2\pi(\theta|\mathbf{x})d\theta</script><p>经过简单的推断，我们还可以得到后验均方差与后验均值之间的关系</p>
 <script type="math/tex; mode=display">
-MSE(\hat\theta|\bold{x})=Var(\theta|\bold{x})+(\hat\theta_E-\hat\theta)^2</script><p>其中$\ \hat\theta_E=E(\theta|\mathbf{x})$。</p>
+MSE(\hat\theta|\mathbf{x})=Var(\theta|\mathbf{x})+(\hat\theta_E-\hat\theta)^2</script><p>其中$\ \hat\theta_E=E(\theta|\mathbf{x})$。</p>
 <h3 id="S-2-3-区间估计"><a href="#S-2-3-区间估计" class="headerlink" title="$\S 2.3\ $区间估计"></a><center>$\S 2.3\ $区间估计</center></h3><p>由于贝叶斯学派将参数$\ \theta\ $视为随机变量，所以我们可以很自然的讨论关于$\ \theta\ $的区间估计问题。我们将这种区间称为贝叶斯可信区间。</p>
 <p>而在经典统计中，我们也有类似的给出置信区间的结果。相比之下，置信区间就让人感觉有些摸不着头脑了。比如说我们在95%的置信水平下得到关于$\ \theta\ $的置信区间，此时我们并不允许说$\ \theta\ $落在此区间内的<strong>概率</strong>是0.95，因为对于非随机的常量$\ \theta$，我们并不能言及概率。事实上，给定一个置信区间，常量$\ \theta\ $要么落在置信区间内，要么不落在置信区间内，是一个确定性事件。我们只能以曲线救国的方式将置信区间视为<strong>随机置信区间</strong>说：“在100次使用这个置信区间时，大约有90次能盖住$\ \theta$。”而此种频率解释对仅使用一次或两次的人来说是毫无意义的。很多人还是会下意识将求得的置信区间当作可信区间去使用和理解。</p>
 <h3 id="S-2-4-假设检验"><a href="#S-2-4-假设检验" class="headerlink" title="$\S 2.4\ $假设检验"></a><center>$\S 2.4\ $假设检验</center></h3><h3 id="S-2-5-预测"><a href="#S-2-5-预测" class="headerlink" title="$\S 2.5\ $预测"></a><center>$\S 2.5\ $预测</center></h3><h3 id="S-2-6-似然原理"><a href="#S-2-6-似然原理" class="headerlink" title="$\S 2.6\ $似然原理"></a><center>$\S 2.6\ $似然原理</center></h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
@@ -303,7 +303,7 @@ MSE(\hat\theta|\bold{x})=Var(\theta|\bold{x})+(\hat\theta_E-\hat\theta)^2</scrip
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-05 13:12:52" itemprop="dateModified" datetime="2022-05-05T13:12:52+08:00">2022-05-05</time>
+                <time title="Modified: 2022-05-05 13:17:43" itemprop="dateModified" datetime="2022-05-05T13:17:43+08:00">2022-05-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -343,25 +343,25 @@ MSE(\hat\theta|\bold{x})=Var(\theta|\bold{x})+(\hat\theta_E-\hat\theta)^2</scrip
 </li>
 <li><p>第二步是从总体分布$\ p(x|\theta)\ $产生一个样本$\ \mathbf{x}=(x_1,…,x_n)\ $，这个样本是具体的，是人们能看得到的。此样本的$\ \vec{x}\ $发生的概率是与如下联合密度函数成正比</p>
 <script type="math/tex; mode=display">
-p(\bold{x}|\theta')=\prod_{i=1}^{n}p(x_i|\theta')</script><p>这个联合密度函数综合了<strong>总体信息</strong>和<strong>样本信息</strong>，常称为似然函数，记为$\ L(\theta’)$。在有了样本观察值之后，总体和样本信息中所含$\ \theta \ $的信息都被包含在似然函数$\ L(\theta’)\ $中。</p>
+p(\mathbf{x}|\theta')=\prod_{i=1}^{n}p(x_i|\theta')</script><p>这个联合密度函数综合了<strong>总体信息</strong>和<strong>样本信息</strong>，常称为似然函数，记为$\ L(\theta’)$。在有了样本观察值之后，总体和样本信息中所含$\ \theta \ $的信息都被包含在似然函数$\ L(\theta’)\ $中。</p>
 </li>
 </ul>
 </li>
 <li><p>由于$\ \theta’\ $是由先验分布$\ \pi(\theta)\ $随机产生的，所以我们要利用<strong>先验信息</strong>把$\ \theta\ $所有可能的取值加以考虑。我们考虑样本和参数$\ \theta\ $的联合分布</p>
 <script type="math/tex; mode=display">
-h(\bold{x},\theta)=p(\bold{x}|\theta)\pi(\theta)</script><p>这样我们就把三种可用的信息都综合进去了。</p>
+h(\mathbf{x},\theta)=p(\mathbf{x}|\theta)\pi(\theta)</script><p>这样我们就把三种可用的信息都综合进去了。</p>
 </li>
 <li><p>我们的任务是对未知数$\ \theta\ $作出统计推断。在没有样本信息时，人们只能根据先验分布对$\ \theta\ $作出推断。在得到样本观察值$\ \mathbf{x}=(x_1,…,x_n)\ $之后，我们根据三种信息的综合$\ h(x,\theta)\ $对$\ \theta\ $作出推断。为此我们把$\ h(x,\theta)\ $进行如下分解：</p>
 <script type="math/tex; mode=display">
-h(\bold{x},\theta)=\pi(\theta|\bold{x})m(\bold{x})</script><p>其中$\ m(\mathbf{x})\ $是$\ \mathbf{x}\ $的边缘密度函数（$\ m(\mathbf{x})\ $还有其他的含义，我们将在第三章提及）：</p>
+h(\mathbf{x},\theta)=\pi(\theta|\mathbf{x})m(\mathbf{x})</script><p>其中$\ m(\mathbf{x})\ $是$\ \mathbf{x}\ $的边缘密度函数（$\ m(\mathbf{x})\ $还有其他的含义，我们将在第三章提及）：</p>
 <script type="math/tex; mode=display">
-m(\bold{x})=\int_{\Theta}h(\bold{x},\theta)d\theta=\int_{\Theta}p(\bold{x}|\theta)\pi(\theta)</script><p>为得到关于$\ \mathbf{x}\ $的边缘密度函数，我们已经对$\ \theta\ $进行了积分，此时它与$\ \theta\ $无关，或者说$\ m(\mathbf{x})\ $中不包含$\ \theta\ $的任何信息。因此能用来对$\ \theta\ $进行推断的仅仅是条件分布$\ \pi(\theta|\mathbf{x})$。它的计算公式如下所示：</p>
+m(\mathbf{x})=\int_{\Theta}h(\mathbf{x},\theta)d\theta=\int_{\Theta}p(\mathbf{x}|\theta)\pi(\theta)</script><p>为得到关于$\ \mathbf{x}\ $的边缘密度函数，我们已经对$\ \theta\ $进行了积分，此时它与$\ \theta\ $无关，或者说$\ m(\mathbf{x})\ $中不包含$\ \theta\ $的任何信息。因此能用来对$\ \theta\ $进行推断的仅仅是条件分布$\ \pi(\theta|\mathbf{x})$。它的计算公式如下所示：</p>
 <script type="math/tex; mode=display">
-\pi(\theta|\bold{x})=\frac{h(\bold{x},\theta)}{m(\bold{x})}=\frac{p(\bold{x}|\theta)\pi(\theta)}{\int_{\Theta}p(\bold{x}|\theta)\pi(\theta)d\theta}</script><p>这就是贝叶斯公式的密度函数形式。这个在样本$\ \mathbf{x}\ $给给定下，$\ \theta\ $的条件分布被称为$\ \theta\ $的后验愤分布。它是集中了总体、样本、先验这三种信息中有关$\ \theta\ $的一切信息，而又是派出了一切与$\ \theta\ $无关的信息之后所得到的结果。</p>
+\pi(\theta|\mathbf{x})=\frac{h(\mathbf{x},\theta)}{m(\mathbf{x})}=\frac{p(\mathbf{x}|\theta)\pi(\theta)}{\int_{\Theta}p(\mathbf{x}|\theta)\pi(\theta)d\theta}</script><p>这就是贝叶斯公式的密度函数形式。这个在样本$\ \mathbf{x}\ $给给定下，$\ \theta\ $的条件分布被称为$\ \theta\ $的后验愤分布。它是集中了总体、样本、先验这三种信息中有关$\ \theta\ $的一切信息，而又是派出了一切与$\ \theta\ $无关的信息之后所得到的结果。</p>
 </li>
 <li><p>在离散情况下，先验分布可用先验分布列$\ \pi(\theta_i)\ $表示。此时后验分布也是离散形式：</p>
 <script type="math/tex; mode=display">
-\pi(\theta_i|\bold{x})=\frac{p(\bold{x}|\theta_i)\pi(\theta_i)}{\sum_jp(\bold{x}|\theta_j)\pi(\theta_j)},\quad i=1,2,...</script></li>
+\pi(\theta_i|\mathbf{x})=\frac{p(\mathbf{x}|\theta_i)\pi(\theta_i)}{\sum_jp(\mathbf{x}|\theta_j)\pi(\theta_j)},\quad i=1,2,...</script></li>
 </ol>
 <h4 id="后验分布是三种信息的综合"><a href="#后验分布是三种信息的综合" class="headerlink" title="后验分布是三种信息的综合"></a>后验分布是三种信息的综合</h4><p>一般来说，先验分布$\ \pi(\theta)\ $是反映人们在抽样之前对$\ \theta\ $的认识，后验分布$\ \pi(\theta|\mathbf{x})$则是反映了人们在抽样之后对$\ \theta\ $的认识。两者的差异是由于样本$\ \mathbf{x}\ $出现后（获得总体信息和样本信息）人们对$\ \theta\ $认识（先验信息）的一种调整。</p>
 <h3 id="S-1-3-共轭先验分布"><a href="#S-1-3-共轭先验分布" class="headerlink" title="$\S 1.3\ $共轭先验分布"></a><center>$\S 1.3\ $共轭先验分布</center></h3><h4 id="共轭先验分布"><a href="#共轭先验分布" class="headerlink" title="共轭先验分布"></a>共轭先验分布</h4><p>共轭先验分布想法的产生源于我们希望先验分布和后验分布能具有某种一样的函数形式（它们可能会依赖于某些<strong>超参数</strong>，即先验分布中所含的未知参数），而随着新样本信息的获得，我们可以在同一个分布函数形式框架下仅通过超参数的改变就能更新后验分布，这将给我们的计算带来很大的便利。</p>
@@ -369,11 +369,11 @@ m(\bold{x})=\int_{\Theta}h(\bold{x},\theta)d\theta=\int_{\Theta}p(\bold{x}|\thet
 <p>我们给共轭先验一个文字性的定义：设$\ \theta\ $是总体分布中的参数（或参数向量），$\ \pi(\theta)\ $是$\ \theta\ $的先验密度函数，假如由抽样信息算得的后验密度函数与$\ \pi(\theta)\ $有相同的函数形式，则称$\ \pi(\theta)\ $是$\ \theta\ $的（自然）共轭先验分布。</p>
 <h4 id="后验分布的计算"><a href="#后验分布的计算" class="headerlink" title="后验分布的计算"></a>后验分布的计算</h4><p>经由$\ \S 1.2\ $的分析，我们已经知道了后验分布可以通过以下方式进行计算：</p>
 <script type="math/tex; mode=display">
-\pi(\theta|\bold{x})=\frac{h(\bold{x},\theta)}{m(\bold{x})}=\frac{p(\bold{x}|\theta)\pi(\theta)}{m(\bold{x})}</script><p>在实际计算过程中，由于我们计算的是密度函数，另外$\ m(\mathbf{x})\ $与$\ \theta\ $无关，仅仅是充当正则化因子（使得计算结果确实是一个密度函数），所以我们仅需考虑后验分布的核的函数形式：</p>
+\pi(\theta|\mathbf{x})=\frac{h(\mathbf{x},\theta)}{m(\mathbf{x})}=\frac{p(\mathbf{x}|\theta)\pi(\theta)}{m(\mathbf{x})}</script><p>在实际计算过程中，由于我们计算的是密度函数，另外$\ m(\mathbf{x})\ $与$\ \theta\ $无关，仅仅是充当正则化因子（使得计算结果确实是一个密度函数），所以我们仅需考虑后验分布的核的函数形式：</p>
 <script type="math/tex; mode=display">
-\pi(\theta|\bold{x})\propto p(\bold{x}|\theta)\pi(\theta)</script><p>另外我们再稍微想一想：首先我们将$\ p(\mathbf{x}|\theta)\pi(\theta)\ $改写成如下形式：</p>
+\pi(\theta|\mathbf{x})\propto p(\mathbf{x}|\theta)\pi(\theta)</script><p>另外我们再稍微想一想：首先我们将$\ p(\mathbf{x}|\theta)\pi(\theta)\ $改写成如下形式：</p>
 <script type="math/tex; mode=display">
-\pi(\theta|\bold{x})\propto \prod_{i=1}^{n}p(x_i|\theta)\pi(\theta)</script><p>注意到$\ \prod_{i=1}^{n}p(x_i|\theta)\ $是我们所熟悉的似然函数，我们若要使先验和后验分布具有同样的形式，似然函数中参数的函数形式可能会给共轭先验的构造提供给一些思路。</p>
+\pi(\theta|\mathbf{x})\propto \prod_{i=1}^{n}p(x_i|\theta)\pi(\theta)</script><p>注意到$\ \prod_{i=1}^{n}p(x_i|\theta)\ $是我们所熟悉的似然函数，我们若要使先验和后验分布具有同样的形式，似然函数中参数的函数形式可能会给共轭先验的构造提供给一些思路。</p>
 <h4 id="共轭先验分布的优缺点"><a href="#共轭先验分布的优缺点" class="headerlink" title="共轭先验分布的优缺点"></a>共轭先验分布的优缺点</h4><p>优点是显而易见的：</p>
 <ul>
 <li>计算方便</li>
@@ -439,9 +439,9 @@ m(\bold{x})=\int_{\Theta}h(\bold{x},\theta)d\theta=\int_{\Theta}p(\bold{x}|\thet
 <p>一般情况下，直接运用定义进行验证一个统计量的充分性是困难的，所幸我们有因子分解定理保证这种充分性的充要条件。</p>
 <h4 id="因子分解定理"><a href="#因子分解定理" class="headerlink" title="因子分解定理"></a>因子分解定理</h4><p>一个统计量$\ T(\mathbf{x})\ $对参数$\ \theta\ $是充分的充要条件是存在一个$\ t\ $与$\ \theta\ $的函数$\ g(t,\theta)\ $和一个样本$\ \mathbf{x}\ $的函数$\ h(\mathbf{x})$，使得对任一样本$\ \mathbf{x}\ $和任意$\ \theta$，样本的联合密度$\ p(\mathbf{x}, \theta)\ $可表为它们的乘积，即</p>
 <script type="math/tex; mode=display">
-p(\bold{x}|\theta)=g(T(\bold{x}),\theta)h(\bold{x})</script><p>在贝叶斯统计中，充分统计量也有一个充要条件：设$\ \mathbf{x}=(x_1,…,x_n)\ $是来自密度函数$\ p(x|\theta)\ $的一个样本，$\ T=T(\mathbf{x})\ $是统计量，它的密度函数为$\ p(t|\theta)$，又设$\ \mathscr{H}=\{\pi(\theta)\}\ $是$\ \theta\ $的某个先验分布族，则$\ T(\mathbf{x})\ $为$\ \theta\ $的充分统计量的充要条件是对任一先验分布$\ \pi(\theta)\in\mathscr{H}$，有</p>
+p(\mathbf{x}|\theta)=g(T(\mathbf{x}),\theta)h(\mathbf{x})</script><p>在贝叶斯统计中，充分统计量也有一个充要条件：设$\ \mathbf{x}=(x_1,…,x_n)\ $是来自密度函数$\ p(x|\theta)\ $的一个样本，$\ T=T(\mathbf{x})\ $是统计量，它的密度函数为$\ p(t|\theta)$，又设$\ \mathscr{H}=\{\pi(\theta)\}\ $是$\ \theta\ $的某个先验分布族，则$\ T(\mathbf{x})\ $为$\ \theta\ $的充分统计量的充要条件是对任一先验分布$\ \pi(\theta)\in\mathscr{H}$，有</p>
 <script type="math/tex; mode=display">
-\pi(\theta|T(\bold{x}))=\pi(\theta|\bold{x})</script><p>即用样本分布$\ p(\mathbf{x}|\theta)\ $算得的后验分布与<strong>统计量$\ T(\mathbf{x})\ $算得的后验分布</strong>（可能达到简化计算的目的）是相同的。</p>
+\pi(\theta|T(\mathbf{x}))=\pi(\theta|\mathbf{x})</script><p>即用样本分布$\ p(\mathbf{x}|\theta)\ $算得的后验分布与<strong>统计量$\ T(\mathbf{x})\ $算得的后验分布</strong>（可能达到简化计算的目的）是相同的。</p>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
 
       
