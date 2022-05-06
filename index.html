@@ -205,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-05 13:16:07" itemprop="dateModified" datetime="2022-05-05T13:16:07+08:00">2022-05-05</time>
+                <time title="Modified: 2022-05-06 19:26:39" itemprop="dateModified" datetime="2022-05-06T19:26:39+08:00">2022-05-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,7 +252,69 @@ E^{\theta|\mathbf{x}}[(\theta-\hat\theta)^2]=\int_{\Theta}(\theta-\hat\theta)^2\
 MSE(\hat\theta|\mathbf{x})=Var(\theta|\mathbf{x})+(\hat\theta_E-\hat\theta)^2</script><p>其中$\ \hat\theta_E=E(\theta|\mathbf{x})$。</p>
 <h3 id="S-2-3-区间估计"><a href="#S-2-3-区间估计" class="headerlink" title="$\S 2.3\ $区间估计"></a><center>$\S 2.3\ $区间估计</center></h3><p>由于贝叶斯学派将参数$\ \theta\ $视为随机变量，所以我们可以很自然的讨论关于$\ \theta\ $的区间估计问题。我们将这种区间称为贝叶斯可信区间。</p>
 <p>而在经典统计中，我们也有类似的给出置信区间的结果。相比之下，置信区间就让人感觉有些摸不着头脑了。比如说我们在95%的置信水平下得到关于$\ \theta\ $的置信区间，此时我们并不允许说$\ \theta\ $落在此区间内的<strong>概率</strong>是0.95，因为对于非随机的常量$\ \theta$，我们并不能言及概率。事实上，给定一个置信区间，常量$\ \theta\ $要么落在置信区间内，要么不落在置信区间内，是一个确定性事件。我们只能以曲线救国的方式将置信区间视为<strong>随机置信区间</strong>说：“在100次使用这个置信区间时，大约有90次能盖住$\ \theta$。”而此种频率解释对仅使用一次或两次的人来说是毫无意义的。很多人还是会下意识将求得的置信区间当作可信区间去使用和理解。</p>
-<h3 id="S-2-4-假设检验"><a href="#S-2-4-假设检验" class="headerlink" title="$\S 2.4\ $假设检验"></a><center>$\S 2.4\ $假设检验</center></h3><h3 id="S-2-5-预测"><a href="#S-2-5-预测" class="headerlink" title="$\S 2.5\ $预测"></a><center>$\S 2.5\ $预测</center></h3><h3 id="S-2-6-似然原理"><a href="#S-2-6-似然原理" class="headerlink" title="$\S 2.6\ $似然原理"></a><center>$\S 2.6\ $似然原理</center></h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
+<p>设参数$\ \theta\ $的后验分布为$\ \pi(\theta|\mathbf{x})$，对于给定的样本$\ \mathbf{x}\ $和概率$\ 1-\alpha(0&lt;\alpha&lt;1)$，若存在这样的两个统计量$\ \hat\theta_L=\hat\theta_L(\mathbf{x})\ $与$\ \hat\theta_U=\hat\theta_U(\mathbf{x})$，使得</p>
+<script type="math/tex; mode=display">
+P(\hat\theta_L\le\theta\le\hat\theta_U|\mathbf{x})\ge 1-\alpha</script><p>则称区间$\ [\hat\theta_L,\hat\theta_U]\ $为参数$\ \theta\ $的可信水平为$\ 1-\alpha\ $（贝叶斯）可信区间。而满足</p>
+<script type="math/tex; mode=display">
+P(\theta\ge\hat\theta_L|\mathbf{x})\ge 1-\alpha</script><p>的$\ \hat\theta_L\ $称为$\ \theta\ $的$\ 1-\alpha$（单侧）可信下限。满足</p>
+<script type="math/tex; mode=display">
+P(\theta\le\hat\theta_U|\mathbf{x})\ge 1-\alpha</script><p>的$\ \hat\theta_U\ $称为$\ \theta\ $的$\ 1-\alpha$（单侧）可信上限。</p>
+<ul>
+<li><p>对给定的可信水平$\ 1-\alpha$，从后验分布$\ \pi(\theta|\mathbf{x})\ $获得的可信区间不止一个，常用的方法是用$\ \alpha/2\ $和$\ 1-\alpha/2\ $的分位数来获得$\ \theta\ $的可信区间。</p>
+</li>
+<li><p>等尾可信区间在实际中常常被使用，但并不是最理想的，最理想的可信区间应是区间长度最短。这只要把具有最大后验密度的点都包含在区间中，而在区间外的点上的后验密度函数值均不超过区间内的函数值。我们称这样的区间为最大后验密度（Highest Posterior Density，HPD）可信区间。</p>
+</li>
+</ul>
+<h3 id="S-2-4-假设检验"><a href="#S-2-4-假设检验" class="headerlink" title="$\S 2.4\ $假设检验"></a><center>$\S 2.4\ $假设检验</center></h3><h4 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h4><p>考虑这样的假设检验问题：建立原假设$\ H_0\ $与备择假设$\ H_1\ $</p>
+<script type="math/tex; mode=display">
+H_0:\theta\in\Theta_0,\quad H_1:\theta\in\Theta_1</script><p>其中$\ \Theta_0\cap\Theta_1=\empty$。</p>
+<p>在贝叶斯统计中处理假设检验问题是直截了当的，在获得后验分布$\ \pi(\theta|\mathbf{x})\ $后，即可计算两个假设$\ H_0\ $和$\ H_1\ $的后验概率</p>
+<script type="math/tex; mode=display">
+\alpha_i=P(\Theta_i|\mathbf{x})d\theta,\quad i=0,1</script><p>然后比较$\ \alpha_0\ $与$\ \alpha_1\ $的大小：</p>
+<ul>
+<li>当后验概率比（或称后验机会比）$\alpha_0/\alpha_1\gt 1$时接受$\ H_0\ $；</li>
+<li>当后验概率比（或称后验机会比）$\alpha_0/\alpha_1\lt 1$时接受$\ H_1\ $；</li>
+<li>当后验概率比（或称后验机会比）$\alpha_0/\alpha_1=1$时不做判断</li>
+</ul>
+<p>可以看到比起经典统计下的假设检验，我们并不需要选择检验统计量，确定抽样分布，也无需事先给定显著性水平，确定其拒绝域。</p>
+<p>最后，当我们推广到多重假设检验场合时，应接受具有最大后验概率的假设。</p>
+<h4 id="贝叶斯因子"><a href="#贝叶斯因子" class="headerlink" title="贝叶斯因子"></a>贝叶斯因子</h4><p>贝叶斯因子即是后验机会比/先验机会比</p>
+<p>我们通过定义来感受一下贝叶斯因子究竟在干什么：</p>
+<script type="math/tex; mode=display">
+B_\pi(\mathbf{x})=\frac{后验机会比}{先验机会比}=\frac{\alpha_0/\alpha_1}{\pi_0\pi_1}=\frac{\alpha_0\pi_1}{\alpha_1\pi_0}</script><p>首先分子“后验机会比”已经将后验的信息进行很好的利用（这其中就包含了样本信息和先验信息），但是接着我们又将该值除以先验机会比。</p>
+<p>刚开始接触这个概念时，我误以为贝叶斯因子是和后验机会比一样是用来判定假设检验的结果的。那么这就产生了一个很奇怪的问题了，我们看到贝叶斯因子既依赖于数据，又依赖于先验分布，对两种机会比相除，直观上这会削弱甚至（在某些情况下会）消除先验的影响。不过后来发现它并不是用来判定的……注意到贝叶斯因子减弱了先验的影响，突出了数据的影响，从这个角度看，贝叶斯因子是衡量了数据支持原假设的程度。</p>
+<p>在简单假设$\ \Theta_0=\{\theta_0\}\ v.s.\Theta_1=\{\theta_1\}$下：</p>
+<ul>
+<li><p>两种简单假设的后验概率分别为</p>
+<script type="math/tex; mode=display">
+\alpha_0=\frac{\pi_0p(\mathbf{x}|\theta_0)}{\pi_0p(\mathbf{x}|\theta_0)+\pi_1p(\mathbf{x}|\theta_1)},\quad \alpha_1=\frac{\pi_1p(\mathbf{x}|\theta_1)}{\pi_0p(\mathbf{x}|\theta_0)+\pi_1p(\mathbf{x}|\theta_1)}</script></li>
+<li><p>计算贝叶斯因子</p>
+<script type="math/tex; mode=display">
+B^\pi(\mathbf{x})=\frac{\alpha_0\pi_1}{\alpha_1\pi_0}=\frac{p(\mathbf{x}|\theta_0)}{p(\mathbf{x}|\theta_1)}</script><p>贝叶斯因子不依赖于先验分布，仅依赖于样本的似然比。这时贝叶斯因子的大小表示了样本$\ \mathbf{x}\ $支持$\ \Theta_0\ $的程度。</p>
+</li>
+</ul>
+<p>在复杂假设下，贝叶斯因子虽然已经不是似然比了，但仍可以看成是原假设与备择假设的加权似然比，它平均的消除了先验分布的影响，而强调了样本观察值的作用。</p>
+<p>在简单原假设对复杂的备择假设的场合下，例如很经典的检验问题$\ H_0=\theta_0\ v.s.H_1=\theta_1$。有别于前面问题的是不能采用连续密度函数作为先验分布，因为任何这种先验将给$\ \theta=\theta_0\ $的先验概率为0。基本的想法是赋予$\ \theta_0\ $一个正的概率，采用由离散和连续两部分组成的先验分布。</p>
+<p>关于以上两个场合的假设检验问题更加详细的内容，感兴趣的同学请参看《贝叶斯统计》P54~63。</p>
+<h3 id="S-2-5-预测"><a href="#S-2-5-预测" class="headerlink" title="$\S 2.5\ $预测"></a><center>$\S 2.5\ $预测</center></h3><p>对随机变量未来观察值作出统计推断称为预测，譬如：</p>
+<ol>
+<li>设随机变量$\ X\sim p(x|\theta)$，在参数$\ \theta\ $未知情况下如何对$\ X\ $的未来的观察值作出推断</li>
+<li>设$\ x_1,…x_n\ $是来自$\ p(x|\theta)\ $​的过去观察值，在参数$\ \theta\ $未知情况下如何对$\ X\ $的未来的观察值作出推断</li>
+<li>按密度函数$\ p(x|\theta)\ $得到一些数据$\ x_1,…x_n\ $后，如何对具有密度函数$\ g(z|\theta)\ $的随机变量$\ Z\ $的未来的观察值作出推断，这里第二个密度函数$\ p\ $和$\ g\ $都含有相同的未知参数$\ \theta$。</li>
+</ol>
+<p>在贝叶斯统计中，由于参数$\ \theta\ $随机且不可观测，我们的想法就是利用$\ \theta\ $的先验分布或者后验分布综合地考虑所有$\ \theta\ $的可能取值。共同点都是要获得预测分布。</p>
+<ol>
+<li><p>设随机变量$\ X\sim p(x|\theta)$，在无$\ X\ $的观察数据时，利用先验分布$\ \pi(\theta)\ $得到未知的但可以观测的数据$\ x\ $的分布</p>
+<script type="math/tex; mode=display">
+m(x)=\int_\Theta p(x|\theta)\pi(\theta)d\theta</script><p>这个分布常被称为$\ X\ $的边缘分布，但它还有一个更富有内涵的名称是“先验预测分布”。有了预测分布之后，我们就可以根据所需例如取期望值、中位数或众数作为预测值，也可以类似可信区间的形式取得预测区间。</p>
+</li>
+<li><p>在有$\ X\ $的观察数据$\ \mathbf{x}=(x_1,…,x_n)\ $时，改用后验分布$\pi(\theta|\mathbf{x})\ $获得“后验预测分布”</p>
+<script type="math/tex; mode=display">
+m(x|\mathbf{x})=\int_\Theta p(x|\theta)\pi(\theta|\mathbf{x})d\theta</script><p>也可以预测另一个总体$\ g(z|\theta)\ $的未来观察值，只要考虑如下分布：</p>
+<script type="math/tex; mode=display">
+m(z|\mathbf{x})=\int_\Theta g(z|\theta)\pi(\theta|\mathbf{x})d\theta</script></li>
+</ol>
+<h3 id="S-2-6-似然原理"><a href="#S-2-6-似然原理" class="headerlink" title="$\S 2.6\ $似然原理"></a><center>$\S 2.6\ $似然原理</center></h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
 
       
     </div>
