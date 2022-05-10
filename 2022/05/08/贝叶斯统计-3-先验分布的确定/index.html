@@ -30,7 +30,7 @@
 <meta property="og:description" content="$\S 3.1\ $主观概率主观概率贝叶斯统计中要使用先验信息，而先验信息主要是经验和历史资料。因此如何用人们的经验和过去的历史资料确定概率和先验分布是贝叶斯学派要研究的问题。 贝叶斯学派认为：一个事件的概率是人们根据经验对该事件发生的可能性所给出的个人信念。这样给出的概率称为主观概率。 当然我们所给出的主观概率并不是随意的，而是要求当事人（可能是某一行的专家）对所考察的事件有较透彻的了解和丰富的">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-08T04:35:02.000Z">
-<meta property="article:modified_time" content="2022-05-09T05:23:50.244Z">
+<meta property="article:modified_time" content="2022-05-10T06:49:12.875Z">
 <meta property="article:author" content="Shaw">
 <meta name="twitter:card" content="summary">
 
@@ -207,7 +207,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-09 13:23:50" itemprop="dateModified" datetime="2022-05-09T13:23:50+08:00">2022-05-09</time>
+                <time title="Modified: 2022-05-10 14:49:12" itemprop="dateModified" datetime="2022-05-10T14:49:12+08:00">2022-05-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -341,7 +341,38 @@ c,\quad \theta\in\Theta\\
 <li>由此决定的后验密度$\ \pi(\theta|x)\ $是一个正常的密度函数，则称$\ \pi(\theta)\ $为$\ \theta\ $的广义先验密度。</li>
 </ul>
 <p>对于第二个问题，我们先解释一下什么是变换下的不变性。</p>
-<h4 id="位置参数的无信息先验"><a href="#位置参数的无信息先验" class="headerlink" title="位置参数的无信息先验"></a>位置参数的无信息先验</h4><h3 id="S-3-5-多层先验"><a href="#S-3-5-多层先验" class="headerlink" title="$\S 3.5\ $多层先验"></a><center>$\S 3.5\ $多层先验</center></h3>
+<p>考虑正态标准差，它的参数空间是$\ (0,\infty)$。若定义一个变换</p>
+<script type="math/tex; mode=display">
+\eta=\sigma^2\in(0,\infty)</script><p>则$\ \eta\ $是正态方差。注意到这时一个一一变换，不会损失信息。若$\ \sigma\ $是无信息参数，那么$\ \eta\ $也是无信息参数，且它们的参数空间都是$\ (0,\infty)$，没有被压缩或放大。按贝叶斯假设，它们的无信息先验分布应都为常数，应该成比例。可是按照概率运算法则并不是这样的。若设$\ \pi(\sigma)\ $为$\ \sigma\ $的密度函数，那么$\ \eta\ $的密度函数为</p>
+<script type="math/tex; mode=display">
+\pi^*(\eta)=\abs{\frac{d\sigma}{d\eta}}\pi(\sqrt\eta)=\frac{1}{2\sqrt\eta}\pi(\sqrt\eta)</script><p>因此，若$\ \theta\ $的无信息先验分布被选为常数，为保持数学上逻辑推理的一致性，$\eta\ $的无信息先验应与$\ \eta^{-1/2}\ $成比例。这就与贝叶斯假设矛盾。</p>
+<p>从这个例子可以看出，不能随意设定一个常数为某参数的先验分布，即不能随意使用贝叶斯假设。那么什么场合可以使用贝叶斯假设？什么场合不能使用贝叶斯假设？如不能使用贝叶斯假设，无信息先验分布又如何确定呢？下面来叙述这些结果。</p>
+<h4 id="位置参数的无信息先验"><a href="#位置参数的无信息先验" class="headerlink" title="位置参数的无信息先验"></a>位置参数的无信息先验</h4><p>若要考虑参数$\ \theta\ $的无信息先验，我们首先要知道该参数$\ \theta\ $在总体分布中的地位，譬如$\ \theta\ $是位置参数，还是尺度参数。根据参数在分布的地位选用适当变换下的不变性来确定无信息先验分布。</p>
+<p>设总体$\ X\ $的密度具有形式$\ p(x-\theta)$，其样本空间$\ \chi\ $和参数空间$\ \Theta\ $皆为实数集$\ \mathbb{R}^1$。这类密度函数组成位置参数族。$\theta\ $称为位置参数，方差$\ \sigma^2\ $已知时的正态分布$\ N(\theta,\sigma^2)\ $就是其成员之一。下面我们导出这种场合下$\ \theta\ $的无信息先验分布。</p>
+<p>设想让$\ X\ $移动一个量$\ c\ $得到$\ Y=X+c$，同时让参数也移动一个量$\ c\ $得到$\ \eta=\theta+c$，显然$\ Y\ $具有密度$\ p(y-\eta)$。它仍是位置参数族的成员，且其样本空间与参数空间仍为$\ \mathbb{R}^1$。所以$\ (X,\theta)\ $问题与$\ (Y,\eta)\ $问题的统计结构完全相同。因此$\ \theta\ $与$\ \eta\ $应是有相同的无信息先验分布。</p>
+<script type="math/tex; mode=display">
+\pi(\tau)=\pi^*(\tau)</script><p>其中$\ \pi^{*}(*)\ $为$\ \eta\ $的无信息先验分布，另一方面，由变换$\ \eta=\theta+c\ $可以算出$\ \eta\ $的无信息先验分布为</p>
+<script type="math/tex; mode=display">
+\pi^*(\eta)=\abs{\frac{d\theta}{d\eta}}\pi(\eta-c)=\pi(\eta-c)</script><p>联立上面两式可得</p>
+<script type="math/tex; mode=display">
+\pi(\eta)=\pi(\eta-c)</script><p>取$\ \eta=c$，则有</p>
+<script type="math/tex; mode=display">
+\pi(c)=\pi(0)=\text{常数}</script><p>由于$\ c\ $的任意性，故得$\ \theta\ $的无信息先验分布为</p>
+<script type="math/tex; mode=display">
+\pi(\theta)=1</script><p>这表明，当$\ \theta\ $为位置参数时，其先验分布可用贝叶斯假设作为无信息先验分布。</p>
+<h4 id="尺度参数的无信息先验"><a href="#尺度参数的无信息先验" class="headerlink" title="尺度参数的无信息先验"></a>尺度参数的无信息先验</h4><p>设总体$\ X\ $的密度具有形式$\ \frac{1}{\sigma}p(\frac{x}{\sigma})$，其中$\ \sigma\ $称为尺度参数，参数空间$\ \Theta\ $为$\ \mathbb{R}^+=(0,\infty)$。这类密度函数的全体组成尺度参数族。正态分布$\ N(0,\sigma^2)\ $就属于该分布族。下面我们导出这种场合下参数$\ \sigma\ $的无信息先验分布。</p>
+<p>设想让$\ X\ $改变比例尺，即得$\ Y=cX(c&gt;0)$。类似地定义$\ \eta=c\sigma$，即让参数$\ \sigma\ $同步变化，不难算出$\ Y\ $的密度函数为$\ \frac{1}{\eta}p(\frac{y}{\eta})\ $仍属于尺度参数族。易见$\ (X,\sigma)\ $和$\ (Y, \eta)\ $具有相同的统计结构，故两个尺度参数的无信息先验理应相同</p>
+<script type="math/tex; mode=display">
+\pi(\tau)=\pi^*(\tau)</script><p>另一方面，由变换$\ \eta=c\sigma\ $可得$\ \eta\ $的无信息先验</p>
+<script type="math/tex; mode=display">
+\pi^*(\eta)=\frac{1}{c}{\pi(\frac{\eta}{c})}</script><p>比较上面两式得</p>
+<script type="math/tex; mode=display">
+\pi(\eta)=\frac{1}{c}\pi(\frac{\eta}{c})</script><p>取$\ \eta=c$，则有</p>
+<script type="math/tex; mode=display">
+\pi(c)=\frac{1}{c}\pi(1)</script><p>不妨令$\ \pi(1)=1$，可得$\ \sigma\ $的无信息先验为</p>
+<script type="math/tex; mode=display">
+\pi(\sigma)=\frac{1}{\sigma},\quad\sigma>0</script><p>这仍然是一个不正常的先验。</p>
+<h4 id="用Fisher信息阵确定无信息先验"><a href="#用Fisher信息阵确定无信息先验" class="headerlink" title="用Fisher信息阵确定无信息先验"></a>用Fisher信息阵确定无信息先验</h4><h3 id="S-3-5-多层先验"><a href="#S-3-5-多层先验" class="headerlink" title="$\S 3.5\ $多层先验"></a><center>$\S 3.5\ $多层先验</center></h3>
     </div>
 
     
@@ -418,7 +449,7 @@ c,\quad \theta\in\Theta\\
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#S-3-1-%E4%B8%BB%E8%A7%82%E6%A6%82%E7%8E%87"><span class="nav-number">1.</span> <span class="nav-text">$\S 3.1\ $主观概率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A7%82%E6%A6%82%E7%8E%87"><span class="nav-number">1.1.</span> <span class="nav-text">主观概率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E4%B8%BB%E8%A7%82%E6%A6%82%E7%8E%87%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">确定主观概率的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S-3-2-%E5%88%A9%E7%94%A8%E5%85%88%E9%AA%8C%E4%BF%A1%E6%81%AF%E7%A1%AE%E5%AE%9A%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83"><span class="nav-number">2.</span> <span class="nav-text">$\S 3.2\ $利用先验信息确定先验分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S-3-3-%E5%88%A9%E7%94%A8%E8%BE%B9%E7%BC%98%E5%88%86%E5%B8%83m-x-%E7%A1%AE%E5%AE%9A%E5%85%88%E9%AA%8C%E5%AF%86%E5%BA%A6"><span class="nav-number">3.</span> <span class="nav-text">$\S 3.3\ $利用边缘分布m(x)确定先验密度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%B9%E7%BC%98%E5%88%86%E5%B8%83"><span class="nav-number">3.1.</span> <span class="nav-text">边缘分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E5%88%86%E5%B8%83"><span class="nav-number">3.2.</span> <span class="nav-text">混合分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%88%E9%AA%8C%E9%80%89%E6%8B%A9%E7%9A%84-ML-%E2%85%A1-%E6%96%B9%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">先验选择的$\ ML-Ⅱ\ $方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%88%E9%AA%8C%E9%80%89%E6%8B%A9%E7%9A%84%E7%9F%A9%E6%96%B9%E6%B3%95"><span class="nav-number">3.4.</span> <span class="nav-text">先验选择的矩方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S-3-4-%E6%97%A0%E4%BF%A1%E6%81%AF%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83"><span class="nav-number">4.</span> <span class="nav-text">$\S 3.4\ $无信息先验分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%81%87%E8%AE%BE"><span class="nav-number">4.1.</span> <span class="nav-text">贝叶斯假设</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E7%9A%84%E6%97%A0%E4%BF%A1%E6%81%AF%E5%85%88%E9%AA%8C"><span class="nav-number">4.2.</span> <span class="nav-text">位置参数的无信息先验</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S-3-5-%E5%A4%9A%E5%B1%82%E5%85%88%E9%AA%8C"><span class="nav-number">5.</span> <span class="nav-text">$\S 3.5\ $多层先验</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#S-3-1-%E4%B8%BB%E8%A7%82%E6%A6%82%E7%8E%87"><span class="nav-number">1.</span> <span class="nav-text">$\S 3.1\ $主观概率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A7%82%E6%A6%82%E7%8E%87"><span class="nav-number">1.1.</span> <span class="nav-text">主观概率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E4%B8%BB%E8%A7%82%E6%A6%82%E7%8E%87%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">确定主观概率的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S-3-2-%E5%88%A9%E7%94%A8%E5%85%88%E9%AA%8C%E4%BF%A1%E6%81%AF%E7%A1%AE%E5%AE%9A%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83"><span class="nav-number">2.</span> <span class="nav-text">$\S 3.2\ $利用先验信息确定先验分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S-3-3-%E5%88%A9%E7%94%A8%E8%BE%B9%E7%BC%98%E5%88%86%E5%B8%83m-x-%E7%A1%AE%E5%AE%9A%E5%85%88%E9%AA%8C%E5%AF%86%E5%BA%A6"><span class="nav-number">3.</span> <span class="nav-text">$\S 3.3\ $利用边缘分布m(x)确定先验密度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%B9%E7%BC%98%E5%88%86%E5%B8%83"><span class="nav-number">3.1.</span> <span class="nav-text">边缘分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E5%88%86%E5%B8%83"><span class="nav-number">3.2.</span> <span class="nav-text">混合分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%88%E9%AA%8C%E9%80%89%E6%8B%A9%E7%9A%84-ML-%E2%85%A1-%E6%96%B9%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">先验选择的$\ ML-Ⅱ\ $方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%88%E9%AA%8C%E9%80%89%E6%8B%A9%E7%9A%84%E7%9F%A9%E6%96%B9%E6%B3%95"><span class="nav-number">3.4.</span> <span class="nav-text">先验选择的矩方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S-3-4-%E6%97%A0%E4%BF%A1%E6%81%AF%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83"><span class="nav-number">4.</span> <span class="nav-text">$\S 3.4\ $无信息先验分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%81%87%E8%AE%BE"><span class="nav-number">4.1.</span> <span class="nav-text">贝叶斯假设</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E7%9A%84%E6%97%A0%E4%BF%A1%E6%81%AF%E5%85%88%E9%AA%8C"><span class="nav-number">4.2.</span> <span class="nav-text">位置参数的无信息先验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%BA%E5%BA%A6%E5%8F%82%E6%95%B0%E7%9A%84%E6%97%A0%E4%BF%A1%E6%81%AF%E5%85%88%E9%AA%8C"><span class="nav-number">4.3.</span> <span class="nav-text">尺度参数的无信息先验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8Fisher%E4%BF%A1%E6%81%AF%E9%98%B5%E7%A1%AE%E5%AE%9A%E6%97%A0%E4%BF%A1%E6%81%AF%E5%85%88%E9%AA%8C"><span class="nav-number">4.4.</span> <span class="nav-text">用Fisher信息阵确定无信息先验</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S-3-5-%E5%A4%9A%E5%B1%82%E5%85%88%E9%AA%8C"><span class="nav-number">5.</span> <span class="nav-text">$\S 3.5\ $多层先验</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
