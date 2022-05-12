@@ -205,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-10 14:49:12" itemprop="dateModified" datetime="2022-05-10T14:49:12+08:00">2022-05-10</time>
+                <time title="Modified: 2022-05-12 15:07:23" itemprop="dateModified" datetime="2022-05-12T15:07:23+08:00">2022-05-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -363,7 +363,55 @@ c,\quad \theta\in\Theta\\
 \pi(c)=\frac{1}{c}\pi(1)</script><p>不妨令$\ \pi(1)=1$，可得$\ \sigma\ $的无信息先验为</p>
 <script type="math/tex; mode=display">
 \pi(\sigma)=\frac{1}{\sigma},\quad\sigma>0</script><p>这仍然是一个不正常的先验。</p>
-<h4 id="用Fisher信息阵确定无信息先验"><a href="#用Fisher信息阵确定无信息先验" class="headerlink" title="用Fisher信息阵确定无信息先验"></a>用Fisher信息阵确定无信息先验</h4><h3 id="S-3-5-多层先验"><a href="#S-3-5-多层先验" class="headerlink" title="$\S 3.5\ $多层先验"></a><center>$\S 3.5\ $多层先验</center></h3>
+<h4 id="用Fisher信息阵确定无信息先验"><a href="#用Fisher信息阵确定无信息先验" class="headerlink" title="用Fisher信息阵确定无信息先验"></a>用Fisher信息阵确定无信息先验</h4><p>$\ Jeffreys\ $还提出确定无信息先验更一般的方法。由于推理涉及到变换群和$\ Harr\ $测度知识，这里仅给出最后结果及其计算步骤</p>
+<p>设$\ \mathbf{x}=(x_1,…,x_n)\ $是来自密度函数$\ p(x|\theta)\ $的一个样本。这里$\ \theta=(\theta_1,…,\theta_n)\ $是$\ p\ $维参数向量。在对$\ \theta\ $无先验信息可用时，$\ Jeffreys\ $用$\ Fisher\ $信息阵的平方根作为$\ \theta\ $的无信息分布。这样的无信息先验常称为$\ Jeffreys\ $先验。其寻求步骤如下：</p>
+<ol>
+<li><p>写出样本的对数似然函数</p>
+<script type="math/tex; mode=display">
+l(\theta|\mathbf{x})=\ln{[\prod_{i=1}^{n}p(x_i|\theta)]}=\sum_{i=1}^{n}\ln p(x_i|\theta)</script></li>
+<li><p>求样本的信息阵</p>
+<script type="math/tex; mode=display">
+I(\theta)=E^{x|\theta}[-\frac{\part^2 l}{\part\theta_i\part\theta_j}]</script><p>其中$\ i,j=1,2,…,p$。在单参数场合下</p>
+<script type="math/tex; mode=display">
+I(\theta)=E^{x\theta}[-\frac{\part^2l}{\part\theta^2}]</script></li>
+<li><p>$\theta\ $的无信息先验密度为</p>
+<script type="math/tex; mode=display">
+\pi(\theta)=[\det I(\theta)]^{1/2}</script><p>其中$\ \det I(\theta)\ $表示$\ p\times p\ $阶信息阵$\ I(\theta)\ $的行列式。在单参数场合下</p>
+<script type="math/tex; mode=display">
+\pi(\theta)=[I(\theta)]^{1/2}</script></li>
+</ol>
+<h3 id="S-3-5-多层先验"><a href="#S-3-5-多层先验" class="headerlink" title="$\S 3.5\ $多层先验"></a><center>$\S 3.5\ $多层先验</center></h3><h4 id="多层先验"><a href="#多层先验" class="headerlink" title="多层先验"></a>多层先验</h4><p>当所给先验分布中超参数难于确定时，可以对超参数再给出一个先验，第二个先验成为超先验。由先验和超先验决定的一个新先验就称为多层先验。下面的例子可以很好的帮助我们理解多层先验的想法和做法。</p>
+<p>设人们对某产品的不合格率了解甚少，只知道它比较小。现需确定$\ \theta\ $的先验分布。决策人经过反复的思考，最后把他引导到多层先验上去，他的思路是这个样子的：</p>
+<ol>
+<li><p>开始他用区间$\ (0,1)\ $上的均匀分布$\ U(0,1)\ $作为$\ \theta\ $的先验分布。</p>
+</li>
+<li><p>后来觉得不妥，因为该产品的不合格率$\ \theta\ $比较小，不会超过$\ 0.5\%$，于是他改用区间$\ U(0,0.5)\ $作为$\ \theta\ $的先验分布</p>
+</li>
+<li><p>在一次业务会上，不少人对上限$\ 0.5\ $提出各种意见，有人觉得应该为$\ 0.1$，有人认为应该只是比$\ 0.5\ $小一点，应该取$\ 0.4$，但是对此他也没有把握。最后决策人提出以下看法：$\theta\ $的先验为$\ (0,\lambda)$，其中$\ \lambda\ $是超参数，要确切地定出$\ \lambda\ $是困难的，但是预示它的区间是有把握的。综合大家的意见，决策人最终认为$\ \lambda\ $是在区间$\ (0.1,0.5)\ $上的均匀分布$\ U(0.1,0.5)$。这后一个分布称为超先验。</p>
+</li>
+<li><p>我们归纳一下最终决定的先验：</p>
+<ul>
+<li>$\theta\ $的先验为$\ \pi_1(\theta|\lambda)=U(0,\lambda)$</li>
+<li>$\lambda\ $的超先验为$\ \pi_2(\lambda)=U(0.1,0.5)$</li>
+</ul>
+<p>于是用边缘分布计算公式，可得$\ \theta\ $的先验为</p>
+<script type="math/tex; mode=display">
+\pi(\theta)=\int_\Lambda\pi_1(\theta|\lambda)\pi_2(\lambda)d\lambda</script><p>其中$\ \Lambda\ $是超参数$\ \lambda\ $的取值范围。在这个例子中：</p>
+<script type="math/tex; mode=display">
+\pi(\theta)=\frac{1}{0.5-0.1}\int_{0.1}^{0.5}\lambda \mathbb{I}_{(0,\lambda)}(\theta)d\lambda</script><p>其中$\ \mathbb{I}\ $为示性函数：</p>
+<script type="math/tex; mode=display">
+\mathbb{I}_{(0,\lambda)}(\theta)=\left\{
+\begin{aligned}
+1,\quad \theta\in\Lambda\\
+0,\quad \theta\notin\Lambda
+\end{aligned}
+\right.</script></li>
+</ol>
+<p>理论上并没有限制多层先验只能有两层，可以是三步或更多步，但是在实际应用中多于两步的先验是很罕见的。对于第二层的超先验用主观概率或用历史数据给出是有困难的，因为$\ \lambda\ $常是不能观察的，甚至连间接观察都是难以进行的，所以用无信息先验作为超先验是一种好的策略。</p>
+<p>多层先验常常是在这样一个场合使用，当一步给出先验$\ \pi(\theta)\ $没有把握时，那用二层先验要比硬用一层先验所冒的风险要小一些。</p>
+<h4 id="多层模型"><a href="#多层模型" class="headerlink" title="多层模型"></a>多层模型</h4><p>在统计问题中常有多个参数需要估计</p>
+<p>（to be continued</p>
+
       
     </div>
 
