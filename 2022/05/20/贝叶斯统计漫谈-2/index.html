@@ -22,19 +22,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Bayesian Model SelectionBayesian model selection is a fundamental part of the Bayesian statistical modeling process. the quality of these solutions usually depends on the quality of the constructed Ba">
+  <meta name="description" content="Stein 效应写在前面正态均值用其样本均值去估计有很好的性质。人们都经常使用它，当把这样的估计推广到p元正态分布场合时出现了意想不到的结果。Stein在1955年指出，在多元二次损失函数下，$p\ge3\ $时，样本均值向量是正态均值向量的非容许估计。如今，我们把这种效应称为Stein效应。 一致最小方差无偏估计 UMVUE当我们谈及对某个参数的点估计问题时，我们当然可以根据样本构造很多的统计量">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bayesian Model Selection and Statistical Modeling 0 Preface">
-<meta property="og:url" content="http://example.com/2022/05/14/Bayesian-Model-Selection-and-Statistical-Modeling-0-Preface/index.html">
+<meta property="og:title" content="贝叶斯统计漫谈 2">
+<meta property="og:url" content="http://example.com/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/index.html">
 <meta property="og:site_name" content="Shaw">
-<meta property="og:description" content="Bayesian Model SelectionBayesian model selection is a fundamental part of the Bayesian statistical modeling process. the quality of these solutions usually depends on the quality of the constructed Ba">
+<meta property="og:description" content="Stein 效应写在前面正态均值用其样本均值去估计有很好的性质。人们都经常使用它，当把这样的估计推广到p元正态分布场合时出现了意想不到的结果。Stein在1955年指出，在多元二次损失函数下，$p\ge3\ $时，样本均值向量是正态均值向量的非容许估计。如今，我们把这种效应称为Stein效应。 一致最小方差无偏估计 UMVUE当我们谈及对某个参数的点估计问题时，我们当然可以根据样本构造很多的统计量">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-05-14T07:54:13.000Z">
-<meta property="article:modified_time" content="2022-05-14T08:02:35.496Z">
+<meta property="article:published_time" content="2022-05-20T01:33:41.000Z">
+<meta property="article:modified_time" content="2022-05-20T07:36:35.072Z">
 <meta property="article:author" content="Shaw">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/05/14/Bayesian-Model-Selection-and-Statistical-Modeling-0-Preface/">
+<link rel="canonical" href="http://example.com/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>Bayesian Model Selection and Statistical Modeling 0 Preface | Shaw</title>
+  <title>贝叶斯统计漫谈 2 | Shaw</title>
   
 
 
@@ -177,7 +177,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/14/Bayesian-Model-Selection-and-Statistical-Modeling-0-Preface/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,7 +190,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Bayesian Model Selection and Statistical Modeling 0 Preface
+          贝叶斯统计漫谈 2
         </h1>
 
         <div class="post-meta">
@@ -201,7 +201,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-05-14 15:54:13 / Modified: 16:02:35" itemprop="dateCreated datePublished" datetime="2022-05-14T15:54:13+08:00">2022-05-14</time>
+              <time title="Created: 2022-05-20 09:33:41 / Modified: 15:36:35" itemprop="dateCreated datePublished" datetime="2022-05-20T09:33:41+08:00">2022-05-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,12 +231,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="Bayesian-Model-Selection"><a href="#Bayesian-Model-Selection" class="headerlink" title="Bayesian Model Selection"></a><center>Bayesian Model Selection</center></h4><p><strong>Bayesian model selection</strong> is a fundamental part of the Bayesian statistical modeling process. the quality of these solutions usually depends on the quality of the constructed Bayesian models. </p>
-<p>A default framework for the Bayesian model selection is based on the <strong>Bayes factor</strong>.</p>
-<p>From the Bayes factor, Bayesian information criterion (BIC), generalized Bayesian information criterion (GBIC), and various types of Bayesian model selection criteria have been proposed.</p>
-<h4 id="Sampling-Methods"><a href="#Sampling-Methods" class="headerlink" title="Sampling Methods"></a><center>Sampling Methods</center></h4><p>The Bayesian inference on a statistical model was previously complex. It is now possible to implement the various types of the Bayesian inference thanks to advances in computing technology and the use of new sampling methods, including Markov chain Monte Carlo (MCMC).</p>
-<h4 id="Bayesian-Modeling-Averaging"><a href="#Bayesian-Modeling-Averaging" class="headerlink" title="Bayesian Modeling Averaging"></a><center>Bayesian Modeling Averaging</center></h4><p>By averaging over many different Bayesian statistical models, it can incorporate model uncertainty into the solution of the decision problems.</p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>Bayesian Model Selection and Statistical Modeling by Tomohiro Ando</p>
+        <h3 id="Stein-效应"><a href="#Stein-效应" class="headerlink" title="Stein 效应"></a><center>Stein 效应</center></h3><h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>正态均值用其样本均值去估计有很好的性质。人们都经常使用它，当把这样的估计推广到p元正态分布场合时出现了意想不到的结果。Stein在1955年指出，在多元二次损失函数下，$p\ge3\ $时，样本均值向量是正态均值向量的非容许估计。如今，我们把这种效应称为Stein效应。</p>
+<h4 id="一致最小方差无偏估计-UMVUE"><a href="#一致最小方差无偏估计-UMVUE" class="headerlink" title="一致最小方差无偏估计 UMVUE"></a>一致最小方差无偏估计 UMVUE</h4><p>当我们谈及对某个参数的点估计问题时，我们当然可以根据样本构造很多的统计量，不论它们到底合理与否。不过我们总是希望这些估计量会满足一些比较好的性质，例如<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%97%A0%E5%81%8F%E6%80%A7/6320898">无偏性</a>（没有系统性偏差）、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/相合性">相合性</a>（随着样本量的增加可以在概率意义下逼近参数真值）等等。</p>
+<p>不仅如此，我们往往还会更加关心是否能够找到一种最优的估计——这种最优性会在一定的框架或者说<strong>准则</strong>下导出。一致最小方差无偏估计UMVUE（Uniformly Minimum-Variance Unbiased Estimator）就是一个对于所有<strong>无偏估计</strong>中，拥有<strong>最小方差</strong>的无偏估计。</p>
+<h4 id="容许性"><a href="#容许性" class="headerlink" title="容许性"></a>容许性</h4><p>不必回忆干巴巴的数学符号，我们仅通过简单的语言来说明什么是（非）容许估计。</p>
+<p>非容许估计就是指在某种准则（决策函数）下，无论参数真值取什么值，某个估计都会一致地比另外一个估计表现差。需要注意两点：一是“一致”是对参数真值而言的，二是表现差是针对具体的准则（决策函数）而言的，换了不同的准则（决策函数），我们的结果可能就截然不同了。</p>
+<p>所以很自然地，在一个事先固定的框架下，当某个估计量一致地比另一个估计量的表现差，那么我们就没有任何理由保留前者，此时我们就称它是非容许的。</p>
+<h4 id="Stein效应"><a href="#Stein效应" class="headerlink" title="Stein效应"></a>Stein效应</h4><p>在有些情况下，如果决策函数选取平方损失函数，可以很容易构造一个比UMVUE一致更优的估计。这一结果最早由统计学家Stein在1955年指出，被称为Stein效应。</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>考虑p元正态总体均值的估计问题</p>
+<p>设$\ \mathbf{x}=(x_1,…,x_p)’\ $服从p元正态分布$\ N(\mu,I_p)$，其中$\ \mu=(\mu_1,…,\mu_p)\in\mathbb{R}^p$，$I_p\ $为p阶单位阵。如今对$\ \mathbf{x}\ $仅作<strong>一次观测</strong>，并用观测结果</p>
+<script type="math/tex; mode=display">
+\delta(\mathbf{x})=(x_1,..,x_p)'</script><p>去估计总体均值向量$\ \mu$，现在决策函数为p元二次损失函数</p>
+<script type="math/tex; mode=display">
+L(\mu,\delta)=(\delta-\mu)^T(\delta-\mu)</script><p>下研究$\ \delta(\mathbf{x})\ $容许性问题，Stein在1955年指出$\ \delta(\mathbf{x})\ $在$\ p\ge3\ $时是$\ \mu\ $的非容许估计。1961年，James和Stein给出了比$\ \delta(\mathbf{x})\ $一致更优的估计</p>
+<script type="math/tex; mode=display">
+\delta^{JS}(\mathbf{x})=(1-\frac{p-2}{\mathbf{x}^T\mathbf{x}})\mathbf{x}</script><p>这个估计被称为James-Stein估计，选用这个估计的直观想法出自于</p>
+<script type="math/tex; mode=display">
+E(\mathbf{x}^T\mathbf{x})=E(x_1^2+...+x_p^2)=p+\mu^T\mu</script><p>这就告诉我们，当用$\ \mathbf{x}\ $去估计$\ \mu\ $时，$\mathbf{x}\ $的平均长度$\ E(\mathbf{x}^T\mathbf{x})\ $实际上比$\ \mu\ $的长度长，这是一种系统性偏差，需要改进，改进的方法就是乘以一个小于1的修正因子使估计量向零收缩。</p>
+<p>(to be continued)</p>
+<h4 id="收缩估计-Shrinkage"><a href="#收缩估计-Shrinkage" class="headerlink" title="收缩估计 Shrinkage"></a>收缩估计 Shrinkage</h4><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1]《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
+<p>[2] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/378477481">知乎：参数估计 Part-I：Stein效应</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://qastack.cn/stats/304308/why-is-the-james-stein-estimator-called-a-shrinkage-estimator">QStack：为什么将James-Stein估计量称为“收缩”估计量？</a></p>
+<p>[4] <a target="_blank" rel="noopener" href="https://efron.ckirby.su.domains//other/Article1977.pdf">Stein 统计悖论. Article1977.pdf</a></p>
 
     </div>
 
@@ -252,13 +268,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/05/14/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-4-%E5%86%B3%E7%AD%96%E4%B8%AD%E7%9A%84%E6%94%B6%E7%9B%8A%E3%80%81%E6%8D%9F%E5%A4%B1%E4%B8%8E%E6%95%88%E7%94%A8/" rel="prev" title="贝叶斯统计 4 决策中的收益、损失与效用">
-      <i class="fa fa-chevron-left"></i> 贝叶斯统计 4 决策中的收益、损失与效用
+    <a href="/2022/05/19/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-1/" rel="prev" title="贝叶斯统计漫谈 1">
+      <i class="fa fa-chevron-left"></i> 贝叶斯统计漫谈 1
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/05/15/%E4%BA%94%E4%B8%AD%E6%B1%87%E6%8A%A5/" rel="next" title="五中汇报">
-      五中汇报 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -317,7 +330,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bayesian-Model-Selection"><span class="nav-number">1.</span> <span class="nav-text">Bayesian Model Selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sampling-Methods"><span class="nav-number">2.</span> <span class="nav-text">Sampling Methods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bayesian-Modeling-Averaging"><span class="nav-number">3.</span> <span class="nav-text">Bayesian Modeling Averaging</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stein-%E6%95%88%E5%BA%94"><span class="nav-number">1.</span> <span class="nav-text">Stein 效应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E8%87%B4%E6%9C%80%E5%B0%8F%E6%96%B9%E5%B7%AE%E6%97%A0%E5%81%8F%E4%BC%B0%E8%AE%A1-UMVUE"><span class="nav-number">1.2.</span> <span class="nav-text">一致最小方差无偏估计 UMVUE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B9%E8%AE%B8%E6%80%A7"><span class="nav-number">1.3.</span> <span class="nav-text">容许性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stein%E6%95%88%E5%BA%94"><span class="nav-number">1.4.</span> <span class="nav-text">Stein效应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">1.5.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%94%B6%E7%BC%A9%E4%BC%B0%E8%AE%A1-Shrinkage"><span class="nav-number">1.6.</span> <span class="nav-text">收缩估计 Shrinkage</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

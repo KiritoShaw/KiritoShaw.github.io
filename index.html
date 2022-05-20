@@ -174,6 +174,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/" class="post-title-link" itemprop="url">贝叶斯统计漫谈 2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-05-20 09:33:41 / Modified: 15:36:35" itemprop="dateCreated datePublished" datetime="2022-05-20T09:33:41+08:00">2022-05-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Bayesian-Statistics/" itemprop="url" rel="index"><span itemprop="name">Bayesian Statistics</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Stein-效应"><a href="#Stein-效应" class="headerlink" title="Stein 效应"></a><center>Stein 效应</center></h3><h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>正态均值用其样本均值去估计有很好的性质。人们都经常使用它，当把这样的估计推广到p元正态分布场合时出现了意想不到的结果。Stein在1955年指出，在多元二次损失函数下，$p\ge3\ $时，样本均值向量是正态均值向量的非容许估计。如今，我们把这种效应称为Stein效应。</p>
+<h4 id="一致最小方差无偏估计-UMVUE"><a href="#一致最小方差无偏估计-UMVUE" class="headerlink" title="一致最小方差无偏估计 UMVUE"></a>一致最小方差无偏估计 UMVUE</h4><p>当我们谈及对某个参数的点估计问题时，我们当然可以根据样本构造很多的统计量，不论它们到底合理与否。不过我们总是希望这些估计量会满足一些比较好的性质，例如<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%97%A0%E5%81%8F%E6%80%A7/6320898">无偏性</a>（没有系统性偏差）、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/相合性">相合性</a>（随着样本量的增加可以在概率意义下逼近参数真值）等等。</p>
+<p>不仅如此，我们往往还会更加关心是否能够找到一种最优的估计——这种最优性会在一定的框架或者说<strong>准则</strong>下导出。一致最小方差无偏估计UMVUE（Uniformly Minimum-Variance Unbiased Estimator）就是一个对于所有<strong>无偏估计</strong>中，拥有<strong>最小方差</strong>的无偏估计。</p>
+<h4 id="容许性"><a href="#容许性" class="headerlink" title="容许性"></a>容许性</h4><p>不必回忆干巴巴的数学符号，我们仅通过简单的语言来说明什么是（非）容许估计。</p>
+<p>非容许估计就是指在某种准则（决策函数）下，无论参数真值取什么值，某个估计都会一致地比另外一个估计表现差。需要注意两点：一是“一致”是对参数真值而言的，二是表现差是针对具体的准则（决策函数）而言的，换了不同的准则（决策函数），我们的结果可能就截然不同了。</p>
+<p>所以很自然地，在一个事先固定的框架下，当某个估计量一致地比另一个估计量的表现差，那么我们就没有任何理由保留前者，此时我们就称它是非容许的。</p>
+<h4 id="Stein效应"><a href="#Stein效应" class="headerlink" title="Stein效应"></a>Stein效应</h4><p>在有些情况下，如果决策函数选取平方损失函数，可以很容易构造一个比UMVUE一致更优的估计。这一结果最早由统计学家Stein在1955年指出，被称为Stein效应。</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>考虑p元正态总体均值的估计问题</p>
+<p>设$\ \mathbf{x}=(x_1,…,x_p)’\ $服从p元正态分布$\ N(\mu,I_p)$，其中$\ \mu=(\mu_1,…,\mu_p)\in\mathbb{R}^p$，$I_p\ $为p阶单位阵。如今对$\ \mathbf{x}\ $仅作<strong>一次观测</strong>，并用观测结果</p>
+<script type="math/tex; mode=display">
+\delta(\mathbf{x})=(x_1,..,x_p)'</script><p>去估计总体均值向量$\ \mu$，现在决策函数为p元二次损失函数</p>
+<script type="math/tex; mode=display">
+L(\mu,\delta)=(\delta-\mu)^T(\delta-\mu)</script><p>下研究$\ \delta(\mathbf{x})\ $容许性问题，Stein在1955年指出$\ \delta(\mathbf{x})\ $在$\ p\ge3\ $时是$\ \mu\ $的非容许估计。1961年，James和Stein给出了比$\ \delta(\mathbf{x})\ $一致更优的估计</p>
+<script type="math/tex; mode=display">
+\delta^{JS}(\mathbf{x})=(1-\frac{p-2}{\mathbf{x}^T\mathbf{x}})\mathbf{x}</script><p>这个估计被称为James-Stein估计，选用这个估计的直观想法出自于</p>
+<script type="math/tex; mode=display">
+E(\mathbf{x}^T\mathbf{x})=E(x_1^2+...+x_p^2)=p+\mu^T\mu</script><p>这就告诉我们，当用$\ \mathbf{x}\ $去估计$\ \mu\ $时，$\mathbf{x}\ $的平均长度$\ E(\mathbf{x}^T\mathbf{x})\ $实际上比$\ \mu\ $的长度长，这是一种系统性偏差，需要改进，改进的方法就是乘以一个小于1的修正因子使估计量向零收缩。</p>
+<p>(to be continued)</p>
+<h4 id="收缩估计-Shrinkage"><a href="#收缩估计-Shrinkage" class="headerlink" title="收缩估计 Shrinkage"></a>收缩估计 Shrinkage</h4><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1]《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
+<p>[2] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/378477481">知乎：参数估计 Part-I：Stein效应</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://qastack.cn/stats/304308/why-is-the-james-stein-estimator-called-a-shrinkage-estimator">QStack：为什么将James-Stein估计量称为“收缩”估计量？</a></p>
+<p>[4] <a target="_blank" rel="noopener" href="https://efron.ckirby.su.domains//other/Article1977.pdf">Stein 统计悖论. Article1977.pdf</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/19/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1508,92 +1597,6 @@ f(\alpha x+(1-\alpha)y)\lt \alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/15/%E5%9B%9B%E4%B8%AD%E6%B1%87%E6%8A%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/15/%E5%9B%9B%E4%B8%AD%E6%B1%87%E6%8A%A5/" class="post-title-link" itemprop="url">四中汇报</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-04-15 13:22:02 / Modified: 13:44:05" itemprop="dateCreated datePublished" datetime="2022-04-15T13:22:02+08:00">2022-04-15</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Summary/" itemprop="url" rel="index"><span itemprop="name">Summary</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="学习路径"><a href="#学习路径" class="headerlink" title="学习路径"></a>学习路径</h4><p>在本月中，我的生活发生了很多变化，不仅仅是学习生活，更包括一些心理上的变化。</p>
-<p>在这里我主要谈谈学习生活的变化，当然这不可避免的会谈及到心理层面的东西。</p>
-<p>一是我暂缓了泛函分析的学习，原因有两个：</p>
-<ul>
-<li>泛函分析的学习达到了一个瓶颈，想要再继续深入学习下去需要花费我更加多的时间和精力。</li>
-<li>心理层面的一些问题导致我需要一个比较宽松的，节奏比较舒缓的方式以确保能保证最低强度的学习</li>
-</ul>
-<p>二是偏微分方程的学习，基本上达成进度比学校快一章节的目标，这也很有预见性的给我上一点所提到的舒缓的学习节奏提供了缓冲的可能。</p>
-<h4 id="srp"><a href="#srp" class="headerlink" title="srp"></a>srp</h4><p>开了短短不到一小时的会，与srp的指导老师和各位师兄见了面。本次srp项目一改往常的方式，不是每周一个组会汇报进展（考虑到大二大三的学生课程安排比较紧张，安排出一个大家都有空闲的时间统一开组会似乎都做不到），所以决定通过研究生带领一到两位本科生的方式。分配给我的师兄看起来非常的和蔼可亲哈哈哈，希望能够在他的带领下快速的成长起来。</p>
-<p>夏栗老师首先提到了一件事，那就是让研究生们先带领我们学习做科研是这么样子的流程，这是一个很重要的问题，不过先按下不表。</p>
-<p>ps.夏栗老师本尊看起来就非常像能读博士的人</p>
-<h4 id="opencv"><a href="#opencv" class="headerlink" title="opencv"></a>opencv</h4><h4 id="BTM"><a href="#BTM" class="headerlink" title="BTM"></a>BTM</h4><p>本月比较有结果的工作就是完成了关于对欧式、美式看涨、看跌期权的二叉树定价模型，包括无股息、连续股息红利率、派发一次性股息情形、上升-敲出期权以及蝶式期权的定价。</p>
-<h4 id="慢节奏"><a href="#慢节奏" class="headerlink" title="慢节奏"></a>慢节奏</h4><p>其实本月的工作强度并不是很大，并不像上个月那么高产和充满干劲。</p>
-<h3 id="下个月目标"><a href="#下个月目标" class="headerlink" title="下个月目标"></a>下个月目标</h3><ul>
-<li><p>摸索如何调整自己的节奏和情绪</p>
-</li>
-<li><p>正常更新五中汇报</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1665,7 +1668,7 @@ f(\alpha x+(1-\alpha)y)\lt \alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
