@@ -29,10 +29,12 @@
 <meta property="og:site_name" content="Shaw">
 <meta property="og:description" content="Stein 效应写在前面正态均值用其样本均值去估计有很好的性质。人们都经常使用它，当把这样的估计推广到p元正态分布场合时出现了意想不到的结果。Stein在1955年指出，在多元二次损失函数下，$p\ge3\ $时，样本均值向量是正态均值向量的非容许估计。如今，我们把这种效应称为Stein效应。 一致最小方差无偏估计 UMVUE当我们谈及对某个参数的点估计问题时，我们当然可以根据样本构造很多的统计量">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/Stein2.jpg">
 <meta property="article:published_time" content="2022-05-20T01:33:41.000Z">
-<meta property="article:modified_time" content="2022-05-20T07:36:35.072Z">
+<meta property="article:modified_time" content="2022-05-25T07:35:14.051Z">
 <meta property="article:author" content="Shaw">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/Stein2.jpg">
 
 <link rel="canonical" href="http://example.com/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/">
 
@@ -199,10 +201,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-05-20 09:33:41 / Modified: 15:36:35" itemprop="dateCreated datePublished" datetime="2022-05-20T09:33:41+08:00">2022-05-20</time>
+              <time title="Created: 2022-05-20 09:33:41" itemprop="dateCreated datePublished" datetime="2022-05-20T09:33:41+08:00">2022-05-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-25 15:35:14" itemprop="dateModified" datetime="2022-05-25T15:35:14+08:00">2022-05-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -234,7 +242,7 @@
         <h3 id="Stein-效应"><a href="#Stein-效应" class="headerlink" title="Stein 效应"></a><center>Stein 效应</center></h3><h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>正态均值用其样本均值去估计有很好的性质。人们都经常使用它，当把这样的估计推广到p元正态分布场合时出现了意想不到的结果。Stein在1955年指出，在多元二次损失函数下，$p\ge3\ $时，样本均值向量是正态均值向量的非容许估计。如今，我们把这种效应称为Stein效应。</p>
 <h4 id="一致最小方差无偏估计-UMVUE"><a href="#一致最小方差无偏估计-UMVUE" class="headerlink" title="一致最小方差无偏估计 UMVUE"></a>一致最小方差无偏估计 UMVUE</h4><p>当我们谈及对某个参数的点估计问题时，我们当然可以根据样本构造很多的统计量，不论它们到底合理与否。不过我们总是希望这些估计量会满足一些比较好的性质，例如<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%97%A0%E5%81%8F%E6%80%A7/6320898">无偏性</a>（没有系统性偏差）、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/相合性">相合性</a>（随着样本量的增加可以在概率意义下逼近参数真值）等等。</p>
 <p>不仅如此，我们往往还会更加关心是否能够找到一种最优的估计——这种最优性会在一定的框架或者说<strong>准则</strong>下导出。一致最小方差无偏估计UMVUE（Uniformly Minimum-Variance Unbiased Estimator）就是一个对于所有<strong>无偏估计</strong>中，拥有<strong>最小方差</strong>的无偏估计。</p>
-<h4 id="容许性"><a href="#容许性" class="headerlink" title="容许性"></a>容许性</h4><p>不必回忆干巴巴的数学符号，我们仅通过简单的语言来说明什么是（非）容许估计。</p>
+<h4 id="容许性"><a href="#容许性" class="headerlink" title="容许性"></a>容许性</h4><p>不必回忆干巴巴的数学符号，我们仅通过简单的语言来描述什么是（非）容许估计。</p>
 <p>非容许估计就是指在某种准则（决策函数）下，无论参数真值取什么值，某个估计都会一致地比另外一个估计表现差。需要注意两点：一是“一致”是对参数真值而言的，二是表现差是针对具体的准则（决策函数）而言的，换了不同的准则（决策函数），我们的结果可能就截然不同了。</p>
 <p>所以很自然地，在一个事先固定的框架下，当某个估计量一致地比另一个估计量的表现差，那么我们就没有任何理由保留前者，此时我们就称它是非容许的。</p>
 <h4 id="Stein效应"><a href="#Stein效应" class="headerlink" title="Stein效应"></a>Stein效应</h4><p>在有些情况下，如果决策函数选取平方损失函数，可以很容易构造一个比UMVUE一致更优的估计。这一结果最早由统计学家Stein在1955年指出，被称为Stein效应。</p>
@@ -248,8 +256,13 @@ L(\mu,\delta)=(\delta-\mu)^T(\delta-\mu)</script><p>下研究$\ \delta(\mathbf{x
 \delta^{JS}(\mathbf{x})=(1-\frac{p-2}{\mathbf{x}^T\mathbf{x}})\mathbf{x}</script><p>这个估计被称为James-Stein估计，选用这个估计的直观想法出自于</p>
 <script type="math/tex; mode=display">
 E(\mathbf{x}^T\mathbf{x})=E(x_1^2+...+x_p^2)=p+\mu^T\mu</script><p>这就告诉我们，当用$\ \mathbf{x}\ $去估计$\ \mu\ $时，$\mathbf{x}\ $的平均长度$\ E(\mathbf{x}^T\mathbf{x})\ $实际上比$\ \mu\ $的长度长，这是一种系统性偏差，需要改进，改进的方法就是乘以一个小于1的修正因子使估计量向零收缩。</p>
-<p>(to be continued)</p>
-<h4 id="收缩估计-Shrinkage"><a href="#收缩估计-Shrinkage" class="headerlink" title="收缩估计 Shrinkage"></a>收缩估计 Shrinkage</h4><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1]《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
+<h4 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h4><p>下面我们给出一个图示，它很好的说明了Stein估计与均值估计的差别</p>
+<p><img src="/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/Stein2.jpg" alt></p>
+<p>图中右侧的文字如下：</p>
+<p>BATTING ABILITIES of 18 major-league baseball players are estimated more accurately by the method of Charles Stein and W.James than they are by the individual batting averages. The average employed as estimators are those calculated after each player had had 45 times at bat in the 1970 season. The true batting ability  of a player is an unobservable quantity, but it is closely approximated by his long-term average performance. Here the true ability is represented by the batting average maintained during the remainder of the 1970 season. For 16 of the players the initial average is inferior to another number, the James-Stein estimator, as a predictor of batting ability. The James-Stein estimators, considered as a group, also have the smaller total squared error.</p>
+<p>18 名大联盟棒球运动员的击球能力通过查尔斯斯坦和 W.詹姆斯的方法比通过个人击球平均值更准确地估计。 平均值估计是在 1970 赛季每位球员击球 45 次之后计算的。 一个球员真正的击球能力是一个不可观察的数量，但它与他的长期平均表现非常接近。 在这里，由在 1970 赛季剩余时间内保持的击球率代表运动元真正的能力。 对于 16 名球员来说，作为击球能力预测指标的初始平均值低于另一个数字 James-Stein 估计值。 作为一个组考虑的 James-Stein 估计量也具有较小的总平方误差。</p>
+<h4 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h4><h4 id="收缩估计-Shrinkage"><a href="#收缩估计-Shrinkage" class="headerlink" title="收缩估计 Shrinkage"></a>收缩估计 Shrinkage</h4><p>平方损失函数作为风险函数或许本身就是一种对于收缩估计的激励？因为此时当估计值偏离真值时，惩罚会随着偏离值的增加而增加得更快。但是同时令人感到疑惑的是，当我们对每一个分量的估计可以不仅依赖于来自分量的信息时，整个观测向量的信息综合竟然可以做到估计的“收缩”，使我们获得比均值估计一致更优的估计。</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1]《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
 <p>[2] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/378477481">知乎：参数估计 Part-I：Stein效应</a></p>
 <p>[3] <a target="_blank" rel="noopener" href="https://qastack.cn/stats/304308/why-is-the-james-stein-estimator-called-a-shrinkage-estimator">QStack：为什么将James-Stein估计量称为“收缩”估计量？</a></p>
 <p>[4] <a target="_blank" rel="noopener" href="https://efron.ckirby.su.domains//other/Article1977.pdf">Stein 统计悖论. Article1977.pdf</a></p>
@@ -330,7 +343,7 @@ E(\mathbf{x}^T\mathbf{x})=E(x_1^2+...+x_p^2)=p+\mu^T\mu</script><p>这就告诉�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stein-%E6%95%88%E5%BA%94"><span class="nav-number">1.</span> <span class="nav-text">Stein 效应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E8%87%B4%E6%9C%80%E5%B0%8F%E6%96%B9%E5%B7%AE%E6%97%A0%E5%81%8F%E4%BC%B0%E8%AE%A1-UMVUE"><span class="nav-number">1.2.</span> <span class="nav-text">一致最小方差无偏估计 UMVUE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B9%E8%AE%B8%E6%80%A7"><span class="nav-number">1.3.</span> <span class="nav-text">容许性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stein%E6%95%88%E5%BA%94"><span class="nav-number">1.4.</span> <span class="nav-text">Stein效应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">1.5.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%94%B6%E7%BC%A9%E4%BC%B0%E8%AE%A1-Shrinkage"><span class="nav-number">1.6.</span> <span class="nav-text">收缩估计 Shrinkage</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stein-%E6%95%88%E5%BA%94"><span class="nav-number">1.</span> <span class="nav-text">Stein 效应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E8%87%B4%E6%9C%80%E5%B0%8F%E6%96%B9%E5%B7%AE%E6%97%A0%E5%81%8F%E4%BC%B0%E8%AE%A1-UMVUE"><span class="nav-number">1.2.</span> <span class="nav-text">一致最小方差无偏估计 UMVUE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%B9%E8%AE%B8%E6%80%A7"><span class="nav-number">1.3.</span> <span class="nav-text">容许性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stein%E6%95%88%E5%BA%94"><span class="nav-number">1.4.</span> <span class="nav-text">Stein效应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">1.5.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E7%A4%BA"><span class="nav-number">1.6.</span> <span class="nav-text">图示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%B0%E8%AE%A1"><span class="nav-number">1.7.</span> <span class="nav-text">贝叶斯估计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%94%B6%E7%BC%A9%E4%BC%B0%E8%AE%A1-Shrinkage"><span class="nav-number">1.8.</span> <span class="nav-text">收缩估计 Shrinkage</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
