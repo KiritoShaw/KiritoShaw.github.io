@@ -205,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-25 15:35:14" itemprop="dateModified" datetime="2022-05-25T15:35:14+08:00">2022-05-25</time>
+                <time title="Modified: 2022-05-27 15:36:53" itemprop="dateModified" datetime="2022-05-27T15:36:53+08:00">2022-05-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,16 +245,31 @@ L(\mu,\delta)=(\delta-\mu)^T(\delta-\mu)</script><p>下研究$\ \delta(\mathbf{x
 \delta^{JS}(\mathbf{x})=(1-\frac{p-2}{\mathbf{x}^T\mathbf{x}})\mathbf{x}</script><p>这个估计被称为James-Stein估计，选用这个估计的直观想法出自于</p>
 <script type="math/tex; mode=display">
 E(\mathbf{x}^T\mathbf{x})=E(x_1^2+...+x_p^2)=p+\mu^T\mu</script><p>这就告诉我们，当用$\ \mathbf{x}\ $去估计$\ \mu\ $时，$\mathbf{x}\ $的平均长度$\ E(\mathbf{x}^T\mathbf{x})\ $实际上比$\ \mu\ $的长度长，这是一种系统性偏差，需要改进，改进的方法就是乘以一个小于1的修正因子使估计量向零收缩。</p>
-<h4 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h4><p>下面我们给出一个图示，它很好的说明了Stein估计与均值估计的差别</p>
-<p><img src="/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/Stein2.jpg" alt></p>
+<h4 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h4><p>下图很好地说明了Stein估计与均值估计的差别</p>
+<p><img src="/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/Stein2.jpg" style="zoom: 50%;"></p>
+<blockquote>
 <p>图中右侧的文字如下：</p>
 <p>BATTING ABILITIES of 18 major-league baseball players are estimated more accurately by the method of Charles Stein and W.James than they are by the individual batting averages. The average employed as estimators are those calculated after each player had had 45 times at bat in the 1970 season. The true batting ability  of a player is an unobservable quantity, but it is closely approximated by his long-term average performance. Here the true ability is represented by the batting average maintained during the remainder of the 1970 season. For 16 of the players the initial average is inferior to another number, the James-Stein estimator, as a predictor of batting ability. The James-Stein estimators, considered as a group, also have the smaller total squared error.</p>
-<p>18 名大联盟棒球运动员的击球能力通过查尔斯斯坦和 W.詹姆斯的方法比通过个人击球平均值更准确地估计。 平均值估计是在 1970 赛季每位球员击球 45 次之后计算的。 一个球员真正的击球能力是一个不可观察的数量，但它与他的长期平均表现非常接近。 在这里，由在 1970 赛季剩余时间内保持的击球率代表运动元真正的能力。 对于 16 名球员来说，作为击球能力预测指标的初始平均值低于另一个数字 James-Stein 估计值。 作为一个组考虑的 James-Stein 估计量也具有较小的总平方误差。</p>
-<h4 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h4><h4 id="收缩估计-Shrinkage"><a href="#收缩估计-Shrinkage" class="headerlink" title="收缩估计 Shrinkage"></a>收缩估计 Shrinkage</h4><p>平方损失函数作为风险函数或许本身就是一种对于收缩估计的激励？因为此时当估计值偏离真值时，惩罚会随着偏离值的增加而增加得更快。但是同时令人感到疑惑的是，当我们对每一个分量的估计可以不仅依赖于来自分量的信息时，整个观测向量的信息综合竟然可以做到估计的“收缩”，使我们获得比均值估计一致更优的估计。</p>
+<p>18 名大联盟棒球运动员的击球能力通过查尔斯斯坦和 W.詹姆斯的方法比通过个人击球平均值更准确地估计。平均值估计是在 1970 赛季每位球员击球 45 次之后计算的。 一个球员真正的击球能力是一个不可观察的数量，但它与他的长期平均表现非常接近。在这里，由在 1970 赛季剩余时间内保持的击球率代表运动员真正的能力。对于 16 名球员来说，作为击球能力预测指标的初始平均值低于另一个数字 James-Stein 估计值。作为一个组考虑的 James-Stein 估计量也具有较小的总平方误差。</p>
+</blockquote>
+<p>注意看到图表中有18个数据，分别对应18位运动员。每一个运动员又对应着三条柱形：左边柱子表示最初平均值；中间表示赛季平均值，它比较好的逼近了运动员的真实水平；最后一条表示Jame-Stein估计的均值。</p>
+<p>用$\ y\ $表示运动员的初步平均击球率，$\bar y\ $表示总平均，$z=\bar y+c(y-\bar y)\ $表示James-Stein估计。这里的参数$\ c\ $就是收缩因子，它的值总是小于1的，而越接近1则表示收缩程度越小。</p>
+<p>下图则更好地说明了James-Stein估计的收缩性质</p>
+<p><img src="/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/Stein_2.png" style="zoom: 50%;"></p>
+<p>其中每一条线对应着一个或多个运动员的击球能力的估计（如果几个运动员的均值相同，则他们有着相同的James-Stein估计，也即共用一条直线），线的上端点对应着均值估计，下端点对应着James-Stein估计。可以看到Stein的估计方法就是将每个运动员的个人平均值向总平均进行收缩(Shrinking)。</p>
+<p>Stein估计的理论基于一种断言：那就是不同运动员的真实击球能力的分布要比对应的初步均值估计的分布更加紧凑。收缩参数$\ c\ $就给出了这种矫正的幅度。</p>
+<p>我们简单解释一下James-Stein估计中不同量的变化对收缩因子$\ c\ $的影响。首先我们先给出$\ c \ $的具体形式</p>
+<script type="math/tex; mode=display">
+c=1-\frac{(k-3)\sigma^2}{\sum(y-\bar y)^2}</script><p>首先我们先假定了不同运动员的真实击球能力分布事实上要更加紧凑，这意味着总体的方差较小，也即不同运动员的均值估计其实都在总平均附近。当$\ \sum(y-\bar y)^2\ $增加时，那么$\ c\ $增加，收缩程度降低，当$\ \sum(y-\bar y)^2\ $减少时，那么$\ c\ $减少，收缩程度增加。也就是说当数据支持预先的假定时，所有估计都会更加靠近总平均，但是如果数据不支持预先的假定时，那么收缩程度就会有所限制。</p>
+<p>Stein估计似乎还存在着一种悖论的本质——不同地区、不同联盟的运动的击球水平竟然会相互影响？比如说我们知道了中国某个运动员的击球水平的初步估计（假如说他的能力比18位运动员中最差劲的ALVIS还要不堪），并且也将他的表现加入考虑时，最好的运动员CLEMENTE的估计也会随之受到影响。Stein估计似乎并不要求估计的对象各部分之间有着合乎情理的联系。</p>
+<h4 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h4><p>我们尝试通过贝叶斯估计的角度导出James-Stein估计。</p>
+<h4 id="收缩估计-Shrinkage"><a href="#收缩估计-Shrinkage" class="headerlink" title="收缩估计 Shrinkage"></a>收缩估计 Shrinkage</h4><h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h4><p>平方损失函数作为风险函数或许本身就是一种对于收缩估计的激励？因为此时当估计值偏离真值时，惩罚会随着偏离值的增加而增加得更快。但是同时令人感到疑惑的是，当我们对每一个分量的估计可以不仅依赖于来自分量的信息时，整个观测向量的信息综合竟然可以做到估计的“收缩”，使我们获得比均值估计一致更优的估计。</p>
+<p>整体估计与局部估计</p>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1]《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
 <p>[2] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/378477481">知乎：参数估计 Part-I：Stein效应</a></p>
 <p>[3] <a target="_blank" rel="noopener" href="https://qastack.cn/stats/304308/why-is-the-james-stein-estimator-called-a-shrinkage-estimator">QStack：为什么将James-Stein估计量称为“收缩”估计量？</a></p>
-<p>[4] <a target="_blank" rel="noopener" href="https://efron.ckirby.su.domains//other/Article1977.pdf">Stein 统计悖论. Article1977.pdf</a></p>
+<p>[4] <a target="_blank" rel="noopener" href="https://efron.ckirby.su.domains//other/Article1977.pdf">Stein’s Paradox  in Statistics [Bradley Efron and Carl Morris, 1977].pdf</a></p>
+<p>参考文献[4]来源于参考资料[3]的分享，现在我也推荐感兴趣的人可以阅读一下文献[4]；文中引用的两张解释James-Stein估计的图片来源于[4]。</p>
 
       
     </div>
