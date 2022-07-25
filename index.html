@@ -174,6 +174,137 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/01/Components-of-Machine-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/01/Components-of-Machine-Learning/" class="post-title-link" itemprop="url">Components of Machine Learning</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-06-01 15:04:17 / Modified: 16:01:00" itemprop="dateCreated datePublished" datetime="2022-06-01T15:04:17+08:00">2022-06-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="K-means-Clustering"><a href="#K-means-Clustering" class="headerlink" title="K-means Clustering"></a><center>K-means Clustering</center></h3><h4 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h4><ol>
+<li><p>最优化目标函数</p>
+<script type="math/tex; mode=display">
+W(C)=\sum_{l=1}^{k}\sum_{C(i)=l}\Vert x_i-\bar x_l\Vert^2</script></li>
+<li><p>簇中心的位置</p>
+<script type="math/tex; mode=display">
+n_l=\sum_{i=1}^{n}\mathbb{I}(C(i)=l)</script></li>
+<li><p>最优分划</p>
+<script type="math/tex; mode=display">
+C^*=\arg\min_{C}W(C)</script></li>
+</ol>
+<h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><ol>
+<li><p>给定簇中心$\ m_1,m_2,..,m_k$，将样本点分配到离它最近的簇中心，得到一步最优分划$\ C$。</p>
+<script type="math/tex; mode=display">
+\min_{C}\sum_{l=1}^{k}\sum_{C(i)=l}\Vert x_i-m_l\Vert^2,\quad \text{given}\ m_1,m_2,..,m_k</script></li>
+<li><p>给定每个样本点对应的簇（标签）</p>
+<script type="math/tex; mode=display">
+\min_{m_1,m_2,...,m_k}\sum_{l=1}^{k}\sum_{C(i)=l}\Vert x_i-\bar x_l\Vert^2, \quad\text{given}\ C</script></li>
+<li><p>更新簇中心的位置</p>
+<script type="math/tex; mode=display">
+m_l=\frac{1}{n_l}\sum_{c(i)=l}x_i,\quad l=1,2,..,k</script></li>
+</ol>
+<h4 id="k-的选取"><a href="#k-的选取" class="headerlink" title="k 的选取"></a>k 的选取</h4><p>ave. diag</p>
+<h3 id="Apriori"><a href="#Apriori" class="headerlink" title="Apriori"></a><center>Apriori</center></h3><p>$D=\{t_1,t_2,…,t_n\},\quad t_i\subseteq I$。以下两个概念是十分自然的。</p>
+<h4 id="支持度"><a href="#支持度" class="headerlink" title="支持度"></a>支持度</h4><p>支持度衡量了一个项目的基本价值，我们只关心在项目集中发生次数较多的项目。</p>
+<script type="math/tex; mode=display">
+\sup(X)=\frac{\abs{X}}{\abs{D}}\quad\rightarrow\text{min-sup}</script><ol>
+<li>$X\subseteq Y,\ \sup(X)\ge\sup(Y)$</li>
+<li>$X\subseteq Y$，$X\ $不是频繁项目集$\ \Rightarrow Y\ $不是频繁项目集</li>
+<li>$X\subseteq Y$，$Y\ $是频繁项目集$\ \Rightarrow X\ $是频繁项目集</li>
+</ol>
+<h4 id="置信度"><a href="#置信度" class="headerlink" title="置信度"></a>置信度</h4><p>在超过支持度阈值的那些项目集（频繁项目集）的基础上，置信度衡量了一个潜在关系的价值，只有支持度合格，并且关联关系有一定可靠程度的关系才是有价值的。</p>
+<script type="math/tex; mode=display">
+conf(Y|X)=\frac{\sup(X\cap Y)}{\sup(X)}\quad\rightarrow\text{min-conf}</script><script type="math/tex; mode=display">
+conf(Y|X)=conf(R)=conf(X\Rightarrow Y)</script><h4 id="Algorithm-1"><a href="#Algorithm-1" class="headerlink" title="Algorithm"></a>Algorithm</h4><p>找到所有超过支持度阈值的频繁项目集是困难的，这将要求我们多次扫描数据库。我们的算法思想也非常直接，最简单的想法就是利用支持度的逆单调性筛查出一些非频繁项目集而不必再浪费时间对它们进行扫描和检验。</p>
+<h3 id="DBSCAN"><a href="#DBSCAN" class="headerlink" title="DBSCAN"></a><center>DBSCAN</center></h3><p>$D=\{x_1,x_2,…,x_n\},\quad(\epsilon,MinPts)$</p>
+<h4 id="Components-1"><a href="#Components-1" class="headerlink" title="Components"></a>Components</h4><ol>
+<li><p>$\epsilon-$领域</p>
+<script type="math/tex; mode=display">
+N_{\epsilon}(x_j)=\{x_i\in D\ |\ d(x_i,x_j)\le\epsilon\}</script></li>
+<li><p>核心对象（core object）</p>
+<script type="math/tex; mode=display">
+x_j:\abs{N_{\epsilon}(x_j)}\ge MinPts</script></li>
+<li><p>密度直达（directly density-reachable）</p>
+<script type="math/tex; mode=display">
+x_j\ \text{core object.}\ x_i\in N_{\epsilon}(x_j)</script></li>
+<li><p>密度可达（density-reachable）</p>
+<script type="math/tex; mode=display">
+x_i=p_1,\ x_j=p_n,\ p_{i+1}\text{由}p_i \text{密度直达}</script></li>
+<li><p>密度相连（density-connected）</p>
+</li>
+</ol>
+<ol>
+<li><h4 id="簇"><a href="#簇" class="headerlink" title="簇"></a>簇</h4></li>
+<li><p>连接性：$x_i\in C,x_j\in C\Rightarrow x_i\ $与$\ x_j\ $密度相连</p>
+</li>
+<li><p>最大性：$x_i\in C, x_j\ $由$\ x_i\ $密度可达$\ \Rightarrow\ x_j\in C$</p>
+<script type="math/tex; mode=display">
+X=\{x'\in D\ |\ x'\text{由}x\text{密度可达},\ x\text{是核心对象}\}</script></li>
+<li></li>
+</ol>
+<blockquote>
+<p>密度直达的核心对象主干+密度可达分支</p>
+</blockquote>
+<h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a><center>SVM</center></h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1495,142 +1626,6 @@ m_k(x_k+p)=f_k+p^T\triangledown f_k+\frac1{2}p^TB_kp</script><p>where $\ f_k$, $
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/15/Introduction-to-Numerical-Optimization/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/15/Introduction-to-Numerical-Optimization/" class="post-title-link" itemprop="url">Introduction to Numerical Optimization</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-15 20:17:03" itemprop="dateCreated datePublished" datetime="2022-04-15T20:17:03+08:00">2022-04-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-30 10:53:08" itemprop="dateModified" datetime="2022-04-30T10:53:08+08:00">2022-04-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Numerical-Optimization/" itemprop="url" rel="index"><span itemprop="name">Numerical Optimization</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h3><p>Our goals is to find values of the variables that optimize the objectives. Often the variables are restricted, or constrained, in some way.</p>
-<p>There is no universal optimization algorithm but rather a collection of algorithms, each of which is tailored to a particular type of optimization problem.</p>
-<ul>
-<li>optimality conditions: checking that the current set of variables is indeed the solution of the problem</li>
-<li>sensitivity analysis: reveals the sensitivity of the solution to changes in the model and data.</li>
-</ul>
-<h3 id="Mathematical-Formulation"><a href="#Mathematical-Formulation" class="headerlink" title="Mathematical Formulation"></a>Mathematical Formulation</h3><p>We introduce some notations first:</p>
-<ul>
-<li>x is the vector of variables, also called unknowns or parameters</li>
-<li>f is the objective function, a (scalar) function of x that we want to maximize or minimize</li>
-<li>$c_i\ $are constraint functions, which are scalar functions of x that define equations and inequalities that the unknown vector x must satisfy</li>
-</ul>
-<p>Optimization problem can be written as follows by using the notations above:</p>
-<script type="math/tex; mode=display">
-\min_{x \in \R^n}\ f(x)\quad s.t.\ 
-\begin{cases}
-c_i(x) = 0\quad i \in \mathcal{E}\\
-c_i(x)\ge 0\quad i \in \mathcal{I}
-\end{cases}</script><p>Here $\ \mathcal{I}\ $and $\ \mathcal{E}\ $are sets of indexes for equality and inequality constraints, respectively.</p>
-<ul>
-<li>feasible region: the set of points satisfying all the constraints</li>
-</ul>
-<h3 id="Continuous-versus-Discrete-Optimization"><a href="#Continuous-versus-Discrete-Optimization" class="headerlink" title="Continuous versus Discrete Optimization"></a>Continuous versus Discrete Optimization</h3><h4 id="discrete-optimization"><a href="#discrete-optimization" class="headerlink" title="discrete optimization"></a>discrete optimization</h4><p>The defining feature of a discrete optimization problem is that the unknown x is drawn from a finite (but often very large) set.</p>
-<h4 id="continuous-optimization"><a href="#continuous-optimization" class="headerlink" title="continuous optimization"></a>continuous optimization</h4><p>The feasible set is usually uncountably infinite, as when the components of x are allowed to be real numbers.</p>
-<p>Continuous optimization problems are normally easier to solve because the smoothness of the functions makes it possible to use objective and constraint information at a particular point x to deduce information about the function’s behavior at all points close to x.</p>
-<p>Continuous optimization techniques often play an important role in solving discrete optimization problems.</p>
-<h3 id="Constrained-and-Unconstrained-Optimization"><a href="#Constrained-and-Unconstrained-Optimization" class="headerlink" title="Constrained and Unconstrained Optimization"></a>Constrained and Unconstrained Optimization</h3><h4 id="unconstrained-optimization"><a href="#unconstrained-optimization" class="headerlink" title="unconstrained optimization"></a>unconstrained optimization</h4><ul>
-<li>$\mathcal{I} = \mathcal{E} = \emptyset$</li>
-<li>replacement the constraints by the penalization terms added to objective function</li>
-</ul>
-<h4 id="constrained-optimization"><a href="#constrained-optimization" class="headerlink" title="constrained optimization"></a>constrained optimization</h4><h3 id="Stochastic-and-Deterministic-Optimization"><a href="#Stochastic-and-Deterministic-Optimization" class="headerlink" title="Stochastic and Deterministic Optimization"></a>Stochastic and Deterministic Optimization</h3><p>Stochastic optimization algorithms use these quantifications of the uncertainty to produce solutions that optimize the expected performance of the model.</p>
-<ul>
-<li>chance-constrained optimization: in which we ensure that the variables satisfy the given constraints to some specified probability</li>
-<li>robust optimization: certain constraints are required to hold for all possible values of the uncertain data</li>
-</ul>
-<h3 id="Convexity"><a href="#Convexity" class="headerlink" title="Convexity"></a>Convexity</h3><p>First of all, we consider convex set.</p>
-<h4 id="convex-set"><a href="#convex-set" class="headerlink" title="convex set"></a>convex set</h4><p>When we say a set is convex, it follows that for $\forall x \in S$ and $y\in S$, we have</p>
-<script type="math/tex; mode=display">
-\alpha x + (1-\alpha)y \in S \quad \forall \alpha\in[0,1]</script><h4 id="convex-function"><a href="#convex-function" class="headerlink" title="convex function"></a>convex function</h4><ul>
-<li><p>convex function: if its domain S is a convex set and if for any two points x and y in S, the following property is satisfied</p>
-<script type="math/tex; mode=display">
-f(\alpha x+(1-\alpha)y)\le\alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,1]</script></li>
-<li><p>strictly convex function: whenever $x \ne y$</p>
-<script type="math/tex; mode=display">
-f(\alpha x+(1-\alpha)y)\lt \alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,1]</script></li>
-<li><p>convex function</p>
-</li>
-</ul>
-<h4 id="global-solution"><a href="#global-solution" class="headerlink" title="global solution"></a>global solution</h4><p>If the objective function in the optimization problem and the feasible region are both convex, then any local solution of the problem is in fact a global solution.</p>
-<h4 id="convex-programming"><a href="#convex-programming" class="headerlink" title="convex programming"></a>convex programming</h4><p>A special case of the general constrained optimization problem in which</p>
-<ul>
-<li>the objective function is convex</li>
-<li>the equality constrain function $c_i(\cdot), i\in\mathcal{E}$, are linear</li>
-<li>the inequality constrain function $c_i(\cdot), i\in\mathcal{I}$, are concave</li>
-</ul>
-<h3 id="Optimization-Algorithm"><a href="#Optimization-Algorithm" class="headerlink" title="Optimization Algorithm"></a>Optimization Algorithm</h3><p>Most strategies make use of the values of the objective function f, $c_i$, the constraint functions, and possibly the first and second derivatives of these functions. Some algorithms accumulate information gathered at previous iterations, while others use only local information obtained at the current point.</p>
-<p>Aspects of judging whether the algorithm is a good or not:</p>
-<ul>
-<li>Robustness</li>
-<li>Efficiency</li>
-<li>Accuracy</li>
-</ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>Numerical Optimization (2nd) by Jorge Nocedal, Stephen J. Wright</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1702,14 +1697,14 @@ f(\alpha x+(1-\alpha)y)\lt \alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">

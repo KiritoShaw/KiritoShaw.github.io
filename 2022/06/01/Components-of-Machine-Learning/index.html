@@ -22,19 +22,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="ReviewReminded that the general form of the optimization problem is as follows  \min_{x\in\R^n} f(x)\quad s.t.\ \begin{cases} c_i(x)&#x3D;0\quad i \in \mathcal{E}\\ c_i(x)\ge 0\quad i \in \mathcal{I} \end{">
+  <meta name="description" content="K-means ClusteringComponents 最优化目标函数  W(C)&#x3D;\sum_{l&#x3D;1}^{k}\sum_{C(i)&#x3D;l}\Vert x_i-\bar x_l\Vert^2 簇中心的位置  n_l&#x3D;\sum_{i&#x3D;1}^{n}\mathbb{I}(C(i)&#x3D;l) 最优分划  C^*&#x3D;\arg\min_{C}W(C)  Algorithm 给定簇中心$\ m_1,m_2,..,m_">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fundamentals of Unconstrained Optimization">
-<meta property="og:url" content="http://example.com/2022/04/17/Fundamentals-of-Unconstrained-Optimization/index.html">
+<meta property="og:title" content="Components of Machine Learning">
+<meta property="og:url" content="http://example.com/2022/06/01/Components-of-Machine-Learning/index.html">
 <meta property="og:site_name" content="Shaw">
-<meta property="og:description" content="ReviewReminded that the general form of the optimization problem is as follows  \min_{x\in\R^n} f(x)\quad s.t.\ \begin{cases} c_i(x)&#x3D;0\quad i \in \mathcal{E}\\ c_i(x)\ge 0\quad i \in \mathcal{I} \end{">
+<meta property="og:description" content="K-means ClusteringComponents 最优化目标函数  W(C)&#x3D;\sum_{l&#x3D;1}^{k}\sum_{C(i)&#x3D;l}\Vert x_i-\bar x_l\Vert^2 簇中心的位置  n_l&#x3D;\sum_{i&#x3D;1}^{n}\mathbb{I}(C(i)&#x3D;l) 最优分划  C^*&#x3D;\arg\min_{C}W(C)  Algorithm 给定簇中心$\ m_1,m_2,..,m_">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-17T00:59:10.000Z">
-<meta property="article:modified_time" content="2022-05-08T07:59:47.158Z">
+<meta property="article:published_time" content="2022-06-01T07:04:17.000Z">
+<meta property="article:modified_time" content="2022-06-01T08:01:00.285Z">
 <meta property="article:author" content="Shaw">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/04/17/Fundamentals-of-Unconstrained-Optimization/">
+<link rel="canonical" href="http://example.com/2022/06/01/Components-of-Machine-Learning/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>Fundamentals of Unconstrained Optimization | Shaw</title>
+  <title>Components of Machine Learning | Shaw</title>
   
 
 
@@ -177,7 +177,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/17/Fundamentals-of-Unconstrained-Optimization/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/01/Components-of-Machine-Learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,7 +190,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Fundamentals of Unconstrained Optimization
+          Components of Machine Learning
         </h1>
 
         <div class="post-meta">
@@ -199,23 +199,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2022-04-17 08:59:10" itemprop="dateCreated datePublished" datetime="2022-04-17T08:59:10+08:00">2022-04-17</time>
+              <time title="Created: 2022-06-01 15:04:17 / Modified: 16:01:00" itemprop="dateCreated datePublished" datetime="2022-06-01T15:04:17+08:00">2022-06-01</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-08 15:59:47" itemprop="dateModified" datetime="2022-05-08T15:59:47+08:00">2022-05-08</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Numerical-Optimization/" itemprop="url" rel="index"><span itemprop="name">Numerical Optimization</span></a>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
                 </span>
             </span>
 
@@ -237,49 +231,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h3><p>Reminded that the general form of the optimization problem is as follows</p>
+        <h3 id="K-means-Clustering"><a href="#K-means-Clustering" class="headerlink" title="K-means Clustering"></a><center>K-means Clustering</center></h3><h4 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h4><ol>
+<li><p>最优化目标函数</p>
 <script type="math/tex; mode=display">
-\min_{x\in\R^n} f(x)\quad s.t.\
-\begin{cases}
-c_i(x)=0\quad i \in \mathcal{E}\\
-c_i(x)\ge 0\quad i \in \mathcal{I}
-\end{cases}</script><p>Now in unconstrained optimization, we minimize an objective function that depends on real variables, with no restrictions at all on the values of these variables. The mathematical formulation is</p>
+W(C)=\sum_{l=1}^{k}\sum_{C(i)=l}\Vert x_i-\bar x_l\Vert^2</script></li>
+<li><p>簇中心的位置</p>
 <script type="math/tex; mode=display">
-\min_{x\in\R^n}f(x)</script><p>where $\ x\in\R^n\ $ is a real vector with $\ n\ge 1\ $ components and $\ f:\R^n\rightarrow\R\ $ is a smooth function.</p>
-<h3 id="What-Is-A-Solution"><a href="#What-Is-A-Solution" class="headerlink" title="What Is A Solution"></a>What Is A Solution</h3><h4 id="global-minimizer"><a href="#global-minimizer" class="headerlink" title="global minimizer"></a>global minimizer</h4><p>We say a point $\ x^{*}\ $ is a global minimizer if </p>
+n_l=\sum_{i=1}^{n}\mathbb{I}(C(i)=l)</script></li>
+<li><p>最优分划</p>
 <script type="math/tex; mode=display">
-f(x^*)\le f(x)\quad for\ all\ x\in\R^n</script><h4 id="local-minimizer"><a href="#local-minimizer" class="headerlink" title="local minimizer"></a>local minimizer</h4><p>Then a local minimizer is that the point is only achieves the smallest value of f in its neighborhood. Formally, we say a point $\ x^{*}\ $ is a local minimizer if there is a neighborhood $\ \mathcal{N}\ $ of $\ x^{*}\ $ such that  </p>
+C^*=\arg\min_{C}W(C)</script></li>
+</ol>
+<h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><ol>
+<li><p>给定簇中心$\ m_1,m_2,..,m_k$，将样本点分配到离它最近的簇中心，得到一步最优分划$\ C$。</p>
 <script type="math/tex; mode=display">
-f(x^*)\le f(x)\quad for\ all\ x\in\mathcal{N}</script><p>A point that satisfies this definition is sometimes called a weak local minimizer. A strict local minimizer is then the outright winner in its neighborhood. Formally, A point $\ x^{*}\ $ is a strict local minimizer</p>
+\min_{C}\sum_{l=1}^{k}\sum_{C(i)=l}\Vert x_i-m_l\Vert^2,\quad \text{given}\ m_1,m_2,..,m_k</script></li>
+<li><p>给定每个样本点对应的簇（标签）</p>
 <script type="math/tex; mode=display">
-\exist\ \mathcal{N}\ s.t.\ f(x^{*})\lt f(x),\ \forall x\in\mathcal{N}\ \text{with}\ x\ne x^{*}</script><p>The last type of minimizer is called an isolated minimizer, which there is a neighborhood$\ \mathcal{N}\ $of$\ x^{*}\ $such that$\ x^{*}\ $is the only local minimizer in$\ \mathcal{N}\ $.</p>
-<p>All isolated local minimizers are strict, while the reverse does not hold.</p>
-<h3 id="Recognizing-A-Local-Minimum"><a href="#Recognizing-A-Local-Minimum" class="headerlink" title="Recognizing A Local Minimum"></a>Recognizing A Local Minimum</h3><p>It seems that we have to check all the points to make sure none of them has a smaller function value then as $\ x^{*}$’s did. Fortunately, supposing the objective function to be twice continuously differentiable, we may be able to tell that whether $\ x^{*}\ $is a local minimizer by examining just the gradient $\ \triangledown f(x^{*})\ $and the Hessian matrix $\ \triangledown^2 f(x^{*})$.</p>
-<h4 id="Theorem-Taylor’s-Theorem"><a href="#Theorem-Taylor’s-Theorem" class="headerlink" title="Theorem (Taylor’s Theorem)"></a>Theorem (Taylor’s Theorem)</h4><p>suppose that $\ f:\R^n\rightarrow\R\ $is continuously differentiable and that $p \in \R^n$. Then we have that </p>
+\min_{m_1,m_2,...,m_k}\sum_{l=1}^{k}\sum_{C(i)=l}\Vert x_i-\bar x_l\Vert^2, \quad\text{given}\ C</script></li>
+<li><p>更新簇中心的位置</p>
 <script type="math/tex; mode=display">
-f(x+p)=f(x)+\triangledown f(x+tp)^{T}p</script><p>for some $t\in (0,1)$. Moreover, if f is twice continuously differentiable, we have that </p>
+m_l=\frac{1}{n_l}\sum_{c(i)=l}x_i,\quad l=1,2,..,k</script></li>
+</ol>
+<h4 id="k-的选取"><a href="#k-的选取" class="headerlink" title="k 的选取"></a>k 的选取</h4><p>ave. diag</p>
+<h3 id="Apriori"><a href="#Apriori" class="headerlink" title="Apriori"></a><center>Apriori</center></h3><p>$D=\{t_1,t_2,…,t_n\},\quad t_i\subseteq I$。以下两个概念是十分自然的。</p>
+<h4 id="支持度"><a href="#支持度" class="headerlink" title="支持度"></a>支持度</h4><p>支持度衡量了一个项目的基本价值，我们只关心在项目集中发生次数较多的项目。</p>
 <script type="math/tex; mode=display">
-\triangledown f(x+p)=\triangledown f(x) + \int_{0}^{1}\triangledown^2f(x+tp)pdt</script><p>and that </p>
+\sup(X)=\frac{\abs{X}}{\abs{D}}\quad\rightarrow\text{min-sup}</script><ol>
+<li>$X\subseteq Y,\ \sup(X)\ge\sup(Y)$</li>
+<li>$X\subseteq Y$，$X\ $不是频繁项目集$\ \Rightarrow Y\ $不是频繁项目集</li>
+<li>$X\subseteq Y$，$Y\ $是频繁项目集$\ \Rightarrow X\ $是频繁项目集</li>
+</ol>
+<h4 id="置信度"><a href="#置信度" class="headerlink" title="置信度"></a>置信度</h4><p>在超过支持度阈值的那些项目集（频繁项目集）的基础上，置信度衡量了一个潜在关系的价值，只有支持度合格，并且关联关系有一定可靠程度的关系才是有价值的。</p>
 <script type="math/tex; mode=display">
-f(x+p)=f(x)+\triangledown f(x)^{T}p+\frac 1{2}p^T\triangledown^2f(x+tp)p</script><p>for some $t\in (0,1)$.</p>
-<h4 id="Theorem-First-Order-Necessary-Conditions"><a href="#Theorem-First-Order-Necessary-Conditions" class="headerlink" title="Theorem (First-Order Necessary Conditions)"></a>Theorem (First-Order Necessary Conditions)</h4><p>If $\ x^{*}\ $ is local minimizer and f is continuously differentiable in an open neighborhood of $\ x^{*}\ $, then $\ \triangledown f(x^{*})=0$.</p>
-<h4 id="Theorem-Second-Order-Necessary-Conditions"><a href="#Theorem-Second-Order-Necessary-Conditions" class="headerlink" title="Theorem (Second-Order Necessary Conditions)"></a>Theorem (Second-Order Necessary Conditions)</h4><p>If $\ x^{*}\ $is a local minimizer of f and $\ \triangledown^2f\ $ exists and is continuous in an open neighborhood of $\ x^{*}\ $, then $\ \triangledown f(x^{*})=0\ $and $\ \triangledown^2 f(x^{*})\ $is positive semidefinite.</p>
-<h4 id="Theorem-Second-Order-Sufficient-Conditions"><a href="#Theorem-Second-Order-Sufficient-Conditions" class="headerlink" title="Theorem (Second-Order Sufficient Conditions)"></a>Theorem (Second-Order Sufficient Conditions)</h4><p>Suppose that  $\ \triangledown^2f\ $ is continuous in an open neighborhood of $\ x^{*}\ $, and that $\ \triangledown f(x^{*})=0\ $and $\ \triangledown^2 f(x^{*})\ $is positive definite. Then $\ x^{*}\ $ is a strict local minimizer of f.</p>
-<h4 id="Theorem-Transformation-from-local-m-to-global-m"><a href="#Theorem-Transformation-from-local-m-to-global-m" class="headerlink" title="Theorem (Transformation from local-m to global-m)"></a>Theorem (Transformation from local-m to global-m)</h4><p>When f is convex, any local minimizer $\ x^{*}\ $is a global minimizer of f. If in addition f is differentiable, then any stationary point $\ x^{*}\ $is a global minimizer of f.</p>
-<h3 id="Overview-of-Algorithm"><a href="#Overview-of-Algorithm" class="headerlink" title="Overview of Algorithm"></a>Overview of Algorithm</h3><p>Our idea is simple. Beginning at a starting point $\ x_0$, optimization algorithms generate a sequence of iterates $\ \{x_k\}_{k=0}^{\infty}\ $ that terminate when either no more progress can be made or when it seems that a solution point has been approximated by current point $\ x_k\ $with sufficient accuracy.</p>
-<p>Intuitively, when we generate such a sequence of iterates, we hope that the corresponding function value sequence $\ \{f(x_k)\}_{k=0}^{\infty}\ $ ought to decease (if we try to solve a minimization problem, otherwise to increase when facing a maximization problem) or at least we can decrease the objective function value $\ f(x_k)\ $ with several steps of iteration, that is $\ f(x_k)\lt f(x_{k-m})$.</p>
-<p>There are two fundamental strategies for moving from the current point $\ x_k\ $to a new iterate $\ x_{k+1}$. Most of the algorithms describe in this book follow one of these approaches.</p>
-<h4 id="two-strategies-line-search-and-trust-region"><a href="#two-strategies-line-search-and-trust-region" class="headerlink" title="two strategies: line search and trust region"></a>two strategies: line search and trust region</h4><h4 id="line-search"><a href="#line-search" class="headerlink" title="line search"></a>line search</h4><p>In the <strong>line search</strong> strategy, the algorithm chooses a <strong>direction</strong> $\ p_k\ $and searches along this direction from the current iterate $\ x_k\ $for a new iterate with a lower function value. The distance to move along $\ p_k\ $can be found by approximately solving the following one dimensional minimization problem to find a <strong>step length</strong> $\ \alpha$:</p>
+conf(Y|X)=\frac{\sup(X\cap Y)}{\sup(X)}\quad\rightarrow\text{min-conf}</script><script type="math/tex; mode=display">
+conf(Y|X)=conf(R)=conf(X\Rightarrow Y)</script><h4 id="Algorithm-1"><a href="#Algorithm-1" class="headerlink" title="Algorithm"></a>Algorithm</h4><p>找到所有超过支持度阈值的频繁项目集是困难的，这将要求我们多次扫描数据库。我们的算法思想也非常直接，最简单的想法就是利用支持度的逆单调性筛查出一些非频繁项目集而不必再浪费时间对它们进行扫描和检验。</p>
+<h3 id="DBSCAN"><a href="#DBSCAN" class="headerlink" title="DBSCAN"></a><center>DBSCAN</center></h3><p>$D=\{x_1,x_2,…,x_n\},\quad(\epsilon,MinPts)$</p>
+<h4 id="Components-1"><a href="#Components-1" class="headerlink" title="Components"></a>Components</h4><ol>
+<li><p>$\epsilon-$领域</p>
 <script type="math/tex; mode=display">
-\min_{\alpha\gt 0}f(x_k+\alpha p_k)</script><p>By solving the problem above exactly, we would derive the maximum benefit from the direction $\ p_k$, but an exact minimization may be expensive. Instead, the line search algorithm generates a limited number of trial step lengths until it finds one that loosely approximates the minimum of the problem above.</p>
-<h4 id="trust-region"><a href="#trust-region" class="headerlink" title="trust region"></a>trust region</h4><p>In the second algorithmic strategy, known as trust region, the information gathered about f is used to construct a model function $\ m_k\ $whose behavior near the current point $\ x_k\ $is similar to that of the actual objective function f. Because the model $\ m_k\ $may be a good approximation of f when x is far from $\ x_k$. In other words, we restrict the search for a minimizer of $\ m_k\ $to some region around $\ x_k$. In other words, we find the candidate step p by approximately solving the following subproblem:</p>
+N_{\epsilon}(x_j)=\{x_i\in D\ |\ d(x_i,x_j)\le\epsilon\}</script></li>
+<li><p>核心对象（core object）</p>
 <script type="math/tex; mode=display">
-\min_{p}m_k(x_k+p),\quad wherex_k+p\ lies\ inside\ the\ trust\ region</script><p>If the candidates solution does not produce a sufficient decrease in f, we conclude that the trust region is too large, and we shrink it and re-solve the problem.</p>
-<p>The model $\ m_k\ $in the problem above is usually defined to be a quadratic function of the form </p>
+x_j:\abs{N_{\epsilon}(x_j)}\ge MinPts</script></li>
+<li><p>密度直达（directly density-reachable）</p>
 <script type="math/tex; mode=display">
-m_k(x_k+p)=f_k+p^T\triangledown f_k+\frac1{2}p^TB_kp</script><p>where $\ f_k$, $\triangledown f_k$, and $B_k\ $are scalar, vector, and matrix, respectively. The matrix $\ B_k\ $is either the Hessian $\ \triangledown^2f_k\ $or some approximation to it.</p>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>Numerical Optimization (2nd) by Jorge Nocedal, Stephen J. Wright</p>
-
+x_j\ \text{core object.}\ x_i\in N_{\epsilon}(x_j)</script></li>
+<li><p>密度可达（density-reachable）</p>
+<script type="math/tex; mode=display">
+x_i=p_1,\ x_j=p_n,\ p_{i+1}\text{由}p_i \text{密度直达}</script></li>
+<li><p>密度相连（density-connected）</p>
+</li>
+</ol>
+<ol>
+<li><h4 id="簇"><a href="#簇" class="headerlink" title="簇"></a>簇</h4></li>
+<li><p>连接性：$x_i\in C,x_j\in C\Rightarrow x_i\ $与$\ x_j\ $密度相连</p>
+</li>
+<li><p>最大性：$x_i\in C, x_j\ $由$\ x_i\ $密度可达$\ \Rightarrow\ x_j\in C$</p>
+<script type="math/tex; mode=display">
+X=\{x'\in D\ |\ x'\text{由}x\text{密度可达},\ x\text{是核心对象}\}</script></li>
+<li></li>
+</ol>
+<blockquote>
+<p>密度直达的核心对象主干+密度可达分支</p>
+</blockquote>
+<h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a><center>SVM</center></h3>
     </div>
 
     
@@ -294,13 +310,10 @@ m_k(x_k+p)=f_k+p^T\triangledown f_k+\frac1{2}p^TB_kp</script><p>where $\ f_k$, $
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/04/15/Introduction-to-Numerical-Optimization/" rel="prev" title="Introduction to Numerical Optimization">
-      <i class="fa fa-chevron-left"></i> Introduction to Numerical Optimization
+    <a href="/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/" rel="prev" title="贝叶斯统计漫谈 2">
+      <i class="fa fa-chevron-left"></i> 贝叶斯统计漫谈 2
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/04/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-1-%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83%E4%B8%8E%E5%90%8E%E9%AA%8C%E5%88%86%E5%B8%83/" rel="next" title="贝叶斯统计 1 先验分布与后验分布">
-      贝叶斯统计 1 先验分布与后验分布 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -359,7 +372,7 @@ m_k(x_k+p)=f_k+p^T\triangledown f_k+\frac1{2}p^TB_kp</script><p>where $\ f_k$, $
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Review"><span class="nav-number">1.</span> <span class="nav-text">Review</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-Is-A-Solution"><span class="nav-number">2.</span> <span class="nav-text">What Is A Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#global-minimizer"><span class="nav-number">2.1.</span> <span class="nav-text">global minimizer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#local-minimizer"><span class="nav-number">2.2.</span> <span class="nav-text">local minimizer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recognizing-A-Local-Minimum"><span class="nav-number">3.</span> <span class="nav-text">Recognizing A Local Minimum</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Theorem-Taylor%E2%80%99s-Theorem"><span class="nav-number">3.1.</span> <span class="nav-text">Theorem (Taylor’s Theorem)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Theorem-First-Order-Necessary-Conditions"><span class="nav-number">3.2.</span> <span class="nav-text">Theorem (First-Order Necessary Conditions)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Theorem-Second-Order-Necessary-Conditions"><span class="nav-number">3.3.</span> <span class="nav-text">Theorem (Second-Order Necessary Conditions)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Theorem-Second-Order-Sufficient-Conditions"><span class="nav-number">3.4.</span> <span class="nav-text">Theorem (Second-Order Sufficient Conditions)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Theorem-Transformation-from-local-m-to-global-m"><span class="nav-number">3.5.</span> <span class="nav-text">Theorem (Transformation from local-m to global-m)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overview-of-Algorithm"><span class="nav-number">4.</span> <span class="nav-text">Overview of Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#two-strategies-line-search-and-trust-region"><span class="nav-number">4.1.</span> <span class="nav-text">two strategies: line search and trust region</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#line-search"><span class="nav-number">4.2.</span> <span class="nav-text">line search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#trust-region"><span class="nav-number">4.3.</span> <span class="nav-text">trust region</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#K-means-Clustering"><span class="nav-number">1.</span> <span class="nav-text">K-means Clustering</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Components"><span class="nav-number">1.1.</span> <span class="nav-text">Components</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.2.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#k-%E7%9A%84%E9%80%89%E5%8F%96"><span class="nav-number">1.3.</span> <span class="nav-text">k 的选取</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apriori"><span class="nav-number">2.</span> <span class="nav-text">Apriori</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E5%BA%A6"><span class="nav-number">2.1.</span> <span class="nav-text">支持度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%AE%E4%BF%A1%E5%BA%A6"><span class="nav-number">2.2.</span> <span class="nav-text">置信度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Algorithm-1"><span class="nav-number">2.3.</span> <span class="nav-text">Algorithm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DBSCAN"><span class="nav-number">3.</span> <span class="nav-text">DBSCAN</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Components-1"><span class="nav-number">3.1.</span> <span class="nav-text">Components</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B0%87"><span class="nav-number">3.2.</span> <span class="nav-text">簇</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM"><span class="nav-number">4.</span> <span class="nav-text">SVM</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
