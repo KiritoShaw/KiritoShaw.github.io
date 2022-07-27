@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="期货基础入门 3 - 投机交易概述投机交易是指在期货市场上以获取价差收益为目的的期货交易行为。 单边交易；根据对期货价格的走势判断做出买进和卖出的决定。 一般只是平仓了结持有的期货合约，而不进行实物的交割。  投机交易  投机者通过对价格的预期，在认为价格上升时买进，价格下跌时卖出，然后待有利时机再卖出或买进原期货合约，以获取利润。 进行价差投机的关键在于对期货市场价格变动趋势的分析预测是否准确。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="期货基础入门 3 - 投机交易">
+<meta property="og:url" content="http://example.com/2022/07/27/%E6%9C%9F%E8%B4%A7%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-3-%E6%8A%95%E6%9C%BA%E4%BA%A4%E6%98%93/index.html">
+<meta property="og:site_name" content="Shaw">
+<meta property="og:description" content="期货基础入门 3 - 投机交易概述投机交易是指在期货市场上以获取价差收益为目的的期货交易行为。 单边交易；根据对期货价格的走势判断做出买进和卖出的决定。 一般只是平仓了结持有的期货合约，而不进行实物的交割。  投机交易  投机者通过对价格的预期，在认为价格上升时买进，价格下跌时卖出，然后待有利时机再卖出或买进原期货合约，以获取利润。 进行价差投机的关键在于对期货市场价格变动趋势的分析预测是否准确。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-27T07:57:44.000Z">
+<meta property="article:modified_time" content="2022-07-27T08:01:00.149Z">
+<meta property="article:author" content="Shaw">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/07/27/%E6%9C%9F%E8%B4%A7%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-3-%E6%8A%95%E6%9C%BA%E4%BA%A4%E6%98%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>期货基础入门 3 - 投机交易 | Shaw</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shaw</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>resources</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/27/%E6%9C%9F%E8%B4%A7%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-3-%E6%8A%95%E6%9C%BA%E4%BA%A4%E6%98%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          期货基础入门 3 - 投机交易
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-07-27 15:57:44 / Modified: 16:01:00" itemprop="dateCreated datePublished" datetime="2022-07-27T15:57:44+08:00">2022-07-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Derivative/" itemprop="url" rel="index"><span itemprop="name">Derivative</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="期货基础入门-3-投机交易"><a href="#期货基础入门-3-投机交易" class="headerlink" title="期货基础入门 3 - 投机交易"></a>期货基础入门 3 - 投机交易</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>投机交易是指在期货市场上以获取价差收益为目的的期货交易行为。</p>
+<p>单边交易；根据对期货价格的走势判断做出买进和卖出的决定。</p>
+<p>一般只是平仓了结持有的期货合约，而不进行实物的交割。</p>
+<ol>
+<li><p>投机交易</p>
+<ul>
+<li>投机者通过对价格的预期，在认为价格上升时买进，价格下跌时卖出，然后待有利时机再卖出或买进原期货合约，以获取利润。</li>
+<li>进行价差投机的关键在于对期货市场价格变动趋势的分析预测是否准确。收益率高，风险也较大。</li>
+</ul>
+</li>
+<li><p>套利交易</p>
+<ul>
+<li>套利交易是期货投机交易中的一种特殊方式，它利用期货市场中不同月份、不同市场、不同商品之间的相对价格差，同时买入和卖出不同种类的期货合约，来获取利润。</li>
+</ul>
+</li>
+</ol>
+<h4 id="投机交易特点"><a href="#投机交易特点" class="headerlink" title="投机交易特点"></a>投机交易特点</h4><p>放大资金的杠杆，以获得更大的投资收益率，其缺点就是一旦市场反向操作，带来的损失也是无法估量的。</p>
+<p>套期保值的目的是规避价格波动的风险。与套期保值不同，投机交易主动承担价格波动的风险。</p>
+<h4 id="投机交易的策略"><a href="#投机交易的策略" class="headerlink" title="投机交易的策略"></a>投机交易的策略</h4><p>简单的投机策略</p>
+<ul>
+<li>利用预测市场走势以获取利润</li>
+<li>若预期市场价格回升，投资者便购入期货合约并预期期货合约价格将上升，相对于投资现货，其低交易成本及高杠杆比率使期货更加吸引投资者。</li>
+</ul>
+<h4 id="期货投机的作用"><a href="#期货投机的作用" class="headerlink" title="期货投机的作用"></a>期货投机的作用</h4><ul>
+<li><p>承担价格风险：期货投机者在博取风险收益的同时，承担了相应的价格风险，使得套期保值者能够有效规避现货价格波动风险，也使得现货经营平稳运行</p>
+</li>
+<li><p>促进价格发现：期货市场采用公开竞价，买卖双方相互竞价使价格趋于合理</p>
+</li>
+<li><p>适度的投机能够减缓价格波动</p>
+</li>
+<li><p>提高市场流通性，为套期保值者提供更多的机会</p>
+</li>
+</ul>
+<h4 id="投机交易之前的准备"><a href="#投机交易之前的准备" class="headerlink" title="投机交易之前的准备"></a>投机交易之前的准备</h4><p>了解期货合约</p>
+<p>制定交易计划</p>
+<p>设定盈利目标和亏损限度</p>
+<h4 id="期货投机的发展趋势"><a href="#期货投机的发展趋势" class="headerlink" title="期货投机的发展趋势"></a>期货投机的发展趋势</h4><p>组合投资交易：将资金按一定比例分别投资与不同种类的有价证券或同一种类有价证券的多个品种上，以分散风险的交易行为。</p>
+<p>现代投资组合思想的主要内容是风险与收益的关系分析。合理的投资组合应具有的特征是风险相同的情况下期望收益较高，或在期望收益相同的情况下风险较低。</p>
+<p>随着组合中资产种类的增加，组合的风险虽然在下降，但组合管理的成本却不断提高，并且当组合中资产种类达到一定数量之后，组合的风险将无法继续下降，因此需要考量一个最优组合规模。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/27/%E6%9C%9F%E8%B4%A7%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-2-%E6%9C%9F%E8%B4%A7%E5%B8%82%E5%9C%BA%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84/" rel="prev" title="期货基础入门 2 - 期货市场组织结构">
+      <i class="fa fa-chevron-left"></i> 期货基础入门 2 - 期货市场组织结构
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/07/27/%E6%9C%9F%E8%B4%A7%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-4-%E6%9C%9F%E8%B4%A7%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="next" title="期货基础入门 4 - 期货基础知识">
+      期货基础入门 4 - 期货基础知识 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%9F%E8%B4%A7%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-3-%E6%8A%95%E6%9C%BA%E4%BA%A4%E6%98%93"><span class="nav-number">1.</span> <span class="nav-text">期货基础入门 3 - 投机交易</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%95%E6%9C%BA%E4%BA%A4%E6%98%93%E7%89%B9%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">投机交易特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%95%E6%9C%BA%E4%BA%A4%E6%98%93%E7%9A%84%E7%AD%96%E7%95%A5"><span class="nav-number">1.3.</span> <span class="nav-text">投机交易的策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%9F%E8%B4%A7%E6%8A%95%E6%9C%BA%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.4.</span> <span class="nav-text">期货投机的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%95%E6%9C%BA%E4%BA%A4%E6%98%93%E4%B9%8B%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87"><span class="nav-number">1.5.</span> <span class="nav-text">投机交易之前的准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%9F%E8%B4%A7%E6%8A%95%E6%9C%BA%E7%9A%84%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="nav-number">1.6.</span> <span class="nav-text">期货投机的发展趋势</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shaw"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Shaw</p>
+  <div class="site-description" itemprop="description">Was mich nicht umbringt, macht mich stärker</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-10 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shaw</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

@@ -174,6 +174,742 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/08/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-3-%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83%E7%9A%84%E7%A1%AE%E5%AE%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/08/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-3-%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83%E7%9A%84%E7%A1%AE%E5%AE%9A/" class="post-title-link" itemprop="url">贝叶斯统计 3 先验分布的确定</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-05-08 12:35:02" itemprop="dateCreated datePublished" datetime="2022-05-08T12:35:02+08:00">2022-05-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-14 13:04:20" itemprop="dateModified" datetime="2022-05-14T13:04:20+08:00">2022-05-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Bayesian-Statistics/" itemprop="url" rel="index"><span itemprop="name">Bayesian Statistics</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="S-3-1-主观概率"><a href="#S-3-1-主观概率" class="headerlink" title="$\S 3.1\ $主观概率"></a><center>$\S 3.1\ $主观概率</center></h3><h4 id="主观概率"><a href="#主观概率" class="headerlink" title="主观概率"></a>主观概率</h4><p>贝叶斯统计中要使用先验信息，而先验信息主要是经验和历史资料。因此如何用人们的经验和过去的历史资料确定概率和先验分布是贝叶斯学派要研究的问题。</p>
+<p>贝叶斯学派认为：一个事件的概率是人们根据经验对该事件发生的可能性所给出的个人信念。这样给出的概率称为主观概率。</p>
+<p>当然我们所给出的主观概率并不是随意的，而是要求当事人（可能是某一行的专家）对所考察的事件有较透彻的了解和丰富的经验，并能对周围信息和历史信息进行仔细分析，在这个基础上确定的主观概率就能符合实际，这也使得主观概率有别于主观臆断。</p>
+<p>主观概率要接受实践检验，也要符合概率的三条公理。</p>
+<p>主观概率在经济领域和决策分析中使用较为广泛，因为在那里遇到的随机现象大多是不能大量重复的，无法用频率方法确定事件概率。在这个意义上看，主观概率至少是频率方法和古典方法的一种补充。</p>
+<h4 id="确定主观概率的方法"><a href="#确定主观概率的方法" class="headerlink" title="确定主观概率的方法"></a>确定主观概率的方法</h4><ul>
+<li>专家的主观概率</li>
+<li>概率三条公理</li>
+<li>根据对专家的了解（偏保守或激进）形成决策者自己的主观概率</li>
+</ul>
+<h3 id="S-3-2-利用先验信息确定先验分布"><a href="#S-3-2-利用先验信息确定先验分布" class="headerlink" title="$\S 3.2\ $利用先验信息确定先验分布"></a><center>$\S 3.2\ $利用先验信息确定先验分布</center></h3><p>当总体参数为离散型时，可对每一个点确定一个主观概率。</p>
+<p>当总体参数为连续型是，要构造先验密度就比较困难了。当$\ \theta\ $的先验信息足够多时，下面三个方法可供使用：</p>
+<ol>
+<li><p>频率直方图法（用频率估计概率）</p>
+</li>
+<li><p>选定先验密度函数形式再估计其超参数</p>
+<p>这个方法的要点如下：</p>
+<ul>
+<li>根据先验信息选定$\ \theta\ $的先验密度函数形式$\ \pi(\theta)\ $的形式，如选其共轭先验分布</li>
+<li>当共轭先验分布中含有未知参数（称为超参数）时，譬如$\ \pi(\theta)=\pi(\theta;\alpha,\beta)$，给出超参数$\ \alpha,\beta\ $的估计值使得最接近先验信息</li>
+</ul>
+<p>这种方法最常用，但也及其容易误用，因为先验密度$\ \pi(\theta)\ $的函数形式选用不当将会导致以后推导失误。</p>
+</li>
+<li><p>定分度法和变分度法</p>
+<p>变分度法是把参数可能取值的区间逐次分为机会相等的两个小区间。</p>
+<p>其实也没啥好说的，感兴趣的同学自己查去吧[Doge]</p>
+</li>
+</ol>
+<h3 id="S-3-3-利用边缘分布m-x-确定先验密度"><a href="#S-3-3-利用边缘分布m-x-确定先验密度" class="headerlink" title="$\S 3.3\ $利用边缘分布m(x)确定先验密度"></a><center>$\S 3.3\ $利用边缘分布m(x)确定先验密度</center></h3><p>上一节的东西简直无聊透顶，我其实都不太想写的…幸好比起上一节，这一节的内容还是相对比较有意思的。</p>
+<h4 id="边缘分布"><a href="#边缘分布" class="headerlink" title="边缘分布"></a>边缘分布</h4><p>设总体$\ X\ $的密度函数为$\ p(x|\theta)$，它含有未知参数$\ \theta$，若$\ \theta\ $的先验分布选用形式已知的密度函数$\ \pi(\theta)$，则可算得$\ X\ $的边缘分布</p>
+<script type="math/tex; mode=display">
+m(x)=\left\{
+\begin{aligned}
+\int_\Theta p(x|\theta)\pi(\theta)d\theta,\quad\text{当$\ \theta$}为连续时\\
+\sum_{\theta\in\Theta}p(x|\theta)\pi(\theta),\quad\text{当$\ \theta$}为离散时
+\end{aligned}
+\right.</script><h4 id="混合分布"><a href="#混合分布" class="headerlink" title="混合分布"></a>混合分布</h4><p>设随机变量$\ X\ $以概率$\ \pi\ $总体$\ F_1\ $中取值，以概率$\ 1-\pi\ $在总体$\ F_2\ $中取值。若$\ F(x|\theta_1)\ $和$\ F(x|\theta_2)\ $分别是这两个总体的分布函数，则$\ X\ $的分布函数为</p>
+<script type="math/tex; mode=display">
+F(x)=\pi F(x|\theta_1)+(1-\pi)F(x|\theta_2)</script><p>或用密度函数表示</p>
+<script type="math/tex; mode=display">
+p(x)=\pi p(x|\theta_1)+(1-\pi)p(x|\theta_2)</script><p>这个分布$\ F(x)\ $称为$\ F(x|\theta_1)\ $和$\ F(x|\theta_2)\ $的混合分布。</p>
+<p>从混合分布中抽取一个样本$\ x_1$，相当于如下的二次抽样：</p>
+<ul>
+<li>第一次，从$\ \pi(\theta)\ $中抽取样本$\ \theta$</li>
+<li>第二次，若$\ \theta=\theta_1$，则从$\ F(x|\theta_1)\ $中再抽一个样本，这个样本就是$\ x_1$；若$\ \theta=\theta_2$，则从$\ F(x|\theta_2)\ $中再抽一个样本，这个样本就是$\ x_1$.</li>
+</ul>
+<p>从上述混合分布的定义很容易看出，边缘分布就是混合分布的推广。以后我们就可以将对边缘分布的抽样看成是对广义混合分布的抽样。</p>
+<h4 id="先验选择的-ML-Ⅱ-方法"><a href="#先验选择的-ML-Ⅱ-方法" class="headerlink" title="先验选择的$\ ML-Ⅱ\ $方法"></a>先验选择的$\ ML-Ⅱ\ $方法</h4><p>在边缘分布$\ m(x)\ $的表示式中，若$\ p(x|\theta)\ $已知，则$\ m(x)\ $的大小反映了$\ \pi(\theta)\ $的合理程度。这里把$\ m(x)\ $记为$\ m^\pi(x)$。注意到在上一章中，我们将边缘分布函数视为了对$\ x\ $的预测分布。当样本观察值给定时，这件事情就变得更加明朗了：当对不同的两个先验分布$\ \pi_1\ $和$\ \pi_2$，有</p>
+<script type="math/tex; mode=display">
+m^{\pi_1}(x)>m^{\pi_2}(x)</script><p>时，我们可以认为由先验$\ \pi_1\ $给出的预测分布更加支持样本$\ x\ $的出现。还是利用到极大似然估计的基本观点（自然也是统计学的基本观点）：将最先发生的事情视为最有可能发生的事情。那么我们对$\ \pi_1\ $的偏好也就是合理的了。我们将这样给出的的先验称为$\ Ⅱ\ $型极大似然先验，或称为$\ ML-Ⅱ\ $先验。</p>
+<p>例如混合样本$\ \mathbf{x}=(x_1,…,x_n)\ $所涉及的先验密度函数的形式已知，未知的仅是其中的超参数，即先验密度函数族可表示如下：</p>
+<script type="math/tex; mode=display">
+\Gamma=\{\pi(\theta|\lambda),\lambda\in\Lambda\}</script><p>这时寻求$\ ML-Ⅱ\ $先验是较为简单的事，只要寻求这样的$\ \hat\lambda\ $使得</p>
+<script type="math/tex; mode=display">
+m(\mathbf{x}|\hat\lambda)=\sup_{\lambda\in\Lambda}\prod_{i=1}^{n}m(x_i|\lambda)</script><p>这可用最大化似然函数方法来实现。</p>
+<h4 id="先验选择的矩方法"><a href="#先验选择的矩方法" class="headerlink" title="先验选择的矩方法"></a>先验选择的矩方法</h4><p>当先验密度函数形式已知时，还可以利用先验矩与边缘分布之间的关系寻求超参数的估计。这个方法称为先验选择的矩方法。这个矩方法的要点如下：</p>
+<ul>
+<li><p>计算总体分布$\ p(x|\theta)\ $的期望$\ \mu(\theta)\ $和方差$\ \sigma^2(\theta)$，即</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mu(\theta)&=E^{x|\theta}(X)\\
+\sigma^2(\theta)&=E^{x|\theta}[X-\mu(\theta)]^2
+\end{aligned}</script></li>
+<li><p>计算边缘密度$\ m(x|\lambda)\ $的期望$\ \mu_{m}(\lambda)\ $和方差$\ \sigma_{m}^2(\lambda)$，下面的公式可以帮助我们简化这些计算：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mu_m(\lambda)&=E^{x|\lambda}(X)\\
+&=\int_\chi x\int_\Theta p(x|\theta)\pi(\theta|\lambda)d\theta dx\\
+&=\int_\Theta\int_\chi x p(x|\theta)dx\pi(\theta|\lambda)d\theta\\
+&=\int_\Theta\mu(\theta)\pi(\theta|\lambda)d\theta\\
+&=E^{\theta|\lambda}[\mu(\theta)]\\
+
+\sigma_m^2(\lambda)&=E^{x|\lambda}[X-\mu_m(\lambda)]^2\\
+&=\int_\chi [x-\mu_m(\lambda)]^2\int_\Theta p(x|\theta)\pi(\theta|\lambda)d\theta dx\\
+&=\int_\Theta\int_\chi [x-\mu_m(\lambda)]^2
+    p(x|\theta)dx\pi(\theta|\lambda)d\theta\\
+&=\int_\Theta E^{x|\theta}[x-\mu_m(\lambda)]^2
+    \pi(\theta|\lambda)d\theta\\
+\end{aligned}</script></li>
+</ul>
+<p>(to be continued</p>
+<h3 id="S-3-4-无信息先验分布"><a href="#S-3-4-无信息先验分布" class="headerlink" title="$\S 3.4\ $无信息先验分布"></a><center>$\S 3.4\ $无信息先验分布</center></h3><p>贝叶斯统计启发人们要充分挖掘周围的各种信息是统计推断更加有效。但是当我们并没有任何先验信息可以利用的情况下，该如何确定先验分布？这时候我们选用需要选用无信息先验。</p>
+<p>说到无信息先验，哪怕我们从未听过这个名词，也很自然会联想到均匀分布（连续型）或是在可数离散情形下认为参数等可能。这两种朴素的联想都表明了我们在无知情况下的一种立场：不偏好参数任何可能的取值。不过如果问题真的就这么简单，那我们也没有必要专门用一节来讲这个问题了。下面我们叙述一些主要结果。</p>
+<h4 id="贝叶斯假设"><a href="#贝叶斯假设" class="headerlink" title="贝叶斯假设"></a>贝叶斯假设</h4><p>所谓参数$\ \theta\ $的无信息先验分布是指除参数$\ \theta\ $的取值范围$\ \Theta\ $和$\ \theta\ $在总体分布中的地位之外，再也不包含$\ \theta\ $的任何信息的先验分布。有人把“不包含$\ \theta\ $的任何信息”理解为（就如上一段所述）对$\ \theta\ $的任何可能的取值没有任何偏好，都是同样无知的。因此很自然地将$\ \theta\ $的取值范围上的均匀分布看作$\ \theta\ $的先验分布，即</p>
+<script type="math/tex; mode=display">
+\pi(\theta)=\left\{
+\begin{aligned}
+c,\quad \theta\in\Theta\\
+0,\quad \theta\notin\Theta
+\end{aligned}
+\right.</script><p>其中$\ \Theta\ $是$\ \theta\ $的取值范围，$c\ $是容易确定的常数。这一看法综合了我们上一段的两种想法，通常被称为贝叶斯假设。</p>
+<p>使用贝叶斯假设也会遇到一些麻烦，主要是以下两个：</p>
+<ol>
+<li>当$\ \theta\ $为无限区间时，在$\ \Theta\ $上无法定义一个正常的均匀分布</li>
+<li>贝叶斯假设不满足变换下的不变性</li>
+</ol>
+<p>第一个问题可以通过引入广义先验密度的方法来解决。它的动机是虽然我们不能得到一个正常的密度函数，但是使用它并不影响后验分布的计算，也就是说采用广义先验密度计算出来的后验密度是一个正常的概率密度。</p>
+<p>由此我们定义：</p>
+<p>设总体$\ X\sim f(x|\theta),\theta\in\Theta$，若$\ \theta\ $先验分布$\ \pi(\theta)\ $满足下列条件：</p>
+<ul>
+<li>$\pi(\theta)\ge0$，且$\ \int_\Theta\pi(\theta)d\theta=\infty$</li>
+<li>由此决定的后验密度$\ \pi(\theta|x)\ $是一个正常的密度函数，则称$\ \pi(\theta)\ $为$\ \theta\ $的广义先验密度。</li>
+</ul>
+<p>对于第二个问题，我们先解释一下什么是变换下的不变性。</p>
+<p>考虑正态标准差，它的参数空间是$\ (0,\infty)$。若定义一个变换</p>
+<script type="math/tex; mode=display">
+\eta=\sigma^2\in(0,\infty)</script><p>则$\ \eta\ $是正态方差。注意到这时一个一一变换，不会损失信息。若$\ \sigma\ $是无信息参数，那么$\ \eta\ $也是无信息参数，且它们的参数空间都是$\ (0,\infty)$，没有被压缩或放大。按贝叶斯假设，它们的无信息先验分布应都为常数，应该成比例。可是按照概率运算法则并不是这样的。若设$\ \pi(\sigma)\ $为$\ \sigma\ $的密度函数，那么$\ \eta\ $的密度函数为</p>
+<script type="math/tex; mode=display">
+\pi^*(\eta)=\abs{\frac{d\sigma}{d\eta}}\pi(\sqrt\eta)=\frac{1}{2\sqrt\eta}\pi(\sqrt\eta)</script><p>因此，若$\ \theta\ $的无信息先验分布被选为常数，为保持数学上逻辑推理的一致性，$\eta\ $的无信息先验应与$\ \eta^{-1/2}\ $成比例。这就与贝叶斯假设矛盾。</p>
+<p>从这个例子可以看出，不能随意设定一个常数为某参数的先验分布，即不能随意使用贝叶斯假设。那么什么场合可以使用贝叶斯假设？什么场合不能使用贝叶斯假设？如不能使用贝叶斯假设，无信息先验分布又如何确定呢？下面来叙述这些结果。</p>
+<h4 id="位置参数的无信息先验"><a href="#位置参数的无信息先验" class="headerlink" title="位置参数的无信息先验"></a>位置参数的无信息先验</h4><p>若要考虑参数$\ \theta\ $的无信息先验，我们首先要知道该参数$\ \theta\ $在总体分布中的地位，譬如$\ \theta\ $是位置参数，还是尺度参数。根据参数在分布的地位选用适当变换下的不变性来确定无信息先验分布。</p>
+<p>设总体$\ X\ $的密度具有形式$\ p(x-\theta)$，其样本空间$\ \chi\ $和参数空间$\ \Theta\ $皆为实数集$\ \mathbb{R}^1$。这类密度函数组成位置参数族。$\theta\ $称为位置参数，方差$\ \sigma^2\ $已知时的正态分布$\ N(\theta,\sigma^2)\ $就是其成员之一。下面我们导出这种场合下$\ \theta\ $的无信息先验分布。</p>
+<p>设想让$\ X\ $移动一个量$\ c\ $得到$\ Y=X+c$，同时让参数也移动一个量$\ c\ $得到$\ \eta=\theta+c$，显然$\ Y\ $具有密度$\ p(y-\eta)$。它仍是位置参数族的成员，且其样本空间与参数空间仍为$\ \mathbb{R}^1$。所以$\ (X,\theta)\ $问题与$\ (Y,\eta)\ $问题的统计结构完全相同。因此$\ \theta\ $与$\ \eta\ $应是有相同的无信息先验分布。</p>
+<script type="math/tex; mode=display">
+\pi(\tau)=\pi^*(\tau)</script><p>其中$\ \pi^{*}(*)\ $为$\ \eta\ $的无信息先验分布，另一方面，由变换$\ \eta=\theta+c\ $可以算出$\ \eta\ $的无信息先验分布为</p>
+<script type="math/tex; mode=display">
+\pi^*(\eta)=\abs{\frac{d\theta}{d\eta}}\pi(\eta-c)=\pi(\eta-c)</script><p>联立上面两式可得</p>
+<script type="math/tex; mode=display">
+\pi(\eta)=\pi(\eta-c)</script><p>取$\ \eta=c$，则有</p>
+<script type="math/tex; mode=display">
+\pi(c)=\pi(0)=\text{常数}</script><p>由于$\ c\ $的任意性，故得$\ \theta\ $的无信息先验分布为</p>
+<script type="math/tex; mode=display">
+\pi(\theta)=1</script><p>这表明，当$\ \theta\ $为位置参数时，其先验分布可用贝叶斯假设作为无信息先验分布。</p>
+<h4 id="尺度参数的无信息先验"><a href="#尺度参数的无信息先验" class="headerlink" title="尺度参数的无信息先验"></a>尺度参数的无信息先验</h4><p>设总体$\ X\ $的密度具有形式$\ \frac{1}{\sigma}p(\frac{x}{\sigma})$，其中$\ \sigma\ $称为尺度参数，参数空间$\ \Theta\ $为$\ \mathbb{R}^+=(0,\infty)$。这类密度函数的全体组成尺度参数族。正态分布$\ N(0,\sigma^2)\ $就属于该分布族。下面我们导出这种场合下参数$\ \sigma\ $的无信息先验分布。</p>
+<p>设想让$\ X\ $改变比例尺，即得$\ Y=cX(c&gt;0)$。类似地定义$\ \eta=c\sigma$，即让参数$\ \sigma\ $同步变化，不难算出$\ Y\ $的密度函数为$\ \frac{1}{\eta}p(\frac{y}{\eta})\ $仍属于尺度参数族。易见$\ (X,\sigma)\ $和$\ (Y, \eta)\ $具有相同的统计结构，故两个尺度参数的无信息先验理应相同</p>
+<script type="math/tex; mode=display">
+\pi(\tau)=\pi^*(\tau)</script><p>另一方面，由变换$\ \eta=c\sigma\ $可得$\ \eta\ $的无信息先验</p>
+<script type="math/tex; mode=display">
+\pi^*(\eta)=\frac{1}{c}{\pi(\frac{\eta}{c})}</script><p>比较上面两式得</p>
+<script type="math/tex; mode=display">
+\pi(\eta)=\frac{1}{c}\pi(\frac{\eta}{c})</script><p>取$\ \eta=c$，则有</p>
+<script type="math/tex; mode=display">
+\pi(c)=\frac{1}{c}\pi(1)</script><p>不妨令$\ \pi(1)=1$，可得$\ \sigma\ $的无信息先验为</p>
+<script type="math/tex; mode=display">
+\pi(\sigma)=\frac{1}{\sigma},\quad\sigma>0</script><p>这仍然是一个不正常的先验。</p>
+<h4 id="用Fisher信息阵确定无信息先验"><a href="#用Fisher信息阵确定无信息先验" class="headerlink" title="用Fisher信息阵确定无信息先验"></a>用Fisher信息阵确定无信息先验</h4><p>$\ Jeffreys\ $还提出确定无信息先验更一般的方法。由于推理涉及到变换群和$\ Harr\ $测度知识，这里仅给出最后结果及其计算步骤</p>
+<p>设$\ \mathbf{x}=(x_1,…,x_n)\ $是来自密度函数$\ p(x|\theta)\ $的一个样本。这里$\ \theta=(\theta_1,…,\theta_n)\ $是$\ p\ $维参数向量。在对$\ \theta\ $无先验信息可用时，$\ Jeffreys\ $用$\ Fisher\ $信息阵的平方根作为$\ \theta\ $的无信息分布。这样的无信息先验常称为$\ Jeffreys\ $先验。其寻求步骤如下：</p>
+<ol>
+<li><p>写出样本的对数似然函数</p>
+<script type="math/tex; mode=display">
+l(\theta|\mathbf{x})=\ln{[\prod_{i=1}^{n}p(x_i|\theta)]}=\sum_{i=1}^{n}\ln p(x_i|\theta)</script></li>
+<li><p>求样本的信息阵</p>
+<script type="math/tex; mode=display">
+I(\theta)=E^{x|\theta}[-\frac{\part^2 l}{\part\theta_i\part\theta_j}]</script><p>其中$\ i,j=1,2,…,p$。在单参数场合下</p>
+<script type="math/tex; mode=display">
+I(\theta)=E^{x\theta}[-\frac{\part^2l}{\part\theta^2}]</script></li>
+<li><p>$\theta\ $的无信息先验密度为</p>
+<script type="math/tex; mode=display">
+\pi(\theta)=[\det I(\theta)]^{1/2}</script><p>其中$\ \det I(\theta)\ $表示$\ p\times p\ $阶信息阵$\ I(\theta)\ $的行列式。在单参数场合下</p>
+<script type="math/tex; mode=display">
+\pi(\theta)=[I(\theta)]^{1/2}</script></li>
+</ol>
+<h3 id="S-3-5-多层先验"><a href="#S-3-5-多层先验" class="headerlink" title="$\S 3.5\ $多层先验"></a><center>$\S 3.5\ $多层先验</center></h3><h4 id="多层先验"><a href="#多层先验" class="headerlink" title="多层先验"></a>多层先验</h4><p>当所给先验分布中超参数难于确定时，可以对超参数再给出一个先验，第二个先验成为超先验。由先验和超先验决定的一个新先验就称为多层先验。下面的例子可以很好的帮助我们理解多层先验的想法和做法。</p>
+<p>设人们对某产品的不合格率了解甚少，只知道它比较小。现需确定$\ \theta\ $的先验分布。决策人经过反复的思考，最后把他引导到多层先验上去，他的思路是这个样子的：</p>
+<ol>
+<li><p>开始他用区间$\ (0,1)\ $上的均匀分布$\ U(0,1)\ $作为$\ \theta\ $的先验分布。</p>
+</li>
+<li><p>后来觉得不妥，因为该产品的不合格率$\ \theta\ $比较小，不会超过$\ 0.5\%$，于是他改用区间$\ U(0,0.5)\ $作为$\ \theta\ $的先验分布</p>
+</li>
+<li><p>在一次业务会上，不少人对上限$\ 0.5\ $提出各种意见，有人觉得应该为$\ 0.1$，有人认为应该只是比$\ 0.5\ $小一点，应该取$\ 0.4$，但是对此他也没有把握。最后决策人提出以下看法：$\theta\ $的先验为$\ (0,\lambda)$，其中$\ \lambda\ $是超参数，要确切地定出$\ \lambda\ $是困难的，但是预示它的区间是有把握的。综合大家的意见，决策人最终认为$\ \lambda\ $是在区间$\ (0.1,0.5)\ $上的均匀分布$\ U(0.1,0.5)$。这后一个分布称为超先验。</p>
+</li>
+<li><p>我们归纳一下最终决定的先验：</p>
+<ul>
+<li>$\theta\ $的先验为$\ \pi_1(\theta|\lambda)=U(0,\lambda)$</li>
+<li>$\lambda\ $的超先验为$\ \pi_2(\lambda)=U(0.1,0.5)$</li>
+</ul>
+<p>于是用边缘分布计算公式，可得$\ \theta\ $的先验为</p>
+<script type="math/tex; mode=display">
+\pi(\theta)=\int_\Lambda\pi_1(\theta|\lambda)\pi_2(\lambda)d\lambda</script><p>其中$\ \Lambda\ $是超参数$\ \lambda\ $的取值范围。在这个例子中：</p>
+<script type="math/tex; mode=display">
+\pi(\theta)=\frac{1}{0.5-0.1}\int_{0.1}^{0.5}\lambda \mathbb{I}_{(0,\lambda)}(\theta)d\lambda</script><p>其中$\ \mathbb{I}\ $为示性函数：</p>
+<script type="math/tex; mode=display">
+\mathbb{I}_{(0,\lambda)}(\theta)=\left\{
+\begin{aligned}
+1,\quad \theta\in\Lambda\\
+0,\quad \theta\notin\Lambda
+\end{aligned}
+\right.</script></li>
+</ol>
+<p>理论上并没有限制多层先验只能有两层，可以是三步或更多步，但是在实际应用中多于两步的先验是很罕见的。对于第二层的超先验用主观概率或用历史数据给出是有困难的，因为$\ \lambda\ $常是不能观察的，甚至连间接观察都是难以进行的，所以用无信息先验作为超先验是一种好的策略。</p>
+<p>多层先验常常是在这样一个场合使用，当一步给出先验$\ \pi(\theta)\ $没有把握时，那用二层先验要比硬用一层先验所冒的风险要小一些。</p>
+<h4 id="多层模型"><a href="#多层模型" class="headerlink" title="多层模型"></a>多层模型</h4><p>(to be continued</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-2-%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%8E%A8%E6%96%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-2-%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%8E%A8%E6%96%AD/" class="post-title-link" itemprop="url">贝叶斯统计 2 贝叶斯推断</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-05-04 13:11:03" itemprop="dateCreated datePublished" datetime="2022-05-04T13:11:03+08:00">2022-05-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-07 15:31:02" itemprop="dateModified" datetime="2022-05-07T15:31:02+08:00">2022-05-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Bayesian-Statistics/" itemprop="url" rel="index"><span itemprop="name">Bayesian Statistics</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="S-2-1-条件方法"><a href="#S-2-1-条件方法" class="headerlink" title="$\S 2.1\ $条件方法"></a><center>$\S 2.1\ $条件方法</center></h3><p>统计学中有一种重要的观点称为“条件观点”，即只考虑已出现的数据（样本观察值），而认为未出现的数据与推断无关。后验分布$\ \pi(\theta|\mathbf{x})\ $是在样本$\ \mathbf{x}\ $给定下$\ \theta\ $的条件分布，基于后验分布的统计推断就践行了这样的观点。我们将基于条件观点提出的统计推断方法称为条件方法。</p>
+<h3 id="S-2-2-估计"><a href="#S-2-2-估计" class="headerlink" title="$\S 2.2\ $估计"></a><center>$\S 2.2\ $估计</center></h3><h4 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h4><p>设$\ \theta\ $是总体分布$\ p(x|\theta)$中的参数，为估计该参数可从总体中随机抽取一个样本$\ \mathbf{x}=(x_1,…,x_n)$，同时依据参数的先验信息选择一个先验分布（第三章将会讨论这个问题），用贝叶斯公式算得后验分布$\ \pi(\theta|\mathbf{x})\ $。最后，如果硬要我们拿出一个$\ \theta\ $的估计值出来，我们可以选用后验分布的某个位置特征值，如众数、中位数或者期望。</p>
+<p>以下三个估计都成为$\ \theta\ $的贝叶斯估计：</p>
+<ul>
+<li>最大后验估计$\ \hat\theta_{MD}$：使后验密度$\ \pi(\theta|\mathbf{x})\ $达到最大值的$\ \theta$</li>
+<li>后验中位数估计$\ \hat\theta_{Me}$：后验分布的中位数</li>
+<li>后验期望估计$\ \hat\theta_{E}$：后验分布的期望值</li>
+</ul>
+<p>在这里提及以下事实：</p>
+<ul>
+<li>显然对于非对称后验分布，我们所得出来的估计量可能并不相同，在实际情况中需要再进行选择。而一条指导性意见是两个估计量在小样本上的解释性是否有哪个更优。</li>
+<li>有时候我们所得的贝叶斯估计就是经典统计中的极大似然估计，例如在二项分布场合下，取特殊先验为均分分布的$\ \theta\ $，它的最大后验估计就是经典统计中的极大似然估计。贝叶斯学派对这种现象的看法是：任何使用经典统计的人都在自觉或者不自觉地使用贝叶斯推断，与其不自觉地使用，还不如主动选取更合适的先验分布使推断更富有意义。当然频率学派并不会接受这种观点，因为贝叶斯学派尚未证明：总体分布$\ p(x|\theta)\ $中参数的任一经典估计都存在一个先验分布，使得其贝叶斯估计就是该经典统计。</li>
+</ul>
+<p>更多更详细的内容请查阅参考文献《贝叶斯统计》第37至39页。</p>
+<h4 id="贝叶斯估计的误差"><a href="#贝叶斯估计的误差" class="headerlink" title="贝叶斯估计的误差"></a>贝叶斯估计的误差</h4><p>在得到一个估计值之后，我们往往需要知道这个估计值究竟有多靠谱，能不能放心的在实际生活中进行使用，此时我们就需要考虑一个误差的问题了。而衡量误差很自然的想法就是利用方差或者是标准差，好在我们已经有关于参数$\ \theta\ $的后验分布，所以最好而又最简单的方法就是用$\ \theta\ $对$\ \hat\theta\ $的后验均方差或其平方根来度量。</p>
+<p>设参数$\ \theta\ $的后验分布$\ \pi(\theta|\mathbf{x})\ $，贝叶斯估计为$\ \hat\theta\ $，则$\ (\theta-\hat\theta)^2\ $的后验期望</p>
+<script type="math/tex; mode=display">
+MSE(\hat\theta|\mathbf{x})=E^{\theta|\mathbf{x}}[(\theta-\hat\theta)^2]</script><p>称为$\ \hat\theta\ $的后验均方差，而其平方根$\ [MSE(\hat\theta|\mathbf{x})]^{1/2}\ $称为$\ \hat\theta\ $的后验标准误。其中符号$\ E^{\theta|\mathbf{x}}\ $表示用条件分布$\ \pi(\theta|\mathbf{x})\ $求期望。在连续情形下，有</p>
+<script type="math/tex; mode=display">
+E^{\theta|\mathbf{x}}[(\theta-\hat\theta)^2]=\int_{\Theta}(\theta-\hat\theta)^2\pi(\theta|\mathbf{x})d\theta</script><p>经过简单的推断，我们还可以得到后验均方差与后验均值之间的关系</p>
+<script type="math/tex; mode=display">
+MSE(\hat\theta|\mathbf{x})=Var(\theta|\mathbf{x})+(\hat\theta_E-\hat\theta)^2</script><p>其中$\ \hat\theta_E=E(\theta|\mathbf{x})$。</p>
+<h3 id="S-2-3-区间估计"><a href="#S-2-3-区间估计" class="headerlink" title="$\S 2.3\ $区间估计"></a><center>$\S 2.3\ $区间估计</center></h3><p>由于贝叶斯学派将参数$\ \theta\ $视为随机变量，所以我们可以很自然的讨论关于$\ \theta\ $的区间估计问题。我们将这种区间称为贝叶斯可信区间。</p>
+<p>而在经典统计中，我们也有类似的给出置信区间的结果。相比之下，置信区间就让人感觉有些摸不着头脑了。比如说我们在95%的置信水平下得到关于$\ \theta\ $的置信区间，此时我们并不允许说$\ \theta\ $落在此区间内的<strong>概率</strong>是0.95，因为对于非随机的常量$\ \theta$，我们并不能言及概率。事实上，给定一个置信区间，常量$\ \theta\ $要么落在置信区间内，要么不落在置信区间内，是一个确定性事件。我们只能以曲线救国的方式将置信区间视为<strong>随机置信区间</strong>说：“在100次使用这个置信区间时，大约有90次能盖住$\ \theta$。”而此种频率解释对仅使用一次或两次的人来说是毫无意义的。很多人还是会下意识将求得的置信区间当作可信区间去使用和理解。</p>
+<p>设参数$\ \theta\ $的后验分布为$\ \pi(\theta|\mathbf{x})$，对于给定的样本$\ \mathbf{x}\ $和概率$\ 1-\alpha(0&lt;\alpha&lt;1)$，若存在这样的两个统计量$\ \hat\theta_L=\hat\theta_L(\mathbf{x})\ $与$\ \hat\theta_U=\hat\theta_U(\mathbf{x})$，使得</p>
+<script type="math/tex; mode=display">
+P(\hat\theta_L\le\theta\le\hat\theta_U|\mathbf{x})\ge 1-\alpha</script><p>则称区间$\ [\hat\theta_L,\hat\theta_U]\ $为参数$\ \theta\ $的可信水平为$\ 1-\alpha\ $（贝叶斯）可信区间。而满足</p>
+<script type="math/tex; mode=display">
+P(\theta\ge\hat\theta_L|\mathbf{x})\ge 1-\alpha</script><p>的$\ \hat\theta_L\ $称为$\ \theta\ $的$\ 1-\alpha$（单侧）可信下限。满足</p>
+<script type="math/tex; mode=display">
+P(\theta\le\hat\theta_U|\mathbf{x})\ge 1-\alpha</script><p>的$\ \hat\theta_U\ $称为$\ \theta\ $的$\ 1-\alpha$（单侧）可信上限。</p>
+<ul>
+<li><p>对给定的可信水平$\ 1-\alpha$，从后验分布$\ \pi(\theta|\mathbf{x})\ $获得的可信区间不止一个，常用的方法是用$\ \alpha/2\ $和$\ 1-\alpha/2\ $的分位数来获得$\ \theta\ $的可信区间。</p>
+</li>
+<li><p>等尾可信区间在实际中常常被使用，但并不是最理想的，最理想的可信区间应是区间长度最短。这只要把具有最大后验密度的点都包含在区间中，而在区间外的点上的后验密度函数值均不超过区间内的函数值。我们称这样的区间为最大后验密度（Highest Posterior Density，HPD）可信区间。</p>
+</li>
+</ul>
+<h3 id="S-2-4-假设检验"><a href="#S-2-4-假设检验" class="headerlink" title="$\S 2.4\ $假设检验"></a><center>$\S 2.4\ $假设检验</center></h3><h4 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h4><p>考虑这样的假设检验问题：建立原假设$\ H_0\ $与备择假设$\ H_1\ $</p>
+<script type="math/tex; mode=display">
+H_0:\theta\in\Theta_0,\quad H_1:\theta\in\Theta_1</script><p>其中$\ \Theta_0\cap\Theta_1=\empty$。</p>
+<p>在贝叶斯统计中处理假设检验问题是直截了当的，在获得后验分布$\ \pi(\theta|\mathbf{x})\ $后，即可计算两个假设$\ H_0\ $和$\ H_1\ $的后验概率</p>
+<script type="math/tex; mode=display">
+\alpha_i=P(\Theta_i|\mathbf{x})d\theta,\quad i=0,1</script><p>然后比较$\ \alpha_0\ $与$\ \alpha_1\ $的大小：</p>
+<ul>
+<li>当后验概率比（或称后验机会比）$\alpha_0/\alpha_1\gt 1$时接受$\ H_0\ $；</li>
+<li>当后验概率比（或称后验机会比）$\alpha_0/\alpha_1\lt 1$时接受$\ H_1\ $；</li>
+<li>当后验概率比（或称后验机会比）$\alpha_0/\alpha_1=1$时不做判断</li>
+</ul>
+<p>可以看到比起经典统计下的假设检验，我们并不需要选择检验统计量，确定抽样分布，也无需事先给定显著性水平，确定其拒绝域。</p>
+<p>最后，当我们推广到多重假设检验场合时，应接受具有最大后验概率的假设。</p>
+<h4 id="贝叶斯因子"><a href="#贝叶斯因子" class="headerlink" title="贝叶斯因子"></a>贝叶斯因子</h4><p>贝叶斯因子即是后验机会比/先验机会比</p>
+<p>我们通过定义来感受一下贝叶斯因子究竟在干什么：</p>
+<script type="math/tex; mode=display">
+B_\pi(\mathbf{x})=\frac{后验机会比}{先验机会比}=\frac{\alpha_0/\alpha_1}{\pi_0\pi_1}=\frac{\alpha_0\pi_1}{\alpha_1\pi_0}</script><p>首先分子“后验机会比”已经将后验的信息进行很好的利用（这其中就包含了样本信息和先验信息），但是接着我们又将该值除以先验机会比。</p>
+<p>刚开始接触这个概念时，我误以为贝叶斯因子是和后验机会比一样是用来判定假设检验的结果的。那么这就产生了一个很奇怪的问题了，我们看到贝叶斯因子既依赖于数据，又依赖于先验分布，对两种机会比相除，直观上这会削弱甚至（在某些情况下会）消除先验的影响。不过后来发现它并不是用来判定的……注意到贝叶斯因子减弱了先验的影响，突出了数据的影响，从这个角度看，贝叶斯因子是衡量了数据支持原假设的程度。</p>
+<p>在简单假设$\ \Theta_0=\{\theta_0\}\ v.s.\Theta_1=\{\theta_1\}$下：</p>
+<ul>
+<li><p>两种简单假设的后验概率分别为</p>
+<script type="math/tex; mode=display">
+\alpha_0=\frac{\pi_0p(\mathbf{x}|\theta_0)}{\pi_0p(\mathbf{x}|\theta_0)+\pi_1p(\mathbf{x}|\theta_1)},\quad \alpha_1=\frac{\pi_1p(\mathbf{x}|\theta_1)}{\pi_0p(\mathbf{x}|\theta_0)+\pi_1p(\mathbf{x}|\theta_1)}</script></li>
+<li><p>计算贝叶斯因子</p>
+<script type="math/tex; mode=display">
+B^\pi(\mathbf{x})=\frac{\alpha_0\pi_1}{\alpha_1\pi_0}=\frac{p(\mathbf{x}|\theta_0)}{p(\mathbf{x}|\theta_1)}</script><p>贝叶斯因子不依赖于先验分布，仅依赖于样本的似然比。这时贝叶斯因子的大小表示了样本$\ \mathbf{x}\ $支持$\ \Theta_0\ $的程度。</p>
+</li>
+</ul>
+<p>在复杂假设下，贝叶斯因子虽然已经不是似然比了，但仍可以看成是原假设与备择假设的加权似然比，它平均的消除了先验分布的影响，而强调了样本观察值的作用。</p>
+<p>在简单原假设对复杂的备择假设的场合下，例如很经典的检验问题$\ H_0=\theta_0\ v.s.H_1=\theta_1$。有别于前面问题的是不能采用连续密度函数作为先验分布，因为任何这种先验将给$\ \theta=\theta_0\ $的先验概率为0。基本的想法是赋予$\ \theta_0\ $一个正的概率，采用由离散和连续两部分组成的先验分布。</p>
+<p>关于以上两个场合的假设检验问题更加详细的内容，感兴趣的同学请参看《贝叶斯统计》P54~63。</p>
+<h3 id="S-2-5-预测"><a href="#S-2-5-预测" class="headerlink" title="$\S 2.5\ $预测"></a><center>$\S 2.5\ $预测</center></h3><p>对随机变量未来观察值作出统计推断称为预测，譬如：</p>
+<ol>
+<li>设随机变量$\ X\sim p(x|\theta)$，在参数$\ \theta\ $未知情况下如何对$\ X\ $的未来的观察值作出推断</li>
+<li>设$\ x_1,…x_n\ $是来自$\ p(x|\theta)\ $​的过去观察值，在参数$\ \theta\ $未知情况下如何对$\ X\ $的未来的观察值作出推断</li>
+<li>按密度函数$\ p(x|\theta)\ $得到一些数据$\ x_1,…x_n\ $后，如何对具有密度函数$\ g(z|\theta)\ $的随机变量$\ Z\ $的未来的观察值作出推断，这里第二个密度函数$\ p\ $和$\ g\ $都含有相同的未知参数$\ \theta$。</li>
+</ol>
+<p>在贝叶斯统计中，由于参数$\ \theta\ $随机且不可观测，我们的想法就是利用$\ \theta\ $的先验分布或者后验分布综合地考虑所有$\ \theta\ $的可能取值。共同点都是要获得预测分布。</p>
+<ol>
+<li><p>设随机变量$\ X\sim p(x|\theta)$，在无$\ X\ $的观察数据时，利用先验分布$\ \pi(\theta)\ $得到未知的但可以观测的数据$\ x\ $的分布</p>
+<script type="math/tex; mode=display">
+m(x)=\int_\Theta p(x|\theta)\pi(\theta)d\theta</script><p>这个分布常被称为$\ X\ $的边缘分布，但它还有一个更富有内涵的名称是“先验预测分布”。有了预测分布之后，我们就可以根据所需例如取期望值、中位数或众数作为预测值，也可以类似可信区间的形式取得预测区间。</p>
+</li>
+<li><p>在有$\ X\ $的观察数据$\ \mathbf{x}=(x_1,…,x_n)\ $时，改用后验分布$\pi(\theta|\mathbf{x})\ $获得“后验预测分布”</p>
+<script type="math/tex; mode=display">
+m(x|\mathbf{x})=\int_\Theta p(x|\theta)\pi(\theta|\mathbf{x})d\theta</script><p>也可以预测另一个总体$\ g(z|\theta)\ $的未来观察值，只要考虑如下分布：</p>
+<script type="math/tex; mode=display">
+m(z|\mathbf{x})=\int_\Theta g(z|\theta)\pi(\theta|\mathbf{x})d\theta</script></li>
+</ol>
+<h3 id="S-2-6-似然原理"><a href="#S-2-6-似然原理" class="headerlink" title="$\S 2.6\ $似然原理"></a><center>$\S 2.6\ $似然原理</center></h3><p>似然原理的核心概念是似然函数，对似然函数理解大家都是一致的，若设$\ \mathbf{x}=(x_1,…,x_n)\ $是来自密度函数$\ p(x|\theta)\ $的一个样本，则其乘积</p>
+<script type="math/tex; mode=display">
+p(\mathbf{x}|\theta)=\prod_{i=1}^{n}p(x_i|\theta)</script><p>有两个解释：当$\ \theta\ $给定时，$p(\mathbf{x}|\theta)\ $时样本$\ \mathbf{x}\ $的联合密度函数，当样本$\ \mathbf{x}\ $的观察值给定时，$p(\mathbf{x}|\theta)\ $是未知参数$\ \theta\ $的函数，并称为似然函数，记为$\ L(\theta)$。</p>
+<p>似然函数$\ L(\theta)\ $强调：它是$\ \theta\ $的函数，而样本$\ \mathbf{x}\ $在似然函数中只是一组数据或一组观察值。所有与试验有关的$\ \theta\ $的信息都被包含在似然函数之中，使$\ L(\theta)=p(\mathbf{x}|\theta)\ $大的$\ \theta\ $比使使$\ L(\theta)\ $小的$\ \theta\ $更像是$\ \theta\ $的真值。特别地，使$\ L(\theta)\ $在参数空间中$\ \Theta\ $达到最大的$\ \hat\theta\ $称为极大似然估计。</p>
+<p>（好吧，其实我也没太看得懂上一段在说什么……我还是用自己的话解释一遍吧……（当然如果你看懂了上面在说什么，那就不用浪费时间再听我的废话了</p>
+<blockquote>
+<p>首先，我们接着上面的两种解释继续说：当$\ \theta\ $给定时，$p(\mathbf{x}|\theta)\ $时样本$\ \mathbf{x}\ $的联合密度函数，它表示了某个样本观察值在参数已知的情况下发生的概率；而当我们对总体进行观测得到样本时（给定样本观察值），此时对于$\ p(\mathbf{x}|\theta)\ $就不能言及概率了，它随着未知参数$\ \theta$的变动而变动。</p>
+<p>而极大似然估计的想法就是认为最先出现的样本是最有可能的发生的。基于这个想法，我们希望变动$\ \theta\ $使得，对这个固定的$\ \theta$（看第一个解释）样本观察值发生概率，即似然函数达到最大。</p>
+<p>Emmmm…感觉我解释得也挺糟糕的…哎不管了…</p>
+</blockquote>
+<p>似然原理有如下两点：</p>
+<ol>
+<li>有了观测值$\ \mathbf{x}\ $之后，在做关于$\ \theta\ $的推断和决策时，所有与试验有关的$\ \theta\ $信息均被包含在似然函数$\ L(\theta)\ $中。</li>
+<li>如果有两个似然函数是成比例的，比例常数与$\ \theta\ $无关，则它们关于$\ \theta\ $含有相同的信息。</li>
+</ol>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-1-%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83%E4%B8%8E%E5%90%8E%E9%AA%8C%E5%88%86%E5%B8%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/30/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-1-%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83%E4%B8%8E%E5%90%8E%E9%AA%8C%E5%88%86%E5%B8%83/" class="post-title-link" itemprop="url">贝叶斯统计 1 先验分布与后验分布</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-30 10:42:06" itemprop="dateCreated datePublished" datetime="2022-04-30T10:42:06+08:00">2022-04-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-05 13:17:43" itemprop="dateModified" datetime="2022-05-05T13:17:43+08:00">2022-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Bayesian-Statistics/" itemprop="url" rel="index"><span itemprop="name">Bayesian Statistics</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>统计学中主要有两个学派：频率学派与贝叶斯学派。要说清楚它们之间的关系，我们先从统计推断中的三种信息说起。</p>
+<h3 id="S-1-1-三种信息"><a href="#S-1-1-三种信息" class="headerlink" title="$\S 1.1\ $三种信息"></a><center>$\S 1.1\ $三种信息</center></h3><h4 id="总体信息"><a href="#总体信息" class="headerlink" title="总体信息"></a>总体信息</h4><p>总体信息即是总体分布或总体所属分布族给我们的信息。总体信息是很重要的，但是为了获取这种信息往往耗资巨大。</p>
+<h4 id="样本信息"><a href="#样本信息" class="headerlink" title="样本信息"></a>样本信息</h4><p>样本信息即从总体抽取的样本给我们的提供的信息。人们希望通过样本信息对总体的某些特征进行较为精确的统计推断。没有样本就没有统计学可言。</p>
+<h4 id="先验信息"><a href="#先验信息" class="headerlink" title="先验信息"></a>先验信息</h4><p>先验信息是在抽样之前有关统计问题的一些信息，一般来说，先验信息主要来源于经验和历史资料。很显然，成熟而靠谱的经验有助于我们得到更加精确的结论。例如一个常饮牛奶加茶的女士声称她能辨别出先倒进杯子的究竟是牛奶还是茶。对此统计学家做了十次试验，结果发现她每次都正确说出来了。而当无知的统计学家妄自尊大地想自己去尝试辨别（盲猜）时，却只成功猜中了4次。在这种情况下，我们确实看到了经验对于推断产生的影响。</p>
+<p>基于上述三种信息进行的统计推断称为贝叶斯统计学。它与经典的统计学的主要差别在于是否利用先验信息。另外，它们在使用样本信息上也是有差别的。贝叶斯学派重视已出现的样本观察值，而对尚未发生的样本观察值不予考虑。贝叶斯学派很重视先验信息的收集、挖掘和加工，使它数量化，形成先验分布，参加到统计推断中来，以提高统计推断的质量。</p>
+<p>更具体地说，贝叶斯学派的最基本的观点就是：任一个未知量$\ \theta\ $都可以看作一个随机变量，应用一个概率分布去描述对$\ \theta\ $的未知情况。当然这个分布在未进行抽样之前就已经给出了，所以也被称为先验分布，或简称先验（prior）。而频率学派则认为$\ \theta\ $是一个常量，并不存在任何的不确定性。</p>
+<h3 id="S-1-2-贝叶斯公式"><a href="#S-1-2-贝叶斯公式" class="headerlink" title="$\S 1.2\ $贝叶斯公式"></a><center>$\S 1.2\ $贝叶斯公式</center></h3><h4 id="贝叶斯公式的密度函数形式"><a href="#贝叶斯公式的密度函数形式" class="headerlink" title="贝叶斯公式的密度函数形式"></a>贝叶斯公式的密度函数形式</h4><ol>
+<li><p>依赖于参数$\ \theta\ $的密度函数在经典统计中记为$p(x;\theta)$或者$p_\theta(x)$，它表示在参数空间$\Theta=\{\theta\}$中不同的$\ \theta\ $对应的不同的分布。可在贝叶斯统计中记为$\ p(x|\theta)$，它表示在随机变量给定某个值时，总体指标$\ X\ $的条件分布。</p>
+</li>
+<li><p>根据参数$\ \theta\ $的先验信息确定先验分布$\ \pi(\theta)\ $。</p>
+</li>
+<li><p>从贝叶斯观点看，样本$\ \mathbf{x}=(x_1,…,x_n)\ $的产生要分二步进行：</p>
+<ul>
+<li><p>首先设想从先验分布$\ \pi(\theta)\ $产生一个样本$\ \theta’\ $，这一步是人们看不到的；</p>
+</li>
+<li><p>第二步是从总体分布$\ p(x|\theta)\ $产生一个样本$\ \mathbf{x}=(x_1,…,x_n)\ $，这个样本是具体的，是人们能看得到的。此样本的$\ \vec{x}\ $发生的概率是与如下联合密度函数成正比</p>
+<script type="math/tex; mode=display">
+p(\mathbf{x}|\theta')=\prod_{i=1}^{n}p(x_i|\theta')</script><p>这个联合密度函数综合了<strong>总体信息</strong>和<strong>样本信息</strong>，常称为似然函数，记为$\ L(\theta’)$。在有了样本观察值之后，总体和样本信息中所含$\ \theta \ $的信息都被包含在似然函数$\ L(\theta’)\ $中。</p>
+</li>
+</ul>
+</li>
+<li><p>由于$\ \theta’\ $是由先验分布$\ \pi(\theta)\ $随机产生的，所以我们要利用<strong>先验信息</strong>把$\ \theta\ $所有可能的取值加以考虑。我们考虑样本和参数$\ \theta\ $的联合分布</p>
+<script type="math/tex; mode=display">
+h(\mathbf{x},\theta)=p(\mathbf{x}|\theta)\pi(\theta)</script><p>这样我们就把三种可用的信息都综合进去了。</p>
+</li>
+<li><p>我们的任务是对未知数$\ \theta\ $作出统计推断。在没有样本信息时，人们只能根据先验分布对$\ \theta\ $作出推断。在得到样本观察值$\ \mathbf{x}=(x_1,…,x_n)\ $之后，我们根据三种信息的综合$\ h(x,\theta)\ $对$\ \theta\ $作出推断。为此我们把$\ h(x,\theta)\ $进行如下分解：</p>
+<script type="math/tex; mode=display">
+h(\mathbf{x},\theta)=\pi(\theta|\mathbf{x})m(\mathbf{x})</script><p>其中$\ m(\mathbf{x})\ $是$\ \mathbf{x}\ $的边缘密度函数（$\ m(\mathbf{x})\ $还有其他的含义，我们将在第三章提及）：</p>
+<script type="math/tex; mode=display">
+m(\mathbf{x})=\int_{\Theta}h(\mathbf{x},\theta)d\theta=\int_{\Theta}p(\mathbf{x}|\theta)\pi(\theta)</script><p>为得到关于$\ \mathbf{x}\ $的边缘密度函数，我们已经对$\ \theta\ $进行了积分，此时它与$\ \theta\ $无关，或者说$\ m(\mathbf{x})\ $中不包含$\ \theta\ $的任何信息。因此能用来对$\ \theta\ $进行推断的仅仅是条件分布$\ \pi(\theta|\mathbf{x})$。它的计算公式如下所示：</p>
+<script type="math/tex; mode=display">
+\pi(\theta|\mathbf{x})=\frac{h(\mathbf{x},\theta)}{m(\mathbf{x})}=\frac{p(\mathbf{x}|\theta)\pi(\theta)}{\int_{\Theta}p(\mathbf{x}|\theta)\pi(\theta)d\theta}</script><p>这就是贝叶斯公式的密度函数形式。这个在样本$\ \mathbf{x}\ $给给定下，$\ \theta\ $的条件分布被称为$\ \theta\ $的后验愤分布。它是集中了总体、样本、先验这三种信息中有关$\ \theta\ $的一切信息，而又是派出了一切与$\ \theta\ $无关的信息之后所得到的结果。</p>
+</li>
+<li><p>在离散情况下，先验分布可用先验分布列$\ \pi(\theta_i)\ $表示。此时后验分布也是离散形式：</p>
+<script type="math/tex; mode=display">
+\pi(\theta_i|\mathbf{x})=\frac{p(\mathbf{x}|\theta_i)\pi(\theta_i)}{\sum_jp(\mathbf{x}|\theta_j)\pi(\theta_j)},\quad i=1,2,...</script></li>
+</ol>
+<h4 id="后验分布是三种信息的综合"><a href="#后验分布是三种信息的综合" class="headerlink" title="后验分布是三种信息的综合"></a>后验分布是三种信息的综合</h4><p>一般来说，先验分布$\ \pi(\theta)\ $是反映人们在抽样之前对$\ \theta\ $的认识，后验分布$\ \pi(\theta|\mathbf{x})$则是反映了人们在抽样之后对$\ \theta\ $的认识。两者的差异是由于样本$\ \mathbf{x}\ $出现后（获得总体信息和样本信息）人们对$\ \theta\ $认识（先验信息）的一种调整。</p>
+<h3 id="S-1-3-共轭先验分布"><a href="#S-1-3-共轭先验分布" class="headerlink" title="$\S 1.3\ $共轭先验分布"></a><center>$\S 1.3\ $共轭先验分布</center></h3><h4 id="共轭先验分布"><a href="#共轭先验分布" class="headerlink" title="共轭先验分布"></a>共轭先验分布</h4><p>共轭先验分布想法的产生源于我们希望先验分布和后验分布能具有某种一样的函数形式（它们可能会依赖于某些<strong>超参数</strong>，即先验分布中所含的未知参数），而随着新样本信息的获得，我们可以在同一个分布函数形式框架下仅通过超参数的改变就能更新后验分布，这将给我们的计算带来很大的便利。</p>
+<p>可以想象到这是一种“实时驱动型”的迭代更新方式，每当有一个新样本出现，我们就可以将上一次更新后的后验分布视为先验分布，再进行一次参数更新，如此进行下去。</p>
+<p>我们给共轭先验一个文字性的定义：设$\ \theta\ $是总体分布中的参数（或参数向量），$\ \pi(\theta)\ $是$\ \theta\ $的先验密度函数，假如由抽样信息算得的后验密度函数与$\ \pi(\theta)\ $有相同的函数形式，则称$\ \pi(\theta)\ $是$\ \theta\ $的（自然）共轭先验分布。</p>
+<h4 id="后验分布的计算"><a href="#后验分布的计算" class="headerlink" title="后验分布的计算"></a>后验分布的计算</h4><p>经由$\ \S 1.2\ $的分析，我们已经知道了后验分布可以通过以下方式进行计算：</p>
+<script type="math/tex; mode=display">
+\pi(\theta|\mathbf{x})=\frac{h(\mathbf{x},\theta)}{m(\mathbf{x})}=\frac{p(\mathbf{x}|\theta)\pi(\theta)}{m(\mathbf{x})}</script><p>在实际计算过程中，由于我们计算的是密度函数，另外$\ m(\mathbf{x})\ $与$\ \theta\ $无关，仅仅是充当正则化因子（使得计算结果确实是一个密度函数），所以我们仅需考虑后验分布的核的函数形式：</p>
+<script type="math/tex; mode=display">
+\pi(\theta|\mathbf{x})\propto p(\mathbf{x}|\theta)\pi(\theta)</script><p>另外我们再稍微想一想：首先我们将$\ p(\mathbf{x}|\theta)\pi(\theta)\ $改写成如下形式：</p>
+<script type="math/tex; mode=display">
+\pi(\theta|\mathbf{x})\propto \prod_{i=1}^{n}p(x_i|\theta)\pi(\theta)</script><p>注意到$\ \prod_{i=1}^{n}p(x_i|\theta)\ $是我们所熟悉的似然函数，我们若要使先验和后验分布具有同样的形式，似然函数中参数的函数形式可能会给共轭先验的构造提供给一些思路。</p>
+<h4 id="共轭先验分布的优缺点"><a href="#共轭先验分布的优缺点" class="headerlink" title="共轭先验分布的优缺点"></a>共轭先验分布的优缺点</h4><p>优点是显而易见的：</p>
+<ul>
+<li>计算方便</li>
+<li>后验分布的一些参数能够得到很好的解释</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>先验分布必须具有一定的合理性，否则强行使用共轭先验很可能会掩盖实际情况</li>
+</ul>
+<h4 id="常用的共轭先验分布"><a href="#常用的共轭先验分布" class="headerlink" title="常用的共轭先验分布"></a>常用的共轭先验分布</h4><p>共轭先验分布的选取是由似然函数$\ L(\theta)=p(\mathbf{x}|\theta)\ $中所含$\ \theta\ $的因式所决定的，即选与似然函数（$\ \theta\ $的函数）具有相同核的分布作为先验分布。若此想法得以实现，那么共轭先验分布就产生了。而似然函数又与总体分布的形式有着某些关联。在下表中，我们列出了在实际中常用的共轭先验分布：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">总体分布</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">共轭先验分布</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">二项分布</td>
+<td style="text-align:center">成功概率</td>
+<td style="text-align:center">贝塔分布$\ Be(\alpha,\beta)$</td>
+</tr>
+<tr>
+<td style="text-align:center">泊松分布</td>
+<td style="text-align:center">均值</td>
+<td style="text-align:center">伽马分布$\ Ga(\alpha,\lambda)$</td>
+</tr>
+<tr>
+<td style="text-align:center">指数分布</td>
+<td style="text-align:center">均值的倒数</td>
+<td style="text-align:center">伽马分布$\ Ga(\alpha,\lambda)$</td>
+</tr>
+<tr>
+<td style="text-align:center">正态分布（方差已知）</td>
+<td style="text-align:center">均值</td>
+<td style="text-align:center">正态分布$\ N(\mu,\sigma^2)$</td>
+</tr>
+<tr>
+<td style="text-align:center">正态分布（均值已知）</td>
+<td style="text-align:center">方差</td>
+<td style="text-align:center">倒伽马分布$\ IGa(\alpha,\lambda)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="S-1-4-超参数及其确定"><a href="#S-1-4-超参数及其确定" class="headerlink" title="$\S 1.4\ $超参数及其确定"></a><center>$\S 1.4\ $超参数及其确定</center></h3><p>前面我们已经提到过超参数这个概念了。其实超参数的定义非常简单，就是先验分布中所含的未知参数。（看到这个定义时我们很容易产生一个自然的想法：如果参数可以是随机的，那么超参数是不是可以是随机的并服从一个先验分布。当然，这种想法是没有任何问题的，并且这在贝叶斯统计中称为多层先验——我们将在第三章再进行介绍。）</p>
+<p>一般来说，共轭先验分布常含有超参数，而无信息先验分布一般不含有超参数，例如均分分布（等概率的取值表示大自然对参数的取值并没有任何偏好）。</p>
+<p>共轭先验分布是一种有信息的先验分布，故其中所含的超参数应充分利用各种先验信息来进行确定。</p>
+<p>如果以二项分布为例，二项分布成功概率$\ \theta\ $的共轭先验分布是贝塔分布$\ Be(\alpha,\beta)$，$\alpha,\beta\ $是超参数。我们可以通过以下几种方法进行超参数的确定：</p>
+<ol>
+<li>利用先验矩</li>
+<li>利用先验分位数</li>
+<li>利用先验矩和先验分位数</li>
+<li>其他方法</li>
+</ol>
+<p>详细过程不予赘述，如果感兴趣的话可以直接阅读茆诗松所著《贝叶斯统计》第2版的P20~23或是相关的文献。</p>
+<h3 id="S-1-5-多参数模型"><a href="#S-1-5-多参数模型" class="headerlink" title="$\S 1.5\ $多参数模型"></a><center>$\S 1.5\ $多参数模型</center></h3><h3 id="S-1-6-充分统计量"><a href="#S-1-6-充分统计量" class="headerlink" title="$\S 1.6\ $充分统计量"></a><center>$\S 1.6\ $充分统计量</center></h3><h4 id="充分统计量"><a href="#充分统计量" class="headerlink" title="充分统计量"></a>充分统计量</h4><p>在简化统计问题中，充分统计量是一个非常重要的概念。（回顾一下什么叫做统计量：一个仅有样本决定，而与参数无关的量，也即当我获得样本的观察值时，统计量的值也随之确定）</p>
+<p>引入充分统计量的想法如下：首先我们需要认识到样本是我们进行一切统计推断的基础，它提供了我们进行统计推断的一切“证据”（或者说信息），所以没有样本就没有统计推断。而统计量是我们对样本进行的信息加工和处理。在加工的过程中，统计量所含的信息必定只减不增。而所谓充分性则是说我们在这个加工过程中应该要能把包含未知参数的全部信息都提取出来。</p>
+<p>用数学语言来描述这件事情（经典统计中的充分统计量）可能就稍微难以理解一点：设$\ \mathbf{x}=(x_1,…,x_n)\ $是来自分布函数$\ F(x|\theta)\ $的一个样本，$\ T=T(\mathbf{x})\ $是统计量。假如在给定$\ T(\mathbf{x})=t\ $的条件下，$\ x\ $的条件分布与$\ \theta\ $无关，则称该统计量为$\ \theta\ $的充分统计量。</p>
+<p>一般情况下，直接运用定义进行验证一个统计量的充分性是困难的，所幸我们有因子分解定理保证这种充分性的充要条件。</p>
+<h4 id="因子分解定理"><a href="#因子分解定理" class="headerlink" title="因子分解定理"></a>因子分解定理</h4><p>一个统计量$\ T(\mathbf{x})\ $对参数$\ \theta\ $是充分的充要条件是存在一个$\ t\ $与$\ \theta\ $的函数$\ g(t,\theta)\ $和一个样本$\ \mathbf{x}\ $的函数$\ h(\mathbf{x})$，使得对任一样本$\ \mathbf{x}\ $和任意$\ \theta$，样本的联合密度$\ p(\mathbf{x}, \theta)\ $可表为它们的乘积，即</p>
+<script type="math/tex; mode=display">
+p(\mathbf{x}|\theta)=g(T(\mathbf{x}),\theta)h(\mathbf{x})</script><p>在贝叶斯统计中，充分统计量也有一个充要条件：设$\ \mathbf{x}=(x_1,…,x_n)\ $是来自密度函数$\ p(x|\theta)\ $的一个样本，$\ T=T(\mathbf{x})\ $是统计量，它的密度函数为$\ p(t|\theta)$，又设$\ \mathscr{H}=\{\pi(\theta)\}\ $是$\ \theta\ $的某个先验分布族，则$\ T(\mathbf{x})\ $为$\ \theta\ $的充分统计量的充要条件是对任一先验分布$\ \pi(\theta)\in\mathscr{H}$，有</p>
+<script type="math/tex; mode=display">
+\pi(\theta|T(\mathbf{x}))=\pi(\theta|\mathbf{x})</script><p>即用样本分布$\ p(\mathbf{x}|\theta)\ $算得的后验分布与<strong>统计量$\ T(\mathbf{x})\ $算得的后验分布</strong>（可能达到简化计算的目的）是相同的。</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/17/Fundamentals-of-Unconstrained-Optimization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/17/Fundamentals-of-Unconstrained-Optimization/" class="post-title-link" itemprop="url">Fundamentals of Unconstrained Optimization</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-17 08:59:10" itemprop="dateCreated datePublished" datetime="2022-04-17T08:59:10+08:00">2022-04-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-08 15:59:47" itemprop="dateModified" datetime="2022-05-08T15:59:47+08:00">2022-05-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Numerical-Optimization/" itemprop="url" rel="index"><span itemprop="name">Numerical Optimization</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h3><p>Reminded that the general form of the optimization problem is as follows</p>
+<script type="math/tex; mode=display">
+\min_{x\in\R^n} f(x)\quad s.t.\
+\begin{cases}
+c_i(x)=0\quad i \in \mathcal{E}\\
+c_i(x)\ge 0\quad i \in \mathcal{I}
+\end{cases}</script><p>Now in unconstrained optimization, we minimize an objective function that depends on real variables, with no restrictions at all on the values of these variables. The mathematical formulation is</p>
+<script type="math/tex; mode=display">
+\min_{x\in\R^n}f(x)</script><p>where $\ x\in\R^n\ $ is a real vector with $\ n\ge 1\ $ components and $\ f:\R^n\rightarrow\R\ $ is a smooth function.</p>
+<h3 id="What-Is-A-Solution"><a href="#What-Is-A-Solution" class="headerlink" title="What Is A Solution"></a>What Is A Solution</h3><h4 id="global-minimizer"><a href="#global-minimizer" class="headerlink" title="global minimizer"></a>global minimizer</h4><p>We say a point $\ x^{*}\ $ is a global minimizer if </p>
+<script type="math/tex; mode=display">
+f(x^*)\le f(x)\quad for\ all\ x\in\R^n</script><h4 id="local-minimizer"><a href="#local-minimizer" class="headerlink" title="local minimizer"></a>local minimizer</h4><p>Then a local minimizer is that the point is only achieves the smallest value of f in its neighborhood. Formally, we say a point $\ x^{*}\ $ is a local minimizer if there is a neighborhood $\ \mathcal{N}\ $ of $\ x^{*}\ $ such that  </p>
+<script type="math/tex; mode=display">
+f(x^*)\le f(x)\quad for\ all\ x\in\mathcal{N}</script><p>A point that satisfies this definition is sometimes called a weak local minimizer. A strict local minimizer is then the outright winner in its neighborhood. Formally, A point $\ x^{*}\ $ is a strict local minimizer</p>
+<script type="math/tex; mode=display">
+\exist\ \mathcal{N}\ s.t.\ f(x^{*})\lt f(x),\ \forall x\in\mathcal{N}\ \text{with}\ x\ne x^{*}</script><p>The last type of minimizer is called an isolated minimizer, which there is a neighborhood$\ \mathcal{N}\ $of$\ x^{*}\ $such that$\ x^{*}\ $is the only local minimizer in$\ \mathcal{N}\ $.</p>
+<p>All isolated local minimizers are strict, while the reverse does not hold.</p>
+<h3 id="Recognizing-A-Local-Minimum"><a href="#Recognizing-A-Local-Minimum" class="headerlink" title="Recognizing A Local Minimum"></a>Recognizing A Local Minimum</h3><p>It seems that we have to check all the points to make sure none of them has a smaller function value then as $\ x^{*}$’s did. Fortunately, supposing the objective function to be twice continuously differentiable, we may be able to tell that whether $\ x^{*}\ $is a local minimizer by examining just the gradient $\ \triangledown f(x^{*})\ $and the Hessian matrix $\ \triangledown^2 f(x^{*})$.</p>
+<h4 id="Theorem-Taylor’s-Theorem"><a href="#Theorem-Taylor’s-Theorem" class="headerlink" title="Theorem (Taylor’s Theorem)"></a>Theorem (Taylor’s Theorem)</h4><p>suppose that $\ f:\R^n\rightarrow\R\ $is continuously differentiable and that $p \in \R^n$. Then we have that </p>
+<script type="math/tex; mode=display">
+f(x+p)=f(x)+\triangledown f(x+tp)^{T}p</script><p>for some $t\in (0,1)$. Moreover, if f is twice continuously differentiable, we have that </p>
+<script type="math/tex; mode=display">
+\triangledown f(x+p)=\triangledown f(x) + \int_{0}^{1}\triangledown^2f(x+tp)pdt</script><p>and that </p>
+<script type="math/tex; mode=display">
+f(x+p)=f(x)+\triangledown f(x)^{T}p+\frac 1{2}p^T\triangledown^2f(x+tp)p</script><p>for some $t\in (0,1)$.</p>
+<h4 id="Theorem-First-Order-Necessary-Conditions"><a href="#Theorem-First-Order-Necessary-Conditions" class="headerlink" title="Theorem (First-Order Necessary Conditions)"></a>Theorem (First-Order Necessary Conditions)</h4><p>If $\ x^{*}\ $ is local minimizer and f is continuously differentiable in an open neighborhood of $\ x^{*}\ $, then $\ \triangledown f(x^{*})=0$.</p>
+<h4 id="Theorem-Second-Order-Necessary-Conditions"><a href="#Theorem-Second-Order-Necessary-Conditions" class="headerlink" title="Theorem (Second-Order Necessary Conditions)"></a>Theorem (Second-Order Necessary Conditions)</h4><p>If $\ x^{*}\ $is a local minimizer of f and $\ \triangledown^2f\ $ exists and is continuous in an open neighborhood of $\ x^{*}\ $, then $\ \triangledown f(x^{*})=0\ $and $\ \triangledown^2 f(x^{*})\ $is positive semidefinite.</p>
+<h4 id="Theorem-Second-Order-Sufficient-Conditions"><a href="#Theorem-Second-Order-Sufficient-Conditions" class="headerlink" title="Theorem (Second-Order Sufficient Conditions)"></a>Theorem (Second-Order Sufficient Conditions)</h4><p>Suppose that  $\ \triangledown^2f\ $ is continuous in an open neighborhood of $\ x^{*}\ $, and that $\ \triangledown f(x^{*})=0\ $and $\ \triangledown^2 f(x^{*})\ $is positive definite. Then $\ x^{*}\ $ is a strict local minimizer of f.</p>
+<h4 id="Theorem-Transformation-from-local-m-to-global-m"><a href="#Theorem-Transformation-from-local-m-to-global-m" class="headerlink" title="Theorem (Transformation from local-m to global-m)"></a>Theorem (Transformation from local-m to global-m)</h4><p>When f is convex, any local minimizer $\ x^{*}\ $is a global minimizer of f. If in addition f is differentiable, then any stationary point $\ x^{*}\ $is a global minimizer of f.</p>
+<h3 id="Overview-of-Algorithm"><a href="#Overview-of-Algorithm" class="headerlink" title="Overview of Algorithm"></a>Overview of Algorithm</h3><p>Our idea is simple. Beginning at a starting point $\ x_0$, optimization algorithms generate a sequence of iterates $\ \{x_k\}_{k=0}^{\infty}\ $ that terminate when either no more progress can be made or when it seems that a solution point has been approximated by current point $\ x_k\ $with sufficient accuracy.</p>
+<p>Intuitively, when we generate such a sequence of iterates, we hope that the corresponding function value sequence $\ \{f(x_k)\}_{k=0}^{\infty}\ $ ought to decease (if we try to solve a minimization problem, otherwise to increase when facing a maximization problem) or at least we can decrease the objective function value $\ f(x_k)\ $ with several steps of iteration, that is $\ f(x_k)\lt f(x_{k-m})$.</p>
+<p>There are two fundamental strategies for moving from the current point $\ x_k\ $to a new iterate $\ x_{k+1}$. Most of the algorithms describe in this book follow one of these approaches.</p>
+<h4 id="two-strategies-line-search-and-trust-region"><a href="#two-strategies-line-search-and-trust-region" class="headerlink" title="two strategies: line search and trust region"></a>two strategies: line search and trust region</h4><h4 id="line-search"><a href="#line-search" class="headerlink" title="line search"></a>line search</h4><p>In the <strong>line search</strong> strategy, the algorithm chooses a <strong>direction</strong> $\ p_k\ $and searches along this direction from the current iterate $\ x_k\ $for a new iterate with a lower function value. The distance to move along $\ p_k\ $can be found by approximately solving the following one dimensional minimization problem to find a <strong>step length</strong> $\ \alpha$:</p>
+<script type="math/tex; mode=display">
+\min_{\alpha\gt 0}f(x_k+\alpha p_k)</script><p>By solving the problem above exactly, we would derive the maximum benefit from the direction $\ p_k$, but an exact minimization may be expensive. Instead, the line search algorithm generates a limited number of trial step lengths until it finds one that loosely approximates the minimum of the problem above.</p>
+<h4 id="trust-region"><a href="#trust-region" class="headerlink" title="trust region"></a>trust region</h4><p>In the second algorithmic strategy, known as trust region, the information gathered about f is used to construct a model function $\ m_k\ $whose behavior near the current point $\ x_k\ $is similar to that of the actual objective function f. Because the model $\ m_k\ $may be a good approximation of f when x is far from $\ x_k$. In other words, we restrict the search for a minimizer of $\ m_k\ $to some region around $\ x_k$. In other words, we find the candidate step p by approximately solving the following subproblem:</p>
+<script type="math/tex; mode=display">
+\min_{p}m_k(x_k+p),\quad wherex_k+p\ lies\ inside\ the\ trust\ region</script><p>If the candidates solution does not produce a sufficient decrease in f, we conclude that the trust region is too large, and we shrink it and re-solve the problem.</p>
+<p>The model $\ m_k\ $in the problem above is usually defined to be a quadratic function of the form </p>
+<script type="math/tex; mode=display">
+m_k(x_k+p)=f_k+p^T\triangledown f_k+\frac1{2}p^TB_kp</script><p>where $\ f_k$, $\triangledown f_k$, and $B_k\ $are scalar, vector, and matrix, respectively. The matrix $\ B_k\ $is either the Hessian $\ \triangledown^2f_k\ $or some approximation to it.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>Numerical Optimization (2nd) by Jorge Nocedal, Stephen J. Wright</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/15/Introduction-to-Numerical-Optimization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1789,319 +2525,10 @@ max\{0,min\{S_T-90, 110-S_T\}\}</script><p>利用二叉树模型求出初始股�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/18/%E8%87%AA%E6%9D%80%E5%BC%8F%E5%BC%BA%E5%A5%B8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/18/%E8%87%AA%E6%9D%80%E5%BC%8F%E5%BC%BA%E5%A5%B8/" class="post-title-link" itemprop="url">以自杀相威胁与女方发生关系，是否构成强奸？</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-18 18:57:55" itemprop="dateCreated datePublished" datetime="2021-11-18T18:57:55+08:00">2021-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-21 21:37:48" itemprop="dateModified" datetime="2021-11-21T21:37:48+08:00">2021-11-21</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>强奸，是一种违背被害人的意愿，使用暴力、胁迫或其他手段强行与被害人进行性交的强制性行为。</p>
-</blockquote>
-<p>&nbsp;</p>
-<p>近日在阅读刑法学讲义时看到了这样一个问题：以自杀相威胁与女方发生关系，是否构成强奸？</p>
-<p>虽然凭借着最朴素的情感，我感觉可能是构成强奸的，但是对此仍有疑惑，为此咨询了一位曾经读法学的”法学老哥“（以下简称“法老”）。</p>
-<p>&nbsp;</p>
-<p>我：法老，话说这种情况构成强奸吗？</p>
-<p>法老：应该构成吧。</p>
-<p>我：我也感觉是构成的。这明显不是女方自愿发生的行为，侵犯了女方的法益。</p>
-<p>法老：对的，不过还要看以自杀相威胁究竟算不算”胁迫“。</p>
-<p>&nbsp;</p>
-<p>过了一会儿，法老：我咨询了一下其他人，我想确实是不构成的。</p>
-<p>我内心：？？？）</p>
-<p>法老：因为你不能以胁迫自己来强迫他人。</p>
-<p>我：意思是自杀是一种自我伤害的行为，并不是以暴力或其他方式伤害女方，所以以这种方式来胁迫他人的说法是不成立的？</p>
-<p>法老：对的。</p>
-<p>法老继续解释：你女朋友跳进河里，你不会游泳不去救她，是无罪的。那男朋友要自杀，也没有救助的义务。</p>
-<p>我：在这里甚至不是男朋友。</p>
-<p>法老：对的。所以，去救了（同意性行为）就是自愿的行为。这从逻辑上是没有问题的。</p>
-<p>法老还补充道：上面的逻辑对不对，关键在于，对于一个正常人来讲，是不会在那种时候去想这些的义务之类的，所以就是，出于善良的同意行为，能不能受到法律保护的问题。</p>
-<p>&nbsp;</p>
-<p>在逻辑上，“不能以伤害自己来胁迫他人，而没有’胁迫‘则不构成强奸”确实是正确的，但是我从情感上确实无法接受，希望未来能听到更多法律人的其他解释或异议，整理之后再做更新。</p>
-<p>最后：出门在外，还是要保持警惕之心，真要遇到这种情况不要傻傻地妥协，及时报警处理才是正确方式，切不要为自己过于泛滥的“善心”买单。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/03/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B03%E2%80%94%E2%80%94Riemann%E7%A7%AF%E5%88%86%E4%B8%8ELebesgue%E7%A7%AF%E5%88%86%E7%9B%B8%E5%90%8C%E7%9A%84%E7%A0%94%E7%A9%B6%E6%80%9D%E8%B7%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/03/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B03%E2%80%94%E2%80%94Riemann%E7%A7%AF%E5%88%86%E4%B8%8ELebesgue%E7%A7%AF%E5%88%86%E7%9B%B8%E5%90%8C%E7%9A%84%E7%A0%94%E7%A9%B6%E6%80%9D%E8%B7%AF/" class="post-title-link" itemprop="url">浅谈实变函数3——Riemann积分与Lebesgue积分相同的研究思路</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-11-03 16:11:02 / Modified: 20:01:26" itemprop="dateCreated datePublished" datetime="2021-11-03T16:11:02+08:00">2021-11-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Riemann积分的原始定义"><a href="#Riemann积分的原始定义" class="headerlink" title="Riemann积分的原始定义"></a><center>Riemann积分的原始定义</center></h3><p>点分区间、求和、取极限。这是我们定义Riemann积分的三部曲。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/03/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B02%E2%80%94%E2%80%94%E8%A1%A5%E5%85%85%E9%98%85%E8%AF%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/03/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B02%E2%80%94%E2%80%94%E8%A1%A5%E5%85%85%E9%98%85%E8%AF%BB/" class="post-title-link" itemprop="url">浅谈实变函数2——补充阅读</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-11-03 15:46:59 / Modified: 19:57:59" itemprop="dateCreated datePublished" datetime="2021-11-03T15:46:59+08:00">2021-11-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>上篇文章中有些尚未解答的问题，删去主要是为了文章的可读性与连贯性，避免读者陷入对证明的无端纠结中。本篇文章就这些问题进行解答，主要面向有“洁癖”的人。当然，有兴趣的同学也可以拓展自己的知识。</p>
-<p>&nbsp;</p>
-<h3 id="可数集与不可数集之间的鸿沟"><a href="#可数集与不可数集之间的鸿沟" class="headerlink" title="可数集与不可数集之间的鸿沟"></a><center>可数集与不可数集之间的鸿沟</center></h3><h3 id><a href="#" class="headerlink" title=" "></a> </h3><p>&emsp;&emsp;上节我们讲到可数集是无限集中点的个数”最少“的一类集合。我们想知道能不能通过一些较为基础的操作使可数集变成不可数集（例如单纯增加可数集的个数），以此更深刻地了解两者的关联或差异。</p>
-<p>&emsp;&emsp;很显然，有限多个可数集仍是可数集，那么<strong>可数多个可数集的并</strong>仍是可数集吗，还是它们可以突破某些限制从而变成不可数集？</p>
-<p>&emsp;&emsp;答案是否定的，下面我们给出简单的证明。（仅考虑两两无交的情形即可）</p>
-<p><img src="/2021/11/03/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B02%E2%80%94%E2%80%94%E8%A1%A5%E5%85%85%E9%98%85%E8%AF%BB/Blog\public\images\可数多个可数集仍可数.png" alt="可数多个可数集仍可数" style="zoom: 50%;"></p>
-<p>&emsp;&emsp;$\{a_{in}\}_{n\in \mathbb{N}}\ $即图中所示每一行都是一个可数集，将他们按照横行排列。第一个下标$\ i\ $表示第$\ i\ $个可数集，而第二个下标表$\ n\ $示该可数集的第$\ n\ $个元素。如箭头所示将它们按顺序与自然数集$\ \mathbb{N} \ $一一对应，则可数多个可数集的并仍是可数集。</p>
-<p>&nbsp;</p>
-<h3 id="有理数集是可数集"><a href="#有理数集是可数集" class="headerlink" title="有理数集是可数集"></a><center>有理数集是可数集</center></h3><p>&emsp;&emsp;（undone）</p>
-<p>&nbsp;</p>
-<h3 id="无理数集是不可数集"><a href="#无理数集是不可数集" class="headerlink" title="无理数集是不可数集"></a><center>无理数集是不可数集</center></h3><p>&emsp;&emsp;不失一般性，仅在$\ [0,1] \ $上讨论这个问题即可。</p>
-<p>&emsp;&emsp;$\ [0,1] \ $长度不为0，那么$\ [0,1] \ $不可能是可数集。由于$\ [0,1] \ $中实数分为有理数和无理数，那么无理数集的“长度”理应为1，则它不可能是可数集。</p>
-<p>&nbsp;</p>
-<h3 id="Cantor三分集的构造"><a href="#Cantor三分集的构造" class="headerlink" title="Cantor三分集的构造"></a><center>Cantor三分集的构造</center></h3><p>&emsp;&emsp;（undone）</p>
-<p>&nbsp;</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/29/%E3%80%8A%E5%88%91%E6%B3%95%E5%AD%A6%E8%AE%B2%E4%B9%89%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B03%E2%80%94%E2%80%94%E5%88%91%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/29/%E3%80%8A%E5%88%91%E6%B3%95%E5%AD%A6%E8%AE%B2%E4%B9%89%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B03%E2%80%94%E2%80%94%E5%88%91%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" class="post-title-link" itemprop="url">《刑法学讲义》阅读笔记3——刑法的基本原则</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-10-29 17:18:47 / Modified: 17:19:44" itemprop="dateCreated datePublished" datetime="2021-10-29T17:18:47+08:00">2021-10-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Criminal-Law/" itemprop="url" rel="index"><span itemprop="name">Criminal Law</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>用良知驾驭我们之所学，而不因所学蒙蔽了良知。</p>
-</blockquote>
-<p>&nbsp;</p>
-<h2 id="罪刑法定原则：对权力的严格约束"><a href="#罪刑法定原则：对权力的严格约束" class="headerlink" title="罪刑法定原则：对权力的严格约束"></a><center>罪刑法定原则：对权力的严格约束</center></h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2169,14 +2596,14 @@ max\{0,min\{S_T-90, 110-S_T\}\}</script><p>利用二叉树模型求出初始股�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
