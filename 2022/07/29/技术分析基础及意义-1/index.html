@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="技术面分析技术面投资 关注点 价格走势、成交量、资金等市场行为（通常进行趋势投资和短线投资）  假设 价格沿趋势运动，历史会重演  技术指标 MACD，DMI，DMA，ASI，RSI，SAR，KDJ   MACD：平滑异同移动平均线。类似于移动平均线指标。 MACD应先行计算出快速的移动平均数值 EMA10 （10日，两周）与慢速移动平均数值 EMA22（22日，一个月），以此两个数值，作为测量两">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术分析基础及意义 1">
+<meta property="og:url" content="http://example.com/2022/07/29/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%8F%8A%E6%84%8F%E4%B9%89-1/index.html">
+<meta property="og:site_name" content="Shaw">
+<meta property="og:description" content="技术面分析技术面投资 关注点 价格走势、成交量、资金等市场行为（通常进行趋势投资和短线投资）  假设 价格沿趋势运动，历史会重演  技术指标 MACD，DMI，DMA，ASI，RSI，SAR，KDJ   MACD：平滑异同移动平均线。类似于移动平均线指标。 MACD应先行计算出快速的移动平均数值 EMA10 （10日，两周）与慢速移动平均数值 EMA22（22日，一个月），以此两个数值，作为测量两">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/07/29/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%8F%8A%E6%84%8F%E4%B9%89-1/image-20220729154350251.png">
+<meta property="og:image" content="http://example.com/2022/07/29/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%8F%8A%E6%84%8F%E4%B9%89-1/image-20220729155346445.png">
+<meta property="og:image" content="http://example.com/2022/07/29/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%8F%8A%E6%84%8F%E4%B9%89-1/image-20220729164316273.png">
+<meta property="article:published_time" content="2022-07-29T09:25:08.000Z">
+<meta property="article:modified_time" content="2022-07-29T09:29:12.972Z">
+<meta property="article:author" content="Shaw">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/07/29/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%8F%8A%E6%84%8F%E4%B9%89-1/image-20220729154350251.png">
+
+<link rel="canonical" href="http://example.com/2022/07/29/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%8F%8A%E6%84%8F%E4%B9%89-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>技术分析基础及意义 1 | Shaw</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shaw</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>resources</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/29/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%8F%8A%E6%84%8F%E4%B9%89-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          技术分析基础及意义 1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-07-29 17:25:08 / Modified: 17:29:12" itemprop="dateCreated datePublished" datetime="2022-07-29T17:25:08+08:00">2022-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Derivative/" itemprop="url" rel="index"><span itemprop="name">Derivative</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="技术面分析"><a href="#技术面分析" class="headerlink" title="技术面分析"></a>技术面分析</h3><h4 id="技术面投资"><a href="#技术面投资" class="headerlink" title="技术面投资"></a>技术面投资</h4><ol>
+<li><p>关注点</p>
+<p>价格走势、成交量、资金等市场行为（通常进行趋势投资和短线投资）</p>
+</li>
+<li><p>假设</p>
+<p>价格沿趋势运动，历史会重演</p>
+</li>
+<li><p>技术指标</p>
+<p>MACD，DMI，DMA，ASI，RSI，SAR，KDJ</p>
+</li>
+</ol>
+<h4 id="MACD：平滑异同移动平均线。"><a href="#MACD：平滑异同移动平均线。" class="headerlink" title="MACD：平滑异同移动平均线。"></a>MACD：平滑异同移动平均线。</h4><p>类似于移动平均线指标。</p>
+<p>MACD应先行计算出快速的移动平均数值 EMA10 （10日，两周）与慢速移动平均数值 EMA22（22日，一个月），以此两个数值，作为测量两者（快速与慢速线）间离差值依据。</p>
+<ul>
+<li>在持续的涨势中，EMA10 在 EMA22 之上。正离差值 DIF 会愈来愈大</li>
+<li>在跌势中，离差绝对值 -DIF 也愈来愈大。</li>
+<li>至于行情开始回转，正或负离差值要缩小到9日移动平均值 EMA9，才是行情反转的信号。</li>
+</ul>
+<p>DIF 值与 DEA 值均在X轴线上，向上移动，市场为牛市，反之为熊市</p>
+<ul>
+<li>在X轴之上，当 DIF 值向上穿过 DEA 值时为买入信号。在X轴之下发生这种交叉仅适合空头者平仓</li>
+<li>在X轴之下，当 DIF 值向下穿过 DEA 值时为卖出信号。在X轴之上发生这种交叉仅适合多头者平仓</li>
+<li>背离信号。当 DIF、DEA 曲线走势与K线的走势背道而驰，则发生大势即将反转的信号。</li>
+<li>行情处于盘整或者行情幅度太小时，避免使用 MACD 交易。</li>
+</ul>
+<p><img src="/2022/07/29/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%8F%8A%E6%84%8F%E4%B9%89-1/image-20220729154350251.png" alt="image-20220729154350251" style="zoom: 67%;"></p>
+<h4 id="DMI：动向指标或趋向指标"><a href="#DMI：动向指标或趋向指标" class="headerlink" title="DMI：动向指标或趋向指标"></a>DMI：动向指标或趋向指标</h4><p>通过分析价格在涨跌过程中买卖双方力量均衡点的变化情况，即多空双方力量的变化受价格波动的影响而发生由均衡到失衡的循环过程，从而提供对趋势判断依据的一种技术指标。</p>
+<p>DMI 指标共有 PDI、MDI、ADX、ADXR 四条线，也是它的四个参数，前两者为多空指标，后两者为趋向指标。</p>
+<p><img src="/2022/07/29/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%8F%8A%E6%84%8F%E4%B9%89-1/image-20220729155346445.png" alt="image-20220729155346445" style="zoom: 67%;"></p>
+<p>多空指标</p>
+<ul>
+<li>当 PDI 在 MDI 上方时，行情以上涨为主；反之以下跌为主</li>
+<li>在上涨行情中，当 PDI 向上交叉 MDI，是买进信号；相反，则是卖出信号</li>
+<li>MDI 从50以上下跌到20以下，很有可能会有一波中级下跌行情</li>
+<li>PDI 从20以下上升到50以上，很有可能会有一波中级上涨行情</li>
+<li>PDI 和 MDI 以20为基准线上下波动时，多空双方拉锯战，价格以箱体整理为主</li>
+</ul>
+<p>趋向指标</p>
+<ul>
+<li>当 ADX 从上向下穿 ADXR 时形成的交叉点称为死叉，预示着上涨行情的终结</li>
+<li>当 ADX 从下向上穿 ADXR 时形成的交叉点称为金叉，预示将出现一波上涨行情</li>
+<li>如果 ADX 和 ADXR 下行至20左右并交织波动时，说明将横盘整理，没有上涨行情</li>
+<li>如果 ADX 和 ADXR 上行至50以上时，将可能产生一轮中级以上的行情；如果 ADX 和 ADXR 上行至80以上时，那么市场很有可能是翻倍以上的大行情</li>
+<li>当 ADX 在50以上反转向下，不管是上涨还是下跌，都即将反转</li>
+<li>当4根线间距收窄时，表明行情处于盘整中，DMI 指标失真</li>
+</ul>
+<h4 id="DMA：离差移动平均"><a href="#DMA：离差移动平均" class="headerlink" title="DMA：离差移动平均"></a>DMA：离差移动平均</h4><p>根据快慢两条移动平均线的差值情况来分析价格趋势的一种技术分析指标。它主要通过计算两条基准周期不同的移动平均线的差值，来判断当前买入卖出的能量的大小和未来价格走势的趋势。DMA指标是一种中短期指标。</p>
+<p>DDD：收盘价的N1日简单移动平均 - 收盘价的N2日简单移动平均</p>
+<p>AMA = DDD 的M日简单移动平均</p>
+<p>参数N1为10，参数N2为50，参数M为10</p>
+<ul>
+<li>当 DDD 向上交叉 AMA 时为买进点；当 DDD 向下交叉 AMA 时为卖出点。</li>
+<li>当 DDD 从高位两次向下交叉 AMA 时，则下跌幅度可能会较深；当 DDD 从低位两次向上交叉 AMA 时，则上涨幅度可能会较大。</li>
+</ul>
+<h4 id="ASI：振动升降指标"><a href="#ASI：振动升降指标" class="headerlink" title="ASI：振动升降指标"></a>ASI：振动升降指标</h4><p>以开盘、最高、最低、收盘价组合成的一条曲线，代替真正的走势，形成最能表现当前市况的真实市场线。ASI 指出短期的趋向，可以提前一步确定价格的走势。</p>
+<ul>
+<li>ASI 走势几乎和价格同步，若ASI领先价格，提早突破前次 ASI 高点或低点，则次日价格必然能突破前次高点或低点。</li>
+<li>向上爬升的 ASI，一旦向下跌破前一次显著的N型转折点，一律可视为止损卖出的讯号。</li>
+<li>价格走势一波比一波高，而 ASI 却未相对创新高点形成”牛背离”时，应卖出。</li>
+<li>价格走势一波比一波低，而 ASI 却未相对创新低点形成”熊背离”时，应买进。</li>
+<li>ASI 大部分时机都是和价格走势同步的，仅少数产生领先突破。</li>
+<li>ASI 主要是做为狙击性的买入讯号。投资人应快进快出。一旦产生利润时，不可想象往后还有多少涨幅，应立即脱手卖出获利。</li>
+</ul>
+<h4 id="RSI：相对强弱指标"><a href="#RSI：相对强弱指标" class="headerlink" title="RSI：相对强弱指标"></a>RSI：相对强弱指标</h4><p>图形上一般都有长、短两条不同周期的RSI。</p>
+<p>RSI = (N日内上涨总幅度平均值/N日内上涨总幅度和下跌总幅度平均值)×100%</p>
+<p>一般短期RSI设N=5，长期RSI设N=10。RSI值永远在0-100之内变动。</p>
+<ul>
+<li>短天期的RSI在20以下的水平，由下往上交叉长天期的RSI时，为买进讯号。</li>
+<li>短天期的RSI在80以上的水平，由上往下交叉长天期的RSI时，为卖出讯号。</li>
+<li>价格一波比一波低，相反的，RSI却一波比一波高时，价格很容易反转上涨。</li>
+<li>价格一波比一波高，相反的，RSI却一波比一波低时，价格很容易反转下跌。</li>
+<li>六日RSI值为例，九十以上为超买，十五以下为超卖，在强势涨升时可在九十附近成M头时卖出，在急跌下降时在十五附近成W底时买进。</li>
+<li>在价格创新高点，同时RSI也创新高点时，表示后市仍强，若未创新高点为卖出讯号。</li>
+<li>在价格创新低点，RSI也创新低点，则后市仍弱，若RSI未创新低点，则为买进讯号。</li>
+<li>盘整期中，一底比一底高，为多头势强，后势可能再涨一段，是买进时机，反之一底比一底低是卖出时机。</li>
+</ul>
+<h4 id="SAR：停损点转向操作系统"><a href="#SAR：停损点转向操作系统" class="headerlink" title="SAR：停损点转向操作系统"></a>SAR：停损点转向操作系统</h4><p>属于价格与时间并重的分析工具。</p>
+<p>SAR无疑是所有指标中买卖点最明确，最易配合操作策略的指标。</p>
+<p>SAR可以免除投资者的疑虑，讯号一出即可行动。</p>
+<ul>
+<li>价格曲线在SAR曲线之上时，为多头市场。</li>
+<li>价格曲线在SAR曲线之下时，为空头市场。</li>
+<li>价格曲线由上往下跌破SAR曲线时，为卖出讯号。</li>
+<li>价格曲线由下往上穿破SAR曲线时，为买进讯号。</li>
+</ul>
+<h4 id="KDJ：随机指标"><a href="#KDJ：随机指标" class="headerlink" title="KDJ：随机指标"></a>KDJ：随机指标</h4><p>如果行情是一个明显的涨势，会带动线（快速平均值）与D线（慢速平均值)向上升。如涨势开始迟缓，则会反应到K值与D值，使K值跌破D值，此时中短期跌势确立。</p>
+<p>KD线本质上是一个随机波动的观念，对于掌握中短期的行情走势非常正确。</p>
+<ul>
+<li>K值在20左右水平，从D值右方向上交叉D值时，为短期买进讯号。</li>
+<li>K值在80左右水平，从D值右方向下交叉D值时，为短期卖出讯号。</li>
+<li>背离现象∶价格创新高或新低，而KD未有此现象，为反转的重要前兆。</li>
+<li>K值形成一底比一底高的现象，并且在50以下的低水平，由下往上连续两次交叉D值时，涨幅会较大。</li>
+<li>K值形成一顶比一顶低的现象，并且在50以上的高水平，由上往下连续两次交叉D值时，跌幅会较大。</li>
+<li>K值高于80超买区时，短期容易向下回档。</li>
+<li>K值低于20超卖区时，短期容易向上反弹。</li>
+<li>J值&gt;100时，价格会形成头部。</li>
+<li>J值&lt;0时，价格会形成底部。</li>
+</ul>
+<p><img src="/2022/07/29/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%8F%8A%E6%84%8F%E4%B9%89-1/image-20220729164316273.png" alt="image-20220729164316273" style="zoom:67%;"></p>
+<h3 id="消息面分析"><a href="#消息面分析" class="headerlink" title="消息面分析"></a>消息面分析</h3><p>消息面投资理念的投资者分析消息对标的价格走势的影响，关系消息对标的的短期影响，在判断消息对标的产生实质性利好或利空的基础上，投资者会选择做多或做空，进行热点投资。</p>
+<p>受消息推动的价格通常只会维持较短时间，表现出短期炒作的特征。</p>
+<h3 id="综合面分析"><a href="#综合面分析" class="headerlink" title="综合面分析"></a>综合面分析</h3><p>综合面投资理念融合了价值投资和技术投资的理念内涵，即重视趋势投资的技术面决策，又重视价值投资的基本面决策。即需要关注标的的个体情况，全行业景气情况和政府政策及宏观经济变化，也需要关注标的的价格走势，成交量和资金的变化，同时还需要关注对标的的影响。</p>
+<p>在分析方法与投资操作上，同时融合了价值投资，技术投资和消息投资的特点，采用基本面分析来寻找标的，同时采用技术投资和消息面投资的操作来选择投资时机。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/29/%E6%9C%9F%E8%B4%A7%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-7-%E4%BA%A4%E6%98%93%E8%A7%84%E5%88%99%E5%8F%8A%E5%88%B6%E5%BA%A6/" rel="prev" title="期货基础入门 7 - 交易规则及制度">
+      <i class="fa fa-chevron-left"></i> 期货基础入门 7 - 交易规则及制度
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/07/29/%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80%E5%8F%8A%E6%84%8F%E4%B9%89-2/" rel="next" title="技术分析基础及意义 2">
+      技术分析基础及意义 2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E9%9D%A2%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">技术面分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E9%9D%A2%E6%8A%95%E8%B5%84"><span class="nav-number">1.1.</span> <span class="nav-text">技术面投资</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MACD%EF%BC%9A%E5%B9%B3%E6%BB%91%E5%BC%82%E5%90%8C%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%9D%87%E7%BA%BF%E3%80%82"><span class="nav-number">1.2.</span> <span class="nav-text">MACD：平滑异同移动平均线。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DMI%EF%BC%9A%E5%8A%A8%E5%90%91%E6%8C%87%E6%A0%87%E6%88%96%E8%B6%8B%E5%90%91%E6%8C%87%E6%A0%87"><span class="nav-number">1.3.</span> <span class="nav-text">DMI：动向指标或趋向指标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DMA%EF%BC%9A%E7%A6%BB%E5%B7%AE%E7%A7%BB%E5%8A%A8%E5%B9%B3%E5%9D%87"><span class="nav-number">1.4.</span> <span class="nav-text">DMA：离差移动平均</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ASI%EF%BC%9A%E6%8C%AF%E5%8A%A8%E5%8D%87%E9%99%8D%E6%8C%87%E6%A0%87"><span class="nav-number">1.5.</span> <span class="nav-text">ASI：振动升降指标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RSI%EF%BC%9A%E7%9B%B8%E5%AF%B9%E5%BC%BA%E5%BC%B1%E6%8C%87%E6%A0%87"><span class="nav-number">1.6.</span> <span class="nav-text">RSI：相对强弱指标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SAR%EF%BC%9A%E5%81%9C%E6%8D%9F%E7%82%B9%E8%BD%AC%E5%90%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.7.</span> <span class="nav-text">SAR：停损点转向操作系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KDJ%EF%BC%9A%E9%9A%8F%E6%9C%BA%E6%8C%87%E6%A0%87"><span class="nav-number">1.8.</span> <span class="nav-text">KDJ：随机指标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E9%9D%A2%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">消息面分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E9%9D%A2%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">综合面分析</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shaw"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Shaw</p>
+  <div class="site-description" itemprop="description">Was mich nicht umbringt, macht mich stärker</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-10 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shaw</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
