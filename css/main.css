@@ -62,20 +62,11 @@ u {
 em {
   color: #949415;
 }
+code,
 kbd,
 samp {
   font-family: monospace, monospace; /* 1 */
   font-size: 1em; /* 2 */
-}
-code {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-  background-color: rgba(34,37,38,0.05);
-  color: #e96900;
-  font-weight: 500;
-  margin: 0 2px;
-  padding: 3px 4px 1px;
-  border-radius: 4px;
 }
 small {
   font-size: 80%;
@@ -415,10 +406,12 @@ code {
   font-family: consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
 }
 code {
-  background: #eee;
-  border-radius: 3px;
-  color: #555;
-  padding: 2px 4px;
+  background-color: rgba(34,37,38,0.05);
+  color: #e96900;
+  font-weight: 500;
+  margin: 0 2px;
+  padding: 3px 4px 1px;
+  border-radius: 4px;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -1190,7 +1183,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d2c1ff;
+  background: #a10687;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
