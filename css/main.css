@@ -4,8 +4,8 @@
   --card-bg-color: #f5f5f5;
   --text-color: #555;
   --blockquote-color: #333;
-  --link-color: #0684bd;
-  --link-hover-color: #262a30;
+  --link-color: #333;
+  --link-hover-color: $grey-deep;
   --brand-color: #fff;
   --brand-hover-color: #fff;
   --table-row-odd-bg-color: #f9f9f9;
@@ -55,11 +55,27 @@ b {
 strong {
   color: #b5302e;
 }
-code,
+u {
+  text-decoration: underline;
+  text-decoration-color: #f00;
+}
+em {
+  color: #949415;
+}
 kbd,
 samp {
   font-family: monospace, monospace; /* 1 */
   font-size: 1em; /* 2 */
+}
+code {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+  background-color: rgba(34,37,38,0.05);
+  color: #e96900;
+  font-weight: 500;
+  margin: 0 2px;
+  padding: 3px 4px 1px;
+  border-radius: 4px;
 }
 small {
   font-size: 80%;
@@ -251,10 +267,11 @@ hr {
   margin: 40px 0;
 }
 blockquote {
-  border-left: 4px solid #ddd;
   color: var(--blockquote-color);
-  margin: 0;
-  padding: 0 15px;
+  padding: 0.5rem 1rem;
+  border-left: 8px solid #2f845e;
+  background-color: rgba(66,185,131,0.1);
+  border-radius: 4px;
 }
 blockquote cite::before {
   content: '-';
@@ -1171,7 +1188,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #8ab88e;
+  background: #2accac;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
