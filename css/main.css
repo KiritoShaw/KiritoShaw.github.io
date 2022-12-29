@@ -49,9 +49,11 @@ abbr[title] {
   text-decoration: underline; /* 2 */
   text-decoration: underline dotted; /* 2 */
 }
-b,
-strong {
+b {
   font-weight: bolder;
+}
+strong {
+  color: #b5302e;
 }
 code,
 kbd,
@@ -1169,7 +1171,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fff6ff;
+  background: #f68b6b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
