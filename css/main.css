@@ -292,11 +292,17 @@ kbd {
   overflow: auto;
 }
 table {
-  border-collapse: collapse;
   border-spacing: 0;
   font-size: 0.875em;
-  margin: 0 0 20px 0;
   width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  border-collapse: separate;
+  overflow: hidden;
+}
+table thead {
+  background-color: #e7ecf3;
+  color: #000;
 }
 tbody tr:nth-of-type(odd) {
   background: var(--table-row-odd-bg-color);
@@ -322,6 +328,17 @@ th {
 }
 td {
   border-bottom-width: 1px;
+}
+table tr th {
+  border-bottom: 0px;
+}
+table th,
+table td,
+.md-table-fig .md-table th,
+.md-table-fig .md-table td {
+  padding: 10px 16px;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
 }
 .btn {
   background: var(--btn-default-bg);
@@ -1183,7 +1200,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0ff14b;
+  background: #9a5bff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
