@@ -197,10 +197,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-12-29 20:35:18 / Modified: 22:25:53" itemprop="dateCreated datePublished" datetime="2022-12-29T20:35:18+08:00">2022-12-29</time>
+              <time title="Created: 2022-12-29 20:35:18" itemprop="dateCreated datePublished" datetime="2022-12-29T20:35:18+08:00">2022-12-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-12-30 11:56:15" itemprop="dateModified" datetime="2022-12-30T11:56:15+08:00">2022-12-30</time>
+              </span>
 
           
 
@@ -213,25 +219,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="00-Lorem"><a href="#00-Lorem" class="headerlink" title="00 Lorem"></a>00 Lorem</h3><p><strong>Lorem ipsum dolor sit amet</strong>, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <em>Ut enim ad minim veniam</em>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-<h3 id="01-Duis"><a href="#01-Duis" class="headerlink" title="01 Duis"></a>01 Duis</h3><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+          <h3 id="Lorem"><a href="#Lorem" class="headerlink" title="Lorem"></a>Lorem</h3><p><strong>Lorem ipsum dolor sit amet</strong>, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <em>Ut enim ad minim veniam</em>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<h3 id="Duis"><a href="#Duis" class="headerlink" title="Duis"></a>Duis</h3><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
 <blockquote>
 <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </blockquote>
-<h4 id="001"><a href="#001" class="headerlink" title="001"></a>001</h4><p><code>Lorem</code> ipsum dolor sit amet, consectetur adipisicing elit, <u>sed do eiusmod tempor</u> incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-<h3 id="02-Link"><a href="#02-Link" class="headerlink" title="02 Link"></a>02 Link</h3><ul>
+<h4 id="duis"><a href="#duis" class="headerlink" title="duis"></a>duis</h4><p><code>Lorem</code> ipsum dolor sit amet, consectetur adipisicing elit, <u>sed do eiusmod tempor</u> incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><ul>
 <li>Text link：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Lorem ipsum/3684081">Lorem ipsum_百度百科</a></li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    python</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="03-Git"><a href="#03-Git" class="headerlink" title="03 Git"></a>03 Git</h3><ol>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><ol>
 <li><p>create new post </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;post-name&quot;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>post</p>
+<li><p>deploy</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p><code>clean</code> 清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<p><code>generate</code> 生成静态文件。</p>
+<p><code>deploy</code> 部署网站。</p>
 </li>
 <li><p>check your blog</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>默认情况下，访问网址为： <code>http://localhost:4000/</code>。</p>
 </li>
 </ol>
 
