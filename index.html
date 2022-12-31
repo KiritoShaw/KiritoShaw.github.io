@@ -174,6 +174,89 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/31/Hexo-Git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/12/31/Hexo-Git/" class="post-title-link" itemprop="url">Hexo Git</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-12-31 09:34:10 / Modified: 09:36:34" itemprop="dateCreated datePublished" datetime="2022-12-31T09:34:10+08:00">2022-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo-NexT-Pisces/" itemprop="url" rel="index"><span itemprop="name">Hexo & NexT.Pisces</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><ol>
+<li><p>创建新推文</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;post-name&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>部署网站</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p><code>clean</code> 清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
+<p><code>generate</code> 生成静态文件。</p>
+<p><code>deploy</code> 部署网站。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>默认情况下，访问网址为： <code>http://localhost:4000/</code>。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/29/Lorem%20ipsum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,8 +288,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-12-30 20:54:41" itemprop="dateModified" datetime="2022-12-30T20:54:41+08:00">2022-12-30</time>
+                <time title="Modified: 2022-12-31 10:01:34" itemprop="dateModified" datetime="2022-12-31T10:01:34+08:00">2022-12-31</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Testing-Text/" itemprop="url" rel="index"><span itemprop="name">Testing Text</span></a>
+                </span>
+            </span>
 
           
 
@@ -219,12 +311,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Lorem"><a href="#Lorem" class="headerlink" title="Lorem"></a>Lorem</h3><p><strong>Lorem ipsum dolor sit amet</strong>, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <em>Ut enim ad minim veniam</em>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-<h3 id="Duis"><a href="#Duis" class="headerlink" title="Duis"></a>Duis</h3><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-<blockquote>
-<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</blockquote>
-<h4 id="duis"><a href="#duis" class="headerlink" title="duis"></a>duis</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, <u>sed do eiusmod tempor</u> incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <ul>
+<li>What is Lorem Ipsum<ul>
+<li>strong</li>
+</ul>
+</li>
+<li>Why do we use it<ul>
+<li>underline</li>
+</ul>
+</li>
+<li>Where does it come from<ul>
+<li>italics</li>
+</ul>
+</li>
+<li>Where can I get some<ul>
+<li>List</li>
+</ul>
+</li>
+<li>Reference<ul>
+<li>link</li>
+<li>inline code</li>
+<li>blockquote</li>
+</ul>
+</li>
+</ul>
+<h3 id="What-is-Lorem-Ipsum"><a href="#What-is-Lorem-Ipsum" class="headerlink" title="What is Lorem Ipsum?"></a>What is Lorem Ipsum?</h3><p><strong>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</strong> Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+<h3 id="Why-do-we-use-it"><a href="#Why-do-we-use-it" class="headerlink" title="Why do we use it?"></a>Why do we use it?</h3><p><u>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</u> The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ‘Content here, content here’, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ‘lorem ipsum’ will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+<h3 id="Where-does-it-come-from"><a href="#Where-does-it-come-from" class="headerlink" title="Where does it come from?"></a>Where does it come from?</h3><p><em>Contrary to popular belief, Lorem Ipsum is not simply random text.</em> It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of “de Finibus Bonorum et Malorum” (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, “Lorem ipsum dolor sit amet..”, comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from “de Finibus Bonorum et Malorum” by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+<h3 id="Where-can-I-get-some"><a href="#Where-can-I-get-some" class="headerlink" title="Where can I get some?"></a>Where can I get some?</h3><p>There are many variations of passages of <code>Lorem Ipsum</code> available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
 <div class="table-container">
 <table>
 <thead>
@@ -235,32 +350,43 @@
 </thead>
 <tbody>
 <tr>
-<td>lorem ipsum dolor sit amet</td>
-<td>ut enim ad minim veniam</td>
+<td>What is Lorem Ipsum?</td>
+<td></td>
+</tr>
+<tr>
+<td>Why do we use it?</td>
+<td></td>
+</tr>
+<tr>
+<td>Where does it come from?</td>
+<td></td>
+</tr>
+<tr>
+<td>Where can I get some?</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><ul>
-<li>Text link：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Lorem ipsum/3684081">Lorem ipsum_百度百科</a></li>
-</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a target="_blank" rel="noopener" href="https://lipsum.com/">Lorem Ipsum - All the facts - Lipsum generator</a></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    python</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><ol>
-<li><p>create new post </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;post-name&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>deploy</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p><code>clean</code> 清除缓存文件 (<code>db.json</code>) 和已生成的静态文件 (<code>public</code>)。在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
-<p><code>generate</code> 生成静态文件。</p>
-<p><code>deploy</code> 部署网站。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>check your blog</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>默认情况下，访问网址为： <code>http://localhost:4000/</code>。</p>
-</li>
-</ol>
+<blockquote>
+<p><strong>The standard Lorem Ipsum passage, used since the 1500s</strong><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>List One</th>
+<th>List Two</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
 
       
     </div>
@@ -1368,151 +1494,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/29/%E6%9C%9F%E8%B4%A7%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-6-%E5%A5%97%E5%88%A9%E4%BA%A4%E6%98%93%E5%8F%8A%E5%9F%BA%E6%9C%AC%E7%AD%96%E7%95%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/29/%E6%9C%9F%E8%B4%A7%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8-6-%E5%A5%97%E5%88%A9%E4%BA%A4%E6%98%93%E5%8F%8A%E5%9F%BA%E6%9C%AC%E7%AD%96%E7%95%A5/" class="post-title-link" itemprop="url">期货基础入门 6 - 套利交易及基本策略</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-29 17:24:08 / Modified: 17:27:05" itemprop="dateCreated datePublished" datetime="2022-07-29T17:24:08+08:00">2022-07-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Derivative/" itemprop="url" rel="index"><span itemprop="name">Derivative</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="期货套利"><a href="#期货套利" class="headerlink" title="期货套利"></a>期货套利</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>利用相关市场或相关合约之间的价差变化，在相关市场或相关合约上进行交易方向相反的交易，以期价差发生有利变化时同时将持有头寸平仓而获利的交易行为。</p>
-<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>有助于形成期货价格与现货价格、不同期货合约价格之间的合理价差关系</p>
-<p>提高市场流动性</p>
-<h4 id="与投机的区别"><a href="#与投机的区别" class="headerlink" title="与投机的区别"></a>与投机的区别</h4><p>交易所对期货套利有收费优惠</p>
-<h3 id="期货套利交易策略"><a href="#期货套利交易策略" class="headerlink" title="期货套利交易策略"></a>期货套利交易策略</h3><h4 id="期货价差"><a href="#期货价差" class="headerlink" title="期货价差"></a>期货价差</h4><p>期货价差是指期货市场上两个不同月份或不同品种期货合约之间的价格差。</p>
-<h4 id="合理价差区间"><a href="#合理价差区间" class="headerlink" title="合理价差区间"></a>合理价差区间</h4><p>相关期货合约之间的价差会存在一个合理的区间，并且当价差不在合理区间范围内时，我们预期价差会恢复到合理价差区间。所以当价差超出该区间时，我们认为存在套利机会，并据此在相关合约上进行方向相反的交易。</p>
-<h4 id="价差的扩大和缩小"><a href="#价差的扩大和缩小" class="headerlink" title="价差的扩大和缩小"></a>价差的扩大和缩小</h4><p>计算建仓时的价差，应用价格较高的一边 (A) 减去价格较低的一边 (B)。在计算平仓时的价差时，要用 A 的平仓价格减去 B 的平仓价格。如果平仓价差大于建仓时的价差，则价差是扩大的，反之价差是缩小的。</p>
-<h4 id="价差的盈亏计算"><a href="#价差的盈亏计算" class="headerlink" title="价差的盈亏计算"></a>价差的盈亏计算</h4><p>分别计算每个期货合约的盈亏，然后进行加总，可以得到整个套利交易的盈亏。</p>
-<h4 id="套利交易指令"><a href="#套利交易指令" class="headerlink" title="套利交易指令"></a>套利交易指令</h4><p>套利指令通常不需要标明买卖各个期货合约的具体价格，只要标注两个合约价差即可。</p>
-<p>套利市价指令是指交易将按照市场当前可能获得的最好价差成交的一种指令。</p>
-<ul>
-<li>在使用这种指令时，套利者不需注明价差的大小，只需注明买入和卖出期货合约的种类和月份。</li>
-<li>时间第一，价格第二</li>
-</ul>
-<p>套利限价指令是指当价格达到指定价位时，指令将以指定的或更优的价差来成交。</p>
-<ul>
-<li><p>在使用限价指令进行套利时，需要注明具体的价差和买入、卖出期货合约的种类和月份。</p>
-</li>
-<li><p>价格第一，时间第二</p>
-</li>
-</ul>
-<h4 id="跨期套利概况"><a href="#跨期套利概况" class="headerlink" title="跨期套利概况"></a>跨期套利概况</h4><table>
-    <tr>
-        <td>套利类型</td>
-        <td>套利机会</td>
-        <td>市场类型</td>
-        <td>具体操作</td>
-        <td>盈亏情况</td>
-    </tr>
-    <tr>
-        <td rowspan="2">牛市套利</td>
-        <td rowspan="2">较近月份的合约价格<br>上涨大于较远期的上涨<br>幅度，或较近月份的<br>合约价格下跌小于较<br>远期的下跌幅度<br></td>
-        <td>正向市场</td>
-        <td>买近卖远<br>（卖出套利）</td>
-        <td>价差缩小，盈利增加<br>（损失有限，获利巨大）</td>
-    </tr>
-    <tr>
-        <td>反向市场</td>
-        <td>买近卖远<br>（卖出套利）</td>
-        <td>价差扩大，盈利增加</td>
-    </tr>
-    <tr>
-        <td rowspan="2">熊市套利</td>
-        <td rowspan="2">较近月份的合约价格<br>下跌大于较远期的下跌<br>幅度，或较近月份的<br>合约价格上涨小于较<br>远期的上涨幅度<br></td>
-        <td>正向市场</td>
-        <td>卖近买远<br>（买进套利）</td>
-        <td>价差扩大，盈利增加</td>
-    </tr>
-    <tr>
-        <td>反向市场</td>
-        <td>卖近买远<br>（卖出套利）</td>
-        <td>价差缩小，盈利增加</td>
-    </tr>
-</table>
-
-<h4 id="跨品种套利"><a href="#跨品种套利" class="headerlink" title="跨品种套利"></a>跨品种套利</h4><p>原料与成品之间的套利</p>
-<blockquote>
-<p><strong>大豆提油套利</strong></p>
-<ul>
-<li><p>大豆提油套利：大豆加工商在市场价格关系基本正常时进行的，目的是防止大豆价格突然上涨，或豆油、豆粕价格突然下降。</p>
-</li>
-<li><p>具体做法：购买大豆期货合约的同时卖出豆油和豆粕的期货合约，当在现货市场上购入大豆或将成品最终销售时再将期货合约对冲平仓。</p>
-</li>
-</ul>
-<p><strong>反向大豆提油</strong></p>
-<ul>
-<li>反向大豆提油套利：大豆加工商在市场价格反常时采用的套利。当大豆价格受某些因素的影响出现大幅上涨时，大豆可能与其产品出现价格倒挂。</li>
-<li>具体做法：卖出大豆期货合约，买进豆油和豆粕的期货合约，同时缩减生产，减少生产，减少豆粕和豆油的供给量。</li>
-</ul>
-</blockquote>
-<h4 id="跨市套利"><a href="#跨市套利" class="headerlink" title="跨市套利"></a>跨市套利</h4><p>一般来说，相同品种在各交易所间的价格会有一个稳定的差额，一旦这差额发生短期的变化，交易者就可以在这两个市场间进行套利，购买价格相对较低的合约，卖出价格相对较高的合约。</p>
-<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
-<li>套利必须坚持同时进出</li>
-<li>关键在于合约之间的价格差，下达交易指令时，要明确写明买入合约与卖出合约之间的价格差。</li>
-<li>不能因为低风险和低额保证金而做超额套利</li>
-<li>不要用锁单来保护已亏损的单盘交易</li>
-<li>注意套利的佣金支出</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1584,14 +1565,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
