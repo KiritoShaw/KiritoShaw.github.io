@@ -491,7 +491,7 @@ code {
 }
 .highlight .gutter pre {
   background: #1b1b1b;
-  color: #999;
+  color: #e96900;
   padding-left: 10px;
   padding-right: 10px;
   text-align: right;
@@ -1219,7 +1219,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3cff77;
+  background: #57f165;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
