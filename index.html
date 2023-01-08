@@ -197,10 +197,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-12-31 09:34:10 / Modified: 09:36:34" itemprop="dateCreated datePublished" datetime="2022-12-31T09:34:10+08:00">2022-12-31</time>
+              <time title="Created: 2022-12-31 09:34:10" itemprop="dateCreated datePublished" datetime="2022-12-31T09:34:10+08:00">2022-12-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-01-08 18:38:10" itemprop="dateModified" datetime="2023-01-08T18:38:10+08:00">2023-01-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -222,9 +228,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><ol>
-<li><p>创建新推文</p>
+          <h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>在博客文件夹下右键鼠标，选择 <code>Git Bash Here</code></p>
+<p><img src="/2022/12/31/Hexo-Git/git-bash-here.jpg" style="zoom: 50%;"></p>
+<ol>
+<li><p>创建草稿</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new draft &quot;draft-name&quot;</span><br></pre></td></tr></table></figure>
+<p>草稿文件夹 <code>...\Blog\source\_drafts</code> 中的草稿并不会直接发布到网站上</p>
+</li>
+<li><p>发布已完成的草稿</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish &quot;draft-name&quot;</span><br></pre></td></tr></table></figure>
+<p>该命令会把 <code>\source\_drafts</code> 下的文章移到 <code>\source\_posts</code> 下</p>
+</li>
+<li><p>直接创建新推文</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;post-name&quot;</span><br></pre></td></tr></table></figure>
+<p>创建的新推文将会保存在 <code>...\Blog\source\_posts</code> 文件夹下</p>
 </li>
 <li><p>部署网站</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
