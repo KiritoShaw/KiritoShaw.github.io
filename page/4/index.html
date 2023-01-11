@@ -174,6 +174,343 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/17/Fundamentals-of-Unconstrained-Optimization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/17/Fundamentals-of-Unconstrained-Optimization/" class="post-title-link" itemprop="url">Fundamentals of Unconstrained Optimization</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-17 08:59:10" itemprop="dateCreated datePublished" datetime="2022-04-17T08:59:10+08:00">2022-04-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-08 15:59:47" itemprop="dateModified" datetime="2022-05-08T15:59:47+08:00">2022-05-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Numerical-Optimization/" itemprop="url" rel="index"><span itemprop="name">Numerical Optimization</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h3><p>Reminded that the general form of the optimization problem is as follows</p>
+<script type="math/tex; mode=display">
+\min_{x\in\R^n} f(x)\quad s.t.\
+\begin{cases}
+c_i(x)=0\quad i \in \mathcal{E}\\
+c_i(x)\ge 0\quad i \in \mathcal{I}
+\end{cases}</script><p>Now in unconstrained optimization, we minimize an objective function that depends on real variables, with no restrictions at all on the values of these variables. The mathematical formulation is</p>
+<script type="math/tex; mode=display">
+\min_{x\in\R^n}f(x)</script><p>where $\ x\in\R^n\ $ is a real vector with $\ n\ge 1\ $ components and $\ f:\R^n\rightarrow\R\ $ is a smooth function.</p>
+<h3 id="What-Is-A-Solution"><a href="#What-Is-A-Solution" class="headerlink" title="What Is A Solution"></a>What Is A Solution</h3><h4 id="global-minimizer"><a href="#global-minimizer" class="headerlink" title="global minimizer"></a>global minimizer</h4><p>We say a point $\ x^{*}\ $ is a global minimizer if </p>
+<script type="math/tex; mode=display">
+f(x^*)\le f(x)\quad for\ all\ x\in\R^n</script><h4 id="local-minimizer"><a href="#local-minimizer" class="headerlink" title="local minimizer"></a>local minimizer</h4><p>Then a local minimizer is that the point is only achieves the smallest value of f in its neighborhood. Formally, we say a point $\ x^{*}\ $ is a local minimizer if there is a neighborhood $\ \mathcal{N}\ $ of $\ x^{*}\ $ such that  </p>
+<script type="math/tex; mode=display">
+f(x^*)\le f(x)\quad for\ all\ x\in\mathcal{N}</script><p>A point that satisfies this definition is sometimes called a weak local minimizer. A strict local minimizer is then the outright winner in its neighborhood. Formally, A point $\ x^{*}\ $ is a strict local minimizer</p>
+<script type="math/tex; mode=display">
+\exist\ \mathcal{N}\ s.t.\ f(x^{*})\lt f(x),\ \forall x\in\mathcal{N}\ \text{with}\ x\ne x^{*}</script><p>The last type of minimizer is called an isolated minimizer, which there is a neighborhood$\ \mathcal{N}\ $of$\ x^{*}\ $such that$\ x^{*}\ $is the only local minimizer in$\ \mathcal{N}\ $.</p>
+<p>All isolated local minimizers are strict, while the reverse does not hold.</p>
+<h3 id="Recognizing-A-Local-Minimum"><a href="#Recognizing-A-Local-Minimum" class="headerlink" title="Recognizing A Local Minimum"></a>Recognizing A Local Minimum</h3><p>It seems that we have to check all the points to make sure none of them has a smaller function value then as $\ x^{*}$’s did. Fortunately, supposing the objective function to be twice continuously differentiable, we may be able to tell that whether $\ x^{*}\ $is a local minimizer by examining just the gradient $\ \triangledown f(x^{*})\ $and the Hessian matrix $\ \triangledown^2 f(x^{*})$.</p>
+<h4 id="Theorem-Taylor’s-Theorem"><a href="#Theorem-Taylor’s-Theorem" class="headerlink" title="Theorem (Taylor’s Theorem)"></a>Theorem (Taylor’s Theorem)</h4><p>suppose that $\ f:\R^n\rightarrow\R\ $is continuously differentiable and that $p \in \R^n$. Then we have that </p>
+<script type="math/tex; mode=display">
+f(x+p)=f(x)+\triangledown f(x+tp)^{T}p</script><p>for some $t\in (0,1)$. Moreover, if f is twice continuously differentiable, we have that </p>
+<script type="math/tex; mode=display">
+\triangledown f(x+p)=\triangledown f(x) + \int_{0}^{1}\triangledown^2f(x+tp)pdt</script><p>and that </p>
+<script type="math/tex; mode=display">
+f(x+p)=f(x)+\triangledown f(x)^{T}p+\frac 1{2}p^T\triangledown^2f(x+tp)p</script><p>for some $t\in (0,1)$.</p>
+<h4 id="Theorem-First-Order-Necessary-Conditions"><a href="#Theorem-First-Order-Necessary-Conditions" class="headerlink" title="Theorem (First-Order Necessary Conditions)"></a>Theorem (First-Order Necessary Conditions)</h4><p>If $\ x^{*}\ $ is local minimizer and f is continuously differentiable in an open neighborhood of $\ x^{*}\ $, then $\ \triangledown f(x^{*})=0$.</p>
+<h4 id="Theorem-Second-Order-Necessary-Conditions"><a href="#Theorem-Second-Order-Necessary-Conditions" class="headerlink" title="Theorem (Second-Order Necessary Conditions)"></a>Theorem (Second-Order Necessary Conditions)</h4><p>If $\ x^{*}\ $is a local minimizer of f and $\ \triangledown^2f\ $ exists and is continuous in an open neighborhood of $\ x^{*}\ $, then $\ \triangledown f(x^{*})=0\ $and $\ \triangledown^2 f(x^{*})\ $is positive semidefinite.</p>
+<h4 id="Theorem-Second-Order-Sufficient-Conditions"><a href="#Theorem-Second-Order-Sufficient-Conditions" class="headerlink" title="Theorem (Second-Order Sufficient Conditions)"></a>Theorem (Second-Order Sufficient Conditions)</h4><p>Suppose that  $\ \triangledown^2f\ $ is continuous in an open neighborhood of $\ x^{*}\ $, and that $\ \triangledown f(x^{*})=0\ $and $\ \triangledown^2 f(x^{*})\ $is positive definite. Then $\ x^{*}\ $ is a strict local minimizer of f.</p>
+<h4 id="Theorem-Transformation-from-local-m-to-global-m"><a href="#Theorem-Transformation-from-local-m-to-global-m" class="headerlink" title="Theorem (Transformation from local-m to global-m)"></a>Theorem (Transformation from local-m to global-m)</h4><p>When f is convex, any local minimizer $\ x^{*}\ $is a global minimizer of f. If in addition f is differentiable, then any stationary point $\ x^{*}\ $is a global minimizer of f.</p>
+<h3 id="Overview-of-Algorithm"><a href="#Overview-of-Algorithm" class="headerlink" title="Overview of Algorithm"></a>Overview of Algorithm</h3><p>Our idea is simple. Beginning at a starting point $\ x_0$, optimization algorithms generate a sequence of iterates $\ \{x_k\}_{k=0}^{\infty}\ $ that terminate when either no more progress can be made or when it seems that a solution point has been approximated by current point $\ x_k\ $with sufficient accuracy.</p>
+<p>Intuitively, when we generate such a sequence of iterates, we hope that the corresponding function value sequence $\ \{f(x_k)\}_{k=0}^{\infty}\ $ ought to decease (if we try to solve a minimization problem, otherwise to increase when facing a maximization problem) or at least we can decrease the objective function value $\ f(x_k)\ $ with several steps of iteration, that is $\ f(x_k)\lt f(x_{k-m})$.</p>
+<p>There are two fundamental strategies for moving from the current point $\ x_k\ $to a new iterate $\ x_{k+1}$. Most of the algorithms describe in this book follow one of these approaches.</p>
+<h4 id="two-strategies-line-search-and-trust-region"><a href="#two-strategies-line-search-and-trust-region" class="headerlink" title="two strategies: line search and trust region"></a>two strategies: line search and trust region</h4><h4 id="line-search"><a href="#line-search" class="headerlink" title="line search"></a>line search</h4><p>In the <strong>line search</strong> strategy, the algorithm chooses a <strong>direction</strong> $\ p_k\ $and searches along this direction from the current iterate $\ x_k\ $for a new iterate with a lower function value. The distance to move along $\ p_k\ $can be found by approximately solving the following one dimensional minimization problem to find a <strong>step length</strong> $\ \alpha$:</p>
+<script type="math/tex; mode=display">
+\min_{\alpha\gt 0}f(x_k+\alpha p_k)</script><p>By solving the problem above exactly, we would derive the maximum benefit from the direction $\ p_k$, but an exact minimization may be expensive. Instead, the line search algorithm generates a limited number of trial step lengths until it finds one that loosely approximates the minimum of the problem above.</p>
+<h4 id="trust-region"><a href="#trust-region" class="headerlink" title="trust region"></a>trust region</h4><p>In the second algorithmic strategy, known as trust region, the information gathered about f is used to construct a model function $\ m_k\ $whose behavior near the current point $\ x_k\ $is similar to that of the actual objective function f. Because the model $\ m_k\ $may be a good approximation of f when x is far from $\ x_k$. In other words, we restrict the search for a minimizer of $\ m_k\ $to some region around $\ x_k$. In other words, we find the candidate step p by approximately solving the following subproblem:</p>
+<script type="math/tex; mode=display">
+\min_{p}m_k(x_k+p),\quad wherex_k+p\ lies\ inside\ the\ trust\ region</script><p>If the candidates solution does not produce a sufficient decrease in f, we conclude that the trust region is too large, and we shrink it and re-solve the problem.</p>
+<p>The model $\ m_k\ $in the problem above is usually defined to be a quadratic function of the form </p>
+<script type="math/tex; mode=display">
+m_k(x_k+p)=f_k+p^T\triangledown f_k+\frac1{2}p^TB_kp</script><p>where $\ f_k$, $\triangledown f_k$, and $B_k\ $are scalar, vector, and matrix, respectively. The matrix $\ B_k\ $is either the Hessian $\ \triangledown^2f_k\ $or some approximation to it.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>Numerical Optimization (2nd) by Jorge Nocedal, Stephen J. Wright</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/15/Introduction-to-Numerical-Optimization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/15/Introduction-to-Numerical-Optimization/" class="post-title-link" itemprop="url">Introduction to Numerical Optimization</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-15 20:17:03" itemprop="dateCreated datePublished" datetime="2022-04-15T20:17:03+08:00">2022-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-30 10:53:08" itemprop="dateModified" datetime="2022-04-30T10:53:08+08:00">2022-04-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Numerical-Optimization/" itemprop="url" rel="index"><span itemprop="name">Numerical Optimization</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h3><p>Our goals is to find values of the variables that optimize the objectives. Often the variables are restricted, or constrained, in some way.</p>
+<p>There is no universal optimization algorithm but rather a collection of algorithms, each of which is tailored to a particular type of optimization problem.</p>
+<ul>
+<li>optimality conditions: checking that the current set of variables is indeed the solution of the problem</li>
+<li>sensitivity analysis: reveals the sensitivity of the solution to changes in the model and data.</li>
+</ul>
+<h3 id="Mathematical-Formulation"><a href="#Mathematical-Formulation" class="headerlink" title="Mathematical Formulation"></a>Mathematical Formulation</h3><p>We introduce some notations first:</p>
+<ul>
+<li>x is the vector of variables, also called unknowns or parameters</li>
+<li>f is the objective function, a (scalar) function of x that we want to maximize or minimize</li>
+<li>$c_i\ $are constraint functions, which are scalar functions of x that define equations and inequalities that the unknown vector x must satisfy</li>
+</ul>
+<p>Optimization problem can be written as follows by using the notations above:</p>
+<script type="math/tex; mode=display">
+\min_{x \in \R^n}\ f(x)\quad s.t.\ 
+\begin{cases}
+c_i(x) = 0\quad i \in \mathcal{E}\\
+c_i(x)\ge 0\quad i \in \mathcal{I}
+\end{cases}</script><p>Here $\ \mathcal{I}\ $and $\ \mathcal{E}\ $are sets of indexes for equality and inequality constraints, respectively.</p>
+<ul>
+<li>feasible region: the set of points satisfying all the constraints</li>
+</ul>
+<h3 id="Continuous-versus-Discrete-Optimization"><a href="#Continuous-versus-Discrete-Optimization" class="headerlink" title="Continuous versus Discrete Optimization"></a>Continuous versus Discrete Optimization</h3><h4 id="discrete-optimization"><a href="#discrete-optimization" class="headerlink" title="discrete optimization"></a>discrete optimization</h4><p>The defining feature of a discrete optimization problem is that the unknown x is drawn from a finite (but often very large) set.</p>
+<h4 id="continuous-optimization"><a href="#continuous-optimization" class="headerlink" title="continuous optimization"></a>continuous optimization</h4><p>The feasible set is usually uncountably infinite, as when the components of x are allowed to be real numbers.</p>
+<p>Continuous optimization problems are normally easier to solve because the smoothness of the functions makes it possible to use objective and constraint information at a particular point x to deduce information about the function’s behavior at all points close to x.</p>
+<p>Continuous optimization techniques often play an important role in solving discrete optimization problems.</p>
+<h3 id="Constrained-and-Unconstrained-Optimization"><a href="#Constrained-and-Unconstrained-Optimization" class="headerlink" title="Constrained and Unconstrained Optimization"></a>Constrained and Unconstrained Optimization</h3><h4 id="unconstrained-optimization"><a href="#unconstrained-optimization" class="headerlink" title="unconstrained optimization"></a>unconstrained optimization</h4><ul>
+<li>$\mathcal{I} = \mathcal{E} = \emptyset$</li>
+<li>replacement the constraints by the penalization terms added to objective function</li>
+</ul>
+<h4 id="constrained-optimization"><a href="#constrained-optimization" class="headerlink" title="constrained optimization"></a>constrained optimization</h4><h3 id="Stochastic-and-Deterministic-Optimization"><a href="#Stochastic-and-Deterministic-Optimization" class="headerlink" title="Stochastic and Deterministic Optimization"></a>Stochastic and Deterministic Optimization</h3><p>Stochastic optimization algorithms use these quantifications of the uncertainty to produce solutions that optimize the expected performance of the model.</p>
+<ul>
+<li>chance-constrained optimization: in which we ensure that the variables satisfy the given constraints to some specified probability</li>
+<li>robust optimization: certain constraints are required to hold for all possible values of the uncertain data</li>
+</ul>
+<h3 id="Convexity"><a href="#Convexity" class="headerlink" title="Convexity"></a>Convexity</h3><p>First of all, we consider convex set.</p>
+<h4 id="convex-set"><a href="#convex-set" class="headerlink" title="convex set"></a>convex set</h4><p>When we say a set is convex, it follows that for $\forall x \in S$ and $y\in S$, we have</p>
+<script type="math/tex; mode=display">
+\alpha x + (1-\alpha)y \in S \quad \forall \alpha\in[0,1]</script><h4 id="convex-function"><a href="#convex-function" class="headerlink" title="convex function"></a>convex function</h4><ul>
+<li><p>convex function: if its domain S is a convex set and if for any two points x and y in S, the following property is satisfied</p>
+<script type="math/tex; mode=display">
+f(\alpha x+(1-\alpha)y)\le\alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,1]</script></li>
+<li><p>strictly convex function: whenever $x \ne y$</p>
+<script type="math/tex; mode=display">
+f(\alpha x+(1-\alpha)y)\lt \alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,1]</script></li>
+<li><p>convex function</p>
+</li>
+</ul>
+<h4 id="global-solution"><a href="#global-solution" class="headerlink" title="global solution"></a>global solution</h4><p>If the objective function in the optimization problem and the feasible region are both convex, then any local solution of the problem is in fact a global solution.</p>
+<h4 id="convex-programming"><a href="#convex-programming" class="headerlink" title="convex programming"></a>convex programming</h4><p>A special case of the general constrained optimization problem in which</p>
+<ul>
+<li>the objective function is convex</li>
+<li>the equality constrain function $c_i(\cdot), i\in\mathcal{E}$, are linear</li>
+<li>the inequality constrain function $c_i(\cdot), i\in\mathcal{I}$, are concave</li>
+</ul>
+<h3 id="Optimization-Algorithm"><a href="#Optimization-Algorithm" class="headerlink" title="Optimization Algorithm"></a>Optimization Algorithm</h3><p>Most strategies make use of the values of the objective function f, $c_i$, the constraint functions, and possibly the first and second derivatives of these functions. Some algorithms accumulate information gathered at previous iterations, while others use only local information obtained at the current point.</p>
+<p>Aspects of judging whether the algorithm is a good or not:</p>
+<ul>
+<li>Robustness</li>
+<li>Efficiency</li>
+<li>Accuracy</li>
+</ul>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>Numerical Optimization (2nd) by Jorge Nocedal, Stephen J. Wright</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/15/%E5%9B%9B%E4%B8%AD%E6%B1%87%E6%8A%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/15/%E5%9B%9B%E4%B8%AD%E6%B1%87%E6%8A%A5/" class="post-title-link" itemprop="url">四中汇报</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-04-15 13:22:02 / Modified: 13:44:05" itemprop="dateCreated datePublished" datetime="2022-04-15T13:22:02+08:00">2022-04-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Summary/" itemprop="url" rel="index"><span itemprop="name">Summary</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="学习路径"><a href="#学习路径" class="headerlink" title="学习路径"></a>学习路径</h4><p>在本月中，我的生活发生了很多变化，不仅仅是学习生活，更包括一些心理上的变化。</p>
+<p>在这里我主要谈谈学习生活的变化，当然这不可避免的会谈及到心理层面的东西。</p>
+<p>一是我暂缓了泛函分析的学习，原因有两个：</p>
+<ul>
+<li>泛函分析的学习达到了一个瓶颈，想要再继续深入学习下去需要花费我更加多的时间和精力。</li>
+<li>心理层面的一些问题导致我需要一个比较宽松的，节奏比较舒缓的方式以确保能保证最低强度的学习</li>
+</ul>
+<p>二是偏微分方程的学习，基本上达成进度比学校快一章节的目标，这也很有预见性的给我上一点所提到的舒缓的学习节奏提供了缓冲的可能。</p>
+<h4 id="srp"><a href="#srp" class="headerlink" title="srp"></a>srp</h4><p>开了短短不到一小时的会，与srp的指导老师和各位师兄见了面。本次srp项目一改往常的方式，不是每周一个组会汇报进展（考虑到大二大三的学生课程安排比较紧张，安排出一个大家都有空闲的时间统一开组会似乎都做不到），所以决定通过研究生带领一到两位本科生的方式。分配给我的师兄看起来非常的和蔼可亲哈哈哈，希望能够在他的带领下快速的成长起来。</p>
+<p>夏栗老师首先提到了一件事，那就是让研究生们先带领我们学习做科研是这么样子的流程，这是一个很重要的问题，不过先按下不表。</p>
+<p>ps.夏栗老师本尊看起来就非常像能读博士的人</p>
+<h4 id="opencv"><a href="#opencv" class="headerlink" title="opencv"></a>opencv</h4><h4 id="BTM"><a href="#BTM" class="headerlink" title="BTM"></a>BTM</h4><p>本月比较有结果的工作就是完成了关于对欧式、美式看涨、看跌期权的二叉树定价模型，包括无股息、连续股息红利率、派发一次性股息情形、上升-敲出期权以及蝶式期权的定价。</p>
+<h4 id="慢节奏"><a href="#慢节奏" class="headerlink" title="慢节奏"></a>慢节奏</h4><p>其实本月的工作强度并不是很大，并不像上个月那么高产和充满干劲。</p>
+<h3 id="下个月目标"><a href="#下个月目标" class="headerlink" title="下个月目标"></a>下个月目标</h3><ul>
+<li><p>摸索如何调整自己的节奏和情绪</p>
+</li>
+<li><p>正常更新五中汇报</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/08/Option-Price-Binary-Tree-Modeling/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1805,326 +2142,6 @@ max\{0,min\{S_T-90, 110-S_T\}\}</script><p>利用二叉树模型求出初始股�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/29/%E3%80%8A%E5%88%91%E6%B3%95%E5%AD%A6%E8%AE%B2%E4%B9%89%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B03%E2%80%94%E2%80%94%E5%88%91%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/29/%E3%80%8A%E5%88%91%E6%B3%95%E5%AD%A6%E8%AE%B2%E4%B9%89%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B03%E2%80%94%E2%80%94%E5%88%91%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" class="post-title-link" itemprop="url">《刑法学讲义》阅读笔记3——刑法的基本原则</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-10-29 17:18:47 / Modified: 17:19:44" itemprop="dateCreated datePublished" datetime="2021-10-29T17:18:47+08:00">2021-10-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Criminal-Law/" itemprop="url" rel="index"><span itemprop="name">Criminal Law</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>用良知驾驭我们之所学，而不因所学蒙蔽了良知。</p>
-</blockquote>
-<p>&nbsp;</p>
-<h2 id="罪刑法定原则：对权力的严格约束"><a href="#罪刑法定原则：对权力的严格约束" class="headerlink" title="罪刑法定原则：对权力的严格约束"></a><center>罪刑法定原则：对权力的严格约束</center></h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/27/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B01%E2%80%94%E2%80%94%E5%AF%B9%E6%97%A0%E7%A9%B7%E7%82%B9%E9%9B%86%E6%9B%B4%E7%B2%BE%E7%BB%86%E7%9A%84%E5%88%92%E5%88%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/27/%E6%B5%85%E8%B0%88%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B01%E2%80%94%E2%80%94%E5%AF%B9%E6%97%A0%E7%A9%B7%E7%82%B9%E9%9B%86%E6%9B%B4%E7%B2%BE%E7%BB%86%E7%9A%84%E5%88%92%E5%88%86/" class="post-title-link" itemprop="url">浅谈实变函数1——对无穷点集更精细的划分</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-27 17:24:32" itemprop="dateCreated datePublished" datetime="2021-10-27T17:24:32+08:00">2021-10-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 15:44:30" itemprop="dateModified" datetime="2021-11-03T15:44:30+08:00">2021-11-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>&emsp;&emsp;在数学分析中，我们常常处理的是连续函数，因为这种函数有着良好的性质，在微分与积分时可以得到比较好的结果。当然，我们偶尔也会处理仅在有限点处不连续的函数，它们在某些结果上从和连续函数并没有多大差别。</p>
-<p>&emsp;&emsp;可是当考虑无限点处不连续的函数时，我们原有的方法失效了。一个典型的例子就是 f 在$\ [0,1]\ $上的Riemann积分，其中 f 形式如下所示：</p>
-<script type="math/tex; mode=display">
-f(x)=
-\begin{cases}
-0, &\forall \ x \in [0,1]\bigcap \mathbb{Q}\\
-1, &\forall \ x \in [0,1]\bigcap \mathbb{Q}^c
-\end{cases}</script><p>也即该函数在无理点处取值为1，在有理点处取值为0。注意到这个函数在$\ [0,1]\ $上是Riemann不可积的。（这也促使我们需要从更高的观点来看待积分）</p>
-<p>&emsp;&emsp;首先，我们将点集分为有限点集和无限点集：有限点集是很好处理的，重点是无限点集。这里我所说的“很好处理”，是指我们很容易判断一个集合的大小，有限点集的大小就是看这个集合中元素的个数，数数我们总是会的。而当我们面对一个无限点集时，我们并不好描述它的“无限”究竟是多么不加限制。</p>
-<p>&emsp;&emsp;先从有限集合获取灵感：</p>
-<p>&emsp;&emsp;1. 有限集合的大小定义为集合中元素的个数</p>
-<p>&emsp;&emsp;2. 有限集合A，B的大小比较是通过比较两集合元素多少。笨一点的方法是我们挑出A中一个元素，发现B中也能挑出一个元素，再从A中不重复的挑出一个元素，发现B中也能挑出一个元素……直至其中一个集合再也不能挑出元素来（例如B已经宣布告罄了），那么我们认为$|A|\ge|B|$。</p>
-<p>&emsp;&emsp;下面我们来给无穷点集进行<strong>更加精细的划分</strong>。</p>
-<p>&emsp;&emsp;1. 按着原先通过数数来得到集合大小（元素多少）的思路，我们考虑一种集合，<strong>这种集合可以以某种方式特定的数数方式一直进行下去，以至于集合中任给一个元素都在某一次数数中被数到</strong>。自然数集<script type="math/tex">\ \mathbb{N}\</script>显然就是我们所要求的集合。</p>
-<p>&emsp;&emsp;2. 推广有限集合比较大小的思路，所谓“笨方法”其实就是再找两集合之间元素的一一映射（双射）。所以，对于两个无限集，我们如果能够找到一个<strong>双射</strong>，将两个集合的元素一一对应，那么我们可以认为这两个集合大小确实是相等的，且称这两个集合<strong>对等</strong>。</p>
-<p>&emsp;&emsp;利用以上两点，我们得到了一类特殊的无限点集——这类点集与$\ \mathbb{N} \ $都是对等的，称为<strong>可列集</strong>或<strong>可数集</strong>。我们所熟知的有理数集$\ \mathbb{Q}\ $就是可数集。（而且如果你稍微思考一下，会发现这类无限点集应该是所有无限集中<strong>点的个数“最少”</strong>的了。）</p>
-<p>&emsp;&emsp;这时候就有好奇宝宝要问了，那么这世界上有“不可数集”吗？答案是肯定的。Cantor给出了无理数不可数的证明。</p>
-<p>&emsp;&emsp;满怀欣喜地发现无限点集可以分为可数集和不可数集，我们自然希望它们在某些性质上确实是有本质不同的。接下来我们可以从不太严谨的论述中看到这一点。</p>
-<p>&emsp;&emsp;再赋予无限集多一点想象。现在从感觉上，可数集，不可数集和<strong>点密集到成区间的集合</strong>中都会有无穷多的点，但是我们还是难以体会其间关联与奥妙。没关系，这时候我们从“长度”（日后我们将其推广为测度）的观点来看待这个问题。我们过往常接触的区间都是有长度的。以闭区间$\ [a,b]\ $为例，它的长度就是$\ b-a\ $。既然如此，好奇宝宝可能又会问了：可数集的“长度”应该是多少呢？</p>
-<p>&emsp;&emsp;可数集既然是“点最少”的无限集，看来所谓的“无限”也并不是没有限制，我们不妨大胆假设它的“长度”为0。转化为数学语言，下面给它一个稍微有点启发性的证明。</p>
-<p>&emsp;&emsp;我们将可数集表示为$\ \{ a_k\}_{k\in \mathbb{N}}\ $。长度为0，也就是说它的长度要多小有多小（通过$\ \epsilon\ $的任意性来刻画）。为了计算方便，我们不妨用不相交的开区间盖住每个点，那么“点的长度”$\ m(a_k)\ $可以用开区间长度来逼近，令$\  a_k\ $对应的开区间长度不超过$\ \frac{\epsilon}{2^k}\ $（这总是可以做到的）：</p>
-<script type="math/tex; mode=display">
-\forall \epsilon >0,\ m(a_k)<\frac{\epsilon}{2^k} \ (\forall k\in \mathbb{N})</script><p>将所有点的“长度”求和：</p>
-<script type="math/tex; mode=display">
-\forall \epsilon >0,\ \sum_{k=1}^{+\infty}{m(a_k)} = \sum_{k=1}^{+\infty}{\frac{\epsilon}{2^k}}<\epsilon</script><blockquote>
-<p>注：</p>
-<ol>
-<li>这里“点的长度”的符号$\ m(a_n)\ $并不规范，只是为了描述方便。</li>
-<li>这个证明反映了可数集无限的“有限性”：既然可数集与自然数对等，那么我们可以通过指标k来控制可数集中的每一个点，将这种限制加到每一个点的“长度”上，以期在求和之后仍能达到任意小的结果。</li>
-</ol>
-</blockquote>
-<p>&emsp;&emsp;对于不可数集，情况则有所不同了。例如<strong>$\ [0,1]\ $上有理数集“长度”为0</strong>。对于不可数集，我们就不一定能得到这么好的结果了，事实上不可数集Cantor三分集“长度”为0，而<strong>$\ [0,1]\ $上无理数集“长度”为1</strong>。</p>
-<blockquote>
-<p>注：</p>
-<ol>
-<li>我们并没有得到关于可数集与不可数集的本质刻画。虽然可数集“长度”一定为0，但是反过来“长度”为0并不一定是可数集。</li>
-</ol>
-</blockquote>
-<p>&emsp;&emsp;至此我们对无限集的理解又加深了一步。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/23/%E3%80%8A%E5%88%91%E6%B3%95%E5%AD%A6%E8%AE%B2%E4%B9%89%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02%E2%80%94%E2%80%94%E5%88%91%E6%B3%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/23/%E3%80%8A%E5%88%91%E6%B3%95%E5%AD%A6%E8%AE%B2%E4%B9%89%E3%80%8B%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B02%E2%80%94%E2%80%94%E5%88%91%E6%B3%95%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">《刑法学讲义》阅读笔记2——刑法基础知识</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-23 22:12:49" itemprop="dateCreated datePublished" datetime="2021-10-23T22:12:49+08:00">2021-10-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-27 17:22:09" itemprop="dateModified" datetime="2021-10-27T17:22:09+08:00">2021-10-27</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Criminal-Law/" itemprop="url" rel="index"><span itemprop="name">Criminal Law</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>用良知驾驭我们之所学，而不因所学蒙蔽了良知。</p>
-</blockquote>
-<p>&nbsp;</p>
-<h2 id="刑法：犯罪人的大宪章"><a href="#刑法：犯罪人的大宪章" class="headerlink" title="刑法：犯罪人的大宪章"></a><center>刑法：犯罪人的大宪章</center></h2><p>&nbsp;</p>
-<h3 id="刑法的起源"><a href="#刑法的起源" class="headerlink" title="刑法的起源"></a>刑法的起源</h3><p>&nbsp;</p>
-<p><strong>神授说</strong></p>
-<p>&nbsp;</p>
-<p><strong>战争说</strong></p>
-<p>&emsp;&emsp;刑起于兵、兵刑同一，最初的刑罚就是对在氏族战争中的战败者、叛乱者和违反军纪者的处罚。远古时期，兵刑并未严格区分，奴隶主用甲兵征讨异族，用刑罚来统治已被征服的氏族，兵与刑的区别是“刑外”与“刑内”的关系。</p>
-<p><strong>社会契约理论</strong></p>
-<p>&emsp;&emsp;社会契约理论认为，国家与法的形成，起源于早期人们为了获得生存的社会保障，自愿转让本属于个人的一些自然权利而缔结的社会契约。为了保障自己的利益，缔约者同意如果自己侵犯了公众的利益，就应当接受惩罚。</p>
-<blockquote>
-<p>正是这种需要迫使人们割让自己的一部分自由，而且，无疑每个人都希望交给公共保存的那份自由尽量少些，只要足以让别人保护自己就行了。这一份份最少量自由的结晶形成惩罚。</p>
-<p>——[意]贝卡利亚：《论犯罪与刑罚》</p>
-</blockquote>
-<p><strong>正义理论</strong></p>
-<p>&emsp;&emsp;国家处罚犯罪人，就是满足犯罪人“报复的权利”，而这样做正是对犯罪人人格的尊重。换言之，国家有义务对犯罪人施以刑罚。</p>
-<blockquote>
-<p>“如果不这样做，……是对正义的公开违犯”。</p>
-<p>——[德]康德：《法的形而上学原理》</p>
-</blockquote>
-<p>&emsp;&emsp;黑格尔用否定之否定学说来为刑罚的正义理论背书：</p>
-<blockquote>
-<p>犯罪是对法的否定，刑罚是对犯罪的否定，所以刑罚不过是否定之否定，刑罚具有自在自为的正义，加于犯罪人的刑罚不但是自在正义的，因为这种刑罚同时是他自在地存在的意志，是他的自由的定在，是它的法，所以是正义的；不仅如此，而且它是在犯人自身中立定的法，处罚他，正是尊敬他是理性的存在。如果国家不对犯罪人处以刑罚，他就得不到这种尊重。<br>——[德]黑格尔：《法哲学原理》</p>
-</blockquote>
-<p>&nbsp;</p>
-<h3 id="刑法是道德伦理的最低要求"><a href="#刑法是道德伦理的最低要求" class="headerlink" title="刑法是道德伦理的最低要求"></a>刑法是道德伦理的最低要求</h3><p>&nbsp;</p>
-<p><strong>刑法的目的</strong></p>
-<p>&emsp;&emsp;规范违反说：为了维护一定的伦理秩序，犯罪违反了伦理规范，行为本身就是错误的。</p>
-<p>&emsp;&emsp;法益侵犯说：犯罪是对法律要保护的利益的侵犯</p>
-<p><strong>道义论与功利论之争</strong></p>
-<p>&emsp;&emsp;道义论关注行为正义，功利论则关注结果正义。</p>
-<p>&emsp;&emsp;行为正义最骄傲的表达就是即便天塌下来，正义也必须得到践行，其代表人物是康德。</p>
-<blockquote>
-<p>道德本来就不教导我们如何使自己幸福，而是教导我们如何使自己无愧于幸福。</p>
-<p>——[德]康德</p>
-</blockquote>
-<p>&emsp;&emsp;至于结果正义，最为人熟知的就是英国法理学家边沁的功利主义，判断行为对错的最终标准是看行为能否增进人的幸福快乐，法律的正义一定要体现最大多数的最大利益。</p>
-<p><strong>入罪与出罪</strong></p>
-<p>&emsp;&emsp;法益作为入罪的基础，而伦理作为出罪的依据。</p>
-<p>&emsp;&emsp;在入罪层面上必须考虑行为是否侵犯了法益，如果一种行为没有侵犯法益，那就不构成犯罪。(司法者必须积极加以证明一种符合法条德行为侵害了一定的法益，否则行为就不构成犯罪。)</p>
-<blockquote>
-<p>典例：伪造货币罪</p>
-<p>伪造货币罪所侵犯的法益是货币的公共信用，即货币作为一般等价物给人们提供的交易信心。所以制造作为魔术道具的假币并不构成伪造货币罪。哪怕一些假币被制造、发行，甚至在一定范围内进入流通领域，但是民众并不会因为这些假币的存在就不敢使用真币，真币的公共信用并没有受到动摇，那么就没有构成对法益的侵犯。</p>
-</blockquote>
-<p>&emsp;&emsp;在出罪层面上必须考虑伦理道德的需要。一种侵犯法益的行为也不一定是犯罪，除非它是伦理道德所谴责的，对于伦理所容忍所鼓励的行为，没有必要发动刑罚权，这是对刑罚权的第二层限制。用道德来减缓法律的刚性的消极道德主义是合理的。</p>
-<blockquote>
-<p>典例：正当防卫</p>
-<p>某女生遭遇张三的性侵，女生拼命反抗，把张三踹到河里面，张三后溺毙而亡。</p>
-<p>女生的行为虽然侵犯了张三的生命权，但是这种行为在伦理道德上并不值得谴责，甚至是值得鼓励的。正当防卫制度的一个重要立法价值就是鼓励民众和不法侵害做斗争。</p>
-</blockquote>
-<p>&nbsp;</p>
-<h3 id="不受约束的刑罚权，比犯罪更可怕"><a href="#不受约束的刑罚权，比犯罪更可怕" class="headerlink" title="不受约束的刑罚权，比犯罪更可怕"></a>不受约束的刑罚权，比犯罪更可怕</h3><p>&nbsp;</p>
-<p><strong>刑法对刑法的束缚</strong></p>
-<p>刑法规定了犯罪和刑罚，刑罚是对犯罪的惩罚，而刑法则是对刑罚的约束。</p>
-<p>一个国家对付犯罪并不需要刑事法律，没有刑法并不妨碍国家对犯罪的有效打击和镇压。而且没有立法的犯罪打击可能是更加灵活、有效、及时与便利的。如果从这个角度讲，刑法本身是多余和伪善的，它除了在宣传上有美化国家权力的作用外，反而束缚了国家机器面对犯罪的反应速度与灵敏度。</p>
-<p>刑杀之权是一种由国家垄断的暴力。权力导致腐败，绝对权力导致绝对腐败。</p>
-<p><strong>刑法的二元机能</strong></p>
-<p>刑法的机能不是一元的，而是二元的。刑法既要实现惩罚犯罪的保护机能，也要恪守保障罪犯人权的保障机能。刑事法律要遏制的不是犯罪人，而是国家。也就是说，尽管刑法规范的是犯罪及其刑罚，但它针对的对象却是国家。</p>
-<blockquote>
-<p>自从有刑法存在，国家代替受害人施行报复时开始，国家就承担着双重责任：正如国家在采取任何行为时，不仅要为社会利益反对犯罪者，也要保护犯罪人不受被害人的报复。现在刑法同样不只反对犯罪人，也保护犯罪人，它的目的不仅在于设立国家刑罚权力，同时也要限制这一权力，它不只是可罚性的缘由，也是它的界限，因此表现出悖论性：刑法不仅要面对犯罪人保护国家，也要面对国家保护犯罪人，不单面对犯罪人，也要面对检察官保护市民，成为公民反对司法专横和错误的大宪章。”</p>
-<p>——[德]拉德布鲁赫：《法学导论》</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2196,20 +2213,20 @@ f(x)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

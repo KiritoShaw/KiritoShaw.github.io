@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="和 HTML 类似，CSS 也不是真正的编程语言，甚至不是标记语言。它是一门样式表语言，这也就是说 HTML 规定了网站的静态内容，而人们可以用 CSS 来选择性地为 HTML 元素添加样式。 CSS 规则集基础规则集构成我们以段落元素 p (paragraph) 为例：  选择器 (Selector): HTML 元素的名称位于规则集开始。它选择了一个或多个需要添加样式的元素（在这个例子中就是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 基础">
+<meta property="og:url" content="http://example.com/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Shaw">
+<meta property="og:description" content="和 HTML 类似，CSS 也不是真正的编程语言，甚至不是标记语言。它是一门样式表语言，这也就是说 HTML 规定了网站的静态内容，而人们可以用 CSS 来选择性地为 HTML 元素添加样式。 CSS 规则集基础规则集构成我们以段落元素 p (paragraph) 为例：  选择器 (Selector): HTML 元素的名称位于规则集开始。它选择了一个或多个需要添加样式的元素（在这个例子中就是">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/css-declaration-small.png">
+<meta property="og:image" content="http://example.com/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/box-model.png">
+<meta property="og:image" content="http://example.com/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/rendering.jpg">
+<meta property="article:published_time" content="2023-01-11T14:08:24.000Z">
+<meta property="article:modified_time" content="2023-01-11T15:02:10.445Z">
+<meta property="article:author" content="Shaw">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/css-declaration-small.png">
+
+<link rel="canonical" href="http://example.com/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>CSS 基础 | Shaw</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shaw</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>resources</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS 基础
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-01-11 22:08:24 / Modified: 23:02:10" itemprop="dateCreated datePublished" datetime="2023-01-11T22:08:24+08:00">2023-01-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>和 HTML 类似，CSS 也不是真正的编程语言，甚至不是标记语言。它是一门样式表语言，这也就是说 HTML 规定了网站的静态内容，而人们可以用 CSS 来选择性地为 HTML 元素添加样式。</p>
+<h3 id="CSS-规则集基础"><a href="#CSS-规则集基础" class="headerlink" title="CSS 规则集基础"></a>CSS 规则集基础</h3><h4 id="规则集构成"><a href="#规则集构成" class="headerlink" title="规则集构成"></a>规则集构成</h4><p>我们以段落元素 <code>p</code> (paragraph) 为例：</p>
+<p><img src="/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/css-declaration-small.png" style="zoom:33%;"></p>
+<p><strong>选择器</strong> (Selector): HTML 元素的名称位于规则集开始。它选择了一个或多个需要添加样式的元素（在这个例子中就是 <code>p</code> 元素）。要给不同元素添加样式只需要更改选择器就行了</p>
+<p><strong>声明</strong> (Declaration): 一个单独的规则，如 <code>color: red;</code> 用来指定添加样式元素的<strong>属性</strong></p>
+<p><strong>属性</strong> (Properties): 改变 HTML 元素样式的途径。（本例中 <code>color</code> 就是 <code>p</code> 元素的属性。）CSS 中，由编写人员决定修改哪个属性以改变规则</p>
+<p><strong>属性的值</strong> (Property value): 在属性的右边，冒号后面即<strong>属性的值</strong>，它从指定属性的众多外观中选择一个值（我们除了 <code>red</code> 之外还有很多属性值可以用于 <code>color</code> ）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red; // 字体颜色</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>; // 宽度</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black; // 边界</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="多元素选择"><a href="#多元素选择" class="headerlink" title="多元素选择"></a>多元素选择</h4><p>以下例子中我们同时设定段落元素 <code>p</code>，列表元素 <code>li</code>，一号标题 <code>h1</code> 的样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>,</span><br><span class="line"><span class="selector-tag">li</span>,</span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red; // 字体颜色</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字号与字体"><a href="#字号与字体" class="headerlink" title="字号与字体"></a>字号与字体</h3><p>一种常见的 CSS 样式就是字体 <code>font-family</code> 和字号  <code>font-size</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">1.8rem</span>; // 字号</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&quot;Garamond Regular&quot;</span>; // 字体</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123; </span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&quot;Times new Roman&quot;</span>; // 字体</span><br><span class="line">  <span class="attribute">font-size</span>: inherit; // 继承父节点的字号样式</span><br><span class="line">  </span><br><span class="line">  <span class="attribute">hyphens</span>: auto; // 连字符</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><h4 id="盒模型的三要素"><a href="#盒模型的三要素" class="headerlink" title="盒模型的三要素"></a>盒模型的三要素</h4><p>CSS 布局主要就是基于盒模型的。每个占据页面空间的块都有这样的属性：</p>
+<ul>
+<li><code>padding</code>：即内边距，围绕着内容（比如段落）的空间</li>
+<li><code>border</code>：即边框，紧接着内边距的线</li>
+<li><code>margin</code>：即外边距，围绕元素外部的空间</li>
+</ul>
+<p><img src="/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/box-model.png" style="zoom:50%;"></p>
+<p>我们需要关心以下事实：</p>
+<ol>
+<li>盒模型的实际大小仅仅仅是边界 <code>border</code> 所框起来的部分（这里特指标准盒模型）</li>
+<li><code>margin</code> 其实对盒子的内容并没有什么影响，同时 <code>margin</code> 会将别的元素从盒子周围推开</li>
+</ol>
+<h4 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h4><p>更改页面颜色</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#00539F</span>; // 背景颜色</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>文档体格式设置</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">600px</span>; // 宽度</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto; // 外边距</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#FF9500</span>; // 背景颜色</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">20px</span> <span class="number">20px</span> <span class="number">20px</span>; // 内填充</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid black; // 边界</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定位页面标题并添加样式主题</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>; // 外边距</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">0</span>; // 内填充</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#00539F</span>; // 字体颜色</span><br><span class="line">  <span class="attribute">text-shadow</span>: <span class="number">3px</span> <span class="number">3px</span> <span class="number">1px</span> black; // 文本阴影</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>浏览器会在没有任何 CSS 的情况下 给 <code>&lt;h1&gt;</code> (en-US) 等元素设置一些默认样式。但这并不是个好主意，因为我们希望一个没有任何样式的网页也有基本的可读性。为了去掉那个间隙，我们通过设置 <code>margin: 0</code>; 来覆盖默认样式</p>
+</blockquote>
+<h3 id="内联盒子与块级盒子"><a href="#内联盒子与块级盒子" class="headerlink" title="内联盒子与块级盒子"></a>内联盒子与块级盒子</h3><p>除了盒模型的构成，我们还需要关注两种重要的盒子，那就是内联盒子和块级盒子</p>
+<p>如果你熟悉 <code>markdown</code> 语言，那么这一对概念对你来讲并不是什么很难理解的概念。CSS 中的内联盒子大致可以对应 <code>markdown</code> 中的<strong>行内公式</strong> ($x^2+y=1$) 和<strong>行内代码</strong> (<code>var para = document.querySelector(&#39;p&#39;)</code>) 等行内元素，而块级盒子大致可以对应普通段落，公式块和代码块等</p>
+<p>内联盒子和块级盒子在页面流和元素之间的关系方面表现出不同的行为：</p>
+<h4 id="内联盒子-inline-box"><a href="#内联盒子-inline-box" class="headerlink" title="内联盒子 (inline box)"></a>内联盒子 (inline box)</h4><h4 id="块级盒子-block-box"><a href="#块级盒子-block-box" class="headerlink" title="块级盒子 (block box)"></a>块级盒子 (block box)</h4><h3 id="CSS-是如何工作的"><a href="#CSS-是如何工作的" class="headerlink" title="CSS 是如何工作的"></a>CSS 是如何工作的</h3><p>当浏览器展示一个文件的时候，它必须兼顾文件的内容和文件的样式信息，下面我们会了解到它处理文件的标准的流程。需要知道的是，下面的步骤是浏览加载网页的简化版本，而且不同的浏览器在处理文件的时候会有不同的方式，但是下面的步骤基本都会出现。</p>
+<blockquote>
+<ol>
+<li>浏览器载入 HTML 文件（比如从网络上获取）。</li>
+<li>将 HTML 文件转化成一个 DOM（Document Object Model），DOM 是文件在计算机内存中的表现形式，下一节将更加详细的解释 DOM。</li>
+<li>接下来，浏览器会拉取该 HTML 相关的大部分资源，比如嵌入到页面的图片、视频和 CSS 样式。JavaScript 则会稍后进行处理，简单起见，同时此节主讲 CSS，所以这里对如何加载 JavaScript 不会展开叙述。</li>
+<li>浏览器拉取到 CSS 之后会进行解析，根据选择器的不同类型（比如 element、class、id 等等）把他们分到不同的“桶”中。浏览器基于它找到的不同的选择器，将不同的规则（基于选择器的规则，如元素选择器、类选择器、id 选择器等）应用在对应的 DOM 的节点中，并添加节点依赖的样式（这个中间步骤称为渲染树）。</li>
+<li>上述的规则应用于渲染树之后，渲染树会依照应该出现的结构进行布局。</li>
+<li>网页展示在屏幕上（这一步被称为着色）。</li>
+</ol>
+</blockquote>
+<p><img src="/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/rendering.jpg" style="zoom: 50%;"></p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/CSS_basics">CSS 基础 - 学习 Web 开发 | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS">CSS - 学习 Web 开发 | MDN</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Web/" rel="tag"># Web</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/11/HTML-%E5%9F%BA%E7%A1%80/" rel="prev" title="HTML 基础 ⭐">
+      <i class="fa fa-chevron-left"></i> HTML 基础 ⭐
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E8%A7%84%E5%88%99%E9%9B%86%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">CSS 规则集基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E9%9B%86%E6%9E%84%E6%88%90"><span class="nav-number">1.1.</span> <span class="nav-text">规则集构成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9"><span class="nav-number">1.2.</span> <span class="nav-text">多元素选择</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E5%8F%B7%E4%B8%8E%E5%AD%97%E4%BD%93"><span class="nav-number">2.</span> <span class="nav-text">字号与字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">盒子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="nav-number">3.1.</span> <span class="nav-text">盒模型的三要素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E4%BE%8B%E5%AD%90"><span class="nav-number">3.2.</span> <span class="nav-text">一些例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%81%94%E7%9B%92%E5%AD%90%E4%B8%8E%E5%9D%97%E7%BA%A7%E7%9B%92%E5%AD%90"><span class="nav-number">4.</span> <span class="nav-text">内联盒子与块级盒子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E8%81%94%E7%9B%92%E5%AD%90-inline-box"><span class="nav-number">4.1.</span> <span class="nav-text">内联盒子 (inline box)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%97%E7%BA%A7%E7%9B%92%E5%AD%90-block-box"><span class="nav-number">4.2.</span> <span class="nav-text">块级盒子 (block box)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84"><span class="nav-number">5.</span> <span class="nav-text">CSS 是如何工作的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shaw"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Shaw</p>
+  <div class="site-description" itemprop="description">Was mich nicht umbringt, macht mich stärker</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-10 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shaw</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

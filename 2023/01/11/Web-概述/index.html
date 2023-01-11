@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Web 概述HTML超文本标记语言（HTML）是你用来组织你的网络内容，并赋予它意义和目的的代码。例如，我的内容是一组段落还是一个要点列表？我的页面上是否插入了图片？我有一个数据表吗？ CSS我们仅需使用 HTML 就可以呈现出构成网站的所有静态内容，但是假如我们需要更加舒适的呈现方式，例如，你希望文本是黑色还是红色？内容应该画在屏幕的什么地方？应该用什么背景图片和颜色来装饰你的网站？此时层叠样式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web 概述">
+<meta property="og:url" content="http://example.com/2023/01/11/Web-%E6%A6%82%E8%BF%B0/index.html">
+<meta property="og:site_name" content="Shaw">
+<meta property="og:description" content="Web 概述HTML超文本标记语言（HTML）是你用来组织你的网络内容，并赋予它意义和目的的代码。例如，我的内容是一组段落还是一个要点列表？我的页面上是否插入了图片？我有一个数据表吗？ CSS我们仅需使用 HTML 就可以呈现出构成网站的所有静态内容，但是假如我们需要更加舒适的呈现方式，例如，你希望文本是黑色还是红色？内容应该画在屏幕的什么地方？应该用什么背景图片和颜色来装饰你的网站？此时层叠样式">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/01/11/Web-%E6%A6%82%E8%BF%B0/github-create-repo.png">
+<meta property="og:image" content="http://example.com/2023/01/11/Web-%E6%A6%82%E8%BF%B0/simple-client-server.png">
+<meta property="article:published_time" content="2023-01-11T11:12:08.000Z">
+<meta property="article:modified_time" content="2023-01-11T11:49:44.743Z">
+<meta property="article:author" content="Shaw">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/01/11/Web-%E6%A6%82%E8%BF%B0/github-create-repo.png">
+
+<link rel="canonical" href="http://example.com/2023/01/11/Web-%E6%A6%82%E8%BF%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Web 概述 | Shaw</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shaw</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>resources</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/11/Web-%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Web 概述
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-01-11 19:12:08 / Modified: 19:49:44" itemprop="dateCreated datePublished" datetime="2023-01-11T19:12:08+08:00">2023-01-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="Web-概述"><a href="#Web-概述" class="headerlink" title="Web 概述"></a>Web 概述</h3><h4 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h4><p>超文本标记语言（HTML）是你用来组织你的网络内容，并赋予它意义和目的的代码。例如，我的内容是一组段落还是一个要点列表？我的页面上是否插入了图片？我有一个数据表吗？</p>
+<h4 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h4><p>我们仅需使用 HTML 就可以呈现出构成网站的<strong>所有静态内容</strong>，但是假如我们需要更加舒适的<strong>呈现方式</strong>，例如，你希望文本是黑色还是红色？内容应该画在屏幕的什么地方？应该用什么背景图片和颜色来装饰你的网站？此时层叠样式表（CSS）就是你用来为你的网站设置样式的代码</p>
+<h4 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h4><p>JavaScript 是一种编程语言，你用它来给你的网站添加交互功能。例如游戏、当按钮被按下或数据被输入表格时发生的事情、动态造型效果、动画等</p>
+<h4 id="处理文件"><a href="#处理文件" class="headerlink" title="处理文件"></a>处理文件</h4><p>一个网站包含许多文件：文本内容、代码、样式表、媒体内容，等等。当你建立一个网站时，你需要在计算机上将这些<strong>文件以合理的结构组织起来</strong>，确保文件之间交互畅通，并在你最终将它们上传到服务器之前使你的所有内容看起来正确。</p>
+<p>在我们创建的任何网站项目 <code>web-project</code> 中，最常见的是一个主页 HTML 文件和包含图像、样式文件和脚本文件的文件夹</p>
+<ol>
+<li><strong><code>index.html</code></strong>：这个文件一般会包含主页内容，也就是人们第一次进入网站时看到的文字和图片</li>
+<li><code>images</code> 文件夹：这个文件夹包含网站上使用的所有图片</li>
+<li><code>styles</code> 文件夹：这个文件夹包含用于设置内容样式的 CSS 代码（例如，设置文本和背景颜色）</li>
+<li><code>scripts</code> 文件夹：这个文件夹包含所有用于向网站添加交互功能的 JavaScript 代码（例如，点击时加载数据的按钮）</li>
+</ol>
+<h4 id="发布网站"><a href="#发布网站" class="headerlink" title="发布网站"></a>发布网站</h4><h5 id="获得主机服务和域名"><a href="#获得主机服务和域名" class="headerlink" title="获得主机服务和域名"></a>获得主机服务和域名</h5><p>如果你想要完全控制你发布的网页，那么你将需要花钱购置：</p>
+<ul>
+<li>主机服务：在主机服务提供商的Web 服务器上租用文件空间。将你网站的文件上传到这里，然后服务器会提供 Web 用户需求的内容</li>
+<li>域名：一个可以让人们访问的独一无二的地址，比如 <code>http://www.mozilla.org</code>或 <code>https://username.github.io/</code>。你可以从域名注册商租借域名</li>
+</ul>
+<p>许多专业的网站通过这种方法接入互联网</p>
+<h5 id="使用在线工具如-GitHub"><a href="#使用在线工具如-GitHub" class="headerlink" title="使用在线工具如 GitHub"></a>使用在线工具如 GitHub</h5><p><a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> 是一个“社交编程”网站。它允许你上传代码库并储存在 <a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a> 版本控制系统里。然后你可以协作代码项目，系统是默认开源的，也就是说世界上任何人都可以找到你 GitHub 上的代码。去使用 GitHub，从中学习并且提高自己吧！你也可以对别人的代码那样做！这是一个非常重要、有用的社区，而且 Git/GitHub 是非常流行的版本控制系统 — 大部分科技公司在工作中使用它。GitHub 有一个非常有用的特点叫 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub pages</a>，允许你将网站代码放在网上</p>
+<h5 id="使用基于Web的集成开发环境"><a href="#使用基于Web的集成开发环境" class="headerlink" title="使用基于Web的集成开发环境"></a>使用基于Web的集成开发环境</h5><ul>
+<li><a target="_blank" rel="noopener" href="http://jsbin.com/">JSBin</a> (可以使用 GitHub 账号进行登录)</li>
+<li><a target="_blank" rel="noopener" href="https://codepen.io/">CodePen</a> (可以生成外链内嵌到其他网页中，在以后文章的范例中，我将会使用到这一功能)</li>
+<li><a target="_blank" rel="noopener" href="https://glitch.com/">Glitch</a> (响应时间较长)</li>
+<li><a target="_blank" rel="noopener" href="https://jsfiddle.net/">JSFiddle</a> (无法访问此页面)</li>
+</ul>
+<h5 id="通过-GitHub-发布"><a href="#通过-GitHub-发布" class="headerlink" title="通过 GitHub 发布"></a>通过 GitHub 发布</h5><ol>
+<li><p>首先， <a target="_blank" rel="noopener" href="https://github.com/join">注册一个 GitHub 账号</a>，并确认你的邮箱地址</p>
+</li>
+<li><p>接下来，你需要创建一个新的资源库 ( repository ) 来存放你的文件</p>
+</li>
+<li><p>在这个页面上，在 <em>Repository name</em> 输入框里输入 <em>username</em>.github.io，username 是你的用户名。比如，我们的朋友 <em>shaw</em> 会输入 <em>shaw.github.io。同时勾选</em> <em>Initialize this repository with a README</em>，然后点击 <em>Create repository</em></p>
+<p><img src="/2023/01/11/Web-%E6%A6%82%E8%BF%B0/github-create-repo.png" style="zoom: 50%;"></p>
+</li>
+<li><p>然后，将你的网站文件夹里的内容拖拽到你的资源库 ( repository )，再点击 <em>Commit changes</em></p>
+</li>
+<li><p>现在将你的浏览器转到 <em>username</em>.github.io 来在线查看你的网站</p>
+</li>
+</ol>
+<h4 id="Web-如何运作"><a href="#Web-如何运作" class="headerlink" title="Web 如何运作"></a>Web 如何运作</h4><h5 id="客户端和服务器"><a href="#客户端和服务器" class="headerlink" title="客户端和服务器"></a>客户端和服务器</h5><p>连接到互联网的计算机被称作客户端和服务器。下面是一个简单描述它们如何交互的图表：</p>
+<p><img src="/2023/01/11/Web-%E6%A6%82%E8%BF%B0/simple-client-server.png" style="zoom: 33%;"></p>
+<ul>
+<li>客户端是典型的 Web 用户入网设备（比如，你连接了 Wi-Fi 电脑，或接入移动网络的手机）和设备上可联网的软件（通常使用像 Firefox 和 Chrome 的浏览器）</li>
+<li>服务器是存储网页，站点和应用的计算机。当一个客户端设备想要获取一个网页时，一份网页的拷贝将从服务器上下载到客户端机器上来在用户浏览器上显示</li>
+</ul>
+<h5 id="其他部分"><a href="#其他部分" class="headerlink" title="其他部分"></a>其他部分</h5><p>上文所述的客户端和服务器并不能完成全部工作。还有其他必要的部分，我们将在下面讲述</p>
+<p>现在，让我们假设 Web 就是一条路。路的一端是客户端，就像你的家。另一端则是服务器，就像你想去的商店。此时你要了解其他部分：</p>
+<ul>
+<li><strong>网络连接</strong>: 允许你在互联网上发送和接受数据。基本上和你家到商店的街道差不多</li>
+<li><strong>TCP/IP</strong>: 传输控制协议和因特网互连协议是定义数据如何传输的通信协议。这就像你去商店购物所使用的交通方式，比如汽车或自行车（或是你能想到的其他可能）</li>
+<li><strong>DNS</strong>: 域名系统服务器像是一本网站通讯录。当你在浏览器内输入一个网址时，浏览器获取网页之前将会查看域名系统。浏览器需要找到存放你想要的网页的服务器，才能发送 HTTP 请求到正确的地方。就像你要知道商店的地址才能到达那</li>
+<li><strong>HTTP</strong>: 超文本传输协议是一个定义客户端和服务器间交流的语言的协议（protocol）。就像你下订单时所说的话一样</li>
+<li><p>组成文件: 一个网页由许多文件组成，就像商店里不同的商品一样。这些文件有两种类型：</p>
+</li>
+<li><p><strong>代码</strong> : 网页大体由 HTML、CSS、JavaScript 组成，不过你会在后面看到不同的技术</p>
+</li>
+<li><strong>资源</strong> : 这是其他组成网页的东西的集合，比如图像、音乐、视频、Word 文档、PDF 文件</li>
+</ul>
+<blockquote>
+<p>假如你生活在一个封闭的市区叫做“高山市”，该市 ice-cream 远近闻名</p>
+<ul>
+<li><strong>互联网</strong>：好比地球上众横交错的道路</li>
+<li><strong>网络连接</strong>：外界的道路接入市区交通网络。从此，市区里的 ice-cream 就可以运出去卖了</li>
+<li><strong>TCP/IP</strong>：为了将市里的 ice-cream 能规范有效的运卖出去而不出问题，市长作出如下规定：“用规格刚好 20 cm * 20 cm * 20 cm 的泡沫箱来装，之后外面又用相应规格的纸箱包裹上，最后打上透明胶”。并且要求，对方收到时，一定要外包装完好，不然就会补发。而且还给对方发了一张发货单，明确说明了，ice-cream 有多少，是用什么方法包装的，只有货和发货单对上了，对方才会确认收货</li>
+<li><strong>DNS</strong>：突然一天，野比大雄想吃 ice-cream，就跟叮当猫说，“我听说高山市（域名）的 ice-cream 好，要他们那个套餐一选项啊！”。叮当猫一听，说好吧大雄，我也不知道高山市在哪。打开地图查（DNS）吧，一查，原来是在日本本州岛岐阜县（IP 地址）。于是叮当猫去了高山市，找了市长，告诉市长，要套餐一，要用时光机快递，并且留下了野比大雄家的地址</li>
+<li><strong>HTTP</strong>：过了几天，野比大雄一看，有快递来了，来了这么一句，“只收‘时光机’，拒收其他快递”。司机忙说，“是时光机，是时光机”，这才对上暗号，野比大雄收下了货</li>
+<li><strong>组成文件</strong>：送来的货可不止一车，而且也不止一种 ice-cream，有巧克力味的，也有香草味的<ul>
+<li><strong>代码</strong>：有点像，市长事先安排的说明书，让司机到了地方，如何卸车，货放到什么位置，而野比大雄看说明书，知道什么样的 ice-cream 放到什么位置上，怎么样 ice-cream 如何食用最佳，等等</li>
+<li><strong>资源</strong>：不同种类的 ice-cream</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h5 id="解析组成文件的顺序"><a href="#解析组成文件的顺序" class="headerlink" title="解析组成文件的顺序"></a>解析组成文件的顺序</h5><p>当浏览器向服务器发送请求获取 HTML 文件时，HTML 文件通常包含 <code>&lt;link&gt;</code> 和 <code>&lt;script&gt;</code> 元素，这些元素分别指向了外部的 CSS 样式表文件和 JavaScript 脚本文件。了解这些文件被浏览器解析的顺序是很重要的：</p>
+<ul>
+<li>浏览器首先解析 HTML 文件，并从中识别出所有的 <code>&lt;link&gt;</code> 和 <code>&lt;script&gt;</code> 元素，获取它们指向的外部文件的链接</li>
+<li>继续解析 HTML 文件的同时，浏览器根据外部文件的链接向服务器发送请求，获取并解析 CSS 文件和 JavaScript 脚本文件</li>
+<li>接着浏览器会给解析后的 HTML 文件生成一个 DOM 树（在内存中），会给解析后的 CSS 文件生成一个 CSSOM 树（在内存中），并且会编译和执行解析后的 JavaScript 脚本文件</li>
+<li>伴随着构建 DOM 树、应用 CSSOM 树的样式、以及执行 JavaScript 脚本文件，浏览器会在屏幕上绘制出网页的界面；用户看到网页界面也就可以跟网页进行交互了</li>
+</ul>
+<h5 id="DNS-解析"><a href="#DNS-解析" class="headerlink" title="DNS 解析"></a>DNS 解析</h5><p>真正的网址看上去并不像你输入到地址框中的那样美好且容易记忆。它们是一串数字，像 <code>63.245.217.105</code></p>
+<p>这叫做 IP 地址，它代表了一个互联网上独特的位置。然而，它并不容易记忆，不是吗？那就是域名系统（DNS）被发明的原因。它们是将你输入浏览器的地址（像 “mozilla.org”）与实际 IP 地址相匹配的特殊的服务器</p>
+<p>网页可以通过 IP 地址直接访问。您可以通过在 <a target="_blank" rel="noopener" href="https://www.nslookup.io/website-to-ip-lookup/">DNS 查询工具</a> 等工具中输入域名来查找网站的 IP 地址</p>
+<blockquote>
+<p>注：通过 IP 访问和通过域名访问并不完全相同</p>
+</blockquote>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li>Web 开发技术主要包括 HTML, CSS, JavaScript 等。新手入门可以阅读  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn">Learn web development | MDN</a>，会对基本的概念有些认识。</li>
+<li>MDN Web Docs 社区提供了中文翻译版 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn">学习 Web 开发 | MDN</a>，可供英文水平欠佳的同学学习使用</li>
+<li>冰菓的主取景地位于日本本州岛岐阜县北部的高山市</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Web/" rel="tag"># Web</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/11/Hexo-theme-%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" rel="prev" title="Hexo theme 目录结构">
+      <i class="fa fa-chevron-left"></i> Hexo theme 目录结构
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/11/HTML-%E5%9F%BA%E7%A1%80/" rel="next" title="HTML 基础 ⭐">
+      HTML 基础 ⭐ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">Web 概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML"><span class="nav-number">1.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS"><span class="nav-number">1.2.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.3.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">处理文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E5%B8%83%E7%BD%91%E7%AB%99"><span class="nav-number">1.5.</span> <span class="nav-text">发布网站</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%BE%97%E4%B8%BB%E6%9C%BA%E6%9C%8D%E5%8A%A1%E5%92%8C%E5%9F%9F%E5%90%8D"><span class="nav-number">1.5.1.</span> <span class="nav-text">获得主机服务和域名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%A6%82-GitHub"><span class="nav-number">1.5.2.</span> <span class="nav-text">使用在线工具如 GitHub</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%9F%BA%E4%BA%8EWeb%E7%9A%84%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">1.5.3.</span> <span class="nav-text">使用基于Web的集成开发环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-GitHub-%E5%8F%91%E5%B8%83"><span class="nav-number">1.5.4.</span> <span class="nav-text">通过 GitHub 发布</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web-%E5%A6%82%E4%BD%95%E8%BF%90%E4%BD%9C"><span class="nav-number">1.6.</span> <span class="nav-text">Web 如何运作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.6.1.</span> <span class="nav-text">客户端和服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%83%A8%E5%88%86"><span class="nav-number">1.6.2.</span> <span class="nav-text">其他部分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90%E7%BB%84%E6%88%90%E6%96%87%E4%BB%B6%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.6.3.</span> <span class="nav-text">解析组成文件的顺序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DNS-%E8%A7%A3%E6%9E%90"><span class="nav-number">1.6.4.</span> <span class="nav-text">DNS 解析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shaw"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Shaw</p>
+  <div class="site-description" itemprop="description">Was mich nicht umbringt, macht mich stärker</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-10 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shaw</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
