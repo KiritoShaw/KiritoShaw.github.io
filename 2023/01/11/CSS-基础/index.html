@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://example.com/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/box-model.png">
 <meta property="og:image" content="http://example.com/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/rendering.jpg">
 <meta property="article:published_time" content="2023-01-11T14:08:24.000Z">
-<meta property="article:modified_time" content="2023-01-11T15:03:57.599Z">
+<meta property="article:modified_time" content="2023-01-12T02:10:26.848Z">
 <meta property="article:author" content="Shaw">
 <meta property="article:tag" content="Web">
 <meta property="article:tag" content="CSS">
@@ -205,10 +205,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-01-11 22:08:24 / Modified: 23:03:57" itemprop="dateCreated datePublished" datetime="2023-01-11T22:08:24+08:00">2023-01-11</time>
+              <time title="Created: 2023-01-11 22:08:24" itemprop="dateCreated datePublished" datetime="2023-01-11T22:08:24+08:00">2023-01-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-01-12 10:10:26" itemprop="dateModified" datetime="2023-01-12T10:10:26+08:00">2023-01-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -259,7 +265,8 @@
 <p>我们需要关心以下事实：</p>
 <ol>
 <li>盒模型的实际大小仅仅仅是边界 <code>border</code> 所框起来的部分（这里特指标准盒模型）</li>
-<li><code>margin</code> 其实对盒子的内容并没有什么影响，同时 <code>margin</code> 会将别的元素从盒子周围推开</li>
+<li><code>margin</code> 其实对盒子的内容并没有什么影响，它影响的是盒子外部空间。</li>
+<li><code>margin</code> 会将别的元素从盒子周围推开</li>
 </ol>
 <h4 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h4><p>更改页面颜色</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#00539F</span>; // 背景颜色</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -272,18 +279,38 @@
 </blockquote>
 <h3 id="内联盒子与块级盒子"><a href="#内联盒子与块级盒子" class="headerlink" title="内联盒子与块级盒子"></a>内联盒子与块级盒子</h3><p>除了盒模型的构成，我们还需要关注两种重要的盒子，那就是内联盒子和块级盒子</p>
 <p>如果你熟悉 <code>markdown</code> 语言，那么这一对概念对你来讲并不是什么很难理解的概念。CSS 中的内联盒子大致可以对应 <code>markdown</code> 中的<strong>行内公式</strong> ($x^2+y=1$) 和<strong>行内代码</strong> (<code>var para = document.querySelector(&#39;p&#39;)</code>) 等行内元素，而块级盒子大致可以对应普通段落，公式块和代码块等</p>
+<p>我们可以通过对盒子<code>display</code> 属性的设置，比如 <code>inline</code> 或者 <code>block</code> ，来控制盒子的外部显示类型。</p>
 <p>内联盒子和块级盒子在页面流和元素之间的关系方面表现出不同的行为：</p>
-<h4 id="内联盒子-inline-box"><a href="#内联盒子-inline-box" class="headerlink" title="内联盒子 (inline box)"></a>内联盒子 (inline box)</h4><h4 id="块级盒子-block-box"><a href="#块级盒子-block-box" class="headerlink" title="块级盒子 (block box)"></a>块级盒子 (block box)</h4><h3 id="CSS-是如何工作的"><a href="#CSS-是如何工作的" class="headerlink" title="CSS 是如何工作的"></a>CSS 是如何工作的</h3><p>当浏览器展示一个文件的时候，它必须兼顾文件的内容和文件的样式信息，下面我们会了解到它处理文件的标准的流程。需要知道的是，下面的步骤是浏览加载网页的简化版本，而且不同的浏览器在处理文件的时候会有不同的方式，但是下面的步骤基本都会出现。</p>
+<h4 id="块级盒子-block-box"><a href="#块级盒子-block-box" class="headerlink" title="块级盒子 (block box)"></a>块级盒子 (block box)</h4><p>一个被定义成块级的盒子会表现出以下行为：</p>
+<ul>
+<li>盒子会在内联的方向上扩展并占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽</li>
+<li>每个盒子都会换行</li>
+<li><code>width</code> 和 <code>height</code> 属性可以发挥作用</li>
+<li>内边距（padding）, 外边距（margin）和 边框（border）会将其他元素从当前盒子周围“推开”</li>
+</ul>
 <blockquote>
-<ol>
-<li>浏览器载入 HTML 文件（比如从网络上获取）。</li>
-<li>将 HTML 文件转化成一个 DOM（Document Object Model），DOM 是文件在计算机内存中的表现形式，下一节将更加详细的解释 DOM。</li>
-<li>接下来，浏览器会拉取该 HTML 相关的大部分资源，比如嵌入到页面的图片、视频和 CSS 样式。JavaScript 则会稍后进行处理，简单起见，同时此节主讲 CSS，所以这里对如何加载 JavaScript 不会展开叙述。</li>
-<li>浏览器拉取到 CSS 之后会进行解析，根据选择器的不同类型（比如 element、class、id 等等）把他们分到不同的“桶”中。浏览器基于它找到的不同的选择器，将不同的规则（基于选择器的规则，如元素选择器、类选择器、id 选择器等）应用在对应的 DOM 的节点中，并添加节点依赖的样式（这个中间步骤称为渲染树）。</li>
-<li>上述的规则应用于渲染树之后，渲染树会依照应该出现的结构进行布局。</li>
-<li>网页展示在屏幕上（这一步被称为着色）。</li>
-</ol>
+<p>除非特殊指定，诸如标题 (<code>&lt;h1&gt;</code>等) 和段落 (<code>&lt;p&gt;</code>) 默认情况下都是块级的盒子。</p>
 </blockquote>
+<h4 id="内联盒子-inline-box"><a href="#内联盒子-inline-box" class="headerlink" title="内联盒子 (inline box)"></a>内联盒子 (inline box)</h4><p>如果一个盒子对外显示为 <code>inline</code>，那么他的行为如下：</p>
+<ul>
+<li>盒子不会产生换行。</li>
+<li><code>width</code> 和 <code>height</code> 属性将不起作用。</li>
+<li>垂直方向的内边距、外边距以及边框会被应用但是不会把其他处于 <code>inline</code> 状态的盒子推开。</li>
+<li>水平方向的内边距、外边距以及边框会被应用且会把其他处于 <code>inline</code> 状态的盒子推开。</li>
+</ul>
+<blockquote>
+<p>用做链接的 <code>&lt;a&gt;</code> 元素、 <code>&lt;span&gt;</code>、 <code>&lt;em&gt;</code> 以及 <code>&lt;strong&gt;</code> 都是默认处于 <code>inline</code> 状态的。</p>
+</blockquote>
+<p>以上这两段关于块级盒子和内联盒子的叙述，值得反复阅读以确保自己能充分理解它们各自的特点以及它们之间的区别。</p>
+<h3 id="CSS-是如何工作的"><a href="#CSS-是如何工作的" class="headerlink" title="CSS 是如何工作的"></a>CSS 是如何工作的</h3><p>当浏览器展示一个文件的时候，它必须兼顾文件的内容和文件的样式信息，下面我们会了解到它处理文件的标准的流程。需要知道的是，下面的步骤是浏览加载网页的简化版本，而且不同的浏览器在处理文件的时候会有不同的方式，但是下面的步骤基本都会出现：</p>
+<ol>
+<li>浏览器载入 HTML 文件（比如从网络上获取）</li>
+<li>将 HTML 文件转化成一个 DOM（Document Object Model），DOM 是文件在计算机内存中的表现形式</li>
+<li>接下来，浏览器会拉取该 HTML 相关的大部分资源，比如嵌入到页面的图片、视频和 CSS 样式。JavaScript 则会稍后进行处理</li>
+<li>浏览器拉取到 CSS 之后会进行解析，根据选择器的不同类型（比如 element、class、id 等等）把他们分到不同的“桶”中。浏览器基于它找到的不同的选择器，将不同的规则（基于选择器的规则，如元素选择器、类选择器、id 选择器等）应用在对应的 DOM 的节点中，并添加节点依赖的样式（这个中间步骤称为渲染树）</li>
+<li>上述的规则应用于渲染树之后，渲染树会依照应该出现的结构进行布局</li>
+<li>网页展示在屏幕上（这一步被称为着色）</li>
+</ol>
 <p><img src="/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/rendering.jpg" style="zoom: 50%;"></p>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/CSS_basics">CSS 基础 - 学习 Web 开发 | MDN</a></li>
@@ -311,7 +338,10 @@
     <a href="/2023/01/11/HTML-%E5%9F%BA%E7%A1%80/" rel="prev" title="HTML 基础 ⭐">
       <i class="fa fa-chevron-left"></i> HTML 基础 ⭐
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/01/12/HTML-head-%E6%A0%87%E7%AD%BE/" rel="next" title="HTML <head> 标签">
+      HTML <head> 标签 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -370,7 +400,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E8%A7%84%E5%88%99%E9%9B%86%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">CSS 规则集基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E9%9B%86%E6%9E%84%E6%88%90"><span class="nav-number">1.1.</span> <span class="nav-text">规则集构成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9"><span class="nav-number">1.2.</span> <span class="nav-text">多元素选择</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E5%8F%B7%E4%B8%8E%E5%AD%97%E4%BD%93"><span class="nav-number">2.</span> <span class="nav-text">字号与字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">盒子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="nav-number">3.1.</span> <span class="nav-text">盒模型的三要素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E4%BE%8B%E5%AD%90"><span class="nav-number">3.2.</span> <span class="nav-text">一些例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%81%94%E7%9B%92%E5%AD%90%E4%B8%8E%E5%9D%97%E7%BA%A7%E7%9B%92%E5%AD%90"><span class="nav-number">4.</span> <span class="nav-text">内联盒子与块级盒子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E8%81%94%E7%9B%92%E5%AD%90-inline-box"><span class="nav-number">4.1.</span> <span class="nav-text">内联盒子 (inline box)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%97%E7%BA%A7%E7%9B%92%E5%AD%90-block-box"><span class="nav-number">4.2.</span> <span class="nav-text">块级盒子 (block box)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84"><span class="nav-number">5.</span> <span class="nav-text">CSS 是如何工作的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E8%A7%84%E5%88%99%E9%9B%86%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">CSS 规则集基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E9%9B%86%E6%9E%84%E6%88%90"><span class="nav-number">1.1.</span> <span class="nav-text">规则集构成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9"><span class="nav-number">1.2.</span> <span class="nav-text">多元素选择</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E5%8F%B7%E4%B8%8E%E5%AD%97%E4%BD%93"><span class="nav-number">2.</span> <span class="nav-text">字号与字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">盒子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="nav-number">3.1.</span> <span class="nav-text">盒模型的三要素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E4%BE%8B%E5%AD%90"><span class="nav-number">3.2.</span> <span class="nav-text">一些例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%81%94%E7%9B%92%E5%AD%90%E4%B8%8E%E5%9D%97%E7%BA%A7%E7%9B%92%E5%AD%90"><span class="nav-number">4.</span> <span class="nav-text">内联盒子与块级盒子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%97%E7%BA%A7%E7%9B%92%E5%AD%90-block-box"><span class="nav-number">4.1.</span> <span class="nav-text">块级盒子 (block box)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E8%81%94%E7%9B%92%E5%AD%90-inline-box"><span class="nav-number">4.2.</span> <span class="nav-text">内联盒子 (inline box)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84"><span class="nav-number">5.</span> <span class="nav-text">CSS 是如何工作的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,7 +416,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

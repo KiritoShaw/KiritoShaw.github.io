@@ -174,6 +174,287 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/12/HTML-%E6%96%87%E6%9C%AC%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/12/HTML-%E6%96%87%E6%9C%AC%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">HTML 文本基础</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-01-12 13:37:33 / Modified: 22:14:16" itemprop="dateCreated datePublished" datetime="2023-01-12T13:37:33+08:00">2023-01-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这一节的内容非常基础，只需快速浏览熟悉即可</p>
+<h3 id="标题和段落-Heading-amp-Paragraph"><a href="#标题和段落-Heading-amp-Paragraph" class="headerlink" title="标题和段落 Heading &amp; Paragraph"></a>标题和段落 Heading &amp; Paragraph</h3><p>大部分文本结构由标题和段落构成。而内容的结构化会使读者的阅读体验更加轻松，更愉快</p>
+<p>我们一共有六个标题元素 (heading) 标签：<code>&lt;h1&gt;</code> 表示主标题，<code>&lt;h2&gt;</code> 表示二级子标题，…，<code>&lt;h6&gt;</code> 为最小子标题；段落元素  (paragraph) 标签由 <code>&lt;p&gt;</code> 引导一个新的段落</p>
+<p></p><p class="codepen" data-height="277.99993896484375" data-default-tab="html,result" data-slug-hash="LYBydJa" data-editable="true" data-user="KiritoShaw" style="height: 277.99993896484375px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/LYBydJa">
+  文本基础</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><p>有些时候我们在说话时会通过加强语气向对方传达一些重要讯息。在阅读中，我们也有类似的“加强语气”的方法，并且通过可视化的方式表现出来</p>
+<h4 id="强调-Emphasis"><a href="#强调-Emphasis" class="headerlink" title="强调 Emphasis"></a>强调 Emphasis</h4><p><code>&lt;em&gt;</code> 元素标签可以实现斜体效果。下面的例子中，我们强调时间变化导致的情况的不同：</p>
+<p></p><p class="codepen" data-height="241.33334350585938" data-default-tab="html,result" data-slug-hash="VwBbgNd" data-editable="true" data-user="KiritoShaw" style="height: 241.33334350585938px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/VwBbgNd">
+  emphasis</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>注意在强调内容结束后加上 <code>&lt;/em&gt;</code>，否则你将得不到想要的结果。</p>
+<h4 id="非常重要"><a href="#非常重要" class="headerlink" title="非常重要"></a>非常重要</h4><p><code>&lt;strong&gt;</code> 元素标签可以实现加粗效果，同样地，在强调的内容后面立刻补上 <code>&lt;/strong&gt;</code>。下面的例子中，我们将一些好的表达进行加粗：</p>
+<p></p><p class="codepen" data-height="266.6666259765625" data-default-tab="html,result" data-slug-hash="gOjWqEq" data-editable="true" data-user="KiritoShaw" style="height: 266.6666259765625px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/gOjWqEq">
+  strong</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h4 id="下划线-Underline"><a href="#下划线-Underline" class="headerlink" title="下划线 Underline"></a>下划线 Underline</h4><p><code>&lt;u&gt;</code> 元素表示下划线。在以下例子中，我们划出一些生词：</p>
+<p></p><p class="codepen" data-height="262.66668701171875" data-default-tab="html,result" data-slug-hash="MWBmLLe" data-editable="true" data-user="KiritoShaw" style="height: 262.66668701171875px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/MWBmLLe">
+  underline</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="无序列表-Unordered-lists"><a href="#无序列表-Unordered-lists" class="headerlink" title="无序列表 Unordered lists"></a>无序列表 Unordered lists</h4><p>无序列表用于标记列表项目顺序无关紧要的列表。列表由 <code>&lt;ul&gt;</code> 开始，同时列表中的每个项目由 <code>&lt;li&gt;</code> 引导：</p>
+<p></p><p class="codepen" data-height="212.66668701171875" data-default-tab="html,result" data-slug-hash="mdjmvGG" data-editable="true" data-user="KiritoShaw" style="height: 212.66668701171875px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/mdjmvGG">
+  unordered list </a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h4 id="有序列表-Ordered-lists"><a href="#有序列表-Ordered-lists" class="headerlink" title="有序列表 Ordered lists"></a>有序列表 Ordered lists</h4><p>有序列表需要按照项目的顺序列出来。这个标记的结构和无序列表一样，除了需要用 <code>&lt;ol&gt;</code> 元素将所有项目包裹，而不是 <code>&lt;ul&gt;</code>：</p>
+<p></p><p class="codepen" data-height="220" data-default-tab="html,result" data-slug-hash="JjBNxer" data-editable="true" data-user="KiritoShaw" style="height: 220px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/JjBNxer">
+  ordered list</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h4 id="嵌套列表-Nesting-lists"><a href="#嵌套列表-Nesting-lists" class="headerlink" title="嵌套列表 Nesting lists"></a>嵌套列表 Nesting lists</h4><p>以下例子中用 <code>&lt;ul&gt;</code> 引导子列表的开始</p>
+<p></p><p class="codepen" data-height="252.66668701171875" data-default-tab="html,result" data-slug-hash="vYambqV" data-editable="true" data-user="KiritoShaw" style="height: 252.66668701171875px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/vYambqV">
+  nesting lists</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="无语义元素"><a href="#无语义元素" class="headerlink" title="无语义元素"></a>无语义元素</h3><p>上述所说的所有标签均是有语义的元素，它们的出现会使人们自然地联想到相对应的项目。既然提到我们有有语义的元素，那么自然也有无语义的元素。<code>&lt;span&gt;</code> 和 <code>&lt;div&gt;</code> 就是两个很典型的无语义元素，其中 <code>&lt;span&gt;</code> 默认是内联元素，<code>&lt;div&gt;</code> 默认是块级元素。</p>
+<p>我们可以通过设定 <code>&lt;span&gt;</code> 元素的 <code>CSS</code> (样式) 使其看起来像是一个标题，你可以通过调整字号的大小来看看效果的不同</p>
+<p></p><p class="codepen" data-height="200.66665649414062" data-default-tab="html,result" data-slug-hash="poZPqQq" data-editable="true" data-user="KiritoShaw" style="height: 200.66665649414062px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/poZPqQq">
+  span</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>然而，由于它没有语义值，所以它不会有任何上文提到的帮助。最好的方法是使用相关的 HTML 元素来标记这个项目。</p>
+<h3 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li><a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a></li>
+</ol>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals">HTML 文字处理基础 - 学习 Web 开发 | MDN</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/12/HTML-head-%E6%A0%87%E7%AD%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/12/HTML-head-%E6%A0%87%E7%AD%BE/" class="post-title-link" itemprop="url">HTML <head> 标签</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-01-12 10:27:46 / Modified: 13:35:51" itemprop="dateCreated datePublished" datetime="2023-01-12T10:27:46+08:00">2023-01-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/HTML_basics">HTML 基础 - 学习 Web 开发 | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/2023/01/11/HTML-基础/">HTML 基础 ⭐ | Shaw</a></li>
+</ol>
+<p>只需选择一个进行阅读即可</p>
+<h3 id="什么是-lt-head-gt-标签的"><a href="#什么是-lt-head-gt-标签的" class="headerlink" title="什么是 &lt;head&gt; 标签的"></a>什么是 <code>&lt;head&gt;</code> 标签的</h3><p>HTML <code>&lt;head&gt;</code> 元素与 <code>&lt;body&gt;</code> 元素不同，它的内容不会在浏览器中显示，它的作用是保存页面的一些元数据</p>
+<p>如果你阅读预备知识中的任一材料，你一定记得这样一个例子</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span> // 字符编码格式</span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>My test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span> // 标签页的标题</span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/firefox-icon.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;My test image&quot;</span>&gt;</span> // image 空元素</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>又或者你安装了 VSCode，那么在新建一个 HTML 文件之后，输入 <code>!</code> 并回车，你会看到这样一个东西</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span> // 设定语言, en 是英文, zh-CN 是中文</span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span> // 字符编码格式</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span> // Edge: 始终以最新的文档模式来渲染页面</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span> // 兼容移动端时需要考虑</span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此时 <code>&lt;body&gt;</code> 标签中并没有任何东西（因为我们还没有开始往网页中添加内容），而 <code>&lt;head&gt;</code> 标签中已经有了四个子元素</p>
+<p>大型页面的 <code>&lt;head&gt;</code> 会包含很多元数据。可以用开发者工具 <code>Fn+F12</code> 查看网页的 <code>&lt;head&gt;</code> 信息，就像如果你此时在检查该页面，你会发现这个页面包含了很多元数据，例如 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1, maximum-scale=2&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;website&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;twitter:card&quot;</span> <span class="attr">content</span>=<span class="string">&quot;summary&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/css/main.css&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Shaw<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">scr</span>=<span class="string">&quot;&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面我们简单讲解一下 <code>&lt;head&gt;</code> 标签内出现的比较常见和基础的元素</p>
+<h3 id="标题-title"><a href="#标题-title" class="headerlink" title="标题 title"></a>标题 title</h3><p>我们知道 <code>&lt;body&gt;</code> 中也有标题 <code>h1</code>，<code>h2</code> 等，但是 <code>&lt;head&gt;</code> 中的 <code>&lt;title&gt;</code> 并不是作为内容构成标题的一部分，而是作为元数据，用于表现整个 HTML 文档的标题</p>
+<p>你可以在浏览器标签栏看到该标签页的标题</p>
+<p><img src="/2023/01/12/HTML-head-%E6%A0%87%E7%AD%BE/head-title.jpg" style="zoom:80%;"></p>
+<p>同时当你添加页面到收藏夹时，<code>&lt;title&gt;</code> 元素还会作为建议的书签名</p>
+<p><img src="/2023/01/12/HTML-head-%E6%A0%87%E7%AD%BE/head-title-bookmark.jpg" style="zoom: 67%;"></p>
+<h3 id="元数据-meta"><a href="#元数据-meta" class="headerlink" title="元数据 meta"></a>元数据 meta</h3><p>HTML <code>&lt;meta&gt;</code> 元素表示那些不能由其它 HTML 元相关（meta-related）元素（(<code>&lt;base&gt;</code>、<code>&lt;link&gt;</code>, <code>&lt;script&gt;</code>、<code>&lt;style&gt;</code> 或 <code>&lt;title&gt;</code>）之一表示的任何元数据信息。和 <code>&lt;img&gt;</code> 一样是一个空元素</p>
+<p><code>meta</code> 元素定义的元数据的类型包括以下几种：</p>
+<ul>
+<li>如果设置了 <code>name</code> 属性，<code>meta</code> 元素提供的是文档级别（document-level）的元数据，应用于整个页面</li>
+<li>如果设置了 <code>http-equiv</code> 属性，<code>meta</code> 元素则是编译指令，提供的信息与类似命名的 HTTP 头部相同</li>
+<li>如果设置了 <code>charset</code> 属性，<code>meta</code> 元素是一个字符集声明，告诉文档使用哪种字符编码</li>
+<li>如果设置了 <code>itemprop</code> 属性，<code>meta</code> 元素提供用户定义的元数据</li>
+</ul>
+<p>下面列举一部分常见且基础的元数据</p>
+<h4 id="标准元数据名称"><a href="#标准元数据名称" class="headerlink" title="标准元数据名称"></a>标准元数据名称</h4><ul>
+<li><code>&lt;meta name=&quot;author&quot; content=&quot;Shaw&quot;&gt;</code>: 规定了作者</li>
+<li><code>&lt;meta name=&quot;description&quot; content=&quot;Shaw&#39;s blog&gt;&quot;</code>: 提供一段对页面内容简短而精确的描述</li>
+<li><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code>: 为 viewport（视口）的初始大小提供指示（hint）。目前仅用于移动设备</li>
+</ul>
+<h4 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h4><ul>
+<li><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code>: <code>utf-8</code> 是一个通用的字符集，它包含了任何人类语言中的大部分的字符</li>
+</ul>
+<h4 id="其他类型元数据"><a href="#其他类型元数据" class="headerlink" title="其他类型元数据"></a>其他类型元数据</h4><p>当你在网站上查看源码时，你也会发现其它类型的元数据。你在网站上看到的许多功能都是专有创作，旨在向某些网站（如社交网站）提供可使用的特定信息。</p>
+<p>例如，Facebook 编写的元数据协议 <a target="_blank" rel="noopener" href="https://ogp.me/">Open Graph Data</a> 为网站提供了更丰富的元数据。在该页面元代码中，你可以看到：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;website&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Twitter 还拥有自己的类型的专有元数据协议（称为：<a target="_blank" rel="noopener" href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards">Twitter Cards</a>），当网站的 URL 显示在 twitter.com 上时，它具有相似的效果。例如下面：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;twitter:card&quot;</span> <span class="attr">content</span>=<span class="string">&quot;summary&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="为站点添加图标"><a href="#为站点添加图标" class="headerlink" title="为站点添加图标"></a>为站点添加图标</h3><p>站点图标在特定的场合（浏览器的收藏，或书签列表）中显示</p>
+<p>首先将其保存在与网站的索引页面相同的目录中，以 <code>.ico</code> 格式保存（大多数浏览器将支持更通用的格式，如 <code>.gif</code> 或 <code>.png</code>，但使用 ICO 格式将确保它能在如 Internet Explorer 6 那样古老的浏览器显示）</p>
+<p>将以下行添加到 HTML 的 <code>&lt;head&gt;</code> 中以引用它</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;favicon.ico&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/x-icon&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="将-CSS-和-JavaScript-应用于-HTML"><a href="#将-CSS-和-JavaScript-应用于-HTML" class="headerlink" title="将 CSS 和 JavaScript 应用于 HTML"></a>将 CSS 和 JavaScript 应用于 HTML</h3><p><code>&lt;link&gt;</code> 元素经常位于文档的头部。这个 link 元素有 2 个属性，<code>rel</code> 规定当前文档与被链接文档/资源之间的关系，<code>rel=&quot;stylesheet&quot;</code> 表明这是文档的样式表，而 <code>href</code> 包含了样式表文件的路径：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;css-file.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;script&gt;</code> 元素没必要非要放在文档的 <code>&lt;head&gt;</code> 中，并包含 <code>src</code> 属性来指向需要加载的 JavaScript 文件路径，同时最好加上 <code>defer</code> 以告诉浏览器在解析完成 HTML 后再加载 JavaScript。这样可以确保在加载脚本之前浏览器已经解析了所有的 HTML 内容（如果脚本尝试访问某个不存在的元素，浏览器会报错）。实际上还有很多方法可用于处理加载 JavaScript 的问题，但这是现代浏览器中最可靠的一种方法。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;js-file.js&quot;</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="练练手"><a href="#练练手" class="headerlink" title="练练手"></a>练练手</h3><p>如果你闲的发慌，可以试试以下练习：</p>
+<ol>
+<li>在 VSCode 中新建 <code>web-project</code> 文件夹，在该文件夹下新建 <code>images</code>， <code>css</code>文件夹以及 <code>index.html</code> 文档；在 <code>css</code> 文件夹下新建 <code>style.css</code></li>
+<li>打开 <code>index.html</code>，键入 <code>!</code> 并回车，快速生成标准的HTML代码（如果使用的编辑器不支持此功能，可以跳过）</li>
+<li>为文档设定主语言为中文</li>
+<li>设置文档的元数据，例如标题，作者，文档描述等</li>
+<li>自行搜索并下载喜欢的图标，然后添加到文档的 <code>&lt;head&gt;</code> 中</li>
+<li>使用相对路径引用 <code>css</code> 文档中的 <code>css</code> 文件</li>
+<li>设置文章的一号标题，添加自定义段落内容</li>
+</ol>
+<h3 id="仅供参考的答案"><a href="#仅供参考的答案" class="headerlink" title="仅供参考的答案"></a>仅供参考的答案</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;author&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Shaw&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;head-practice&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="symbol">&amp;lt;</span>title<span class="symbol">&amp;gt;</span> element <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;32x32&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/images/favicon-32x32-next.png&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;16x16&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/images/favicon-16x16-next.png&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/css/style.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="symbol">&amp;lt;</span>h1<span class="symbol">&amp;gt;</span> element<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>仅供参考的答案<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li><a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a></li>
+</ol>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML">标签里有什么？Metadata-HTML 中的元数据 - 学习 Web 开发 | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta">\<meta\>：文档级元数据元素 | MDN</meta\></a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta/name">标准元数据名称 - HTML（超文本标记语言） | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zxx193/p/3368236.html">HTML 中 meta 属性 http-equiv=”X-UA-Compatible”详解 - IT浪潮之巅 - 博客园</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -197,10 +478,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-01-11 22:08:24 / Modified: 23:03:57" itemprop="dateCreated datePublished" datetime="2023-01-11T22:08:24+08:00">2023-01-11</time>
+              <time title="Created: 2023-01-11 22:08:24" itemprop="dateCreated datePublished" datetime="2023-01-11T22:08:24+08:00">2023-01-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-01-12 10:10:26" itemprop="dateModified" datetime="2023-01-12T10:10:26+08:00">2023-01-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -244,7 +531,8 @@
 <p>我们需要关心以下事实：</p>
 <ol>
 <li>盒模型的实际大小仅仅仅是边界 <code>border</code> 所框起来的部分（这里特指标准盒模型）</li>
-<li><code>margin</code> 其实对盒子的内容并没有什么影响，同时 <code>margin</code> 会将别的元素从盒子周围推开</li>
+<li><code>margin</code> 其实对盒子的内容并没有什么影响，它影响的是盒子外部空间。</li>
+<li><code>margin</code> 会将别的元素从盒子周围推开</li>
 </ol>
 <h4 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h4><p>更改页面颜色</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#00539F</span>; // 背景颜色</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -257,18 +545,38 @@
 </blockquote>
 <h3 id="内联盒子与块级盒子"><a href="#内联盒子与块级盒子" class="headerlink" title="内联盒子与块级盒子"></a>内联盒子与块级盒子</h3><p>除了盒模型的构成，我们还需要关注两种重要的盒子，那就是内联盒子和块级盒子</p>
 <p>如果你熟悉 <code>markdown</code> 语言，那么这一对概念对你来讲并不是什么很难理解的概念。CSS 中的内联盒子大致可以对应 <code>markdown</code> 中的<strong>行内公式</strong> ($x^2+y=1$) 和<strong>行内代码</strong> (<code>var para = document.querySelector(&#39;p&#39;)</code>) 等行内元素，而块级盒子大致可以对应普通段落，公式块和代码块等</p>
+<p>我们可以通过对盒子<code>display</code> 属性的设置，比如 <code>inline</code> 或者 <code>block</code> ，来控制盒子的外部显示类型。</p>
 <p>内联盒子和块级盒子在页面流和元素之间的关系方面表现出不同的行为：</p>
-<h4 id="内联盒子-inline-box"><a href="#内联盒子-inline-box" class="headerlink" title="内联盒子 (inline box)"></a>内联盒子 (inline box)</h4><h4 id="块级盒子-block-box"><a href="#块级盒子-block-box" class="headerlink" title="块级盒子 (block box)"></a>块级盒子 (block box)</h4><h3 id="CSS-是如何工作的"><a href="#CSS-是如何工作的" class="headerlink" title="CSS 是如何工作的"></a>CSS 是如何工作的</h3><p>当浏览器展示一个文件的时候，它必须兼顾文件的内容和文件的样式信息，下面我们会了解到它处理文件的标准的流程。需要知道的是，下面的步骤是浏览加载网页的简化版本，而且不同的浏览器在处理文件的时候会有不同的方式，但是下面的步骤基本都会出现。</p>
+<h4 id="块级盒子-block-box"><a href="#块级盒子-block-box" class="headerlink" title="块级盒子 (block box)"></a>块级盒子 (block box)</h4><p>一个被定义成块级的盒子会表现出以下行为：</p>
+<ul>
+<li>盒子会在内联的方向上扩展并占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽</li>
+<li>每个盒子都会换行</li>
+<li><code>width</code> 和 <code>height</code> 属性可以发挥作用</li>
+<li>内边距（padding）, 外边距（margin）和 边框（border）会将其他元素从当前盒子周围“推开”</li>
+</ul>
 <blockquote>
-<ol>
-<li>浏览器载入 HTML 文件（比如从网络上获取）。</li>
-<li>将 HTML 文件转化成一个 DOM（Document Object Model），DOM 是文件在计算机内存中的表现形式，下一节将更加详细的解释 DOM。</li>
-<li>接下来，浏览器会拉取该 HTML 相关的大部分资源，比如嵌入到页面的图片、视频和 CSS 样式。JavaScript 则会稍后进行处理，简单起见，同时此节主讲 CSS，所以这里对如何加载 JavaScript 不会展开叙述。</li>
-<li>浏览器拉取到 CSS 之后会进行解析，根据选择器的不同类型（比如 element、class、id 等等）把他们分到不同的“桶”中。浏览器基于它找到的不同的选择器，将不同的规则（基于选择器的规则，如元素选择器、类选择器、id 选择器等）应用在对应的 DOM 的节点中，并添加节点依赖的样式（这个中间步骤称为渲染树）。</li>
-<li>上述的规则应用于渲染树之后，渲染树会依照应该出现的结构进行布局。</li>
-<li>网页展示在屏幕上（这一步被称为着色）。</li>
-</ol>
+<p>除非特殊指定，诸如标题 (<code>&lt;h1&gt;</code>等) 和段落 (<code>&lt;p&gt;</code>) 默认情况下都是块级的盒子。</p>
 </blockquote>
+<h4 id="内联盒子-inline-box"><a href="#内联盒子-inline-box" class="headerlink" title="内联盒子 (inline box)"></a>内联盒子 (inline box)</h4><p>如果一个盒子对外显示为 <code>inline</code>，那么他的行为如下：</p>
+<ul>
+<li>盒子不会产生换行。</li>
+<li><code>width</code> 和 <code>height</code> 属性将不起作用。</li>
+<li>垂直方向的内边距、外边距以及边框会被应用但是不会把其他处于 <code>inline</code> 状态的盒子推开。</li>
+<li>水平方向的内边距、外边距以及边框会被应用且会把其他处于 <code>inline</code> 状态的盒子推开。</li>
+</ul>
+<blockquote>
+<p>用做链接的 <code>&lt;a&gt;</code> 元素、 <code>&lt;span&gt;</code>、 <code>&lt;em&gt;</code> 以及 <code>&lt;strong&gt;</code> 都是默认处于 <code>inline</code> 状态的。</p>
+</blockquote>
+<p>以上这两段关于块级盒子和内联盒子的叙述，值得反复阅读以确保自己能充分理解它们各自的特点以及它们之间的区别。</p>
+<h3 id="CSS-是如何工作的"><a href="#CSS-是如何工作的" class="headerlink" title="CSS 是如何工作的"></a>CSS 是如何工作的</h3><p>当浏览器展示一个文件的时候，它必须兼顾文件的内容和文件的样式信息，下面我们会了解到它处理文件的标准的流程。需要知道的是，下面的步骤是浏览加载网页的简化版本，而且不同的浏览器在处理文件的时候会有不同的方式，但是下面的步骤基本都会出现：</p>
+<ol>
+<li>浏览器载入 HTML 文件（比如从网络上获取）</li>
+<li>将 HTML 文件转化成一个 DOM（Document Object Model），DOM 是文件在计算机内存中的表现形式</li>
+<li>接下来，浏览器会拉取该 HTML 相关的大部分资源，比如嵌入到页面的图片、视频和 CSS 样式。JavaScript 则会稍后进行处理</li>
+<li>浏览器拉取到 CSS 之后会进行解析，根据选择器的不同类型（比如 element、class、id 等等）把他们分到不同的“桶”中。浏览器基于它找到的不同的选择器，将不同的规则（基于选择器的规则，如元素选择器、类选择器、id 选择器等）应用在对应的 DOM 的节点中，并添加节点依赖的样式（这个中间步骤称为渲染树）</li>
+<li>上述的规则应用于渲染树之后，渲染树会依照应该出现的结构进行布局</li>
+<li>网页展示在屏幕上（这一步被称为着色）</li>
+</ol>
 <p><img src="/2023/01/11/CSS-%E5%9F%BA%E7%A1%80/rendering.jpg" style="zoom: 50%;"></p>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web/CSS_basics">CSS 基础 - 学习 Web 开发 | MDN</a></li>
@@ -874,7 +1182,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/29/Lorem%20ipsum/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/29/Lorem-ipsum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -888,7 +1196,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/12/29/Lorem%20ipsum/" class="post-title-link" itemprop="url">Lorem ipsum</a>
+            <a href="/2022/12/29/Lorem-ipsum/" class="post-title-link" itemprop="url">Lorem ipsum</a>
         </h2>
 
         <div class="post-meta">
@@ -1120,265 +1428,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/05/%E5%90%AC%E6%87%82-CNBC-Markets-Now-2-Down/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/05/%E5%90%AC%E6%87%82-CNBC-Markets-Now-2-Down/" class="post-title-link" itemprop="url">听懂 CNBC Markets Now 2 Down</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-08-05 17:45:17 / Modified: 17:48:55" itemprop="dateCreated datePublished" datetime="2022-08-05T17:45:17+08:00">2022-08-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CNBC-Markets-Now/" itemprop="url" rel="index"><span itemprop="name">CNBC Markets Now</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Down"><a href="#Down" class="headerlink" title="Down"></a>Down</h3><blockquote>
-<p>“微微下挫”是 drop，fall，decline 或者 slip；严重一点可以用 sink，plunge 或者 plummet；“崩盘”用 crash 或者 collapse</p>
-</blockquote>
-<p>be down</p>
-<ul>
-<li>Dow was up for the day, <strong>down</strong> for the week. 道指当天上涨，本周<strong>下跌</strong>。</li>
-<li>It was <strong>down</strong> nearly 4% to snap a three week win streak. （股市）<strong>下跌</strong>了近 4%，结束了三周的连续上涨。</li>
-</ul>
-<p>be lower</p>
-<ul>
-<li>Bank shares were mostly <strong>lower</strong> on mixed results from Wells Fargo, Goldman Sachs. 由于富国银行和高盛的业绩喜忧参半，银行股大多<strong>走低</strong>。</li>
-</ul>
-<p>lose</p>
-<ul>
-<li>The S&amp;P 500 <strong>lost</strong> almost 1% Tuesday and is now off by 2% for the week, pressured by tech stocks and fears of another round of China lockdowns.  受到科技股和对中国新一轮封锁的担忧的压力，标准普尔500指数周二<strong>下跌</strong>近1%，本周下跌2%。 </li>
-</ul>
-<p>drop</p>
-<ul>
-<li>The S&amp;P 500 index <strong>dropped</strong> 2,4% Thursday, almost the entire decline coming in the closing hours as the main consumer price index released looms. 标准普尔 500 指数周四<strong>下跌</strong> 2.4%，随着主要消费者价格指数的发布迫在眉睫，几乎整个跌幅都发生在收盘时间。</li>
-</ul>
-<p>fall</p>
-<ul>
-<li>The S&amp;P 500 <strong>fell</strong> nearly 3% Friday and 5% for the week after the consumer price index for May came in slightly above forecast at an 8.6% annual rate with core prices excluding food and energy rising 6%. 标准普尔 500 指数周五<strong>下跌</strong>近 3%，一周下跌近 5%，此前 5 月份消费者价格指数以 8.6% 的年增长率略高于预期，其中不包括食品和能源的核心价格上涨 6%。</li>
-</ul>
-<p>decline</p>
-<ul>
-<li>A forceful comeback for stocks to start a new week with the indexes reversing a <strong>decline</strong> to five week lows to finish with a healthy gain. 股市强势反弹开始新的一周，指数扭转<strong>跌势</strong>至五周低点，以健康收益结束。 </li>
-</ul>
-<p>slip</p>
-<ul>
-<li>Crude oil prices <strong>slipped</strong> 5%. 原油价格下跌 5%。</li>
-<li>News that Elon Musk offered to acquire Twitter for a premium to the current price couldn’t even excite investors, with Twitter shares <strong>slipping</strong> almost 2% on the day on doubts that any deal is likely. 埃隆马斯克提出以高于当前价格收购 Twitter 的消息甚至无法激发投资者的兴趣，Twitter 股价当天下跌近 2%，原因是怀疑任何交易的可能性。</li>
-</ul>
-<p>slide, shed</p>
-<ul>
-<li>Energy stocks <strong>slid</strong> 3% with crude oil <strong>shedding</strong> 4% on a day when the Biden administration proposed a temporary suspension to the Federal gasoline tax to ease few cost burdens on consumers. 在拜登政府提议暂时中止联邦汽油税以减轻消费者的成本负担当天，能源股<strong>下跌</strong> 3%，原油<strong>下跌</strong> 4%。</li>
-</ul>
-<p>stumble</p>
-<ul>
-<li>Stocks <strong>stumbled</strong> on another jump in a Treasury yield after Federal Reserve officials elaborated on plans for aggressive rate hike and a fast reduction in the Fed’s bond holdings. 在美联储官员详细阐述了激进加息和快速减持美联储债券的计划后，美国国债收益率再次上涨，股市<strong>跌跌不休</strong>。</li>
-</ul>
-<p>sink</p>
-<ul>
-<li>Treasury yields <strong>sank</strong> to a six week low on such concerns which are unwelcome to investors yet might offer some relief to the previous prevailing fears of galloping inflation and runaway interest rate hikes. 美国国债收益率因投资者不想要的担忧而<strong>跌</strong>至六周低点，但可能会缓解此前对通胀飙升和失控加息的恐慌。</li>
-<li>Meantime, treasury yields <strong>sank</strong> further registering a buildup of worry over an economic downturn taking hold. 与此同时，美国国债收益率进一步<strong>下跌</strong>，表明人们对经济衰退的担忧加剧。</li>
-</ul>
-<p>slump</p>
-<ul>
-<li>The S&amp;P 500 index <strong>slumped</strong>  3% Monday after a powerful 6% bounce last week. 在上周强劲反弹 6% 后，标准普尔 500 指数周一<strong>暴跌</strong> 3%。</li>
-</ul>
-<p>plunge</p>
-<ul>
-<li><p>plummet </p>
-</li>
-<li></li>
-</ul>
-<p>tumble</p>
-<ul>
-<li>The S&amp;P500 index <strong>tumbled</strong> 3.2% Monday, again led lower by reeling big tech stocks owned heavily by retail investors as well as some major hedge funds shouldering heavy losses. 标准普尔 500 指数周一重挫 3.2%，再次领跌，主要是散户投资者持有的大型科技股以及一些主要的对冲基金遭受重创。</li>
-<li>Across markets, the action surely had the look of investors assuming a recession is near with oil <strong>tumbling</strong> 8% and finishing below $100 a share, the US dollar surging against the Euro and corporate bonds <strong>selling off</strong>. 纵观整个市场，这一行动肯定让投资者认为经济衰退即将来临，油价<strong>暴跌</strong> 8%，收于每股 100 美元以下，美元兑欧元飙升，公司债券遭到<strong>抛售</strong>。 </li>
-</ul>
-<p>crash</p>
-<ul>
-<li><p>collapse</p>
-</li>
-<li><p>Stocks were <strong>steady</strong> on Wednesday holding on to the week’s gain so far as a <strong>brutal collapse</strong> in Netflix shares dragged down tech and media stocks, but had only modest impact on the broader indexes. 由于 Netflix 股价<strong>暴跌</strong>拖累科技股和媒体股下跌，周三股市保持本周涨幅，但对更广泛的指数影响不大。</p>
-</li>
-</ul>
-<p>take another leg lower</p>
-<ul>
-<li>Tech stocks <strong>took another sharp leg lower</strong> after a dour outlook from Snap. 在 Snap 的悲观前景之后，科技股<strong>再次大幅走低</strong>。</li>
-</ul>
-<p>drift lower</p>
-<ul>
-<li>Stocks <strong>drifted lower</strong> for a second day holding on to most of last week’s rally with investors risk appetites held in check by the dual threats of economic slowdown and persistent inflation. 由于经济放缓和持续通胀的双重威胁抑制了投资者的风险偏好，股市连续第二天<strong>走低</strong>，维持上周的大部分涨势。</li>
-</ul>
-<p>crack</p>
-<ul>
-<li>For now the index has not yet <strong>cracked below the lows</strong> set in the February and March sell offs. 目前，该指数尚未<strong>跌破</strong> 2 月和 3 月抛售时设定的<strong>低点</strong>。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/05/%E5%90%AC%E6%87%82-CNBC-Markets-Now-1-Up/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/05/%E5%90%AC%E6%87%82-CNBC-Markets-Now-1-Up/" class="post-title-link" itemprop="url">听懂 CNBC Markets Now 1 Up</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-08-05 17:39:34 / Modified: 17:43:28" itemprop="dateCreated datePublished" datetime="2022-08-05T17:39:34+08:00">2022-08-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CNBC-Markets-Now/" itemprop="url" rel="index"><span itemprop="name">CNBC Markets Now</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="Up"><a href="#Up" class="headerlink" title="Up"></a>Up</h3><blockquote>
-<p>小幅度的上涨可以说 rise，gain 或者 climb；而大幅度的涨则是 surge，soar 或者 jump；甚至可以用“火箭一飞冲天” skyrocket 来形容</p>
-</blockquote>
-<p>be up</p>
-<ul>
-<li>The Dow was <strong>up</strong> about 160 points right after the open but ended down 152. That’s now the fifth straight down session for the blue chip index. 道琼斯指数开盘后<strong>上涨</strong>约 160 点，但收盘下跌 152 点。这已是蓝筹股指数连续第五个交易日下跌。</li>
-</ul>
-<p>rise </p>
-<ul>
-<li>The S&amp;P 500 index <strong>rose</strong> nearly 1% Wednesday, reaching a one week high that places on more than 4% above last Friday’s 14 month low. 标准普尔 500 指数周三<strong>上涨</strong>近 1%，达到一周高点，比上周五的 14 个月低点高出 4% 以上。</li>
-</ul>
-<p>gain</p>
-<ul>
-<li>Stocks <strong>making modest gains</strong> on Wall Street today. 今日华尔街股市<strong>小幅上涨</strong>。</li>
-<li>Stocks held steady to <strong>preserve the hefty gains</strong> racked up in the past month, with signs of fatigue offset by continued excitement of a group of high-momentum tech stocks. 股票保持稳定以<strong>保持</strong>过去一个月的<strong>巨幅收益</strong>，疲软的迹象被一组高势头科技股的持续兴奋所抵消。</li>
-</ul>
-<p>climb</p>
-<ul>
-<li>Amazon continued to strong recovery, <strong>climbing</strong> another 3% on the day and now <strong>up</strong> 9% this week.</li>
-</ul>
-<p>jump</p>
-<ul>
-<li>Stocks stumbled on another <strong>jump</strong> in a Treasury yield after Federal Reserve officials elaborated on plans for aggressive rate hike and a fast reduction in the Fed’s bond holdings. 在美联储官员详细阐述了激进加息和快速减持美联储债券的计划后，美国国债收益率再次<strong>上涨</strong>，股市跌跌不休。</li>
-</ul>
-<p>surge</p>
-<ul>
-<li>Dow <strong>surged</strong> 500 points to close, not far from the session highs. 道指收盘<strong>大涨</strong>500点，距离盘中高点不远。</li>
-<li>The S&amp;P 500 index <strong>surged</strong> two and a half percent Friday pushing it to a 6.3% weekly gain, which emphatically ended a seven week losing streak and leaves the benchmark up slightly for the month of May. 周五，标准普尔 500 指数<strong>飙升</strong> 2.5%，推动其本周上涨 6.3%，这明显结束了连续七周的跌势，并使基准指数在 5 月份小幅上涨。 </li>
-</ul>
-<p>soar</p>
-<ul>
-<li>Enphase, Sunrun both up nearly 6% on that news, while Array Technologies <strong>soared</strong> 18%. Enphase 和 Sunrun 均因该消息而上涨近 6%，而 Array Technologies 则<strong>飙升</strong> 18%。</li>
-</ul>
-<p>churn</p>
-<ul>
-<li>Wall Street continues to waver between the risks of stubborn inflation and stalling growth with stock prices <strong>churning</strong> just above recent lows to close out the market’s worst first half of the year in decades. 华尔街继续在顽固的通胀风险和增长停滞的风险之间摇摆不定，股价<strong>飙升</strong>至略高于近期低点，结束了市场几十年来最糟糕的上半年。</li>
-</ul>
-<p>skyrocket</p>
-<ul>
-<li>10 year Treasury yield has <strong>rocketed</strong> up more than 35 basis points just this week alone. The benchmark yield top 2.7%. 10 年期美国国债收益率就<strong>飙升</strong>了 35 个基点以上。基准收益率最高为 2.7%。</li>
-</ul>
-<p>rush higher</p>
-<ul>
-<li>Stocks <strong>rushed higher</strong> to turn positive for the week, extending the rebound rally that began almost two weeks ago, even in the face of what could have been taken as some worrisome news. 本周股市<strong>冲高</strong>转为正，延续了近两周前开始的反弹反弹，即使面对可能被视为一些令人担忧的消息。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1450,7 +1499,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
