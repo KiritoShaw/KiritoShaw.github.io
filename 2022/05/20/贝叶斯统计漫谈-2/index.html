@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://example.com/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/Stein2.jpg">
 <meta property="og:image" content="http://example.com/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/Stein_2.png">
 <meta property="article:published_time" content="2022-05-20T01:33:41.000Z">
-<meta property="article:modified_time" content="2022-05-28T06:30:42.873Z">
+<meta property="article:modified_time" content="2023-01-12T14:50:36.481Z">
 <meta property="article:author" content="Shaw">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/05/20/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1%E6%BC%AB%E8%B0%88-2/Stein2.jpg">
@@ -210,7 +210,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-28 14:30:42" itemprop="dateModified" datetime="2022-05-28T14:30:42+08:00">2022-05-28</time>
+                <time title="Modified: 2023-01-12 22:50:36" itemprop="dateModified" datetime="2023-01-12T22:50:36+08:00">2023-01-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,6 +243,7 @@
         <h3 id="Stein-效应"><a href="#Stein-效应" class="headerlink" title="Stein 效应"></a><center>Stein 效应</center></h3><h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>正态均值用其样本均值去估计有很好的性质。人们都经常使用它，当把这样的估计推广到p元正态分布场合时出现了意想不到的结果。Stein在1955年指出，在多元二次损失函数下，$p\ge3\ $时，样本均值向量是正态均值向量的非容许估计。如今，我们把这种效应称为Stein效应。</p>
 <h4 id="一致最小方差无偏估计-UMVUE"><a href="#一致最小方差无偏估计-UMVUE" class="headerlink" title="一致最小方差无偏估计 UMVUE"></a>一致最小方差无偏估计 UMVUE</h4><p>当我们谈及对某个参数的点估计问题时，我们当然可以根据样本构造很多的统计量，不论它们到底合理与否。不过我们总是希望这些估计量会满足一些比较好的性质，例如<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%97%A0%E5%81%8F%E6%80%A7/6320898">无偏性</a>（没有系统性偏差）、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/相合性">相合性</a>（随着样本量的增加可以在概率意义下逼近参数真值）等等。</p>
 <p>不仅如此，我们往往还会更加关心是否能够找到一种最优的估计——这种最优性会在一定的框架或者说<strong>准则</strong>下导出。一致最小方差无偏估计UMVUE（Uniformly Minimum-Variance Unbiased Estimator）就是一个对于所有<strong>无偏估计</strong>中，拥有<strong>最小方差</strong>的无偏估计。</p>
+<span id="more"></span>
 <h4 id="容许性"><a href="#容许性" class="headerlink" title="容许性"></a>容许性</h4><p>不必回忆干巴巴的数学符号，我们仅通过简单的语言来描述什么是（非）容许估计。</p>
 <p>非容许估计就是指在某种准则（决策函数）下，无论参数真值取什么值，某个估计都会一致地比另外一个估计表现差。需要注意两点：一是“一致”是对参数真值而言的，二是表现差是针对具体的准则（决策函数）而言的，换了不同的准则（决策函数），我们的结果可能就截然不同了。</p>
 <p>所以很自然地，在一个事先固定的框架下，当某个估计量一致地比另一个估计量的表现差，那么我们就没有任何理由保留前者，此时我们就称它是非容许的。</p>

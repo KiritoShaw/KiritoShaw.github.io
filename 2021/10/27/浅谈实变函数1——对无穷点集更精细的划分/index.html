@@ -30,7 +30,7 @@
 <meta property="og:description" content="&amp;emsp;&amp;emsp;在数学分析中，我们常常处理的是连续函数，因为这种函数有着良好的性质，在微分与积分时可以得到比较好的结果。当然，我们偶尔也会处理仅在有限点处不连续的函数，它们在某些结果上从和连续函数并没有多大差别。 &amp;emsp;&amp;emsp;可是当考虑无限点处不连续的函数时，我们原有的方法失效了。一个典型的例子就是 f 在$\ [0,1]\ $上的Riemann积分，其中 f 形式如下所示：">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-27T09:24:32.000Z">
-<meta property="article:modified_time" content="2021-11-03T07:44:30.402Z">
+<meta property="article:modified_time" content="2023-01-12T14:52:49.172Z">
 <meta property="article:author" content="Shaw">
 <meta property="article:tag" content="Real Analysis">
 <meta name="twitter:card" content="summary">
@@ -208,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 15:44:30" itemprop="dateModified" datetime="2021-11-03T15:44:30+08:00">2021-11-03</time>
+                <time title="Modified: 2023-01-12 22:52:49" itemprop="dateModified" datetime="2023-01-12T22:52:49+08:00">2023-01-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,6 +248,7 @@ f(x)=
 \end{cases}</script><p>也即该函数在无理点处取值为1，在有理点处取值为0。注意到这个函数在$\ [0,1]\ $上是Riemann不可积的。（这也促使我们需要从更高的观点来看待积分）</p>
 <p>&emsp;&emsp;首先，我们将点集分为有限点集和无限点集：有限点集是很好处理的，重点是无限点集。这里我所说的“很好处理”，是指我们很容易判断一个集合的大小，有限点集的大小就是看这个集合中元素的个数，数数我们总是会的。而当我们面对一个无限点集时，我们并不好描述它的“无限”究竟是多么不加限制。</p>
 <p>&emsp;&emsp;先从有限集合获取灵感：</p>
+<span id="more"></span>
 <p>&emsp;&emsp;1. 有限集合的大小定义为集合中元素的个数</p>
 <p>&emsp;&emsp;2. 有限集合A，B的大小比较是通过比较两集合元素多少。笨一点的方法是我们挑出A中一个元素，发现B中也能挑出一个元素，再从A中不重复的挑出一个元素，发现B中也能挑出一个元素……直至其中一个集合再也不能挑出元素来（例如B已经宣布告罄了），那么我们认为$|A|\ge|B|$。</p>
 <p>&emsp;&emsp;下面我们来给无穷点集进行<strong>更加精细的划分</strong>。</p>

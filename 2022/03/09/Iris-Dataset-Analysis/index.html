@@ -49,7 +49,7 @@
 <meta property="og:image" content="http://example.com/2022/03/09/Iris-Dataset-Analysis/ridgeline.png">
 <meta property="og:image" content="http://example.com/2022/03/09/Iris-Dataset-Analysis/Lreg_compare_l1_l2.png">
 <meta property="article:published_time" content="2022-03-09T11:11:23.000Z">
-<meta property="article:modified_time" content="2022-03-12T07:08:29.736Z">
+<meta property="article:modified_time" content="2023-01-12T14:48:32.803Z">
 <meta property="article:author" content="Shaw">
 <meta property="article:tag" content="Visualization">
 <meta property="article:tag" content="LogisticRegression">
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 15:08:29" itemprop="dateModified" datetime="2022-03-12T15:08:29+08:00">2022-03-12</time>
+                <time title="Modified: 2023-01-12 22:48:32" itemprop="dateModified" datetime="2023-01-12T22:48:32+08:00">2023-01-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,6 +273,7 @@
 <li>点击此处在 UCI 上 <a target="_blank" rel="noopener" href="https://archive-beta.ics.uci.edu/ml/datasets/iris">下载</a> Iris 数据集</li>
 </ol>
 <p>在整个数据集的分析过程中，我主要参考了 <a target="_blank" rel="noopener" href="https://www.kaggle.com/benhamner/python-data-visualizations">Python Data Visualizations | Kaggle</a> 这篇文章。至于参考的其他文章和资料，我会一并放在博客的最后。</p>
+<span id="more"></span>
 <h3 id="导入外部包和模块"><a href="#导入外部包和模块" class="headerlink" title="导入外部包和模块"></a>导入外部包和模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># current version of seaborn generates a bunch of warnings that we&#x27;ll ignore</span></span><br><span class="line"><span class="keyword">import</span> warnings </span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.set_theme(style=<span class="string">&quot;white&quot;</span>, color_codes=<span class="literal">True</span>)</span><br><span class="line"><span class="comment">#调取operating system模块</span></span><br><span class="line"><span class="keyword">import</span> os </span><br><span class="line"><span class="comment">#import matplotlib.image as mpimg # mpimg 用于读取图片</span></span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">import</span> PIL.Image <span class="keyword">as</span> Image</span><br><span class="line"><span class="keyword">import</span> rpy2.robjects <span class="keyword">as</span> robjects</span><br></pre></td></tr></table></figure>
 <p><code>NumPy</code>库是 python 进行科学计算的基础库</p>
 <p><code>Pandas</code>是数据分析必不可少的库，提供了高性能，并且易于使用的数据存储结构 DataFrame 和 Series 结构</p>
