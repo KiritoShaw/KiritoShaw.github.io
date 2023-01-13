@@ -22,19 +22,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="决策就是对一件事情做决定。它与推断的差别在于是否涉及后果。统计学家在做推断时是按统计理论进行的，很少或者根本不考虑推断结果在使用后的得失。度量得失的尺度就是收益函数或者是损失函数。损失函数与决策环境密切相关，因此从实际中归纳出损失函数就是决策成败的的关键。我们把损失函数引入贝叶斯推断形成贝叶斯决策论。 本章将会重点介绍收益函数、损失函数和效用函数等概念，其中还涉及到一些不用抽样信息的一些决策准则。">
+  <meta name="description" content="什么是超链接 Hyperlink超链接使互联网成为了互联的网络：我们可以将网络内容转化成链接，通过点击链接转而浏览目标位置。 链接的解析基本链接 Anchor&lt;a&gt; 元素标签表示超链接，并由属性 href (Hypertext Reference) 指向目标网址 123&lt;p&gt;    &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;kiritoshaw.github.io&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="贝叶斯统计 4 决策中的收益、损失与效用">
-<meta property="og:url" content="http://example.com/2022/05/14/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-4-%E5%86%B3%E7%AD%96%E4%B8%AD%E7%9A%84%E6%94%B6%E7%9B%8A%E3%80%81%E6%8D%9F%E5%A4%B1%E4%B8%8E%E6%95%88%E7%94%A8/index.html">
+<meta property="og:title" content="HTML 超链接">
+<meta property="og:url" content="http://example.com/2023/01/13/HTML-%E8%B6%85%E9%93%BE%E6%8E%A5/index.html">
 <meta property="og:site_name" content="Shaw">
-<meta property="og:description" content="决策就是对一件事情做决定。它与推断的差别在于是否涉及后果。统计学家在做推断时是按统计理论进行的，很少或者根本不考虑推断结果在使用后的得失。度量得失的尺度就是收益函数或者是损失函数。损失函数与决策环境密切相关，因此从实际中归纳出损失函数就是决策成败的的关键。我们把损失函数引入贝叶斯推断形成贝叶斯决策论。 本章将会重点介绍收益函数、损失函数和效用函数等概念，其中还涉及到一些不用抽样信息的一些决策准则。">
+<meta property="og:description" content="什么是超链接 Hyperlink超链接使互联网成为了互联的网络：我们可以将网络内容转化成链接，通过点击链接转而浏览目标位置。 链接的解析基本链接 Anchor&lt;a&gt; 元素标签表示超链接，并由属性 href (Hypertext Reference) 指向目标网址 123&lt;p&gt;    &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;kiritoshaw.github.io&#x2F;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-05-14T04:59:56.000Z">
-<meta property="article:modified_time" content="2023-01-12T14:50:14.800Z">
+<meta property="article:published_time" content="2023-01-13T13:30:13.000Z">
+<meta property="article:modified_time" content="2023-01-13T13:30:13.645Z">
 <meta property="article:author" content="Shaw">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/05/14/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-4-%E5%86%B3%E7%AD%96%E4%B8%AD%E7%9A%84%E6%94%B6%E7%9B%8A%E3%80%81%E6%8D%9F%E5%A4%B1%E4%B8%8E%E6%95%88%E7%94%A8/">
+<link rel="canonical" href="http://example.com/2023/01/13/HTML-%E8%B6%85%E9%93%BE%E6%8E%A5/">
 
 
 <script id="page-configurations">
@@ -47,7 +49,7 @@
   };
 </script>
 
-  <title>贝叶斯统计 4 决策中的收益、损失与效用 | Shaw</title>
+  <title>HTML 超链接 | Shaw</title>
   
 
 
@@ -177,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/14/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-4-%E5%86%B3%E7%AD%96%E4%B8%AD%E7%9A%84%E6%94%B6%E7%9B%8A%E3%80%81%E6%8D%9F%E5%A4%B1%E4%B8%8E%E6%95%88%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/13/HTML-%E8%B6%85%E9%93%BE%E6%8E%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,7 +192,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          贝叶斯统计 4 决策中的收益、损失与效用
+          HTML 超链接
         </h1>
 
         <div class="post-meta">
@@ -200,22 +202,15 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-05-14 12:59:56" itemprop="dateCreated datePublished" datetime="2022-05-14T12:59:56+08:00">2022-05-14</time>
+              <time title="Created: 2023-01-13 21:30:13" itemprop="dateCreated datePublished" datetime="2023-01-13T21:30:13+08:00">2023-01-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-12 22:50:14" itemprop="dateModified" datetime="2023-01-12T22:50:14+08:00">2023-01-12</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Bayesian-Statistics/" itemprop="url" rel="index"><span itemprop="name">Bayesian Statistics</span></a>
+                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
                 </span>
             </span>
 
@@ -237,122 +232,56 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>决策就是对一件事情做决定。它与推断的差别在于是否涉及后果。统计学家在做推断时是按统计理论进行的，很少或者根本不考虑推断结果在使用后的得失。度量得失的尺度就是收益函数或者是损失函数。损失函数与决策环境密切相关，因此从实际中归纳出损失函数就是决策成败的的关键。我们把损失函数引入贝叶斯推断形成贝叶斯决策论。</p>
-<p>本章将会重点介绍收益函数、损失函数和效用函数等概念，其中还涉及到一些不用抽样信息的一些决策准则。</p>
-<h3 id="S-4-1-决策问题中的三要素"><a href="#S-4-1-决策问题中的三要素" class="headerlink" title="$\S 4.1\ $决策问题中的三要素"></a><center>$\S 4.1\ $决策问题中的三要素</center></h3><p>在现实生活中我们常常会遇到决策问题，例如囚徒困境就是经典的决策问题。在决策过程中，我们总是希望使用一种最优策略，使自己在条件有限的情况下获得最大收益或者承受最小的损失。下面我们通过一个具体的例子来定义一个决策问题，也即讨论它最基本的构成要素。</p>
-<p>我们考虑这样一个简单的情景：</p>
+        <h3 id="什么是超链接-Hyperlink"><a href="#什么是超链接-Hyperlink" class="headerlink" title="什么是超链接 Hyperlink"></a>什么是超链接 Hyperlink</h3><p>超链接使互联网成为了互联的网络：我们可以将网络内容转化成链接，通过点击链接转而浏览目标位置。</p>
+<h3 id="链接的解析"><a href="#链接的解析" class="headerlink" title="链接的解析"></a>链接的解析</h3><h4 id="基本链接-Anchor"><a href="#基本链接-Anchor" class="headerlink" title="基本链接 Anchor"></a>基本链接 Anchor</h4><p><code>&lt;a&gt;</code> 元素标签表示超链接，并由属性 <code>href</code> (Hypertext Reference) 指向目标网址</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://kiritoshaw.github.io/&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上述方式是通过统一资源定位符 (URL) 访问，我们也可以通过路径 (Path) 访问文件夹中的其他网页</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/archives.html&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<p>某农作物有两个品种：产量高但是抗旱能力弱的品种$\ a_1$，产量低但是抗寒能力强的品种$\ a_2$。为简化问题，先承认这样一个简单的假设：$\ \theta_1\ $表示明年雨量充沛，$\ \theta_2\ $表示明年雨量不充沛。在明年雨量不能被准确预知的情况下，农民应选播哪个品种可以最大化他的收益呢？经过历史经验的归纳总结，农民对自己的收益做了这样的预期</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">预期每亩收益矩阵</th>
-<th style="text-align:center">$a_1$：高产不抗旱</th>
-<th style="text-align:center">$a_2$：低产抗旱</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$\theta_1$：雨量充沛</td>
-<td style="text-align:center">1000</td>
-<td style="text-align:center">200</td>
-</tr>
-<tr>
-<td style="text-align:center">$\theta_2$：雨量不充沛</td>
-<td style="text-align:center">-200</td>
-<td style="text-align:center">400</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>由上面的情景我们导出构成一个决策问题必有如下三个基本要素：</p>
-<ol>
-<li>状态集$\ \Theta=\{\theta\}$，其中每个元素$\ \theta\ $表示环境（自然界、社会等）可能出现的一种状态。所有可能状态的全体组成状态集。在选播决策问题中，状态集是由两个状态组成，$\Theta=\{\theta_1,\theta_2\}$，其中$\ \theta_1\ $表示雨量充沛，$\theta_2\ $表示雨量不充沛。</li>
-<li>行动集$\ \mathscr{A}=\{a\}$，其中$\ a\ $表示人们可能采取的一种行动。在选播决策问题中，行动集是由两个行动组成，$\mathscr{A}=\{a_1,a_2\}$，其中$\ a_1\ $表示播种高产但抗旱能力差的$(a_1)$，$a_2\ $表示播种抗旱能力强但是产量不高的$(a_2)$。</li>
-<li>收益函数$\ Q(\theta,a)\ $度量了当环境处在状态$\ \theta$，而人们采取行动$\ a\ $时的收益。以上的预期每亩收益矩阵就是等价地给出了收益函数。</li>
+<h4 id="添加更多信息"><a href="#添加更多信息" class="headerlink" title="添加更多信息"></a>添加更多信息</h4><p>你可以为超链接添加 <code>title</code> 标题属性，当鼠标指针悬停在链接上时，标题将作为提示信息出现</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://kiritoshaw.github.io/&quot;</span> <span class="attr">title</span>=<span class="string">&quot;博客主页&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="链接到特定位置"><a href="#链接到特定位置" class="headerlink" title="链接到特定位置"></a>链接到特定位置</h4><p>我们可以通过 <code>id</code> 属性定位到 HTML 某个特定的位置，也称为文段片段</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;menu&quot;</span> <span class="attr">class</span>=<span class="string">&quot;main-menu menu&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后链接到那个特定的 <code>id</code>，通过在 URL 的结尾用 <code>#</code> 指向该 <code>id</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://kiritoshaw.github.io/#menu&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="链接的状态"><a href="#链接的状态" class="headerlink" title="链接的状态"></a>链接的状态</h4><ol>
+<li>未激活</li>
+<li>鼠标悬停</li>
+<li>点击</li>
+<li>访问后</li>
+<li>选定</li>
 </ol>
-<h3 id="S-4-2-决策准则"><a href="#S-4-2-决策准则" class="headerlink" title="$\S 4.2\  $决策准则"></a><center>$\S 4.2\  $决策准则</center></h3><h4 id="行动的容许性"><a href="#行动的容许性" class="headerlink" title="行动的容许性"></a>行动的容许性</h4><p>首先我们对行动集进行一个简单的划分。考虑这样一个问题，假如在行动集中有这样两个行动$\ a_1$和$\ a_2$，满足对于任意的状态$\ \theta$，都有$\ a_1\ $的收益不少于$\ a_2$。那么很显然，此时我们并没有必要在行动集中保留$\ a_2$，因为它永远不可能作为最优决策被选中。行动$\ a_2\ $被称为非容许行动。</p>
-<p>基于这种想法，我们给容许行动一个定义：在给定的决策问题中，$\mathscr{A}\ $中的行动$\ a_1\ $被称为是容许的，如果在$\ \mathscr{A}\ $中不存在满足如下两个条件的行动$\ a_2$：</p>
-<ol>
-<li>对所有的$\ \theta\in\Theta$，有$\ Q(\theta,a_1)&gt;=Q(\theta,a_2)$</li>
-<li>至少有一个$\ \theta$，可使上述不等式严格成立。</li>
+<p>可以看到在鼠标悬停链接时，指针对变成一只手，同时出现下划线；点击时也会发生样式变化；访问之后链接改变颜色……这些都是链接的默认样式，符合一般人的习惯。</p>
+<h3 id="实践中你应该注意些什么"><a href="#实践中你应该注意些什么" class="headerlink" title="实践中你应该注意些什么"></a>实践中你应该注意些什么</h3><ol>
+<li><code>title</code> 属性只有当鼠标悬停时才会显示，所以你只应该将补充说明的非必要信息放在里面，关键信息理应直接显示给读者</li>
+<li>不要通过类似下述方式建立超链接：<ul>
+<li><a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/">点击 / 单击此处</a> 访问 Shaw 的博客主页</li>
+<li><a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/">链接到 Shaw 的博客主页</a> </li>
+<li><a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/">链接到 Shaw 的博客主页 https://kiritoshaw.github.io/</a> </li>
+</ul>
+</li>
+<li>尽量减少相同文本的多个副本链接到不同地方的情况</li>
 </ol>
-<p>假如这样的$\ a_2\ $存在的话，则称$\ a_1\ $是非容许的。</p>
-<h4 id="决策准则"><a href="#决策准则" class="headerlink" title="决策准则"></a>决策准则</h4><p>悲观准则</p>
-<ul>
-<li>对每个行动选出最小的收益</li>
-<li>在所有选出的最小收益中选取最大值。</li>
-</ul>
-<p>转化为数学语言就是假如$\ a’\in\mathscr{A}$，且满足</p>
-<script type="math/tex; mode=display">
-\max_{a\in\mathscr{A}}\min_{\theta\in\Theta}Q(\theta,a)=\min_{\theta\in\Theta}Q(\theta,a')</script><p>那么我们在悲观准则下认为行动$\ a’\ $是最优行动。</p>
-<p>悲观准则是一种保守的决策准则。它是在最不利的状态发生的情况下，尽量争取较多的利益。它也反映了决策者的决策性格或是决策者对于未来预期的一种悲观态度。</p>
-<blockquote>
-<p>将悲观准则应用于选播问题就是</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">预期每亩收益矩阵</th>
-<th style="text-align:center">$a_1$：高产不抗旱</th>
-<th style="text-align:center">$a_2$：低产抗旱</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$\theta_1$：雨量充沛</td>
-<td style="text-align:center">×</td>
-<td style="text-align:center">200</td>
-</tr>
-<tr>
-<td style="text-align:center">$\theta_2$：雨量不充沛</td>
-<td style="text-align:center">-200</td>
-<td style="text-align:center">×</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>最终我们选择播种低产抗旱的品种。</p>
-</blockquote>
-<p>乐观准则</p>
-<ul>
-<li>对每一个行动选取最大的收益值</li>
-<li>在所有选出的最大收益值中选取相对最大值，此最大值对应的行动就是在乐观准则下寻得的最优行动。</li>
-</ul>
-<p>转化为数学语言就是假如$\ a’\in\mathscr{A}$，且满足</p>
-<script type="math/tex; mode=display">
-\min_{\theta\in\Theta}\max_{a\in\mathscr{A}}Q(\theta,a)=\min_{\theta\in\Theta}Q(\theta,a')</script><p>那么我们在乐观准则下认为行动$\ a’\ $是最优行动。</p>
-<p>乐观准则就是设想最有利的状态发生的情况下，尽量争取最大的收益。另外这种决策准则也反映了决策者比较能够承受风险的态度。</p>
-<blockquote>
-<p>将乐观准则应用于选播问题就是</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">预期每亩收益矩阵</th>
-<th style="text-align:center">$a_1$：高产不抗旱</th>
-<th style="text-align:center">$a_2$：低产抗旱</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$\theta_1$：雨量充沛</td>
-<td style="text-align:center">1000</td>
-<td style="text-align:center">×</td>
-</tr>
-<tr>
-<td style="text-align:center">$\theta_2$：雨量不充沛</td>
-<td style="text-align:center">×</td>
-<td style="text-align:center">400</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>最终我们选择播种高产不抗旱的品种作为最优行动。</p>
-</blockquote>
-<p>此外还有折中准则，又称$\ Hurwiez\ $准则。</p>
-<h3 id="S-4-3-先验期望准则"><a href="#S-4-3-先验期望准则" class="headerlink" title="$\S 4.3\ $先验期望准则"></a><center>$\S 4.3\ $先验期望准则</center></h3><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>《贝叶斯统计》第2版  by 茆诗松，汤银才</p>
+<h3 id="练练手吧"><a href="#练练手吧" class="headerlink" title="练练手吧"></a>练练手吧</h3><ol>
+<li>建立一个无须列表</li>
+<li>列表中的每个项目分别可以引导向你喜欢的目标网站，其中一个项目可以将链接到一个网页内的特定位置 (可以考虑建立一个导航栏菜单)</li>
+<li>完善超链接的 <code>title</code> 以提供更多信息</li>
+<li>测试一下是否满足上述要求</li>
+</ol>
+<h3 id="仅供参考的答案"><a href="#仅供参考的答案" class="headerlink" title="仅供参考的答案"></a>仅供参考的答案</h3><p></p><p class="codepen" data-height="296" data-default-tab="html,result" data-slug-hash="GRBEvMj" data-editable="true" data-user="KiritoShaw" style="height: 296px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/GRBEvMj">
+  anchor</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li><a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a></li>
+</ol>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks">创建超链接 - 学习 Web 开发 | MDN</a></li>
+</ol>
 
     </div>
 
@@ -361,6 +290,10 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Web/" rel="tag"># Web</a>
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+          </div>
 
         
 
@@ -368,13 +301,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/05/08/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BB%9F%E8%AE%A1-3-%E5%85%88%E9%AA%8C%E5%88%86%E5%B8%83%E7%9A%84%E7%A1%AE%E5%AE%9A/" rel="prev" title="贝叶斯统计 3 先验分布的确定">
-      <i class="fa fa-chevron-left"></i> 贝叶斯统计 3 先验分布的确定
+    <a href="/2023/01/12/HTML-%E6%96%87%E6%9C%AC%E5%9F%BA%E7%A1%80/" rel="prev" title="HTML 文本基础">
+      <i class="fa fa-chevron-left"></i> HTML 文本基础
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/05/14/Bayesian-Model-Selection-and-Statistical-Modeling-0-Preface/" rel="next" title="Bayesian Model Selection and Statistical Modeling 0 Preface">
-      Bayesian Model Selection and Statistical Modeling 0 Preface <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -433,7 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#S-4-1-%E5%86%B3%E7%AD%96%E9%97%AE%E9%A2%98%E4%B8%AD%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="nav-number">1.</span> <span class="nav-text">$\S 4.1\ $决策问题中的三要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S-4-2-%E5%86%B3%E7%AD%96%E5%87%86%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">$\S 4.2\  $决策准则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%8C%E5%8A%A8%E7%9A%84%E5%AE%B9%E8%AE%B8%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">行动的容许性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%B3%E7%AD%96%E5%87%86%E5%88%99"><span class="nav-number">2.2.</span> <span class="nav-text">决策准则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S-4-3-%E5%85%88%E9%AA%8C%E6%9C%9F%E6%9C%9B%E5%87%86%E5%88%99"><span class="nav-number">3.</span> <span class="nav-text">$\S 4.3\ $先验期望准则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%B6%85%E9%93%BE%E6%8E%A5-Hyperlink"><span class="nav-number">1.</span> <span class="nav-text">什么是超链接 Hyperlink</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E7%9A%84%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">链接的解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%93%BE%E6%8E%A5-Anchor"><span class="nav-number">2.1.</span> <span class="nav-text">基本链接 Anchor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%9B%B4%E5%A4%9A%E4%BF%A1%E6%81%AF"><span class="nav-number">2.2.</span> <span class="nav-text">添加更多信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E5%88%B0%E7%89%B9%E5%AE%9A%E4%BD%8D%E7%BD%AE"><span class="nav-number">2.3.</span> <span class="nav-text">链接到特定位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E7%9A%84%E7%8A%B6%E6%80%81"><span class="nav-number">2.4.</span> <span class="nav-text">链接的状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E8%B7%B5%E4%B8%AD%E4%BD%A0%E5%BA%94%E8%AF%A5%E6%B3%A8%E6%84%8F%E4%BA%9B%E4%BB%80%E4%B9%88"><span class="nav-number">3.</span> <span class="nav-text">实践中你应该注意些什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%83%E7%BB%83%E6%89%8B%E5%90%A7"><span class="nav-number">4.</span> <span class="nav-text">练练手吧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%85%E4%BE%9B%E5%8F%82%E8%80%83%E7%9A%84%E7%AD%94%E6%A1%88"><span class="nav-number">5.</span> <span class="nav-text">仅供参考的答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81"><span class="nav-number">6.</span> <span class="nav-text">技术支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
