@@ -174,6 +174,126 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/15/HTML-%E5%B5%8C%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/01/15/HTML-%E5%B5%8C%E5%85%A5/" class="post-title-link" itemprop="url">HTML 嵌入</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-01-15 13:07:02" itemprop="dateCreated datePublished" datetime="2023-01-15T13:07:02+08:00">2023-01-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>嵌入技术可以说为网页的功能完善做出了不少的贡献</p>
+<p><code>&lt;iframe&gt;</code> 用于嵌入其他网页它提供了一种将整个 web 页嵌入到另一个网页的方法，看起来就像那个 web 页是另一个网页的一个 <code>&lt;img&gt;</code> 或其它元素一样。不过与 <code>&lt;img&gt;</code> 不同，<code>&lt;iframe&gt;</code> 不是空元素，需要闭合标签 <code>&lt;/iframe&gt;</code></p>
+<h3 id="拿来主义"><a href="#拿来主义" class="headerlink" title="拿来主义"></a>拿来主义</h3><p><code>&lt;iframe&gt;</code> 使用场景可以很广泛，它使得我们直接通过 <code>API</code> 实现特定的功能，例如：</p>
+<ul>
+<li>嵌入你喜欢的视频</li>
+<li>在你的网页中也能播放喜欢的歌曲</li>
+<li>嵌入 Bing 地图</li>
+<li>假如你留心之前关于 HTML 的文章，以 <a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/2023/01/14/HTML-网站架构/#more">HTML-网站架构 | Shaw</a> 为例，仅供参考的答案可以在集成开发环境 Codepen 中编写之后嵌入到博客中</li>
+</ul>
+<h4 id="Bilibili-视频"><a href="#Bilibili-视频" class="headerlink" title="Bilibili 视频"></a>Bilibili 视频</h4><ol>
+<li><p>打开 <a target="_blank" rel="noopener" href="https://www.bilibili.com/">哔哩哔哩</a></p>
+</li>
+<li><p>找到自己喜欢的视频，这里我选择视频 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1UT411w7MS/?spm_id_from=333.999.0.0&amp;vd_source=71a1ae97f341d3a918483e0b9c03e451">CNBC Markets Now | August 8, 2022 | Michael Santoli</a></p>
+</li>
+<li><p>首先一键三连（开个玩笑），然后选择分享中的嵌入代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=471890055&amp;bvid=BV1UT411w7MS&amp;cid=799999293&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将代码黏贴到 HTML 中</p>
+</li>
+</ol>
+<iframe src="//player.bilibili.com/player.html?aid=471890055&bvid=BV1UT411w7MS&cid=799999293&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h4 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h4><ol>
+<li><p>打开 <a target="_blank" rel="noopener" href="https://music.163.com/#">网易云音乐</a></p>
+</li>
+<li><p>选择一首喜欢的歌曲</p>
+</li>
+<li><p>点击生成外链播放器</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;//music.163.com/outchain/player?type=2&amp;id=27471609&amp;auto=0&amp;height=66&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将代码黏贴到 HTML 中</p>
+</li>
+</ol>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=27471609&auto=0&height=66"></iframe>
+
+<h4 id="Codepen"><a href="#Codepen" class="headerlink" title="Codepen"></a>Codepen</h4><ol>
+<li><p>打开 <a target="_blank" rel="noopener" href="https://codepen.io/your-work">Your Work - CodePen</a></p>
+</li>
+<li><p>新建作品</p>
+</li>
+<li><p>保存之后选择 <code>Embed</code>，选择使用 <code>iframe</code> 方式进行嵌入（不过官方推荐使用 HTML 进行嵌入）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;codepen&quot;</span> <span class="attr">data-height</span>=<span class="string">&quot;300&quot;</span> <span class="attr">data-default-tab</span>=<span class="string">&quot;html,result&quot;</span> <span class="attr">data-slug-hash</span>=<span class="string">&quot;gOjRqXe&quot;</span> <span class="attr">data-editable</span>=<span class="string">&quot;true&quot;</span> <span class="attr">data-user</span>=<span class="string">&quot;KiritoShaw&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>See the Pen <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://codepen.io/KiritoShaw/pen/gOjRqXe&quot;</span>&gt;</span></span><br><span class="line">  网站结构<span class="tag">&lt;/<span class="name">a</span>&gt;</span> by KiritoShaw (<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://codepen.io/KiritoShaw&quot;</span>&gt;</span>@KiritoShaw<span class="tag">&lt;/<span class="name">a</span>&gt;</span>)</span><br><span class="line">  on <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://codepen.io&quot;</span>&gt;</span>CodePen<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">&quot;https://cpwebassets.codepen.io/assets/embed/ei.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p></p><p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="gOjRqXe" data-editable="true" data-user="KiritoShaw" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/gOjRqXe">
+  网站结构</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies">从对象到 iframe - 其他嵌入技术 - 学习 Web 开发 | MDN</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/15/HTML-%E5%9B%BE%E7%89%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -921,87 +1041,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/11/Hexo-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Shaw">
-      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Shaw">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/11/Hexo-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">Hexo-文件目录结构</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-01-11 12:22:21" itemprop="dateCreated datePublished" datetime="2023-01-11T12:22:21+08:00">2023-01-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-12 22:41:58" itemprop="dateModified" datetime="2023-01-12T22:41:58+08:00">2023-01-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo-NexT-Pisces/" itemprop="url" rel="index"><span itemprop="name">Hexo & NexT.Pisces</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="目录结构一览"><a href="#目录结构一览" class="headerlink" title="目录结构一览"></a>目录结构一览</h3><p>以下结构树显示了 Hexo 文件目录的结构，分析深度为两层：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/01/11/Hexo-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1073,7 +1112,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
