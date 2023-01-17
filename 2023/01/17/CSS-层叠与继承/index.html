@@ -22,21 +22,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="什么是超链接 Hyperlink超链接使互联网成为了互联的网络：我们可以将网络内容转化成链接，通过点击链接转而浏览目标位置。 链接的解析基本链接 Anchor&lt;a&gt; 元素标签表示超链接，并由属性 href (Hypertext Reference) 指向目标网址 123&lt;p&gt;    &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;kiritoshaw.github.io&#x2F;">
+  <meta name="description" content="写在前面CSS 是层叠样式表 (Cascading Style Sheets) 的缩写。要理解本节内容，我们首先需要搞清楚层叠的概念。与这个概念密切相关的还有“当某个元素同时拥有两种冲突的样式时，应该应用哪一种”的问题，也即优先级问题。我们还将了解哪些父元素的样式会被子元素继承，哪些则不会 最后我们总结精炼了一些样式优先级的法则">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML 超链接">
-<meta property="og:url" content="http://example.com/2023/01/13/HTML-%E8%B6%85%E9%93%BE%E6%8E%A5/index.html">
+<meta property="og:title" content="CSS 层叠与继承">
+<meta property="og:url" content="http://example.com/2023/01/17/CSS-%E5%B1%82%E5%8F%A0%E4%B8%8E%E7%BB%A7%E6%89%BF/index.html">
 <meta property="og:site_name" content="Shaw">
-<meta property="og:description" content="什么是超链接 Hyperlink超链接使互联网成为了互联的网络：我们可以将网络内容转化成链接，通过点击链接转而浏览目标位置。 链接的解析基本链接 Anchor&lt;a&gt; 元素标签表示超链接，并由属性 href (Hypertext Reference) 指向目标网址 123&lt;p&gt;    &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;kiritoshaw.github.io&#x2F;">
+<meta property="og:description" content="写在前面CSS 是层叠样式表 (Cascading Style Sheets) 的缩写。要理解本节内容，我们首先需要搞清楚层叠的概念。与这个概念密切相关的还有“当某个元素同时拥有两种冲突的样式时，应该应用哪一种”的问题，也即优先级问题。我们还将了解哪些父元素的样式会被子元素继承，哪些则不会 最后我们总结精炼了一些样式优先级的法则">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-01-13T13:30:13.000Z">
-<meta property="article:modified_time" content="2023-01-16T12:53:36.317Z">
+<meta property="article:published_time" content="2023-01-17T14:06:15.000Z">
+<meta property="article:modified_time" content="2023-01-17T14:06:15.079Z">
 <meta property="article:author" content="Shaw">
 <meta property="article:tag" content="Web">
-<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2023/01/13/HTML-%E8%B6%85%E9%93%BE%E6%8E%A5/">
+<link rel="canonical" href="http://example.com/2023/01/17/CSS-%E5%B1%82%E5%8F%A0%E4%B8%8E%E7%BB%A7%E6%89%BF/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>HTML 超链接 | Shaw</title>
+  <title>CSS 层叠与继承 | Shaw</title>
   
 
 
@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/13/HTML-%E8%B6%85%E9%93%BE%E6%8E%A5/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/17/CSS-%E5%B1%82%E5%8F%A0%E4%B8%8E%E7%BB%A7%E6%89%BF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -192,7 +192,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          HTML 超链接
+          CSS 层叠与继承
         </h1>
 
         <div class="post-meta">
@@ -202,22 +202,15 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2023-01-13 21:30:13" itemprop="dateCreated datePublished" datetime="2023-01-13T21:30:13+08:00">2023-01-13</time>
+              <time title="Created: 2023-01-17 22:06:15" itemprop="dateCreated datePublished" datetime="2023-01-17T22:06:15+08:00">2023-01-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-16 20:53:36" itemprop="dateModified" datetime="2023-01-16T20:53:36+08:00">2023-01-16</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
                 </span>
             </span>
 
@@ -239,55 +232,69 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="什么是超链接-Hyperlink"><a href="#什么是超链接-Hyperlink" class="headerlink" title="什么是超链接 Hyperlink"></a>什么是超链接 Hyperlink</h3><p>超链接使互联网成为了互联的网络：我们可以将网络内容转化成链接，通过点击链接转而浏览目标位置。</p>
-<h3 id="链接的解析"><a href="#链接的解析" class="headerlink" title="链接的解析"></a>链接的解析</h3><h4 id="基本链接-Anchor"><a href="#基本链接-Anchor" class="headerlink" title="基本链接 Anchor"></a>基本链接 Anchor</h4><p><code>&lt;a&gt;</code> 元素标签表示超链接，并由属性 <code>href</code> (Hypertext Reference) 指向目标网址</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://kiritoshaw.github.io/&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>上述方式是通过统一资源定位符 (URL) 访问，我们也可以通过路径 (Path) 访问文件夹中的其他网页</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/archives.html&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>CSS 是层叠样式表 (Cascading Style Sheets) 的缩写。要理解本节内容，我们首先需要搞清楚<strong>层叠</strong>的概念。与这个概念密切相关的还有“当某个元素同时拥有两种冲突的样式时，应该应用哪一种”的问题，也即<strong>优先级</strong>问题。我们还将了解哪些父元素的样式会被子元素<strong>继承</strong>，哪些则不会</p>
+<p>最后我们总结精炼了一些样式优先级的法则</p>
 <span id="more"></span>
-<h4 id="添加更多信息"><a href="#添加更多信息" class="headerlink" title="添加更多信息"></a>添加更多信息</h4><p>你可以为超链接添加 <code>title</code> 标题属性，当鼠标指针悬停在链接上时，标题将作为提示信息出现</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://kiritoshaw.github.io/&quot;</span> <span class="attr">title</span>=<span class="string">&quot;博客主页&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="链接到特定位置"><a href="#链接到特定位置" class="headerlink" title="链接到特定位置"></a>链接到特定位置</h4><p>我们可以通过 <code>id</code> 属性定位到 HTML 某个特定的位置，也称为文段片段</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;menu&quot;</span> <span class="attr">class</span>=<span class="string">&quot;main-menu menu&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>然后链接到那个特定的 <code>id</code>，通过在 URL 的结尾用 <code>#</code> 指向该 <code>id</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://kiritoshaw.github.io/#menu&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="链接的状态"><a href="#链接的状态" class="headerlink" title="链接的状态"></a>链接的状态</h4><ol>
-<li>未访问 (link)</li>
-<li>鼠标悬停 (hover)</li>
-<li>点击当中 (click)</li>
-<li>访问过 (visited)</li>
-<li>被键盘定位</li>
-</ol>
-<p>可以看到在鼠标悬停链接时，指针对变成一只手，同时出现下划线；点击时也会发生样式变化；访问之后链接改变颜色……这些都是链接的默认样式，符合一般人的习惯。</p>
-<h3 id="实践中你应该注意些什么"><a href="#实践中你应该注意些什么" class="headerlink" title="实践中你应该注意些什么"></a>实践中你应该注意些什么</h3><ol>
-<li><code>title</code> 属性只有当鼠标悬停时才会显示，所以你只应该将补充说明的非必要信息放在里面，关键信息理应直接显示给读者</li>
-<li>不要通过类似下述方式建立超链接：<ul>
-<li><a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/">点击 / 单击此处</a> 访问 Shaw 的博客主页</li>
-<li><a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/">链接到 Shaw 的博客主页</a> </li>
-<li><a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/">链接到 Shaw 的博客主页 https://kiritoshaw.github.io/</a> </li>
-</ul>
-</li>
-<li>尽量减少相同文本的多个副本链接到不同地方的情况</li>
-</ol>
-<h3 id="练练手吧"><a href="#练练手吧" class="headerlink" title="练练手吧"></a>练练手吧</h3><ol>
-<li>建立一个无须列表</li>
-<li>列表中的每个项目分别可以引导向你喜欢的目标网站，其中一个项目可以将链接到一个网页内的特定位置 (可以考虑建立一个导航栏菜单)</li>
-<li>完善超链接的 <code>title</code> 以提供更多信息</li>
-<li>测试一下是否满足上述要求</li>
-</ol>
-<h3 id="仅供参考的答案"><a href="#仅供参考的答案" class="headerlink" title="仅供参考的答案"></a>仅供参考的答案</h3><p></p><p class="codepen" data-height="296" data-default-tab="html,result" data-slug-hash="GRBEvMj" data-editable="true" data-user="KiritoShaw" style="height: 296px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/GRBEvMj">
-  anchor</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+<h3 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h3><p>样式表层叠，一种简单的理解是对于某个元素，其后书写的样式将会覆盖前面的样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">17px</span>;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">&quot;unserif&quot;</span> // 这条规则将会起作用</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">20px</span>; // 这条规则将会起作用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h3><p>浏览器会根据优先级来决定当多个规则有不同选择器对应相同的元素的时候需要使用哪个规则</p>
+<p>基本的原则是：一个更具体的元素选择器将拥有更加高的优先级</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;special&quot;</span>&gt;</span></span><br><span class="line">    一个类名为 special 的段落元素。</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>对于上面的 <code>&lt;p&gt;</code>，仅有第二个规则会被应用</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.special</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>我们通过以下例子来分析可以继承和不可继承的样式</p>
+<p></p><p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="LYBzxLz" data-editable="true" data-user="KiritoShaw" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/LYBzxLz">
+  inheritance_1</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
   on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
 </p><p></p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-<h3 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h3><ol>
-<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a></li>
-<li><a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a></li>
+<p>先分析 <code>&lt;body&gt;</code> 的样式，显然 <code>font-size</code> 是可以继承的；<code>width</code> 是不可以继承的</p>
+<p><code>&lt;article&gt;</code> 的 <code>border</code> 和 <code>padding</code> 不可以被继承 (<code>margin</code> 也是同样的道理)，而背景颜色 <code>background-color</code> 和字色 <code>color</code> 可以被标题 <code>&lt;h1&gt;</code> 和段落元素 <code>&lt;p&gt;</code> 继承</p>
+<p><code>&lt;strong&gt;</code> 元素的字色被子元素 <code>&lt;em&gt;</code> 继承</p>
+<p>事实上，很多默认继承与不继承的方式都是符合常理的。<code>border</code> 显然不应该继承，否则每个后代元素都会出现边框，这显然是不合理的；背景颜色 <code>background-color</code> 可以继承也理所应当，否则后代元素的默认背景颜色将变成白色，显得格格不入</p>
+<p></p><p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="abjLpMV" data-editable="true" data-user="KiritoShaw" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/abjLpMV">
+  inheritance_2</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<blockquote>
+<p><strong>提示：</strong>这里的选择器用法如有不懂，请阅读 Reference 中的参考资料</p>
+</blockquote>
+<p>在字号样式 <code>font-size</code> 中，存在一种特殊的“继承”形式，它是通过值的单位 <code>em</code> 来控制的，意为<strong>相对于元素父元素</strong> <code>font-size</code> 的倍数</p>
+<p>设置 <code>&lt;ul&gt;</code> 的 <code>font-size: 1.4em</code>，则每嵌套一次列表，列表的字号都会相对于父元素倍增，正如这里的 <code>Item 3 -&gt; Item 3.1 -&gt; Item 3.1.1</code> 所示</p>
+<blockquote>
+<p>与之相关的还有另一个单位 <code>rem</code>，此时元素的字号大小是相对于<strong>根元素</strong>的字号而言的，嵌套并不会产生指数倍增效果</p>
+</blockquote>
+<p>你或许还关注到 <code>Item 3.1.2</code> 应用了声明 <code>font-size: initial</code>，这涉及到了<strong>控制继承</strong>的问题。这里 <code>initial</code> 表示将应用于选定元素的属性值设置为该属性的初始值</p>
+<p>此外还有四种特殊的通用属性值：</p>
+<ol>
+<li><code>inherit</code> 设置该属性会使子元素属性和父元素相同。实际上，就是“开启继承”</li>
+<li><code>revert</code> (en-US) 将应用于选定元素的属性值重置为浏览器的默认样式，而不是应用于该属性的默认值。在许多情况下，此值的作用类似于 <code>unset</code></li>
+<li><code>revert-layer</code> (en-US) 将应用于选定元素的属性值重置为在上一个层叠层中建立的值</li>
+<li><code>unset</code> 将属性重置为自然值，也就是如果属性是自然继承那么就是 inherit，否则和 initial 一样</li>
 </ol>
+<h3 id="总结与补充"><a href="#总结与补充" class="headerlink" title="总结与补充"></a>总结与补充</h3><ol>
+<li>优先级相同：按资源顺序，后 &gt; 前 </li>
+<li>优先级不同：<ul>
+<li>ID 选择器 &gt; 类选择器 &gt; 类型选择器 </li>
+<li>具体选择器 &gt; 抽象选择器</li>
+<li>内联样式 &gt; 所有选择器</li>
+<li><code>!important</code> 拥有最高优先级</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>关于 <code>!important</code>，感兴趣的读者可以阅读 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#!important">层叠与继承 #!important | MDN</a></p>
+</blockquote>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
-<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks">创建超链接 - 学习 Web 开发 | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance">层叠与继承 | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:nth-child">:nth-child - CSS | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:nth-of-type">:nth-of-type - CSS | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.programminghunter.com/article/7166328447/#:~:text=CSS可以使用伪类 %3Anth-child (">CSS选择第二个子元素 - 编程猎人</a> 选择子元素，%3Anth-child ()从1开始计数，所以第二个子元素就是%3Anth-child (2),两个选择器之间加 空格 (后代选择器) 代表后面的选择器是前面的后代（子代，孙代…..） 初步判断，要选择class%3D”abc”的第二个子元素对应的选择器为.abc %3Anth-child (2))</li>
 </ol>
 
     </div>
@@ -299,7 +306,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Web/" rel="tag"># Web</a>
-              <a href="/tags/HTML/" rel="tag"># HTML</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
           </div>
 
         
@@ -308,13 +315,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/01/12/HTML-%E6%96%87%E6%9C%AC%E5%9F%BA%E7%A1%80/" rel="prev" title="HTML 文本基础">
-      <i class="fa fa-chevron-left"></i> HTML 文本基础
+    <a href="/2023/01/17/CSS-%E9%80%89%E6%8B%A9%E5%99%A8/" rel="prev" title="CSS 选择器">
+      <i class="fa fa-chevron-left"></i> CSS 选择器
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/01/14/HTML-%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/" rel="next" title="HTML 网站架构">
-      HTML 网站架构 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -373,7 +377,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%B6%85%E9%93%BE%E6%8E%A5-Hyperlink"><span class="nav-number">1.</span> <span class="nav-text">什么是超链接 Hyperlink</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E7%9A%84%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">链接的解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%93%BE%E6%8E%A5-Anchor"><span class="nav-number">2.1.</span> <span class="nav-text">基本链接 Anchor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%9B%B4%E5%A4%9A%E4%BF%A1%E6%81%AF"><span class="nav-number">2.2.</span> <span class="nav-text">添加更多信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E5%88%B0%E7%89%B9%E5%AE%9A%E4%BD%8D%E7%BD%AE"><span class="nav-number">2.3.</span> <span class="nav-text">链接到特定位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5%E7%9A%84%E7%8A%B6%E6%80%81"><span class="nav-number">2.4.</span> <span class="nav-text">链接的状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E8%B7%B5%E4%B8%AD%E4%BD%A0%E5%BA%94%E8%AF%A5%E6%B3%A8%E6%84%8F%E4%BA%9B%E4%BB%80%E4%B9%88"><span class="nav-number">3.</span> <span class="nav-text">实践中你应该注意些什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%83%E7%BB%83%E6%89%8B%E5%90%A7"><span class="nav-number">4.</span> <span class="nav-text">练练手吧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%85%E4%BE%9B%E5%8F%82%E8%80%83%E7%9A%84%E7%AD%94%E6%A1%88"><span class="nav-number">5.</span> <span class="nav-text">仅供参考的答案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81"><span class="nav-number">6.</span> <span class="nav-text">技术支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%82%E5%8F%A0"><span class="nav-number">2.</span> <span class="nav-text">层叠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">3.</span> <span class="nav-text">优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">4.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E4%B8%8E%E8%A1%A5%E5%85%85"><span class="nav-number">5.</span> <span class="nav-text">总结与补充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
