@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="预备知识 CSS 基础 ⭐ | Shaw CSS 基本语法 | Shaw  写在前面上一节我们讲了关于确定选择器的一些方法，实际上它已经涵盖了大部分情况，只是分类显得稍微有些粗浅。如果你不大记得了，这里给一个提示，大致是讲了三类：通过类名，按所处位置以及按所处状态。如果你完全不记得了，建议你好好复习一下。本节我们继续对这部分内容进行更细致的学习 最后我还给出了选择器参考附录，里面列举了一些例子，供">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 选择器">
+<meta property="og:url" content="http://example.com/2023/01/17/CSS-%E9%80%89%E6%8B%A9%E5%99%A8/index.html">
+<meta property="og:site_name" content="Shaw">
+<meta property="og:description" content="预备知识 CSS 基础 ⭐ | Shaw CSS 基本语法 | Shaw  写在前面上一节我们讲了关于确定选择器的一些方法，实际上它已经涵盖了大部分情况，只是分类显得稍微有些粗浅。如果你不大记得了，这里给一个提示，大致是讲了三类：通过类名，按所处位置以及按所处状态。如果你完全不记得了，建议你好好复习一下。本节我们继续对这部分内容进行更细致的学习 最后我还给出了选择器参考附录，里面列举了一些例子，供">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-01-17T07:28:22.000Z">
+<meta property="article:modified_time" content="2023-01-17T07:28:22.707Z">
+<meta property="article:author" content="Shaw">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/01/17/CSS-%E9%80%89%E6%8B%A9%E5%99%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>CSS 选择器 | Shaw</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shaw</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>resources</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/17/CSS-%E9%80%89%E6%8B%A9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS 选择器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-01-17 15:28:22" itemprop="dateCreated datePublished" datetime="2023-01-17T15:28:22+08:00">2023-01-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E2%80%98CSS%E2%80%99/" itemprop="url" rel="index"><span itemprop="name">‘CSS’</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/2023/01/11/CSS-基础/">CSS 基础 ⭐ | Shaw</a></li>
+<li><a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/2023/01/16/CSS-基本语法/">CSS 基本语法 | Shaw</a></li>
+</ol>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>上一节我们讲了关于确定选择器的一些方法，实际上它已经涵盖了大部分情况，只是分类显得稍微有些粗浅。如果你不大记得了，这里给一个提示，大致是讲了三类：通过类名，按所处位置以及按所处状态。如果你完全不记得了，建议你好好复习一下。本节我们继续对这部分内容进行更细致的学习</p>
+<p>最后我还给出了选择器参考附录，里面列举了一些例子，供读者复习总结</p>
+<span id="more"></span>
+<h3 id="选择器种类"><a href="#选择器种类" class="headerlink" title="选择器种类"></a>选择器种类</h3><h4 id="类型、类和-ID-选择器"><a href="#类型、类和-ID-选择器" class="headerlink" title="类型、类和 ID 选择器"></a>类型、类和 ID 选择器</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>一个 class 的选择器</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>一个 id 的选择器</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#unique</span></span><br></pre></td></tr></table></figure>
+<h4 id="标签属性选择器"><a href="#标签属性选择器" class="headerlink" title="标签属性选择器"></a>标签属性选择器</h4><p>根据一个元素上的某个标签的属性的存在来选择元素（仅给定属性）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[title]</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>根据一个有特定的标签属性是否存在来选择（给定整个声明）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href=<span class="string">&quot;https://example.com&quot;</span>]</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="伪类与伪元素"><a href="#伪类与伪元素" class="headerlink" title="伪类与伪元素"></a>伪类与伪元素</h4><p>伪类用来样式化一个元素的特定状态。之所以冠以“伪”字，是因为它并不是对所有状态都适用的</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123; &#125; <span class="comment">/* 当鼠标悬浮于链接上时 */</span></span><br></pre></td></tr></table></figure>
+<p>另一个概念是伪元素，选择一个元素的某个部分而不是元素自己</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>::fisrt-line &#123; &#125; <span class="comment">/* 选择第一行 */</span></span><br></pre></td></tr></table></figure>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><p>后代选择器，在上一节中我们称之为包含选择器，也十分贴切</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span> <span class="selector-tag">strong</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>子代选择器选择了 <code>&lt;article&gt;</code> 元素的初代子元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> &gt; <span class="selector-tag">p</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="类型、类和-ID-选择器-1"><a href="#类型、类和-ID-选择器-1" class="headerlink" title="类型、类和 ID 选择器"></a>类型、类和 ID 选择器</h3><h4 id="类型选择器"><a href="#类型选择器" class="headerlink" title="类型选择器"></a>类型选择器</h4><p>类型选择器有时也叫做“标签名选择器<em>”</em>或者是”元素选择器“，十分简单易懂</p>
+<h4 id="类选择器-多个类同时应用到一个元素"><a href="#类选择器-多个类同时应用到一个元素" class="headerlink" title="类选择器 - 多个类同时应用到一个元素"></a>类选择器 - 多个类同时应用到一个元素</h4><p>以下例子中假定 <code>&lt;div&gt;</code> 的属性 <code>class=&quot;wrapper a&quot;</code>，此时 <code>.wrapper a &#123;&#125;</code> 是一种错误的类选择器，正确的格式应当如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span><span class="selector-class">.a</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="全局选择器"><a href="#全局选择器" class="headerlink" title="全局选择器"></a>全局选择器</h4><p>全局选择器也称为通配选择器，是由一个 <code>*</code> 指代的，它选中了文档中的所有内容，需要小心使用</p>
+<p>以上面的 <code>.wrapper &#123;&#125;</code> 为例，实际上它是以下代码的简写</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*<span class="selector-class">.wrapper</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>全局选择器的一种用法是让选择器更易读，例如后代选择器 <code>article :first-child</code> 容易与伪元素选择器 <code>article:first-child</code> 混淆，于是我们可以添加 <code>*</code> 以示区别</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> *<span class="selector-pseudo">:first</span>-child &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>此时选择器正选中<code>&lt;article&gt;</code>元素的<strong>任何</strong>第一子元素</p>
+<h4 id="ID-选择器"><a href="#ID-选择器" class="headerlink" title="ID 选择器"></a>ID 选择器</h4><p>我们可以给元素一个id，只需要在属性中添加 <code>id=id_name</code>，然后使用 ID 选择器</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#id_name</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><h4 id="存否和值选择器"><a href="#存否和值选择器" class="headerlink" title="存否和值选择器"></a>存否和值选择器</h4><p>除了一开始讲的两个例子 <code>[attr]</code> 和 <code>[attr=value]</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[title]</span> &#123; &#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href=<span class="string">&quot;...&quot;</span>]</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>我们还可能对 <code>[attr~=value]</code> 这种选择器感兴趣，以 <code>li[class~=&quot;a&quot;]</code> 为例，它会匹配会匹配一个<code>a</code>类，不过也可以匹配一列用空格分开、包含<code>a</code>类的值</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">ul</span>&gt;</span><br><span class="line">    &lt;<span class="selector-tag">li</span> class=&quot;<span class="selector-tag">a</span>&quot;&gt;Item <span class="number">1</span>&lt;/<span class="selector-tag">li</span>&gt;</span><br><span class="line">    &lt;<span class="selector-tag">li</span> class=&quot;<span class="selector-tag">a</span> <span class="selector-tag">b</span>&quot;&gt;Item <span class="number">2</span>&lt;/<span class="selector-tag">li</span>&gt;</span><br><span class="line">&lt;/<span class="selector-tag">ul</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>也即它不仅会匹配 <code>Item 1</code>，还会匹配 <code>Item 2</code></p>
+<h4 id="子字符串匹配选择器"><a href="#子字符串匹配选择器" class="headerlink" title="子字符串匹配选择器"></a>子字符串匹配选择器</h4><p>这是一种更加高级且细致的匹配方式，例如 <code>[attr*=value]</code>，<code>[attr$=value]</code> 等</p>
+<blockquote>
+<p>详见 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors#子字符串匹配选择器">属性选择器 #子字符串匹配选择器</a></p>
+</blockquote>
+<h3 id="伪类与伪元素-1"><a href="#伪类与伪元素-1" class="headerlink" title="伪类与伪元素"></a>伪类与伪元素</h3><h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><p>伪类是选择器的一种，它用于选择处于特定状态的元素：一种特定状态是位置状态，下例将将选中文章中的第一个子元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span> <span class="selector-tag">p</span><span class="selector-pseudo">:first</span>-child &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p>另一种是用户行为伪类，只有在用户以某种方式和文档交互的时候应用</p>
+<ul>
+<li><code>:hover</code> 只会在用户将指针挪到元素上的时候才会激活，一般就是链接元素</li>
+<li><code>:focus</code> 只会在用户使用键盘控制，选定元素的时候激活</li>
+</ul>
+<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p>伪元素开头为双冒号 <code>::</code>，<code>::first-line</code>伪元素选择器将会选中一段的第一行</p>
+<h4 id="一类特殊的伪元素"><a href="#一类特殊的伪元素" class="headerlink" title="一类特殊的伪元素"></a>一类特殊的伪元素</h4><p><code>::before</code> 和 <code>::after</code> 是一组特别的伪元素，它们和<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/content"><code>content</code></a>属性一同使用，使用 CSS 将内容插入到你的文档中。一种常见的用法是插入一个图标</p>
+<h3 id="关系选择器"><a href="#关系选择器" class="headerlink" title="关系选择器"></a>关系选择器</h3><p>除了后代选择器和子代选择器，我们还可能遇到下面两种选择器</p>
+<h4 id="邻接兄弟"><a href="#邻接兄弟" class="headerlink" title="邻接兄弟"></a>邻接兄弟</h4><p>邻接兄弟选择器（<code>+</code>）用来选中恰好处于另一个在继承关系上同级的元素旁边的物件。例如，选中所有紧随<code>&lt;p&gt;</code>元素之后的<code>&lt;img&gt;</code>元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> + <span class="selector-tag">img</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="通用兄弟"><a href="#通用兄弟" class="headerlink" title="通用兄弟"></a>通用兄弟</h4><p>如果你想选中一个元素的兄弟元素，即使它们不直接相邻，你还是可以使用通用兄弟关系选择器（<code>~</code>）。要选中所有的<code>&lt;p&gt;</code>元素后<strong>任何地方</strong>的<code>&lt;img&gt;</code>元素，我们会这样做：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> ~ <span class="selector-tag">img</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Appendix-选择器参考列表"><a href="#Appendix-选择器参考列表" class="headerlink" title="Appendix - 选择器参考列表"></a>Appendix - 选择器参考列表</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通配选择器</td>
+<td><code>* &#123;&#125;</code></td>
+</tr>
+<tr>
+<td>类选择器</td>
+<td><code>.box &#123;&#125;</code></td>
+</tr>
+<tr>
+<td>ID 选择器</td>
+<td><code>#unique &#123;&#125;</code></td>
+</tr>
+<tr>
+<td>伪类选择器</td>
+<td><code>p:first-child &#123;&#125;</code>（选择 <code>&lt;p&gt;</code> 父元素所有后代中的第一个 <code>&lt;p&gt;</code> 子元素），<br><code>a:hover</code> （当鼠标悬浮于链接上时），<br><code>button:hover</code>（当鼠标悬浮于按钮上时），<br><code>:root</code> （文档的根元素，在 HTML 中这通常是 <code>&lt;html&gt;</code> 元素）</td>
+</tr>
+<tr>
+<td>伪元素选择器</td>
+<td><code>p::first-line &#123;&#125;</code> （选择 <code>p</code> 元素的第一行），<br><code>::selection</code>（CSS 伪元素应用于文档中被用户高亮的部分，如使用鼠标或其他选择设备选中的部分），<br><code>::before</code>（创建一个<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements">伪元素</a>，其将成为匹配选中的元素的第一个子元素，常通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/content"><code>content</code></a> 属性来为一个元素添加修饰性的内容；<code>::after</code>也类似）</td>
+</tr>
+<tr>
+<td>后代选择器</td>
+<td><code>article p</code> 如果第二个选择器匹配的元素具有与第一个选择器匹配的<strong>祖先</strong>（父母，父母的父母等）元素，则它们将被选择</td>
+</tr>
+<tr>
+<td>子代选择器</td>
+<td><code>article &gt; p</code> 当使用 <code>&gt;</code> 选择符分隔两个元素时，它只会匹配那些作为第一个元素的<strong>直接后代</strong> (子元素) 的第二元素</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><strong>提示：</strong>伪类和伪元素选择器一开始可能容易混淆，请通过上述例子检验一下自己的理解是否到位</p>
+</blockquote>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Selectors">CSS 选择器 | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors">类型、类和 ID 选择器 | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors">属性选择器 | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements">伪类和伪元素 | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Selectors/Combinators">关系选择器 | MDN</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Web/" rel="tag"># Web</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/01/16/CSS-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" rel="prev" title="CSS 基本语法">
+      <i class="fa fa-chevron-left"></i> CSS 基本语法
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">预备知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E7%A7%8D%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">选择器种类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E3%80%81%E7%B1%BB%E5%92%8C-ID-%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">3.1.</span> <span class="nav-text">类型、类和 ID 选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">标签属性选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="nav-number">3.3.</span> <span class="nav-text">伪类与伪元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">3.4.</span> <span class="nav-text">运算符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E3%80%81%E7%B1%BB%E5%92%8C-ID-%E9%80%89%E6%8B%A9%E5%99%A8-1"><span class="nav-number">4.</span> <span class="nav-text">类型、类和 ID 选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">4.1.</span> <span class="nav-text">类型选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8-%E5%A4%9A%E4%B8%AA%E7%B1%BB%E5%90%8C%E6%97%B6%E5%BA%94%E7%94%A8%E5%88%B0%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="nav-number">4.2.</span> <span class="nav-text">类选择器 - 多个类同时应用到一个元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">4.3.</span> <span class="nav-text">全局选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ID-%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">4.4.</span> <span class="nav-text">ID 选择器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">属性选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%98%E5%90%A6%E5%92%8C%E5%80%BC%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">5.1.</span> <span class="nav-text">存否和值选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">5.2.</span> <span class="nav-text">子字符串匹配选择器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E4%B8%8E%E4%BC%AA%E5%85%83%E7%B4%A0-1"><span class="nav-number">6.</span> <span class="nav-text">伪类与伪元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB"><span class="nav-number">6.1.</span> <span class="nav-text">伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="nav-number">6.2.</span> <span class="nav-text">伪元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E7%B1%BB%E7%89%B9%E6%AE%8A%E7%9A%84%E4%BC%AA%E5%85%83%E7%B4%A0"><span class="nav-number">6.3.</span> <span class="nav-text">一类特殊的伪元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">7.</span> <span class="nav-text">关系选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E5%85%84%E5%BC%9F"><span class="nav-number">7.1.</span> <span class="nav-text">邻接兄弟</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%85%84%E5%BC%9F"><span class="nav-number">7.2.</span> <span class="nav-text">通用兄弟</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Appendix-%E9%80%89%E6%8B%A9%E5%99%A8%E5%8F%82%E8%80%83%E5%88%97%E8%A1%A8"><span class="nav-number">8.</span> <span class="nav-text">Appendix - 选择器参考列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">9.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shaw"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Shaw</p>
+  <div class="site-description" itemprop="description">Was mich nicht umbringt, macht mich stärker</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-10 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shaw</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
