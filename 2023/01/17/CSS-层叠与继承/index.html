@@ -30,7 +30,7 @@
 <meta property="og:description" content="写在前面CSS 是层叠样式表 (Cascading Style Sheets) 的缩写。要理解本节内容，我们首先需要搞清楚层叠的概念。与这个概念密切相关的还有“当某个元素同时拥有两种冲突的样式时，应该应用哪一种”的问题，也即优先级问题。我们还将了解哪些父元素的样式会被子元素继承，哪些则不会 最后我们总结精炼了一些样式优先级的法则">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-17T14:06:15.000Z">
-<meta property="article:modified_time" content="2023-01-17T14:06:15.079Z">
+<meta property="article:modified_time" content="2023-01-18T11:28:21.484Z">
 <meta property="article:author" content="Shaw">
 <meta property="article:tag" content="Web">
 <meta property="article:tag" content="CSS">
@@ -204,6 +204,13 @@
 
               <time title="Created: 2023-01-17 22:06:15" itemprop="dateCreated datePublished" datetime="2023-01-17T22:06:15+08:00">2023-01-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-01-18 19:28:21" itemprop="dateModified" datetime="2023-01-18T19:28:21+08:00">2023-01-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -243,7 +250,7 @@
 <p>对于上面的 <code>&lt;p&gt;</code>，仅有第二个规则会被应用</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.special</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>我们通过以下例子来分析可以继承和不可继承的样式</p>
-<p></p><p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="LYBzxLz" data-editable="true" data-user="KiritoShaw" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<p></p><p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="LYBzxLz" data-editable="false" data-user="KiritoShaw" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/LYBzxLz">
   inheritance_1</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
   on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
@@ -254,7 +261,7 @@
 <p><code>&lt;article&gt;</code> 的 <code>border</code> 和 <code>padding</code> 不可以被继承 (<code>margin</code> 也是同样的道理)，而背景颜色 <code>background-color</code> 和字色 <code>color</code> 可以被标题 <code>&lt;h1&gt;</code> 和段落元素 <code>&lt;p&gt;</code> 继承</p>
 <p><code>&lt;strong&gt;</code> 元素的字色被子元素 <code>&lt;em&gt;</code> 继承</p>
 <p>事实上，很多默认继承与不继承的方式都是符合常理的。<code>border</code> 显然不应该继承，否则每个后代元素都会出现边框，这显然是不合理的；背景颜色 <code>background-color</code> 可以继承也理所应当，否则后代元素的默认背景颜色将变成白色，显得格格不入</p>
-<p></p><p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="abjLpMV" data-editable="true" data-user="KiritoShaw" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<p></p><p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="abjLpMV" data-editable="false" data-user="KiritoShaw" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/abjLpMV">
   inheritance_2</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
   on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
@@ -294,7 +301,7 @@
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance">层叠与继承 | MDN</a></li>
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:nth-child">:nth-child - CSS | MDN</a></li>
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:nth-of-type">:nth-of-type - CSS | MDN</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.programminghunter.com/article/7166328447/#:~:text=CSS可以使用伪类 %3Anth-child (">CSS选择第二个子元素 - 编程猎人</a> 选择子元素，%3Anth-child ()从1开始计数，所以第二个子元素就是%3Anth-child (2),两个选择器之间加 空格 (后代选择器) 代表后面的选择器是前面的后代（子代，孙代…..） 初步判断，要选择class%3D”abc”的第二个子元素对应的选择器为.abc %3Anth-child (2))</li>
+<li><a target="_blank" rel="noopener" href="https://www.programminghunter.com/article/7166328447/">CSS选择第二个子元素 - 编程猎人</a></li>
 </ol>
 
     </div>
