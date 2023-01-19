@@ -22,19 +22,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="OptimizationOur goals is to find values of the variables that optimize the objectives. Often the variables are restricted, or constrained, in some way. There is no universal optimization algorithm but">
+  <meta name="description" content="预备知识 CSS 基础 ⭐ 盒子模型 | Shaw CSS 基础 ⭐ 内联盒子与块级盒子 | Shaw  写在前面在阅读本文之前，请确保你已经熟悉预备知识中关于盒模型，以及两种常见的盒模型之间的区别 首先我们将讲到标准盒模型以及替代盒模型，两者很好区分，所以这部分并不难；然后我们研究构成盒模型的四要素（此处会填之前埋下的关于速记属性的一个坑）；我们还会讲到 display 属性，为之后学习更加复杂">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Introduction to Numerical Optimization">
-<meta property="og:url" content="http://example.com/2022/04/15/Introduction-to-Numerical-Optimization/index.html">
+<meta property="og:title" content="CSS 盒模型">
+<meta property="og:url" content="http://example.com/2023/01/19/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="Shaw">
-<meta property="og:description" content="OptimizationOur goals is to find values of the variables that optimize the objectives. Often the variables are restricted, or constrained, in some way. There is no universal optimization algorithm but">
+<meta property="og:description" content="预备知识 CSS 基础 ⭐ 盒子模型 | Shaw CSS 基础 ⭐ 内联盒子与块级盒子 | Shaw  写在前面在阅读本文之前，请确保你已经熟悉预备知识中关于盒模型，以及两种常见的盒模型之间的区别 首先我们将讲到标准盒模型以及替代盒模型，两者很好区分，所以这部分并不难；然后我们研究构成盒模型的四要素（此处会填之前埋下的关于速记属性的一个坑）；我们还会讲到 display 属性，为之后学习更加复杂">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-15T12:17:03.000Z">
-<meta property="article:modified_time" content="2023-01-12T14:48:27.243Z">
+<meta property="article:published_time" content="2023-01-19T11:34:07.000Z">
+<meta property="article:modified_time" content="2023-01-19T11:34:07.783Z">
 <meta property="article:author" content="Shaw">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2022/04/15/Introduction-to-Numerical-Optimization/">
+<link rel="canonical" href="http://example.com/2023/01/19/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/">
 
 
 <script id="page-configurations">
@@ -47,7 +49,7 @@
   };
 </script>
 
-  <title>Introduction to Numerical Optimization | Shaw</title>
+  <title>CSS 盒模型 | Shaw</title>
   
 
 
@@ -177,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/15/Introduction-to-Numerical-Optimization/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/01/19/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,7 +192,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Introduction to Numerical Optimization
+          CSS 盒模型
         </h1>
 
         <div class="post-meta">
@@ -200,22 +202,15 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-04-15 20:17:03" itemprop="dateCreated datePublished" datetime="2022-04-15T20:17:03+08:00">2022-04-15</time>
+              <time title="Created: 2023-01-19 19:34:07" itemprop="dateCreated datePublished" datetime="2023-01-19T19:34:07+08:00">2023-01-19</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-01-12 22:48:27" itemprop="dateModified" datetime="2023-01-12T22:48:27+08:00">2023-01-12</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Numerical-Optimization/" itemprop="url" rel="index"><span itemprop="name">Numerical Optimization</span></a>
+                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
                 </span>
             </span>
 
@@ -237,70 +232,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h3><p>Our goals is to find values of the variables that optimize the objectives. Often the variables are restricted, or constrained, in some way.</p>
-<p>There is no universal optimization algorithm but rather a collection of algorithms, each of which is tailored to a particular type of optimization problem.</p>
-<ul>
-<li>optimality conditions: checking that the current set of variables is indeed the solution of the problem</li>
-<li>sensitivity analysis: reveals the sensitivity of the solution to changes in the model and data.</li>
-</ul>
+        <h3 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/2023/01/11/CSS-基础#盒子模型">CSS 基础 ⭐ 盒子模型 | Shaw</a></li>
+<li><a target="_blank" rel="noopener" href="https://kiritoshaw.github.io/2023/01/11/CSS-基础#内联盒子与块级盒子">CSS 基础 ⭐ 内联盒子与块级盒子 | Shaw</a></li>
+</ol>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>在阅读本文之前，请确保你已经熟悉预备知识中关于盒模型，以及两种常见的盒模型之间的区别</p>
+<p>首先我们将讲到标准盒模型以及替代盒模型，两者很好区分，所以这部分并不难；然后我们研究构成盒模型的四要素（此处会填之前埋下的关于<strong>速记属性</strong>的一个坑）；我们还会讲到 <code>display</code> 属性，为之后学习更加复杂的布局排版作铺垫</p>
 <span id="more"></span>
-<h3 id="Mathematical-Formulation"><a href="#Mathematical-Formulation" class="headerlink" title="Mathematical Formulation"></a>Mathematical Formulation</h3><p>We introduce some notations first:</p>
-<ul>
-<li>x is the vector of variables, also called unknowns or parameters</li>
-<li>f is the objective function, a (scalar) function of x that we want to maximize or minimize</li>
-<li>$c_i\ $are constraint functions, which are scalar functions of x that define equations and inequalities that the unknown vector x must satisfy</li>
-</ul>
-<p>Optimization problem can be written as follows by using the notations above:</p>
-<script type="math/tex; mode=display">
-\min_{x \in \R^n}\ f(x)\quad s.t.\ 
-\begin{cases}
-c_i(x) = 0\quad i \in \mathcal{E}\\
-c_i(x)\ge 0\quad i \in \mathcal{I}
-\end{cases}</script><p>Here $\ \mathcal{I}\ $and $\ \mathcal{E}\ $are sets of indexes for equality and inequality constraints, respectively.</p>
-<ul>
-<li>feasible region: the set of points satisfying all the constraints</li>
-</ul>
-<h3 id="Continuous-versus-Discrete-Optimization"><a href="#Continuous-versus-Discrete-Optimization" class="headerlink" title="Continuous versus Discrete Optimization"></a>Continuous versus Discrete Optimization</h3><h4 id="discrete-optimization"><a href="#discrete-optimization" class="headerlink" title="discrete optimization"></a>discrete optimization</h4><p>The defining feature of a discrete optimization problem is that the unknown x is drawn from a finite (but often very large) set.</p>
-<h4 id="continuous-optimization"><a href="#continuous-optimization" class="headerlink" title="continuous optimization"></a>continuous optimization</h4><p>The feasible set is usually uncountably infinite, as when the components of x are allowed to be real numbers.</p>
-<p>Continuous optimization problems are normally easier to solve because the smoothness of the functions makes it possible to use objective and constraint information at a particular point x to deduce information about the function’s behavior at all points close to x.</p>
-<p>Continuous optimization techniques often play an important role in solving discrete optimization problems.</p>
-<h3 id="Constrained-and-Unconstrained-Optimization"><a href="#Constrained-and-Unconstrained-Optimization" class="headerlink" title="Constrained and Unconstrained Optimization"></a>Constrained and Unconstrained Optimization</h3><h4 id="unconstrained-optimization"><a href="#unconstrained-optimization" class="headerlink" title="unconstrained optimization"></a>unconstrained optimization</h4><ul>
-<li>$\mathcal{I} = \mathcal{E} = \emptyset$</li>
-<li>replacement the constraints by the penalization terms added to objective function</li>
-</ul>
-<h4 id="constrained-optimization"><a href="#constrained-optimization" class="headerlink" title="constrained optimization"></a>constrained optimization</h4><h3 id="Stochastic-and-Deterministic-Optimization"><a href="#Stochastic-and-Deterministic-Optimization" class="headerlink" title="Stochastic and Deterministic Optimization"></a>Stochastic and Deterministic Optimization</h3><p>Stochastic optimization algorithms use these quantifications of the uncertainty to produce solutions that optimize the expected performance of the model.</p>
-<ul>
-<li>chance-constrained optimization: in which we ensure that the variables satisfy the given constraints to some specified probability</li>
-<li>robust optimization: certain constraints are required to hold for all possible values of the uncertain data</li>
-</ul>
-<h3 id="Convexity"><a href="#Convexity" class="headerlink" title="Convexity"></a>Convexity</h3><p>First of all, we consider convex set.</p>
-<h4 id="convex-set"><a href="#convex-set" class="headerlink" title="convex set"></a>convex set</h4><p>When we say a set is convex, it follows that for $\forall x \in S$ and $y\in S$, we have</p>
-<script type="math/tex; mode=display">
-\alpha x + (1-\alpha)y \in S \quad \forall \alpha\in[0,1]</script><h4 id="convex-function"><a href="#convex-function" class="headerlink" title="convex function"></a>convex function</h4><ul>
-<li><p>convex function: if its domain S is a convex set and if for any two points x and y in S, the following property is satisfied</p>
-<script type="math/tex; mode=display">
-f(\alpha x+(1-\alpha)y)\le\alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,1]</script></li>
-<li><p>strictly convex function: whenever $x \ne y$</p>
-<script type="math/tex; mode=display">
-f(\alpha x+(1-\alpha)y)\lt \alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,1]</script></li>
-<li><p>convex function</p>
-</li>
-</ul>
-<h4 id="global-solution"><a href="#global-solution" class="headerlink" title="global solution"></a>global solution</h4><p>If the objective function in the optimization problem and the feasible region are both convex, then any local solution of the problem is in fact a global solution.</p>
-<h4 id="convex-programming"><a href="#convex-programming" class="headerlink" title="convex programming"></a>convex programming</h4><p>A special case of the general constrained optimization problem in which</p>
-<ul>
-<li>the objective function is convex</li>
-<li>the equality constrain function $c_i(\cdot), i\in\mathcal{E}$, are linear</li>
-<li>the inequality constrain function $c_i(\cdot), i\in\mathcal{I}$, are concave</li>
-</ul>
-<h3 id="Optimization-Algorithm"><a href="#Optimization-Algorithm" class="headerlink" title="Optimization Algorithm"></a>Optimization Algorithm</h3><p>Most strategies make use of the values of the objective function f, $c_i$, the constraint functions, and possibly the first and second derivatives of these functions. Some algorithms accumulate information gathered at previous iterations, while others use only local information obtained at the current point.</p>
-<p>Aspects of judging whether the algorithm is a good or not:</p>
-<ul>
-<li>Robustness</li>
-<li>Efficiency</li>
-<li>Accuracy</li>
-</ul>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>Numerical Optimization (2nd) by Jorge Nocedal, Stephen J. Wright</p>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>一个盒模型由四个部分组成：内容 (content box)，内边距 (padding box)，边界 (border box) 和外边距 (margin box)</p>
+<h4 id="标准盒模型"><a href="#标准盒模型" class="headerlink" title="标准盒模型"></a>标准盒模型</h4><p>边界以内的部分将会决了盒子的实际大小，举个例子</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80vw</span>; // 视口宽度的<span class="number">80%</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> auto; // &#123;上下,左右&#125;=&#123;<span class="number">0</span>,自动调节&#125;, 效果是文本居中上端显示</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">2px</span> solid black; // <span class="number">2px</span>宽的黑色实线边框</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">200px</span>; // 配合 <span class="attribute">padding</span> 以及 <span class="attribute">height</span> 实现文本居中显示</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>假设 <code>width</code> 计算出来为 400px，那么这个盒模型的实际宽度 = <code>width</code> + <code>padding-left</code> + <code>padding-right</code>  + 2*<code>border</code></p>
+<h4 id="替代（IE）盒模型"><a href="#替代（IE）盒模型" class="headerlink" title="替代（IE）盒模型"></a>替代（IE）盒模型</h4><p>如果你觉得上述计算过程过于繁琐，那么还有另一种模型——替代盒模型，它直接用 <code>height</code> 表示上下边框 (外沿) 之间的距离，用 <code>width</code> 表示左右边框 (外沿) 之间的距离</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="外边距"><a href="#外边距" class="headerlink" title="外边距"></a>外边距</h3><h4 id="速记属性"><a href="#速记属性" class="headerlink" title="速记属性"></a>速记属性</h4><p><code>margin</code> 是一个<strong>速记属性</strong>，相当于 <code>margin-top</code>， <code>margin-right</code>， <code>margin-bottom</code> 和 <code>margin-left</code> 的集合</p>
+<h4 id="外边距折叠"><a href="#外边距折叠" class="headerlink" title="外边距折叠"></a>外边距折叠</h4><p>我们已经强调过几遍，标准盒模型的大小是由边框及其以内的部分所决定，<code>margin</code> 只负责将盒子周围的元素推开，那么两个上下相邻盒子之间的 <code>margin</code> 相遇，该如何处理呢？这里就涉及到外边距折叠的问题了</p>
+<p>如果你有两个外边距相接的元素，这些外边距将合并为一个外边距，即最大的单个外边距的大小</p>
+<blockquote>
+<p><strong>注意：</strong>有许多规则规定了什么时候外边距会折叠，什么时候不会折叠。详见 Reference 的参考资料 2</p>
+</blockquote>
+<h3 id="边界"><a href="#边界" class="headerlink" title="边界"></a>边界</h3><h4 id="速记属性-1"><a href="#速记属性-1" class="headerlink" title="速记属性"></a>速记属性</h4><p><code>border</code> 除了有和上述 <code>margin</code> 类似的速记属性，更常用的是 <code>border-width</code>，<code>border-style</code> 和 <code>border-color</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red; // // <span class="number">1px</span>宽的红色实线边框</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="圆角边界"><a href="#圆角边界" class="headerlink" title="圆角边界"></a>圆角边界</h4><p><code>border-radius</code> 是一种常见的边界样式，赋予值来调整圆角大小，它同样又与 <code>margin</code> 相似结构的速记属性</p>
+<h3 id="内边距"><a href="#内边距" class="headerlink" title="内边距"></a>内边距</h3><p>经过之前内容的学习，内边距 <code>padding</code> 说来也很简单，它是一个速记属性，相当于 <code>padding-top</code>， <code>padding-right</code>， <code>padding-bottom</code> 和 <code>padding-left</code> 的集合</p>
+<h3 id="内部和外部显示类型"><a href="#内部和外部显示类型" class="headerlink" title="内部和外部显示类型"></a>内部和外部显示类型</h3><p>之面我们所接触的内联 (inline) 盒子和块级 (block) 盒子，都是描述了一种<strong>外部显示类型</strong>，它规定了这个盒子与外部其他盒子在父元素下是如何布局的，而<strong>内部显示类型</strong>规定了盒子内部的元素是如何布局的</p>
+<p>我们可以通过对 <code>display</code> 属性的设置，例如 <code>block</code> 和 <code>inline</code> 来控制盒子的外部显示类型；也可以设置为 <code>flex</code> 来控制盒子的内部显示类型；甚至可以同时控制外部和内部显示类型，例如 <code>inline-flex</code> 就是在内部 <code>flex</code> 元素外增加一个内联框</p>
+<p></p><p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="QWBOgze" data-user="KiritoShaw" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/QWBOgze">
+  flex, inline-flex</a> by KiritoShaw (<a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw">@KiritoShaw</a>)
+  on <a target="_blank" rel="noopener" href="https://codepen.io">CodePen</a>.</span>
+</p><p></p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<p>借由 <code>inline-flex</code> 启发，我们可以将 <code>flex</code> 也可以看成是 <code>block-flex</code> (并没有这个值)，表示外部显示类型是 <code>block</code>，而内部布局为 <code>flex</code></p>
+<blockquote>
+<p><code>flex</code> 的详细用法将会在之后提到，这里并不需要过分细究，混个眼熟就行</p>
+</blockquote>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/The_box_model">盒模型 | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing">外边距重叠 | MDN</a></li>
+</ol>
 
     </div>
 
@@ -309,6 +280,10 @@ f(\alpha x+(1-\alpha)y)\lt \alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Web/" rel="tag"># Web</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
 
         
 
@@ -316,13 +291,10 @@ f(\alpha x+(1-\alpha)y)\lt \alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/04/15/%E5%9B%9B%E4%B8%AD%E6%B1%87%E6%8A%A5/" rel="prev" title="四中汇报">
-      <i class="fa fa-chevron-left"></i> 四中汇报
+    <a href="/2023/01/17/CSS-%E5%B1%82%E5%8F%A0%E4%B8%8E%E7%BB%A7%E6%89%BF/" rel="prev" title="CSS 层叠与继承">
+      <i class="fa fa-chevron-left"></i> CSS 层叠与继承
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/04/17/Fundamentals-of-Unconstrained-Optimization/" rel="next" title="Fundamentals of Unconstrained Optimization">
-      Fundamentals of Unconstrained Optimization <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -381,7 +353,7 @@ f(\alpha x+(1-\alpha)y)\lt \alpha f(x)+(1-\alpha)f(y)\quad \forall \alpha \in[0,
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimization"><span class="nav-number">1.</span> <span class="nav-text">Optimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mathematical-Formulation"><span class="nav-number">2.</span> <span class="nav-text">Mathematical Formulation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Continuous-versus-Discrete-Optimization"><span class="nav-number">3.</span> <span class="nav-text">Continuous versus Discrete Optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#discrete-optimization"><span class="nav-number">3.1.</span> <span class="nav-text">discrete optimization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#continuous-optimization"><span class="nav-number">3.2.</span> <span class="nav-text">continuous optimization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constrained-and-Unconstrained-Optimization"><span class="nav-number">4.</span> <span class="nav-text">Constrained and Unconstrained Optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#unconstrained-optimization"><span class="nav-number">4.1.</span> <span class="nav-text">unconstrained optimization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#constrained-optimization"><span class="nav-number">4.2.</span> <span class="nav-text">constrained optimization</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stochastic-and-Deterministic-Optimization"><span class="nav-number">5.</span> <span class="nav-text">Stochastic and Deterministic Optimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convexity"><span class="nav-number">6.</span> <span class="nav-text">Convexity</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#convex-set"><span class="nav-number">6.1.</span> <span class="nav-text">convex set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#convex-function"><span class="nav-number">6.2.</span> <span class="nav-text">convex function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#global-solution"><span class="nav-number">6.3.</span> <span class="nav-text">global solution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#convex-programming"><span class="nav-number">6.4.</span> <span class="nav-text">convex programming</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimization-Algorithm"><span class="nav-number">7.</span> <span class="nav-text">Optimization Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">预备知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.1.</span> <span class="nav-text">标准盒模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%BF%E4%BB%A3%EF%BC%88IE%EF%BC%89%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">替代（IE）盒模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E8%BE%B9%E8%B7%9D"><span class="nav-number">4.</span> <span class="nav-text">外边距</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9F%E8%AE%B0%E5%B1%9E%E6%80%A7"><span class="nav-number">4.1.</span> <span class="nav-text">速记属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%96%E8%BE%B9%E8%B7%9D%E6%8A%98%E5%8F%A0"><span class="nav-number">4.2.</span> <span class="nav-text">外边距折叠</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%B9%E7%95%8C"><span class="nav-number">5.</span> <span class="nav-text">边界</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9F%E8%AE%B0%E5%B1%9E%E6%80%A7-1"><span class="nav-number">5.1.</span> <span class="nav-text">速记属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%86%E8%A7%92%E8%BE%B9%E7%95%8C"><span class="nav-number">5.2.</span> <span class="nav-text">圆角边界</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%BE%B9%E8%B7%9D"><span class="nav-number">6.</span> <span class="nav-text">内边距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E5%92%8C%E5%A4%96%E9%83%A8%E6%98%BE%E7%A4%BA%E7%B1%BB%E5%9E%8B"><span class="nav-number">7.</span> <span class="nav-text">内部和外部显示类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
