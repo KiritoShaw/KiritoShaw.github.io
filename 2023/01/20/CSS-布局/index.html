@@ -30,7 +30,7 @@
 <meta property="og:description" content="预备知识 CSS 盒模型 | Shaw  写在前面我们在 HTML 学到很多元素有默认的 display 属性，例如 &lt;p&gt;、 &lt;ul&gt;、 &lt;li&gt;、 &lt;img&gt; 等默认为 block，而&lt;a&gt;、 &lt;em&gt;、 &lt;strong&gt; 等默认为 inline，这些都是元素的外部显示类型 这一节我们将继续深入学习 displ">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-01-20T12:51:23.000Z">
-<meta property="article:modified_time" content="2023-01-20T12:51:23.159Z">
+<meta property="article:modified_time" content="2023-01-20T12:57:51.238Z">
 <meta property="article:author" content="Shaw">
 <meta property="article:tag" content="Web">
 <meta property="article:tag" content="CSS">
@@ -201,8 +201,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2023-01-20 20:51:23" itemprop="dateCreated datePublished" datetime="2023-01-20T20:51:23+08:00">2023-01-20</time>
+              <time title="Created: 2023-01-20 20:51:23 / Modified: 20:57:51" itemprop="dateCreated datePublished" datetime="2023-01-20T20:51:23+08:00">2023-01-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -268,6 +269,9 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Simple float example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span>Float<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>在下面这个例子当中，我们把一个<code>&lt;div&gt;</code>元素浮动到左侧，并且给了他一个右侧的 <code>margin</code>，把文字推开</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>提示：</strong><a target="_blank" rel="noopener" href="https://codepen.io/KiritoShaw/pen/zYLpKPd">在线查看</a>上面例子的源代码和效果演示，改变页面宽度观察有什么变化</p>
+</blockquote>
 <h3 id="定位-Positioning"><a href="#定位-Positioning" class="headerlink" title="定位 Positioning"></a>定位 Positioning</h3><p>定位 (positioning) 能够让我们把一个元素从它原本在正常布局流 (normal flow) 中应该在的位置移动到另一个位置。定位 (positioning) 并不是一种用来给你做主要页面布局的方式，它更像是让你去管理和微调页面中的一个特殊项的位置</p>
 <p>有一些非常有用的技术在特定的布局下依赖于 <code>position</code> 属性。同时，理解定位 (positioning) 也能够帮助你理解正常布局流 (normal flow)，理解把一个元素移出正常布局流 (normal flow) 是怎么一回事</p>
 <p>有五种主要的定位类型需要我们了解：</p>
