@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="写在前面本次杂谈中讨论了几个问题：  环境与动作的交互问题 利用与探索问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强化学习杂谈 1">
+<meta property="og:url" content="http://example.com/2023/06/21/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%B0%88-1/index.html">
+<meta property="og:site_name" content="Shaw">
+<meta property="og:description" content="写在前面本次杂谈中讨论了几个问题：  环境与动作的交互问题 利用与探索问题">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/06/21/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%B0%88-1/状态动作转移网络.drawio.png">
+<meta property="og:image" content="http://example.com/2023/06/21/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%B0%88-1/QTable.drawio.png">
+<meta property="article:published_time" content="2023-06-21T07:55:34.000Z">
+<meta property="article:modified_time" content="2023-06-21T07:55:34.893Z">
+<meta property="article:author" content="Shaw">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/06/21/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%B0%88-1/状态动作转移网络.drawio.png">
+
+<link rel="canonical" href="http://example.com/2023/06/21/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%B0%88-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>强化学习杂谈 1 | Shaw</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shaw</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>resources</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/21/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%B0%88-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          强化学习杂谈 1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-06-21 15:55:34" itemprop="dateCreated datePublished" datetime="2023-06-21T15:55:34+08:00">2023-06-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reinforcement-Learning/" itemprop="url" rel="index"><span itemprop="name">Reinforcement Learning</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本次杂谈中讨论了几个问题：</p>
+<ol>
+<li>环境与动作的交互问题</li>
+<li>利用与探索问题</li>
+</ol>
+<span id="more"></span>
+<h3 id="符号与标记-Notation"><a href="#符号与标记-Notation" class="headerlink" title="符号与标记 Notation"></a>符号与标记 Notation</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Env</th>
+<th>环境</th>
+<th>Agent</th>
+<th>智能体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$r$</td>
+<td>奖励</td>
+<td>$A$</td>
+<td>动作</td>
+</tr>
+<tr>
+<td>$P$</td>
+<td>转移概率矩阵</td>
+<td>$S$</td>
+<td>状态</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>进入状态 s 的即时奖励：$r(s)$</p>
+<p>奖励函数（时刻 $S_t$ 获得的即时奖励）：$r_t$</p>
+<p>时刻 $S_t$ 之后获得的所有奖励：$G_t=r_t+\gamma r_{t+1}+\gamma^2r_{t+2}+…=\sum^{\infin}_{k=0}\gamma^kr_{t+k}$</p>
+<p>价值函数（衡量进入状态 s 的长期奖励）：$V(s)=\mathbb{E}[G_t|S_t=s]$</p>
+<p>从状态 $s$ 到状态 $s’$ 的转移概率：$p(s’|s)=P(S_{t+1}=s’|S_t=s)$</p>
+<p>在状态 $s$ 选择动作 $a$ 变成状态 $s’$ 的转移概率：$p(s’|s,a)=P(S_{t+1}=s’|S_t=s,A_t=a)$</p>
+<p>策略：$\pi(a|s)=P(A_t=a|S_t=s)$</p>
+<h3 id="环境的变与不变"><a href="#环境的变与不变" class="headerlink" title="环境的变与不变"></a>环境的变与不变</h3><p><strong>Q&amp;A：</strong>当智能体的动作与环境发生交互时，如何理解环境因为动作的改变发生变化？</p>
+<p>我觉得这种所谓变与不变体现在环境给智能体的反馈上，并且这种反馈的产生是路径依赖的。</p>
+<p>举最简单的两个例子：多臂老虎机$^{[1]}$与下围棋。在多臂老虎机中，动作是拉老虎机的拉杆，环境的反馈是拉杆之后的即时盈利，很明显即时盈利并不会因为赌徒的一系列动作而发生改变。所以反馈是不变的，我们就认为环境是不变的。在下围棋的过程中两位棋手对弈，环境是棋盘上所有落子构成的对弈棋局，动作是落子且每次落子都会改变棋局的模样（环境）。或者更具体一点，对手会根据你当前的动作做出决策，从而改变环境。这是动作与环境交互的过程，也是环境反馈改变的过程。</p>
+<p>再举一个生活中的例子。我们与语音助手进行交谈时，语音助手会根据我们的回答以预设程序进行回答，而我们的每次问话并不会改变它预设的回答方式。此时环境是不因动作发生改变的。但是我们与其他人进行交谈时，我们的回答很可能会导致这场对话的走向发生改变。这意味环境也随之发生变化，且这种变化是由交谈双方共同导致的$^{[2]}$。</p>
+<blockquote>
+<p>[1] 多臂老虎机：一个赌徒面前有N个老虎机，事先他不知道每台老虎机的真实盈利情况，他如何根据每次玩老虎机的结果来选择下次拉哪台或者是否停止赌博，来最大化自己的从头到尾的收益。多臂老虎机的问题可以纳入一个二元组的框架下进行讨论：$<A,r>$</A,r></p>
+<p>[2] 亲密关系能否形成是否也是路径依赖的？</p>
+</blockquote>
+<h3 id="利用与探索-Exploration-amp-Exploitation"><a href="#利用与探索-Exploration-amp-Exploitation" class="headerlink" title="利用与探索 Exploration &amp; Exploitation"></a>利用与探索 Exploration &amp; Exploitation</h3><p>在多臂老虎机问题中，一方面我们希望利用最少的步数找到对应着最大化奖励的拉杆，另一方面我们也不希望因为探索不足而忽略了真正具有最大奖励的拉杆。这就涉及到利用与探索的问题。</p>
+<p>假设一共有10根拉杆，我们已经随机拉杆多次并得到了一个奖励数据序列 $\{R^i_k\}_{k\in \N,i=1:10}=\{R^7_1,R^5_2,R^3_3,R^8_4,R^6_5,R^1_6,…\}$，其中下标表示拉拉杆的次数，上标表示通过某种方式选择的拉杆编号。我们希望通过这个序列推测最大奖励拉杆的编号，从而最大化奖励。此外，这个序列也是我们唯一可以从中学习的对象。</p>
+<p>所谓利用就是通过过去数据学习如何进行决策，决策目标是最大化一个广义奖励（即时奖励，多步奖励，长期奖励…），而所谓探索就是通过某个准则选择动作。</p>
+<p><strong>Q&amp;A：</strong>什么时候需要进行探索？我将按我目前粗浅的理解进行解答</p>
+<ol>
+<li>智能体对环境了解不深</li>
+<li>环境会发生改变，需要进行探索更新我们对环境的认识</li>
+</ol>
+<p><strong>Q&amp;A：</strong>按什么准则进行探索？</p>
+<ol>
+<li>完全随机探索（那么过去获得的数据将无法提供有价值的信息</li>
+<li>利用决策的信息（其中已经包含了过去数据的部分信息）构成 $\epsilon-Greedy$ 算法$^{[3]}$</li>
+<li>利用决策的信息以及动作次数构成 $\epsilon-Greedy$ 算法，$\epsilon$ 会随着动作次数的增加而减少</li>
+<li>利用决策的信息以及过去数据包含的其他统计信息（期望、方差等）构成 $Thompson$ 采样算法$^{[4]}$</li>
+<li>…</li>
+</ol>
+<blockquote>
+<p>[3] $\epsilon-Greedy$ 算法</p>
+<script type="math/tex; mode=display">
+a_t=
+\begin{cases}
+argmax_{a\in A}\hat{Q}(a)\quad &\text{以 }1-\epsilon\text{ 的概率}\\
+\text{随机选择 }a\in A &\text{以 }\epsilon\text{ 的概率}
+\end{cases}</script><p><strong>Q&amp;A：</strong>在上述算法框架下，为什么累计懊悔无法随时间的增长被控制？</p>
+<p>[4] 探索价值的度量方法。<strong>Idea：</strong>最开始我想到了 $Thompson$ 采样算法的雏形，即利用过去信息中包含的期望、方差信息得到上界估计，不过当时还没有清晰地认识到它是在衡量探索价值的大小</p>
+</blockquote>
+<h3 id="马尔可夫奖励过程-MRP"><a href="#马尔可夫奖励过程-MRP" class="headerlink" title="马尔可夫奖励过程 MRP"></a>马尔可夫奖励过程 MRP</h3><p>马尔可夫奖励过程假设智能体与环境交互过程中的状态转移满足马尔可夫性，它可以纳入一个四元组框架进行讨论：$<P,S,r,\gamma>$</P,S,r,\gamma></p>
+<p>进入状态 $s$ 的价值，也即状态 $s$ 的长期奖励为 $V(s)=\mathbb{E}[G_t|S_t=s]$，稍加变形我们得到</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+V(s)&=\mathbb{E}[G_t|S_t=s]\\
+&=\mathbb{E}[r_t+\gamma G_{t+1}|S_t=s]\\
+&=\mathbb{E}[r_t|S_t=s]+\gamma\mathbb{E}[G_{t+1}|S_t=s]\\
+&=\mathbb{E}[r_t|S_t=s]+\gamma\sum_{s'\in S}\mathbb{E}[G_{t+1}|S_{t+1}=s']p(s'|s)\\
+&=r(s)+\gamma\sum_{s'\in S}V(s')p(s'|s)
+\end{aligned}</script><p>以上就是著名的 $Bellman$ 方程。如果已知 $r(s)$ 和 $p(s’|s)$，我们可以通过迭代找到不动点 $V(s^*)^{[5]}$</p>
+<blockquote>
+<p>[5] 需验证迭代序列是否收敛</p>
+<p><strong>Q：</strong>如何通过采样了解整个马尔可夫链？如果答案是肯定的，这是否意味着我们可以通过蒙特卡罗方法估算 $p(s’|s)$？</p>
+</blockquote>
+<h3 id="马尔可夫决策过程-MDP"><a href="#马尔可夫决策过程-MDP" class="headerlink" title="马尔可夫决策过程 MDP"></a>马尔可夫决策过程 MDP</h3><p>MDP在马尔可夫奖励过程的基础上加上动作空间，与之前不同，状态的转移不仅依赖于上一个状态，还依赖动作的选择。由此构成一个状态-动作-状态的循环网络</p>
+<p><img src="/2023/06/21/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%B0%88-1/状态动作转移网络.drawio.png" style="zoom:25%;"></p>
+<p>上一节中的价值函数准确来讲应该称为状态价值函数，同时因为动作空间的引入，我们还可以定义动作价值函数，用于衡量当处在某个状态时选择某个动作的价值</p>
+<p>当然我们并不能简单照搬之前的定义，注意到基于奖励的动作选择构成一个策略。在某个状态下选择不同的动作对应不同的策略，不同的策略将导致状态的长期奖励不同。所以在衡量价值函数或者动作价值函数时，我们是针对策略进行考虑的</p>
+<p>由此，我们考虑基于策略的状态价值函数 $V^{\pi}(s)=\mathbb{E}_\pi[G_t|S_t=s]$ 以及动作价值函数 $Q^{\pi}(s,a)=\mathbb{E}_\pi[G_t|S_t=s,A_t=a]$</p>
+<p>改写一下上述两个等式，对于状态价值函数</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+V^{\pi}(s)&=\mathbb{E}_\pi[G_t|S_t=s]\\
+&=\mathbb{E}_\pi[r_t+\gamma G_{t+1}|S_t=s]\\
+&=\sum_{a\in A}p(A_t=a|S_t=s)\{\mathbb{E}_\pi[r_t|S_t=s,A_t=a]+\gamma\mathbb{E}_\pi[G_{t+1}|S_t=s,A_t=a]\}\\
+&=\sum_{a\in A}\pi(a|s)\{r(s,a)+\gamma\mathbb{E}_\pi[G_{t+1}|S_t=s,A_t=a]\}\\
+&=\sum_{a\in A}\pi(a|s)\{r(s,a)+\gamma\sum_{s'\in S}\mathbb{E}_\pi[G_{t+1}|S_{t+1}=s']p(s'|s,a)\}\\
+&=\sum_{a\in A}\pi(a|s)[r(s,a)+\gamma\sum_{s'\in S}V^{\pi}(s')p(s'|s,a)]\\
+\end{aligned}</script><p>同理对于动作价值函数</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+Q^{\pi}(s,a)&=\mathbb{E}_\pi[G_t|S_t=s,A_t=a]\\
+&=\mathbb{E}_\pi[r_t+\gamma G_{t+1}|S_t=s,A_t=a]\\
+&=\mathbb{E}_\pi[r_t|S_t=s,A_t=a]+\gamma\mathbb{E}_\pi[G_{t+1}|S_t=s,A_t=a]\\
+&=r(s,a)+\gamma\sum_{s'\in S}p(s'|s,a)\mathbb{E}_\pi[G_{t+1}|S_{t+1}=s']\\
+&=r(s,a)+\gamma\sum_{s'\in S}p(s'|s,a)V^{\pi}(s')\\
+&=r(s,a)+\gamma\sum_{s'\in S}p(s'|s,a)\sum_{a'\in A}\pi(a'|s')\mathbb{E}_\pi[G_{t+1}|S_{t+1}=s',A_{t+1}=a']\\
+&=r(s,a)+\gamma\sum_{s'\in S}p(s'|s,a)\sum_{a'\in A}\pi(a'|s')Q^{\pi}(s',a')\\
+\end{aligned}</script><p>下表总结了四个重要的关系式</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">$V^{\pi}(s)=\sum_{a\in A}\pi(a</td>
+<td>s)[r(s,a)+\gamma\sum_{s’\in S}V^{\pi}(s’)p(s’</td>
+<td>s,a)]$</td>
+</tr>
+<tr>
+<td style="text-align:left">$Q^{\pi}(s,a)=r(s,a)+\gamma\sum_{s’\in S}p(s’</td>
+<td>s,a)V^{\pi}(s’)$</td>
+</tr>
+<tr>
+<td style="text-align:left">$Q^{\pi}(s,a)=r(s,a)+\gamma\sum_{s’\in S}p(s’</td>
+<td>s,a)\sum_{a’\in A}\pi(a’</td>
+<td>s’)Q^{\pi}(s’,a’)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/2023/06/21/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%B0%88-1/QTable.drawio.png" style="zoom: 25%;"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/06/21/%E9%9A%8F%E6%83%B3/" rel="prev" title="随想">
+      <i class="fa fa-chevron-left"></i> 随想
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E4%B8%8E%E6%A0%87%E8%AE%B0-Notation"><span class="nav-number">2.</span> <span class="nav-text">符号与标记 Notation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E7%9A%84%E5%8F%98%E4%B8%8E%E4%B8%8D%E5%8F%98"><span class="nav-number">3.</span> <span class="nav-text">环境的变与不变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E4%B8%8E%E6%8E%A2%E7%B4%A2-Exploration-amp-Exploitation"><span class="nav-number">4.</span> <span class="nav-text">利用与探索 Exploration &amp; Exploitation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%A5%96%E5%8A%B1%E8%BF%87%E7%A8%8B-MRP"><span class="nav-number">5.</span> <span class="nav-text">马尔可夫奖励过程 MRP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B-MDP"><span class="nav-number">6.</span> <span class="nav-text">马尔可夫决策过程 MDP</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shaw"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Shaw</p>
+  <div class="site-description" itemprop="description">Was mich nicht umbringt, macht mich stärker</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-10 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shaw</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
