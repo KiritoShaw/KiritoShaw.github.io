@@ -199,7 +199,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-07-03 20:34:53 / Modified: 20:46:46" itemprop="dateCreated datePublished" datetime="2023-07-03T20:34:53+08:00">2023-07-03</time>
+              <time title="Created: 2023-07-03 20:34:53 / Modified: 21:10:55" itemprop="dateCreated datePublished" datetime="2023-07-03T20:34:53+08:00">2023-07-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,7 +273,22 @@
 <li>Omniverse (仿真环境为灰白地砖) + PPO. Isaac Gym</li>
 </ol>
 <hr>
-<h3 id="2023-07-03"><a href="#2023-07-03" class="headerlink" title="2023.07.03"></a>2023.07.03</h3><h4 id="Zotero-坚果云"><a href="#Zotero-坚果云" class="headerlink" title="Zotero + 坚果云"></a>Zotero + 坚果云</h4>
+<h3 id="2023-07-03"><a href="#2023-07-03" class="headerlink" title="2023.07.03"></a>2023.07.03</h3><h4 id="Zotero-坚果云-（云同步）"><a href="#Zotero-坚果云-（云同步）" class="headerlink" title="Zotero + 坚果云 （云同步）"></a>Zotero + 坚果云 （云同步）</h4><p>详细请参考 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/112795057">zotero+坚果云，免费跨平台文献管理最佳实践指南</a></p>
+<h4 id="RAL-2022-CPG-RL-Learning-Central-Pattern-Generators-for-Quadruped-Locomotion"><a href="#RAL-2022-CPG-RL-Learning-Central-Pattern-Generators-for-Quadruped-Locomotion" class="headerlink" title="[RAL 2022] CPG-RL: Learning Central Pattern Generators for Quadruped Locomotion"></a>[RAL 2022] CPG-RL: Learning Central Pattern Generators for Quadruped Locomotion</h4><p>师兄带读论文</p>
+<p>状态空间 18 DOF (Degree of Freedom)</p>
+<ol>
+<li>$x, y, z$ (位置)</li>
+<li>$\varphi$ (俯仰)，$\theta$ (偏航)，$\psi$ (滚转)</li>
+<li>12 个关节</li>
+</ol>
+<p>Gait 步态：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1AY4y1b7mV/?spm_id_from=333.337.search-card.all.click">犬类步态参考 四足机器人步态参考 多种步态_bilibili</a></p>
+<ul>
+<li>相位</li>
+<li>占空比</li>
+</ul>
+<p>动力系统</p>
+<p>MPC：$x_d \leftarrow \text{控制器}- x \leftarrow \text{观测器}- \hat{x}$</p>
+
       
     </div>
 
