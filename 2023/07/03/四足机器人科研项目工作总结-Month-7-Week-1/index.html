@@ -30,7 +30,7 @@
 <meta property="og:description" content="2023.07.02强化学习杂谈 2 续写完成章节 Markov 链 &#x2F; Markov 奖励过程 &#x2F; Markov 决策过程 文献调研 (50-100篇)年份2018 年 - 今 期刊第一档  Nature Machine Intelligence (NMI) Science Robotics">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-03T12:34:53.000Z">
-<meta property="article:modified_time" content="2023-07-06T14:04:25.188Z">
+<meta property="article:modified_time" content="2023-07-07T13:44:06.195Z">
 <meta property="article:author" content="Shaw">
 <meta property="article:tag" content="项目工作总结">
 <meta name="twitter:card" content="summary">
@@ -208,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-07-06 22:04:25" itemprop="dateModified" datetime="2023-07-06T22:04:25+08:00">2023-07-06</time>
+                <time title="Modified: 2023-07-07 21:44:06" itemprop="dateModified" datetime="2023-07-07T21:44:06+08:00">2023-07-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -360,7 +360,7 @@
 <p>再用 pip 安装 tensorflow，结果成功</p>
 <h5 id="使用-TensorBoard"><a href="#使用-TensorBoard" class="headerlink" title="使用 TensorBoard"></a>使用 TensorBoard</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> stable_baselines3 <span class="keyword">import</span> PPO</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="comment"># 模型 (vec_env 是 ... 中设定的环境, 这里我们使用 Atari 游戏 Breakout)</span></span><br><span class="line">model = PPO(<span class="string">&#x27;CnnPolicy&#x27;</span>, vec_env, verbose=<span class="number">1</span>, tensorboard_log=<span class="string">&#x27;./ppo_breakout_tensorboard/&#x27;</span>)</span><br><span class="line"><span class="comment"># 训练</span></span><br><span class="line">model.learn(total_timesteps=<span class="number">1e5</span>, tb_log_name=<span class="string">&#x27;first_run&#x27;</span>)</span><br><span class="line">model.learn(total_timesteps=<span class="number">1e5</span>, tb_log_name=<span class="string">&#x27;second_run&#x27;</span>, reset_num_timesteps=<span class="literal">False</span>)</span><br><span class="line">model.learn(total_timesteps=<span class="number">1e5</span>, tb_log_name=<span class="string">&#x27;third_run&#x27;</span>, reset_num_timesteps=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
 <p>在 Terminal 中输入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir ./ppo_breakout_tensorboard/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir ./ppo_breakout_tensorboard/</span><br><span class="line"></span><br><span class="line"># 载入历史 logging folders</span><br><span class="line">tensorboard --logdir ./ppo_breakout_tensorboard/;./a2c_breakout_tensorboard/</span><br></pre></td></tr></table></figure>
 <p>点击 localhost 链接查看结果，结束时按 Ctrl+C</p>
 <h4 id="MICRO-Quadruped-ARCHIVE-2023-05-17"><a href="#MICRO-Quadruped-ARCHIVE-2023-05-17" class="headerlink" title="MICRO_Quadruped_ARCHIVE_2023_05_17"></a>MICRO_Quadruped_ARCHIVE_2023_05_17</h4><p>MICRO 四足机器人训练及测试平台</p>
 <h5 id="安装及依赖"><a href="#安装及依赖" class="headerlink" title="安装及依赖"></a>安装及依赖</h5><p>系统：Ubuntu 22.04 LTS</p>
@@ -422,6 +422,8 @@
 <p>Position mode</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">motorCmd[FL_1].position = P;</span><br><span class="line">motorCmd[FL_1].positionStiffness = <span class="number">5</span>; // just <span class="keyword">for</span> reference</span><br><span class="line">motorCmd[FL_1].velocity = <span class="number">0</span>;</span><br><span class="line">motorCmd[FL_1].velocityStiffness = <span class="number">1</span>; // just <span class="keyword">for</span> reference</span><br><span class="line">motorCmd[FL_1].torque = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 <h5 id="A1-ros"><a href="#A1-ros" class="headerlink" title="A1_ros"></a>A1_ros</h5><p>没太看明白是什么意思</p>
+<h4 id="廖雪峰-Python-教程"><a href="#廖雪峰-Python-教程" class="headerlink" title="廖雪峰 Python 教程"></a>廖雪峰 Python 教程</h4><h5 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h5><p>ASCII 编码，Unicode 编码，UTF-8 编码</p>
+<h5 id="输出格式化字符串"><a href="#输出格式化字符串" class="headerlink" title="输出格式化字符串"></a>输出格式化字符串</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r = <span class="number">2.5</span></span><br><span class="line">s = <span class="number">3.14</span> ** <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;This is the output of %s and %2f&#x27;</span> % (r, s))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;This is the output of <span class="subst">&#123;r&#125;</span> and <span class="subst">&#123;s:<span class="number">.2</span>f&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ol>
 <li><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hk/欧拉角">歐拉角 - 維基百科，自由的百科全書</a></p>
@@ -468,7 +470,136 @@
 </ol>
 </blockquote>
 <hr>
-<h3 id="2023-07-07"><a href="#2023-07-07" class="headerlink" title="2023.07.07"></a>2023.07.07</h3>
+<h3 id="2023-07-07"><a href="#2023-07-07" class="headerlink" title="2023.07.07"></a>2023.07.07</h3><h4 id="Pybullet"><a href="#Pybullet" class="headerlink" title="Pybullet"></a>Pybullet</h4><p>机器人常用 API</p>
+<ul>
+<li>loadURDF(filename)</li>
+<li>getNumJoints(uid)</li>
+<li>getJointInfo(uid, jointIndex)</li>
+<li>setJointMotorControl2 / setJointMotorArray</li>
+<li>getJointState(uid, jointIndex)</li>
+<li>enableJointForceTorqueSensor</li>
+<li>getLinkState(uid, linkIndex)</li>
+<li>calculateJacobian</li>
+<li>calculateInverseKinematics</li>
+</ul>
+<p>关节类型</p>
+<ul>
+<li>JOINT_REVOLUTE：旋转关节</li>
+<li>JOINT_PRISMATIC：移动关节</li>
+<li>JOINT_SPHERICAL：球形关节</li>
+<li>JOINT_PLANAR：平面关节</li>
+<li>JOINT_FIXED：</li>
+</ul>
+<h4 id="继续-Stable-Baselines3"><a href="#继续-Stable-Baselines3" class="headerlink" title="继续 Stable-Baselines3"></a>继续 Stable-Baselines3</h4><p>跳过 Vectorized Environment 章节，边看 Stable-Baselines3 边看 MICRO_Quadruped_ARCHIVE</p>
+<h5 id="Policy-Networks"><a href="#Policy-Networks" class="headerlink" title="Policy Networks $*$"></a>Policy Networks<a target="_blank" rel="noopener" href="https://stable-baselines3.readthedocs.io/en/master/guide/custom_policy.html#policy-networks"> $*$</a></h5><ul>
+<li><p>SB3 Policy</p>
+<p>在 SB3 中，policy 这个词比 RL 语境中的 policy 被更加滥用。后者通常指代负责 actor 的网络，也即与测行为的网络</p>
+<p>SB3 网络可以分为两个主要部分：特征提取器和全连接网络。前者用于从高维数据中提取特征 (<code>feature_extractor_kwargs</code>)，后者用于将特征映射到动作 (<code>pi</code>) / 价值 (<code>vf</code>) （<code>net_arch</code>）</p>
+</li>
+<li><p>Default Network Architecture</p>
+<p>On-policy 算法共享 CNN 网络以减少计算量。Off-policy 算法有分离的特征提取器，这种配置有利于最佳性能</p>
+</li>
+<li><p>Custom Network Architecture</p>
+<p>自定义网络架构需要在创建模型时利用 <code>policy_kwargs</code> 传递参数</p>
+</li>
+<li><p>Custom Feature Extractor</p>
+<p>自定义特征提取器（例如自定义 CNN），可以定义派生于 <code>BaseFeatureExtractor</code> 的类，然后在训练时将其传递给模型</p>
+</li>
+<li><p>预处理与特征提取</p>
+<ul>
+<li>预处理原始输入 observation：环境直接返回 np.ndarray 的 image，值为 [0,255]，那么需要归一化 [0,1]；或者环境空间是 Discrete(5) 返回的是枚举值 4，那么一般需要进行 one-hot 变成特征 [0,0,0,0,1]，得到预处理后的原始特征</li>
+<li>原始特征通过神经网络的特征提取形成网络表征，最基础的是 <code>MlpExtractor</code> 来处理 vector，<code>CnnExtractor</code> 来处理 image，<code>CombinedExtractor</code> 来处理 nested input</li>
+<li>网络表征再通过 Distribution 层来建模相应量的分布，如策略分布 - actor，V 值 - critic 等</li>
+</ul>
+</li>
+<li><p>Advanced</p>
+<p>如果需要对动作 / 价值架构有更加精细的控制，建议直接重新定义策略，定义派生于 <code>nn.Module</code> 的类</p>
+</li>
+</ul>
+<h5 id="Using-Custom-Environments"><a href="#Using-Custom-Environments" class="headerlink" title="Using Custom Environments $*$"></a>Using Custom Environments <a target="_blank" rel="noopener" href="https://stable-baselines3.readthedocs.io/en/master/guide/custom_env.html#using-custom-environments">$*$</a></h5><p>自定义环境 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349221940">$*$</a></p>
+<ul>
+<li>由 <code>gym.Env</code> 派生出来</li>
+</ul>
+<p>环境的基类 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40056577/article/details/122278939#t2">$*$</a></p>
+<ul>
+<li>Box，Discrete，MultiBinary，MultiDiscrete</li>
+</ul>
+<p>环境的核心 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40056577/article/details/122278939#t3">$*$</a></p>
+<ul>
+<li>核心是输入当前状态和动作值，输出下一状态值、奖励值。因此环境的核心数据对象有 observation_space, action_space，reward_range 这三个空间，主要行为$\ step(s, a) \rightarrow s’,r$</li>
+<li>其余的 reset (重置模拟器环境，并返回重启后的模拟器中 agent 的初始 state)，close，render，seed 只是用来控制环境状态的辅助行为</li>
+</ul>
+<p>Notes</p>
+<ul>
+<li>一个标准的 gym 环境输出的 state 最好是 ndarray 对象。如果输出的 state 不是 ndarray，那么在使用 check_env 检测模型时会报错</li>
+<li>step 函数中必须返回 state, reward, done, info 这四个量，其中的 reward 对应强化学习中的奖励函数，而 done 的确定逻辑也很重要，这将关乎模拟器再训练强化学习算法时的性能。因此，实际项目中 reward 和 done 的确定都比较麻烦</li>
+</ul>
+<h5 id="Callbacks"><a href="#Callbacks" class="headerlink" title="Callbacks $*$"></a>Callbacks <a target="_blank" rel="noopener" href="https://stable-baselines3.readthedocs.io/en/master/guide/callbacks.html#callbacks">$*$</a></h5><p>A Callback is a set of functions that will be called at given stages of the training procedure. You can use callbacks to access internal state of the RL model during training. It allows one to do monitoring, auto savning, model manipulation, progress bars,…</p>
+<p>Custom Callback</p>
+<ul>
+<li>由 BaseCallback 派生的类</li>
+</ul>
+<p>Callback Collection</p>
+<ul>
+<li>CheckpointCallback <a target="_blank" rel="noopener" href="https://stable-baselines3.readthedocs.io/en/master/guide/callbacks.html#checkpointcallback">$*$</a>: saving the model periodically</li>
+<li>EvalCallback <a target="_blank" rel="noopener" href="https://stable-baselines3.readthedocs.io/en/master/guide/callbacks.html#evalcallback">$*$</a>: evaluating the model periodically and saving the best one</li>
+<li>CallbackList <a target="_blank" rel="noopener" href="https://stable-baselines3.readthedocs.io/en/master/guide/callbacks.html#progressbarcallback">$*$</a>: </li>
+<li>EventCallback <a target="_blank" rel="noopener" href="https://stable-baselines3.readthedocs.io/en/master/guide/callbacks.html#callbacklist">$*$</a>, EveryNTimesteps: triggering callback on events</li>
+<li>StopTrainingOnRewardThreshold <a target="_blank" rel="noopener" href="https://stable-baselines3.readthedocs.io/en/master/guide/callbacks.html#stoptrainingonrewardthreshold">$*$</a>: stopping the training early based on a reward threshold</li>
+</ul>
+<h5 id="Tensorboard-Integration"><a href="#Tensorboard-Integration" class="headerlink" title="Tensorboard Integration"></a>Tensorboard Integration</h5><p>Basic Usage (参看昨天的总结)</p>
+<p>Logging More Values</p>
+<p>使用回调函数定义 log 更多值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TensorboardCallback</span>(<span class="params">BaseCallback</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Custom callback for plotting additional values in tensorboard</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, verbose=<span class="number">0</span></span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(verbose)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_on_step</span>(<span class="params">self</span>) -&gt; <span class="built_in">bool</span>:</span></span><br><span class="line">        value = np.random.random()</span><br><span class="line">        self.logger.record(<span class="string">&quot;random_value&quot;</span>, value)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">model.learn(<span class="number">5_0000</span>, callback=TensorboardCallback())</span><br></pre></td></tr></table></figure>
+<h4 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h4><p>导出 zotero 中的论文为 papers.rdf 并上传到云</p>
+<blockquote>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/s/utils python是什么">utils 文件夹</a></p>
+<p>在 Python 中，utils 可能是一个模块、包、文件夹或脚本的名称。它可能包含一些常用的功能、函数或类，用于其他代码中重复使用。一个应用程序可能会创建一个 utils 模块，其中包含与应用程序相关的常用函数，如数据解析、日志记录等</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/477303099">PyBullet 简介与机器人仿真入门 - 知乎</a></p>
+<p>一个典型的仿真程序主要分为两部分：</p>
+<ul>
+<li>配置：PyBullet 的 API 基于 client-server 设计，client 发送命令，physics server 返回状态。所以首先是 p.connet(xxx)，常用 <strong>p.GUI（带渲染）</strong> 和 <strong>p.DIRECT（不带渲染，适合强化学习训练）</strong> 两种模式。之后就是设置重力以及仿真器的一些参数，最后是加载机器人的模型</li>
+<li>循环：p.stepSimulation() 在一个正向动力学仿真步骤中执行所有动作，默认时间步长 1/240 秒</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Client%E2%80%93server_model">Client–server model - Wikipedia</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://spinningup.openai.com/en/latest/">Welcome to Spinning Up in Deep RL! — Spinning Up documentation</a> 【学习资源】</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/406517851">利用 stable-baselines3 优雅便捷地玩转深度强化学习算法 - 知乎</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/348303193">PyBullet笔记（八）强化学习环境的引入与训练 - 知乎</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349221940">PyBullet 笔记（九）自定义 gym 强化学习环境搭建 - 知乎</a></p>
+<p>思路清晰简明，值得阅读</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40056577/article/details/122278939">Stable-baselines3 的基本原理与使用-1 | Nemo555的博客</a></p>
+<p>讲了代码实现逻辑，如果不熟悉的话，阅读难度较大</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_26442553/article/details/78729793">开发要搞清楚什么是并发，并行，串行，同步，异步？软件开发 串接什么意思 | 涤生大数据的博客</a></p>
+<p>并发当有多个线程在操作时，如果系统只有一个CPU,则它根本不可能真正同时进行一个以上的线程，它只能把CPU运行时间划分成若干个时间段,再将时间 段分配给各个线程执行，在一个时间段的线程代码运行时，其它线程处于挂起状。这种方式我们称之为并发 (Concurrent)</p>
+<p>并行 (Parallel) 指两个或两个以上事件或活动在同一时刻发生。在多道程序环境下，并行性使多个程序同一时刻可在不同CPU上同时执行</p>
+<p>并发和并行是即相似又有区别的两个概念，<strong>并行是指两个或者多个事件在同一时刻发生；而并发是指两个或多个事件在同一时间间隔内发生。</strong>在多道程序环境下，并发性是指在一段时间内宏观上有多个程序在同时运行，但在单处理机系统中，每一时刻却仅能有一道程序执行，故微观上这些程序只能是分时地交替执行。倘若在计算机系统中有多个处理机，则这些可以并发执行的程序便可被分配到多个处理机上，实现并行执行，即利用每个处理机来处理一个可并发执行的程序，这样，多个程序便可以同时执行</p>
+<p>同步就是顺序执行，执行完一个再执行下一个，需要等待、协调运行 </p>
+<p>(开始烧水 $\rightarrow$ 等水烧开泡茶 $\rightarrow$ 做家务)</p>
+<p>异步就是彼此独立，在等待某事件的过程中继续做自己的事，不需要等待这一事件完成后再工作 </p>
+<p>(开始烧水 $\rightarrow$ 做家务 $\rightarrow$ 水烧开泡茶 $\rightarrow$ 继续做家务)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.deeprlhub.com/d/702-isaac-gym">并行环境让采样速度快两个量级：Isaac Gym 提速强化学习 - 深度强化学习实验室</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ArsenalfanInECNU/p/10724203.html">Python函数参数中的冒号与箭头 - 青山牧云人 - 博客园</a></p>
+<p>def funcName(param) $\rightarrow$ type，箭头后面指示了函数的输出类型</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://kb.synology.cn/zh-cn/DSM/help/SynologyDriveClient/synologydriveclient?version=7">Synology Drive Client - Synology 知识中心</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2FDLR-RM%2Frl-baselines3-zoo">RL Baselines3 Zoo | GIthub</a></p>
+<p>在 utils 文件夹下有一个文件，文件名叫参数优化，里面是使用了 optuna 这个工具直接在超参空间进行搜索</p>
+</li>
+</ol>
+</blockquote>
+
     </div>
 
     
@@ -548,7 +679,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-02"><span class="nav-number">1.</span> <span class="nav-text">2023.07.02</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%B0%88-2-%E7%BB%AD%E5%86%99"><span class="nav-number">1.1.</span> <span class="nav-text">强化学习杂谈 2 续写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E7%8C%AE%E8%B0%83%E7%A0%94-50-100%E7%AF%87"><span class="nav-number">1.2.</span> <span class="nav-text">文献调研 (50-100篇)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B9%B4%E4%BB%BD"><span class="nav-number">1.2.1.</span> <span class="nav-text">年份</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%9F%E5%88%8A"><span class="nav-number">1.2.2.</span> <span class="nav-text">期刊</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%9A%E8%AE%AE"><span class="nav-number">1.2.3.</span> <span class="nav-text">会议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A3%80%E7%B4%A2%E5%BA%93"><span class="nav-number">1.2.4.</span> <span class="nav-text">检索库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="nav-number">1.2.5.</span> <span class="nav-text">关键词</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Task"><span class="nav-number">1.2.6.</span> <span class="nav-text">Task</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Robotics"><span class="nav-number">1.3.</span> <span class="nav-text">Robotics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BE%E9%A2%98%E7%BB%84"><span class="nav-number">1.4.</span> <span class="nav-text">课题组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%8B%97"><span class="nav-number">1.5.</span> <span class="nav-text">机器狗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">1.6.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%9F%E5%88%8A%E5%BD%B1%E5%93%8D%E5%9B%A0%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.7.</span> <span class="nav-text">期刊影响因子查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-03"><span class="nav-number">2.</span> <span class="nav-text">2023.07.03</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Zotero-%E5%9D%9A%E6%9E%9C%E4%BA%91-%EF%BC%88%E4%BA%91%E5%90%8C%E6%AD%A5%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">Zotero + 坚果云 （云同步）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RAL-2022-CPG-RL-Learning-Central-Pattern-Generators-for-Quadruped-Locomotion"><span class="nav-number">2.2.</span> <span class="nav-text">[RAL 2022] CPG-RL: Learning Central Pattern Generators for Quadruped Locomotion</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-04"><span class="nav-number">3.</span> <span class="nav-text">2023.07.04</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DeepRL-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.1.</span> <span class="nav-text">DeepRL 强化学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A3%85%E9%85%8D%E7%8E%AF%E5%A2%83-Ubuntu-22-04-LTS-Python-3-8-Pytorch-CUDA-11-7"><span class="nav-number">3.2.</span> <span class="nav-text">装配环境 Ubuntu 22.04 LTS + Python 3.8 + Pytorch + CUDA 11.7</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA-%E6%BF%80%E6%B4%BB-%E5%88%A0%E9%99%A4%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">3.2.1.</span> <span class="nav-text">新建 &#x2F; 激活 &#x2F; 删除虚拟环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PyTorch"><span class="nav-number">3.2.2.</span> <span class="nav-text">PyTorch</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tensorboard"><span class="nav-number">3.2.3.</span> <span class="nav-text">Tensorboard</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Stable-Baselines3"><span class="nav-number">3.2.4.</span> <span class="nav-text">Stable-Baselines3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Task-1"><span class="nav-number">3.3.</span> <span class="nav-text">Task</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-05"><span class="nav-number">4.</span> <span class="nav-text">2023.07.05</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">解决驱动问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%91%E6%97%A5%E8%91%B5%E8%BF%9C%E6%8E%A7"><span class="nav-number">4.2.</span> <span class="nav-text">向日葵远控</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PyBullet"><span class="nav-number">4.3.</span> <span class="nav-text">PyBullet</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Introduction"><span class="nav-number">4.3.1.</span> <span class="nav-text">Introduction</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-06"><span class="nav-number">5.</span> <span class="nav-text">2023.07.06</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PyBullet-1"><span class="nav-number">5.1.</span> <span class="nav-text">PyBullet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tensorboard-1"><span class="nav-number">5.2.</span> <span class="nav-text">Tensorboard</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD-Tensorflow"><span class="nav-number">5.2.1.</span> <span class="nav-text">下载 Tensorflow</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-TensorBoard"><span class="nav-number">5.2.2.</span> <span class="nav-text">使用 TensorBoard</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MICRO-Quadruped-ARCHIVE-2023-05-17"><span class="nav-number">5.3.</span> <span class="nav-text">MICRO_Quadruped_ARCHIVE_2023_05_17</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BE%9D%E8%B5%96"><span class="nav-number">5.3.1.</span> <span class="nav-text">安装及依赖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84"><span class="nav-number">5.3.2.</span> <span class="nav-text">项目架构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A1-Software-Manual-v2-0"><span class="nav-number">5.4.</span> <span class="nav-text">A1 Software Manual v2.0</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Getting-Started"><span class="nav-number">5.4.1.</span> <span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#API"><span class="nav-number">5.4.2.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Control-tutorial"><span class="nav-number">5.4.3.</span> <span class="nav-text">Control tutorial</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#A1-ros"><span class="nav-number">5.4.4.</span> <span class="nav-text">A1_ros</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-07"><span class="nav-number">6.</span> <span class="nav-text">2023.07.07</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-02"><span class="nav-number">1.</span> <span class="nav-text">2023.07.02</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%B0%88-2-%E7%BB%AD%E5%86%99"><span class="nav-number">1.1.</span> <span class="nav-text">强化学习杂谈 2 续写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E7%8C%AE%E8%B0%83%E7%A0%94-50-100%E7%AF%87"><span class="nav-number">1.2.</span> <span class="nav-text">文献调研 (50-100篇)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B9%B4%E4%BB%BD"><span class="nav-number">1.2.1.</span> <span class="nav-text">年份</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%9F%E5%88%8A"><span class="nav-number">1.2.2.</span> <span class="nav-text">期刊</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%9A%E8%AE%AE"><span class="nav-number">1.2.3.</span> <span class="nav-text">会议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A3%80%E7%B4%A2%E5%BA%93"><span class="nav-number">1.2.4.</span> <span class="nav-text">检索库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="nav-number">1.2.5.</span> <span class="nav-text">关键词</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Task"><span class="nav-number">1.2.6.</span> <span class="nav-text">Task</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Robotics"><span class="nav-number">1.3.</span> <span class="nav-text">Robotics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%BE%E9%A2%98%E7%BB%84"><span class="nav-number">1.4.</span> <span class="nav-text">课题组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E7%8B%97"><span class="nav-number">1.5.</span> <span class="nav-text">机器狗</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">1.6.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%9F%E5%88%8A%E5%BD%B1%E5%93%8D%E5%9B%A0%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.7.</span> <span class="nav-text">期刊影响因子查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-03"><span class="nav-number">2.</span> <span class="nav-text">2023.07.03</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Zotero-%E5%9D%9A%E6%9E%9C%E4%BA%91-%EF%BC%88%E4%BA%91%E5%90%8C%E6%AD%A5%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">Zotero + 坚果云 （云同步）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RAL-2022-CPG-RL-Learning-Central-Pattern-Generators-for-Quadruped-Locomotion"><span class="nav-number">2.2.</span> <span class="nav-text">[RAL 2022] CPG-RL: Learning Central Pattern Generators for Quadruped Locomotion</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-04"><span class="nav-number">3.</span> <span class="nav-text">2023.07.04</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DeepRL-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.1.</span> <span class="nav-text">DeepRL 强化学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A3%85%E9%85%8D%E7%8E%AF%E5%A2%83-Ubuntu-22-04-LTS-Python-3-8-Pytorch-CUDA-11-7"><span class="nav-number">3.2.</span> <span class="nav-text">装配环境 Ubuntu 22.04 LTS + Python 3.8 + Pytorch + CUDA 11.7</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA-%E6%BF%80%E6%B4%BB-%E5%88%A0%E9%99%A4%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="nav-number">3.2.1.</span> <span class="nav-text">新建 &#x2F; 激活 &#x2F; 删除虚拟环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PyTorch"><span class="nav-number">3.2.2.</span> <span class="nav-text">PyTorch</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tensorboard"><span class="nav-number">3.2.3.</span> <span class="nav-text">Tensorboard</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Stable-Baselines3"><span class="nav-number">3.2.4.</span> <span class="nav-text">Stable-Baselines3</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Task-1"><span class="nav-number">3.3.</span> <span class="nav-text">Task</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-05"><span class="nav-number">4.</span> <span class="nav-text">2023.07.05</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E9%A9%B1%E5%8A%A8%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">解决驱动问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%91%E6%97%A5%E8%91%B5%E8%BF%9C%E6%8E%A7"><span class="nav-number">4.2.</span> <span class="nav-text">向日葵远控</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PyBullet"><span class="nav-number">4.3.</span> <span class="nav-text">PyBullet</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Introduction"><span class="nav-number">4.3.1.</span> <span class="nav-text">Introduction</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-06"><span class="nav-number">5.</span> <span class="nav-text">2023.07.06</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PyBullet-1"><span class="nav-number">5.1.</span> <span class="nav-text">PyBullet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tensorboard-1"><span class="nav-number">5.2.</span> <span class="nav-text">Tensorboard</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD-Tensorflow"><span class="nav-number">5.2.1.</span> <span class="nav-text">下载 Tensorflow</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-TensorBoard"><span class="nav-number">5.2.2.</span> <span class="nav-text">使用 TensorBoard</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MICRO-Quadruped-ARCHIVE-2023-05-17"><span class="nav-number">5.3.</span> <span class="nav-text">MICRO_Quadruped_ARCHIVE_2023_05_17</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BE%9D%E8%B5%96"><span class="nav-number">5.3.1.</span> <span class="nav-text">安装及依赖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84"><span class="nav-number">5.3.2.</span> <span class="nav-text">项目架构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A1-Software-Manual-v2-0"><span class="nav-number">5.4.</span> <span class="nav-text">A1 Software Manual v2.0</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Getting-Started"><span class="nav-number">5.4.1.</span> <span class="nav-text">Getting Started</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#API"><span class="nav-number">5.4.2.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Control-tutorial"><span class="nav-number">5.4.3.</span> <span class="nav-text">Control tutorial</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#A1-ros"><span class="nav-number">5.4.4.</span> <span class="nav-text">A1_ros</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%96%E9%9B%AA%E5%B3%B0-Python-%E6%95%99%E7%A8%8B"><span class="nav-number">5.5.</span> <span class="nav-text">廖雪峰 Python 教程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%96%E7%A0%81"><span class="nav-number">5.5.1.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">5.5.2.</span> <span class="nav-text">输出格式化字符串</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-07"><span class="nav-number">6.</span> <span class="nav-text">2023.07.07</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Pybullet"><span class="nav-number">6.1.</span> <span class="nav-text">Pybullet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E7%BB%AD-Stable-Baselines3"><span class="nav-number">6.2.</span> <span class="nav-text">继续 Stable-Baselines3</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Policy-Networks"><span class="nav-number">6.2.1.</span> <span class="nav-text">Policy Networks $*$</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Using-Custom-Environments"><span class="nav-number">6.2.2.</span> <span class="nav-text">Using Custom Environments $*$</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Callbacks"><span class="nav-number">6.2.3.</span> <span class="nav-text">Callbacks $*$</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tensorboard-Integration"><span class="nav-number">6.2.4.</span> <span class="nav-text">Tensorboard Integration</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NAS"><span class="nav-number">6.3.</span> <span class="nav-text">NAS</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
