@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://araffin.github.io/slides/rlvs-tips-tricks/images/algo_flow_dark.png">
 <meta property="og:image" content="http://example.com/2023/07/10/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-2/image-20230712102224441.png">
 <meta property="article:published_time" content="2023-07-10T07:56:13.000Z">
-<meta property="article:modified_time" content="2023-07-14T04:17:40.743Z">
+<meta property="article:modified_time" content="2023-07-14T07:14:23.667Z">
 <meta property="article:author" content="Shaw">
 <meta property="article:tag" content="项目工作总结">
 <meta name="twitter:card" content="summary">
@@ -212,7 +212,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-07-14 12:17:40" itemprop="dateModified" datetime="2023-07-14T12:17:40+08:00">2023-07-14</time>
+                <time title="Modified: 2023-07-14 15:14:23" itemprop="dateModified" datetime="2023-07-14T15:14:23+08:00">2023-07-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -539,8 +539,9 @@
 <h3 id="2023-07-14"><a href="#2023-07-14" class="headerlink" title="2023.07.14"></a>2023.07.14</h3><h4 id="gym-envs-mujoco-halfcheetah-v1-v3-v4"><a href="#gym-envs-mujoco-halfcheetah-v1-v3-v4" class="headerlink" title="gym / envs / mujoco / halfcheetah v1, v3, v4"></a>gym / envs / mujoco / halfcheetah v1, v3, v4</h4><p><code>gym/core.py</code> 定义了抽象基类 <code>Env</code>。主要的 API 方法有 step()，reset()，render()，close()，seed()，其中 abc.abstractmethod 有step()，reset() 和 render()</p>
 <p><code>gmy/envs/mujoco_env.py</code> 中定义继承基类 <code>gym.Env</code> 的类 <code>BaseMujocoEnv</code> 以及定义了继承 <code>BaseMujocoEnv</code> 的 <code>MujocoEnv</code></p>
 <p><code>half_cheetah_v4.py</code> 中定义了继承 <code>MujocoEnv</code> 的 <code>HalfCheetahEnv</code></p>
-<h4 id="python-新知"><a href="#python-新知" class="headerlink" title="python 新知"></a>python 新知</h4><h5 id="用户定义的泛型类型"><a href="#用户定义的泛型类型" class="headerlink" title="用户定义的泛型类型 $*$"></a>用户定义的泛型类型 <a target="_blank" rel="noopener" href="https://www.osgeo.cn/cpython/library/typing.html#user-defined-generic-types">$*$</a></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class Env(Generic[ObsType, ActType]):</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="MICRO-Quadruped-ARCHIVE-阅读并添加注释"><a href="#MICRO-Quadruped-ARCHIVE-阅读并添加注释" class="headerlink" title="MICRO_Quadruped_ARCHIVE 阅读并添加注释"></a>MICRO_Quadruped_ARCHIVE 阅读并添加注释</h4>
+<h4 id="python-新知"><a href="#python-新知" class="headerlink" title="python 新知"></a>python 新知</h4><h5 id="用户定义的泛型类型"><a href="#用户定义的泛型类型" class="headerlink" title="用户定义的泛型类型 $*$"></a>用户定义的泛型类型 <a target="_blank" rel="noopener" href="https://www.osgeo.cn/cpython/library/typing.html#user-defined-generic-types">$*$</a></h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Env</span>(<span class="params"><span class="type">Generic</span>[ObsType, ActType]</span>):</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="MICRO-Quadruped-ARCHIVE-阅读并添加注释"><a href="#MICRO-Quadruped-ARCHIVE-阅读并添加注释" class="headerlink" title="MICRO_Quadruped_ARCHIVE 阅读并添加注释"></a>MICRO_Quadruped_ARCHIVE 阅读并添加注释</h4><p>reinforcement_learning.py</p>
+
     </div>
 
     
