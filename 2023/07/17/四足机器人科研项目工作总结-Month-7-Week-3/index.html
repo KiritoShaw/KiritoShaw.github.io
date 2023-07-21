@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本周总结主要完成了如下工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="四足机器人科研项目工作总结 Month 7 Week 3">
+<meta property="og:url" content="http://example.com/2023/07/17/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-3/index.html">
+<meta property="og:site_name" content="Shaw">
+<meta property="og:description" content="本周总结主要完成了如下工作">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/07/17/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-3/camera_pitch_yaw_roll.png">
+<meta property="og:image" content="http://example.com/2023/07/17/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-3/image-20230719213627441.png">
+<meta property="og:image" content="http://example.com/2023/07/17/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-3/image-20230720092811881.png">
+<meta property="og:image" content="https://file.elecfans.com/web2/M00/9E/CA/pYYBAGQ09mmAM_idAAIYDAptQek744.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/36e94e2bf52a4413b1e98e4d143cecc2.png">
+<meta property="article:published_time" content="2023-07-17T07:05:35.000Z">
+<meta property="article:modified_time" content="2023-07-21T14:08:27.090Z">
+<meta property="article:author" content="Shaw">
+<meta property="article:tag" content="项目工作总结">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/07/17/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-3/camera_pitch_yaw_roll.png">
+
+<link rel="canonical" href="http://example.com/2023/07/17/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>四足机器人科研项目工作总结 Month 7 Week 3 | Shaw</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shaw</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>resources</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/17/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          四足机器人科研项目工作总结 Month 7 Week 3
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-07-17 15:05:35" itemprop="dateCreated datePublished" datetime="2023-07-17T15:05:35+08:00">2023-07-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-07-21 22:08:27" itemprop="dateModified" datetime="2023-07-21T22:08:27+08:00">2023-07-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA/" itemprop="url" rel="index"><span itemprop="name">四足机器人</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="本周总结"><a href="#本周总结" class="headerlink" title="本周总结"></a>本周总结</h3><p>主要完成了如下工作</p>
+<ol>
+<li></li>
+<li></li>
+</ol>
+<span id="more"></span>
+<h3 id="2023-07-17"><a href="#2023-07-17" class="headerlink" title="2023.07.17"></a>2023.07.17</h3><h4 id="Learning-agile-and-dynamic-motor-skills-for-legged-robots-by-Hwangbo-Lee-Hutter"><a href="#Learning-agile-and-dynamic-motor-skills-for-legged-robots-by-Hwangbo-Lee-Hutter" class="headerlink" title="Learning agile and dynamic motor skills for legged robots by Hwangbo, Lee, Hutter"></a>Learning agile and dynamic motor skills for legged robots by Hwangbo, Lee, Hutter</h4><p>方法简述：</p>
+<p>实验形式：</p>
+<p>文章亮点：</p>
+<p>实物机器人类型：ANYmal</p>
+<p>仿真训练平台：</p>
+<p>实验数据 / 源代码：</p>
+<p>视频：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=aTDkYFZFWug">Learning Agile and Dynamic Motor Skills for Legged Robots - YouTube</a></p>
+<h4 id="用户坐标系下的-单位-重力方向向量"><a href="#用户坐标系下的-单位-重力方向向量" class="headerlink" title="用户坐标系下的 (单位) 重力方向向量"></a>用户坐标系下的 (单位) 重力方向向量</h4><ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/433131431">3D旋转变换——欧拉角 - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/626258420">三维旋转之欧拉角 - 知乎</a></li>
+</ol>
+<h5 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h5><p><img src="/2023/07/17/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-3/camera_pitch_yaw_roll.png" style="zoom: 67%;"></p>
+<p>俯仰、偏航、滚动分别就是绕z轴、y轴、x轴旋转</p>
+<p>将欧拉角表示为 ($\varphi$, $\theta$, $\psi$)【说明：($\varphi$：滚动角 roll，$\theta$：偏航角 yaw，$\psi$：俯仰角 pitch】，那么3D空间一般旋转矩阵M就可以表示为三个旋转矩阵的积：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+M&=
+\begin{bmatrix}
+1 & & \\
+ & cos(\psi) & -sin(\psi)\\
+ & sin(\psi) & cos(\psi)\\
+\end{bmatrix}
+\begin{bmatrix}
+cos(\theta) & & sin(\theta)\\
+ & 1 & \\
+-sin(\theta) & & cos(\theta)\\
+\end{bmatrix}
+\begin{bmatrix}
+cos(\varphi) & -sin(\varphi) & \\
+sin(\varphi) & cos(\varphi) & \\
+ & & 1\\
+\end{bmatrix}\\
+&=Rot_x(\psi)*Rot_z(\theta)*Rot_y(\varphi)
+\end{aligned}</script><h5 id="用户坐标系姿态获取"><a href="#用户坐标系姿态获取" class="headerlink" title="用户坐标系姿态获取"></a>用户坐标系姿态获取</h5><p><code>getBasePositionAndOrientation</code> reports the current position and orientation of the base (or root link) of the body in <strong>Cartesian world coordinates</strong>. The orientation is a quaternion in [x,y,z,w] format.</p>
+<p><code>getEulerFromQuaternion</code> requires quaternion format [x,y,z,w] and returns a list of 3 floating point values, a vec3. The rotation order is first <em>roll</em> around X, then <em>pitch</em> around Y and finally <em>yaw</em> around Z, as in the ROS URDF <strong>rpy</strong> convention.</p>
+<h4 id="URDF-United-Robotics-Description-Format"><a href="#URDF-United-Robotics-Description-Format" class="headerlink" title="URDF (United Robotics Description Format)"></a>URDF (United Robotics Description Format)</h4><ol>
+<li><a target="_blank" rel="noopener" href="https://gaoyichao.com/Xiaotu/?book=ros&amp;title=URDF和机器人模型(一">无处不在的小土 - URDF 和机器人模型 (一)</a>)</li>
+<li><a target="_blank" rel="noopener" href="https://gaoyichao.com/Xiaotu/?book=ros&amp;title=URDF和机器人模型(二">无处不在的小土 - URDF 和机器人模型 (二)</a>)</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhelijun/article/details/102709150">URDF学习 1 - 什么是 URDF 以及怎么理解一个 URDF 文件 | Wo看见常威在打来福的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qyt_722/article/details/116479967">初次了解 URDF | 小白乔学技术的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/477556743">通用机器人描述格式URDF文件简介与生成 - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="http://wiki.ros.org/cn/urdf/Tutorials">cn/urdf/Tutorials - ROS Wiki</a></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">check_urdf &lt;urdf_name&gt;.urdf</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/560826876?utm_id=0">Nvidia Isaacgym + ETH leggedgym 配置指南 - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://learnopengl-cn.github.io/">主页 - LearnOpenGL CN</a></li>
+</ol>
+</blockquote>
+<h3 id="2023-07-18"><a href="#2023-07-18" class="headerlink" title="2023.07.18"></a>2023.07.18</h3><p>早上结石引发腰腹疼痛，下午去医院就诊。</p>
+<h4 id="PyBullet-Torque-Control"><a href="#PyBullet-Torque-Control" class="headerlink" title="PyBullet Torque Control"></a>PyBullet Torque Control</h4><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/61993517/applying-torque-control-in-pybyllet-makes-object-fly-away-from-the-secene">Applying torque control in PyByllet makes object fly away from the secene - Stack Overflow</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.programcreek.com/python/example/122132/pybullet.TORQUE_CONTROL">Python Examples of p.TORQUE_CONTROL</a></p>
+<p>官方文档 <a target="_blank" rel="noopener" href="https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.jxof6bt5vhut">PyBullet Quickstart Guide - setJointMotorControl2/Array</a> 中写道</p>
+<p>We can control a robot by setting a desired control mode for one or more joint motors. During the stepSimulation the physics engine will simulate the motors to reach the given target value that can be reached within the maximum motor forces and other constraints.<br><strong>Important Note</strong>: by default, each revolute joint and prismatic joint is motorized using a velocity motor. You can disable those default motor by using a maximum force of 0. This will let you perform torque control. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">maxForce = <span class="number">0</span></span><br><span class="line">mode = p.VELOCITY_CONTROL</span><br><span class="line">p.setJointMotorControl2(objUid, jointIndex, controlMode=mode, force=maxForce)</span><br></pre></td></tr></table></figure>
+<h4 id="Actuator-Network"><a href="#Actuator-Network" class="headerlink" title="Actuator Network"></a>Actuator Network</h4><p><a target="_blank" rel="noopener" href="https://github.com/Improbable-AI/walk-these-ways/issues/2">Actuator Network Training · Issue #2 · Improbable-AI/walk-these-ways · GitHub</a></p>
+<h3 id="2023-07-19"><a href="#2023-07-19" class="headerlink" title="2023.07.19"></a>2023.07.19</h3><h4 id="Python-新知"><a href="#Python-新知" class="headerlink" title="Python 新知"></a>Python 新知</h4><p>pybullet.setAdditionalSearchPath()</p>
+<p>pybullet_data.getDataPath()</p>
+<p>os.path.join()</p>
+<p>os.path.dirname()</p>
+<h4 id="开会"><a href="#开会" class="headerlink" title="开会"></a>开会</h4><p><a target="_blank" rel="noopener" href="https://docs.omniverse.nvidia.com/isaacsim/latest/ext_omni_isaac_quadruped.html">Quadruped — isaacsim 2022.2.1 documentation</a></p>
+<h4 id="Omniverse-Launcher-安装"><a href="#Omniverse-Launcher-安装" class="headerlink" title="Omniverse Launcher 安装"></a>Omniverse Launcher 安装</h4><h5 id="失败及原因"><a href="#失败及原因" class="headerlink" title="失败及原因"></a>失败及原因</h5><p>AppImages 是一个文件系统，需要 FUSE 版本为 2 才能运行，但是 Ubuntu 22.04 的发行版本没有对其进行原始的配置的安装，重新安装并且配置即可</p>
+<p><img src="/2023/07/17/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-3/image-20230719213627441.png" alt="image-20230719213627441"></p>
+<h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><ol>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Msyusheng/article/details/128458821">Ubuntu 22.04 解决使用 .AppImage 文件方法_ubuntu 打开 appimage | splendid.rain生的博客</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1735535960206018626&amp;wfr=spider&amp;for=pc">Ubuntu 升级到22.04之后，之前的 AppImage 点击不能运行了</a></p>
+<p>其中不建议在 Ubuntu 版本 $\ge$ 22.04 时安装 fuse</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install fuse libfuse2</span><br><span class="line">sudo modprobe fuse</span><br><span class="line">sudo groupadd fuse</span><br><span class="line">user=<span class="string">&quot;<span class="subst">$(whoami)</span>&quot;</span></span><br><span class="line">sudo usermod -a -G fuse <span class="variable">$user</span></span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository universe   </span><br><span class="line">sudo apt install libfuse2</span><br></pre></td></tr></table></figure>
+<h5 id="安装-Isaac-Sim"><a href="#安装-Isaac-Sim" class="headerlink" title="安装 Isaac Sim"></a>安装 Isaac Sim</h5><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/544151659">Isaac Sim探索 |（一）安装 Omniverse 及 Isaac Sim - 知乎</a></p>
+<blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/MclarenSenna/article/details/117046027">os.path.join() 函数用法 | MclarenSenna 的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hghua/p/13147869.html">python 中的os.path.dirname与os.path.dirname(__file__)的用法</a></li>
+</ol>
+</blockquote>
+<h3 id="2023-07-20"><a href="#2023-07-20" class="headerlink" title="2023.07.20"></a>2023.07.20</h3><h4 id="模型-仿真环境验证"><a href="#模型-仿真环境验证" class="headerlink" title="模型 / 仿真环境验证"></a>模型 / 仿真环境验证</h4><h5 id="Quadruped-Joint-Names"><a href="#Quadruped-Joint-Names" class="headerlink" title="Quadruped Joint Names"></a>Quadruped Joint Names</h5><p>Each of HyQ’s legs has three active rotational degrees of freedom (DOF): the hip abduction/adduction (HAA) joint, the hip ﬂexion/extension (HFE) joint, and the knee ﬂexion/extension joint (KFE), as depicted in Fig. 2(b). More details on the robot design, kinematics and dimensions can be found in [8]. All the joints are actuated by high-speed servovalves connected to hydraulic asymmetric cylinders (HFE and KFE) and semi-rotary vane actuators (HAA).</p>
+<p><img src="/2023/07/17/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-3/image-20230720092811881.png" alt="image-20230720092811881" style="zoom: 33%;"></p>
+<h5 id="文件修改"><a href="#文件修改" class="headerlink" title="文件修改"></a>文件修改</h5><p>修改 URDF</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>JOINT / LINK NAME</th>
+<th>Anymal</th>
+<th>A1</th>
+<th>Go1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>左前 / 左后 / 右前 / 右后</td>
+<td>LF / LH / RF / RH</td>
+<td>FL / FR / RF / RR</td>
+<td>FL / FR / RF / RR</td>
+</tr>
+<tr>
+<td>髋关节</td>
+<td>HAA</td>
+<td>hip_joint</td>
+<td>hip_joint</td>
+</tr>
+<tr>
+<td>大腿关节</td>
+<td>HFE</td>
+<td>thigh_joint</td>
+<td>thigh_joint</td>
+</tr>
+<tr>
+<td>小腿关节</td>
+<td>KFE</td>
+<td>calf_joint</td>
+<td>calf_joint</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>修改 task 配置文件 <code>&lt;task&gt;.yaml</code></p>
+<p>修改强化学习配置文件 <code>&lt;task&gt;PPO.yaml</code></p>
+<h5 id="如何指定对应-action-space-的12-个关节"><a href="#如何指定对应-action-space-的12-个关节" class="headerlink" title="如何指定对应 action space 的12 个关节"></a>如何指定对应 action space 的12 个关节</h5><h4 id="如何构建一个-IsaacGymEnvs-任务"><a href="#如何构建一个-IsaacGymEnvs-任务" class="headerlink" title="如何构建一个 IsaacGymEnvs 任务"></a>如何构建一个 IsaacGymEnvs 任务</h4><h5 id="资料查阅"><a href="#资料查阅" class="headerlink" title="资料查阅"></a>资料查阅</h5><p>阅读 <code>framework.md</code> 的 Creating a New Task</p>
+<p><a target="_blank" rel="noopener" href="https://www.elecfans.com/d/2055328.html">使用Isaac Gym 来强化学习mycobot 抓取任务 | 电子发烧友网</a></p>
+<p><img src="https://file.elecfans.com/web2/M00/9E/CA/pYYBAGQ09mmAM_idAAIYDAptQek744.png" alt="pYYBAGQ09mmAM_idAAIYDAptQek744.png" style="zoom:67%;"></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/article/details/129286010">Isaac-gym(9)：项目更新、benchmarks框架梳理 | hongliyu_lvliyu的博客</a></p>
+<p><img src="https://img-blog.csdnimg.cn/36e94e2bf52a4413b1e98e4d143cecc2.png" alt="在这里插入图片描述" style="zoom: 60%;"></p>
+<h5 id="构建方法"><a href="#构建方法" class="headerlink" title="构建方法"></a>构建方法</h5><p>构建一个 Task 需要完善以下三个部分：</p>
+<ul>
+<li>主程序：<code>&lt;TaskName&gt;.py</code>（主体程序，包含程序主要设计，环境生成，奖励函数，控制模块等等）</li>
+<li>强化学习算法配置文件：<code>&lt;TaskName&gt;.yaml</code>（位于<code>~/isaacgymenvs/cfg/train</code>）</li>
+<li>task 参数文件：<code>&lt;TaskName&gt;PPO.yaml</code>（位于<code>~/isaacgymenvs/cfg/task</code>）</li>
+</ul>
+<p>训练后，生成的模型文件位于<code>~/isaacgymenvs/runs/&lt;TaskName&gt;</code></p>
+<p>文件夹内包含<code>nn</code>,<code>summaries</code>.<code>config.yaml</code>三个文件，其中<code>config.yaml</code>为本次训练的环境参数（env）、仿真参数（sim）、训练参数（train）等</p>
+<h5 id="Creating-a-New-Task"><a href="#Creating-a-New-Task" class="headerlink" title="Creating a New Task"></a>Creating a New Task</h5><p>使用 Isaac Gym 的 RL framework 构建一个 Task 首要是先在 <code>isaacgymenvs/tasks</code> 中创建一个新的脚本文件：首先 import 必要的库</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> isaacgym <span class="keyword">import</span> gymtorch</span><br><span class="line"><span class="keyword">from</span> isaacgym <span class="keyword">import</span> gymapi</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .base.vec_task <span class="keyword">import</span> VecTask</span><br></pre></td></tr></table></figure>
+<p>接着创建一个继承 <code>VecTask</code> 的类 <code>MyNewTask</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyNewTask</span>(<span class="params">VecTask</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, cfg, rl_device, sim_device, graphics_devices, headless,</span></span></span><br><span class="line"><span class="params"><span class="function">                 virtual_screen_capture, force_render</span>):</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="built_in">super</span>().__init__(cfg=config_dict)</span><br><span class="line">        <span class="comment"># 初始化 DOF 状态张量</span></span><br><span class="line">        dof_state_tensor = self.gym.acquire_dof_state_tensor(self.sim)</span><br><span class="line">        self.dof_state = gymtorch.wrap_tensor(dof_state_tensor)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 需要重写如下方法 create_sim, pre_physics_step, post_physics_step</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">create_sim</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># implement sim set up and environment creation here</span></span><br><span class="line">        <span class="comment"># - set up-axis</span></span><br><span class="line">        <span class="comment"># - call super().create_sim with device args (see docstring)</span></span><br><span class="line">        <span class="comment"># - create ground plane</span></span><br><span class="line">        <span class="comment"># - set up environments</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pre_physics_step</span>(<span class="params">self, actions</span>):</span></span><br><span class="line">        <span class="comment"># implement pre-physics simulation code here</span></span><br><span class="line">        <span class="comment"># - e.g. apply actions</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post_physics_step</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># implement post-physics simulation code here</span></span><br><span class="line">        <span class="comment"># - e.g. compute reward, compute observations</span></span><br></pre></td></tr></table></figure>
+<p>为了在 <code>train.py</code> 运行任务，需要在  <code>isaacgymenvs/tasks</code> 的 <code>__init__.py</code> 中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> isaacgymenvs.tasks.my_new_task <span class="keyword">import</span> MyNewTask</span><br><span class="line">...</span><br><span class="line">isaac_gym_task_map = &#123;</span><br><span class="line">    <span class="string">&#x27;Anymal&#x27;</span>: Anymal,</span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="string">&#x27;MyNewTask&#x27;</span>: MyNewTask,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后创建相关的环境参数配置文件和强化学习配置文件即可</p>
+<h4 id="Isaac-Gym"><a href="#Isaac-Gym" class="headerlink" title="Isaac Gym"></a>Isaac Gym</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/category_11114379.html">RL | hongliyu_lvliyu的博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/article/details/124934355">Isaac-gym(2): 官方文档之 examples_hongliyu_lvliyu的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/article/details/124941461">Isaac-gym(3): 官方文档——programming 之仿真设置_gym官方文档 | hongliyu_lvliyu的博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/article/details/124955512">Isaac-gym(4): 物理模拟 isaac gym 可以隐藏关节吗 | hongliyu_lvliyu的博客</a></p>
+<h4 id="Isaac-Gym-Environments-for-Legged-Robots-ETH-Zurich"><a href="#Isaac-Gym-Environments-for-Legged-Robots-ETH-Zurich" class="headerlink" title="Isaac Gym Environments for Legged Robots - ETH Zurich $*$"></a>Isaac Gym Environments for Legged Robots - ETH Zurich <a target="_blank" rel="noopener" href="https://github.com/leggedrobotics/legged_gym#isaac-gym-environments-for-legged-robots">$*$</a></h4><h5 id="Code-Structure"><a href="#Code-Structure" class="headerlink" title="Code Structure $*$"></a>Code Structure <a target="_blank" rel="noopener" href="https://github.com/leggedrobotics/legged_gym#code-structure">$*$</a></h5><ol>
+<li>Each environment is defined by an env file (<code>legged_robot.py</code>) and a config file (<code>legged_robot_config.py</code>). The config file contains two classes: one conatianing all the environment parameters (<code>LeggedRobotCfg</code>) and one for the training parameters (<code>LeggedRobotCfgPPo</code>).</li>
+<li>Both env and config classes use inheritance.</li>
+<li>Each non-zero reward scale specified in <code>cfg</code> will add a function with a corresponding name to the list of elements which will be summed to get the total reward.</li>
+<li>Tasks must be registered using <code>task_registry.register(name, EnvClass, EnvConfig, TrainConfig)</code>. This is done in <code>envs/__init__.py</code>, but can also be done from outside of this repository.</li>
+</ol>
+<h5 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h5><ol>
+<li><p>Train:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python issacgym_anymal/scripts/train.py --task=anymal_c_flat</span><br></pre></td></tr></table></figure>
+<ul>
+<li>To run on CPU add following arguments: <code>--sim_device=cpu</code>, <code>--rl_device=cpu</code> (sim on CPU and rl on GPU is possible).</li>
+<li>To run headless (no rendering) add <code>--headless</code>.</li>
+<li><strong>Important</strong>: To improve performance, once the training starts press <code>v</code> to stop the rendering. You can then enable it later to check the progress.</li>
+<li>The trained policy is saved in <code>issacgym_anymal/logs/&lt;experiment_name&gt;/&lt;date_time&gt;_&lt;run_name&gt;/model_&lt;iteration&gt;.pt</code>. Where <code>&lt;experiment_name&gt;</code> and <code>&lt;run_name&gt;</code> are defined in the train config.</li>
+<li>The following command line arguments override the values set in the config files:<ul>
+<li>—task TASK: Task name.</li>
+<li>—resume: Resume training from a checkpoint</li>
+<li>—experiment_name EXPERIMENT_NAME: Name of the experiment to run or load.</li>
+<li>—run_name RUN_NAME: Name of the run.</li>
+<li>—load_run LOAD_RUN: Name of the run to load when resume=True. If -1: will load the last run.</li>
+<li>—checkpoint CHECKPOINT: Saved model checkpoint number. If -1: will load the last checkpoint.</li>
+<li>—num_envs NUM_ENVS: Number of environments to create.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Play a trained policy:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python issacgym_anymal/scripts/play.py --task=anymal_c_flat</span><br></pre></td></tr></table></figure>
+<ul>
+<li>By default the loaded policy is the last model of the last run of the experiment folder.</li>
+<li>Other runs/model iteration can be selected by setting <code>load_run</code> and <code>checkpoint</code> in the train config.</li>
+</ul>
+</li>
+</ol>
+<h5 id="Adding-a-new-environment"><a href="#Adding-a-new-environment" class="headerlink" title="Adding a new environment $*$"></a>Adding a new environment <a target="_blank" rel="noopener" href="https://github.com/leggedrobotics/legged_gym#adding-a-new-environment">$*$</a></h5><p>The base environment <code>legged_robot</code> implements a rough terrain locomotion task. The corresponding cfg does not specify a robot asset (URDF/ MJCF) and no reward scales.</p>
+<ol>
+<li>Add a new folder to <code>envs/</code> with <code>&#39;&lt;your_env&gt;_config.py</code>, which inherit from an existing environment cfgs</li>
+<li>If adding a new robot:<ul>
+<li>Add the corresponding assets to <code>resourses/</code>.</li>
+<li>In <code>cfg</code> set the asset path, define body names, default_joint_positions and PD gains. Specify the desired <code>train_cfg</code> and the name of the environment (python class).</li>
+<li>In <code>train_cfg</code> set <code>experiment_name</code> and <code>run_name</code></li>
+</ul>
+</li>
+<li>(If needed) implement your environment in <your_env>.py, inherit from an existing environment, overwrite the desired functions and/or add your reward functions.</your_env></li>
+<li>Register your env in <code>isaacgym_anymal/envs/__init__.py</code>.</li>
+<li>Modify/Tune other parameters in your <code>cfg</code>, <code>cfg_train</code> as needed. To remove a reward set its scale to zero. Do not modify parameters of other envs!</li>
+</ol>
+<h3 id="2023-07-21"><a href="#2023-07-21" class="headerlink" title="2023.07.21"></a>2023.07.21</h3><h4 id="legged-gym-train-py"><a href="#legged-gym-train-py" class="headerlink" title="legged_gym train.py"></a>legged_gym <code>train.py</code></h4><h5 id="step-self-action-结构"><a href="#step-self-action-结构" class="headerlink" title="step(self, action) 结构"></a>step(self, action) 结构</h5><ol>
+<li><p><code>self.actions</code> [clip]</p>
+</li>
+<li><p><code>self.render()</code></p>
+</li>
+<li><p>for _ in range(decimation)</p>
+<ul>
+<li><p><code>self.torques</code> = <code>self._compute_torques(self.actions)</code></p>
+</li>
+<li><p><code>self.gym.set_dof_actuation_force_tensor(...,...(self.torques))</code></p>
+</li>
+<li><p><code>self.gym.simulate()</code></p>
+</li>
+<li><p><code>self.gym.refresh_dof_state_tensor()</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>self.post_physics_step()</code> 检查 termination，计算 observations 和 rewards</p>
+<ul>
+<li><p><code>self.gym.refresh_actor_root_state_tensor()</code></p>
+</li>
+<li><p><code>self.gym.refresh_net_contact_force_tensor()</code></p>
+</li>
+<li><p>计数器自增：<code>episode_length_buf</code>, <code>common_step_counter</code></p>
+</li>
+<li><p>获取一些变量：<code>base_quat</code>, <code>base_lin_vel</code>, <code>base_ang_vel</code>, <code>projected_gravity</code></p>
+</li>
+<li><p><code>self._post_physics_step_callback()</code> 在计算 terminations, observations 和 rewards 之前调用，根据目标和航向计算角速度命令，计算测量的地形高度并给机器人随机推力</p>
+<ul>
+<li><code>_resample_commands()</code> 一些环境选择随机指令 [env_ids]</li>
+<li><code>self.measured_heights</code> = <code>self._get_heights()</code></li>
+<li><code>self._push_robots()</code> (common_step_counter % push_interval == 0)</li>
+</ul>
+</li>
+<li><p><code>self.check_termination()</code> 检查环境是否需要 reset</p>
+<ul>
+<li><code>self.reset_buf</code></li>
+<li><code>self.time_out_buf</code> [episode_length_buf]</li>
+</ul>
+</li>
+<li><p><code>self.compute_reward()</code> 计算奖励 [self.reward_functions]</p>
+</li>
+<li><p><code>self.reset_idx()</code> 重置部分环境 [env_ids]</p>
+<ul>
+<li>更新难度：<ul>
+<li><code>self._update_terrain_curriculum()</code></li>
+<li><code>self._update_command_curriculum()</code></li>
+</ul>
+</li>
+<li>重置机器人：<ul>
+<li><code>self._reset_dofs()</code></li>
+<li><code>self._reset_root_states()</code></li>
+</ul>
+</li>
+<li>随机指令：<code>_resample_commands()</code></li>
+<li>重置 buffers：<code>last_actions</code>, <code>last_dof_vel</code>, <code>feet_air_time</code>, <code>episode_length_buf</code>, <code>reset_buf</code></li>
+</ul>
+</li>
+<li><p><code>self.compute_observations()</code> 计算观测空间</p>
+</li>
+<li><p>更新一些变量：<code>last_actions</code>, <code>last_dof_vel</code>, <code>last_root_vel</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>self.obs_buf</code> [clip]</p>
+</li>
+<li>return <code>self.obs_buf</code>,  <code>self.rew_buf</code>, <code>self.reset_buf</code>, <code>self.extras</code></li>
+</ol>
+<h5 id="create-sim-self-结构"><a href="#create-sim-self-结构" class="headerlink" title="create_sim(self) 结构"></a>create_sim(self) 结构</h5><p>设置<code>self.up_axis_idx</code></p>
+<p>仿真环境 <code>self.sim</code> = <code>self.gym.create_sim()</code></p>
+<p>创建地形</p>
+<ul>
+<li><code>Terrain</code></li>
+<li><code>self._create_ground_plane()</code></li>
+<li><code>self._create_heightfield()</code></li>
+<li><code>self._create_trimesh()</code></li>
+</ul>
+<p>创建环境：<code>self._create_envs()</code></p>
+<blockquote>
+<ol>
+<li>loads the robot URDF/MJCF asset</li>
+<li>For each environment<ul>
+<li>creates the environment</li>
+<li>calls DOF and Rigid shape properties callbacks</li>
+<li>create actor with these properties and add them to the env</li>
+</ul>
+</li>
+<li>Store indices of different bodies of the robot</li>
+</ol>
+</blockquote>
+<ul>
+<li><code>asset_path</code>, <code>asset_root</code>, <code>asset_file</code></li>
+<li><code>asset_options</code> = <code>gymapi.AssetOptions()</code>…</li>
+<li><code>self.gym.load_asset()</code></li>
+</ul>
+<h4 id="Isaac-Gym-1"><a href="#Isaac-Gym-1" class="headerlink" title="Isaac Gym"></a>Isaac Gym</h4><p>阅读官方文档 (Isaac Gym 的  <code>docs</code> 文件夹中) 以及 <a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/category_11114379.html">RL Isaac Gym | hongliyu_lvliyu 的博客</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/article/details/124934355">Isaac-gym(2): examples | hongliyu_lvliyu 的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/article/details/124941461">Isaac-gym(3): programming 之仿真设置 | hongliyu_lvliyu 的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/article/details/127935696">Isaac-gym(6): 环境创建、模型载入、actor 设置等 | hongliyu_lvliyu 的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/article/details/124955512">Isaac-gym(4): 物理模拟 | hongliyu_lvliyu 的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/article/details/127936699">Isaac-gym(7): 物理模拟（actor生成、创建、控制等）| hongliyu_lvliyu 的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hongliyu_lvliyu/article/details/127938086">Isaac-gym(8):Tensor API | hongliyu_lvliyu 的博客</a></li>
+</ul>
+<h5 id="Simulation-Setup"><a href="#Simulation-Setup" class="headerlink" title="Simulation Setup"></a>Simulation Setup</h5><p>The core API, including supporting data types and constants, is defined in the <code>gymapi</code> module.</p>
+<p>The <strong>gym</strong> object by itself doesn’t do very much. It only serves as a proxy for the Gym API.</p>
+<p>The <strong>sim</strong> object contains physics and graphics contexts that will allow you to load assets, create environments, and interact with the simulation.</p>
+<h5 id="Physics-Simulation"><a href="#Physics-Simulation" class="headerlink" title="Physics Simulation"></a>Physics Simulation</h5><p>An <strong>actor</strong> is an instance of a <code>GymAsset</code>. The function <code>create_actor</code> adds an actor to an environment and returns an actor handle that can be used to interact with that actor later. For performance reasons, it is a good practice to save the handles during actor creation rather than looking them up every time while the simulation is running.</p>
+<p>Each actor has an array of <strong>rigid bodies</strong>, <strong>joints</strong>, and <strong>DOFs</strong>.</p>
+<p>Fixed, revolute, and prismatic joints are well-tested and fully supported.</p>
+<p>Each degree of freedom can be independently actuated.</p>
+<p><strong>Controlling actors</strong> is done using the degrees-of-freedom. For each DOF, you can set the drive mode, limits, stiffness, damping, and targets. You can set these values per actor and override the default settings loaded from the asset.</p>
+<p><strong>DOF property arrays</strong> can be accessed for assets (<code>get_asset_dof_properties</code>) and individual actors (<code>get_actor_dof_properties</code>/<code>set_actor_dof_properties</code>). The getters return structured Numpy arrays with the following fields: <code>hasLimits</code>, <code>lower</code>, <code>upper</code>, <code>driveMode</code>, <code>stiffness</code>, <code>damping</code>, <code>velocity</code>, </p>
+<p><code>effort</code>, <code>friction</code> 和 <code>armature</code></p>
+<p>Note that DOF states do not include the pose or velocity of the root rigid body, so they don’t fully capture the actor state.</p>
+<h5 id="Tensor-API"><a href="#Tensor-API" class="headerlink" title="Tensor API"></a>Tensor API</h5><p>The Gym tensor API uses GPU-compatible data representations for interacting with simulations. It allows accessing the physics state directly on the GPU without copying data back and forth from the host. It also supports applying controls using tensors, which makes it possible to set up experiments that run fully on the GPU.</p>
+<p>Tensors are well-established data structures for storing GPU-compatible data. Popular frameworks like PyTorch and TensorFlow support tensors as a core feature. The Gym tensor API is independent of other frameworks, but it is designed to be easily compatible with them. The Gym tensor API uses simple tensor descriptors, which specify the device, memory address, data type, and shape of a tensor. There is no special API for manipulating the data in the Gym tensors. Instead, the tensor descriptors can be <strong>converted</strong> to more usable tensor types, like PyTorch tensors, using interop utilities. Once a Gym tensor is “<strong>wrapped</strong>” in a PyTorch tensor, you can use all of the existing PyTorch utilities to work with the contents of the tensor.</p>
+<h4 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch ?"></a>PyTorch ?</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42475060/article/details/126175837">PyTorch 介绍以及基本使用、深入了解、案例分析 | _ㄣ知冷煖★的博客</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/" rel="tag"># 项目工作总结</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/07/10/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-7-Week-2/" rel="prev" title="四足机器人科研项目工作总结 Month 7 Week 2">
+      <i class="fa fa-chevron-left"></i> 四足机器人科研项目工作总结 Month 7 Week 2
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%91%A8%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">本周总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-17"><span class="nav-number">2.</span> <span class="nav-text">2023.07.17</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Learning-agile-and-dynamic-motor-skills-for-legged-robots-by-Hwangbo-Lee-Hutter"><span class="nav-number">2.1.</span> <span class="nav-text">Learning agile and dynamic motor skills for legged robots by Hwangbo, Lee, Hutter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%8B%E7%9A%84-%E5%8D%95%E4%BD%8D-%E9%87%8D%E5%8A%9B%E6%96%B9%E5%90%91%E5%90%91%E9%87%8F"><span class="nav-number">2.2.</span> <span class="nav-text">用户坐标系下的 (单位) 重力方向向量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%AC%A7%E6%8B%89%E8%A7%92"><span class="nav-number">2.2.1.</span> <span class="nav-text">欧拉角</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%9D%90%E6%A0%87%E7%B3%BB%E5%A7%BF%E6%80%81%E8%8E%B7%E5%8F%96"><span class="nav-number">2.2.2.</span> <span class="nav-text">用户坐标系姿态获取</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URDF-United-Robotics-Description-Format"><span class="nav-number">2.3.</span> <span class="nav-text">URDF (United Robotics Description Format)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-18"><span class="nav-number">3.</span> <span class="nav-text">2023.07.18</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PyBullet-Torque-Control"><span class="nav-number">3.1.</span> <span class="nav-text">PyBullet Torque Control</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Actuator-Network"><span class="nav-number">3.2.</span> <span class="nav-text">Actuator Network</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-19"><span class="nav-number">4.</span> <span class="nav-text">2023.07.19</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-%E6%96%B0%E7%9F%A5"><span class="nav-number">4.1.</span> <span class="nav-text">Python 新知</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E4%BC%9A"><span class="nav-number">4.2.</span> <span class="nav-text">开会</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Omniverse-Launcher-%E5%AE%89%E8%A3%85"><span class="nav-number">4.3.</span> <span class="nav-text">Omniverse Launcher 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%B1%E8%B4%A5%E5%8F%8A%E5%8E%9F%E5%9B%A0"><span class="nav-number">4.3.1.</span> <span class="nav-text">失败及原因</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">4.3.2.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Isaac-Sim"><span class="nav-number">4.3.3.</span> <span class="nav-text">安装 Isaac Sim</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-20"><span class="nav-number">5.</span> <span class="nav-text">2023.07.20</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B-%E4%BB%BF%E7%9C%9F%E7%8E%AF%E5%A2%83%E9%AA%8C%E8%AF%81"><span class="nav-number">5.1.</span> <span class="nav-text">模型 &#x2F; 仿真环境验证</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Quadruped-Joint-Names"><span class="nav-number">5.1.1.</span> <span class="nav-text">Quadruped Joint Names</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9"><span class="nav-number">5.1.2.</span> <span class="nav-text">文件修改</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%8C%87%E5%AE%9A%E5%AF%B9%E5%BA%94-action-space-%E7%9A%8412-%E4%B8%AA%E5%85%B3%E8%8A%82"><span class="nav-number">5.1.3.</span> <span class="nav-text">如何指定对应 action space 的12 个关节</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA-IsaacGymEnvs-%E4%BB%BB%E5%8A%A1"><span class="nav-number">5.2.</span> <span class="nav-text">如何构建一个 IsaacGymEnvs 任务</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B5%84%E6%96%99%E6%9F%A5%E9%98%85"><span class="nav-number">5.2.1.</span> <span class="nav-text">资料查阅</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E6%96%B9%E6%B3%95"><span class="nav-number">5.2.2.</span> <span class="nav-text">构建方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Creating-a-New-Task"><span class="nav-number">5.2.3.</span> <span class="nav-text">Creating a New Task</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Isaac-Gym"><span class="nav-number">5.3.</span> <span class="nav-text">Isaac Gym</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Isaac-Gym-Environments-for-Legged-Robots-ETH-Zurich"><span class="nav-number">5.4.</span> <span class="nav-text">Isaac Gym Environments for Legged Robots - ETH Zurich $*$</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Code-Structure"><span class="nav-number">5.4.1.</span> <span class="nav-text">Code Structure $*$</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Usage"><span class="nav-number">5.4.2.</span> <span class="nav-text">Usage</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Adding-a-new-environment"><span class="nav-number">5.4.3.</span> <span class="nav-text">Adding a new environment $*$</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-07-21"><span class="nav-number">6.</span> <span class="nav-text">2023.07.21</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#legged-gym-train-py"><span class="nav-number">6.1.</span> <span class="nav-text">legged_gym train.py</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#step-self-action-%E7%BB%93%E6%9E%84"><span class="nav-number">6.1.1.</span> <span class="nav-text">step(self, action) 结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#create-sim-self-%E7%BB%93%E6%9E%84"><span class="nav-number">6.1.2.</span> <span class="nav-text">create_sim(self) 结构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Isaac-Gym-1"><span class="nav-number">6.2.</span> <span class="nav-text">Isaac Gym</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Simulation-Setup"><span class="nav-number">6.2.1.</span> <span class="nav-text">Simulation Setup</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Physics-Simulation"><span class="nav-number">6.2.2.</span> <span class="nav-text">Physics Simulation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tensor-API"><span class="nav-number">6.2.3.</span> <span class="nav-text">Tensor API</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PyTorch"><span class="nav-number">6.3.</span> <span class="nav-text">PyTorch ?</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shaw"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Shaw</p>
+  <div class="site-description" itemprop="description">Was mich nicht umbringt, macht mich stärker</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-10 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shaw</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
