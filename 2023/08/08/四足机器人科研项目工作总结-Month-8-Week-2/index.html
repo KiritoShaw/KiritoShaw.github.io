@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本周总结主要工作总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="四足机器人科研项目工作总结 Month 8 Week 2">
+<meta property="og:url" content="http://example.com/2023/08/08/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-8-Week-2/index.html">
+<meta property="og:site_name" content="Shaw">
+<meta property="og:description" content="本周总结主要工作总结">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/08/08/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-8-Week-2/image-20230808112656529.png">
+<meta property="og:image" content="http://example.com/2023/08/08/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-8-Week-2/image-20230809203527733.png">
+<meta property="article:published_time" content="2023-08-08T02:02:30.000Z">
+<meta property="article:modified_time" content="2023-08-12T15:11:00.784Z">
+<meta property="article:author" content="Shaw">
+<meta property="article:tag" content="项目工作总结">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/08/08/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-8-Week-2/image-20230808112656529.png">
+
+<link rel="canonical" href="http://example.com/2023/08/08/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-8-Week-2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>四足机器人科研项目工作总结 Month 8 Week 2 | Shaw</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Shaw</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-download fa-fw"></i>resources</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/08/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-8-Week-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Shaw">
+      <meta itemprop="description" content="Was mich nicht umbringt, macht mich stärker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shaw">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          四足机器人科研项目工作总结 Month 8 Week 2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-08-08 10:02:30" itemprop="dateCreated datePublished" datetime="2023-08-08T10:02:30+08:00">2023-08-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-08-12 23:11:00" itemprop="dateModified" datetime="2023-08-12T23:11:00+08:00">2023-08-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA/" itemprop="url" rel="index"><span itemprop="name">四足机器人</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="本周总结"><a href="#本周总结" class="headerlink" title="本周总结"></a>本周总结</h3><h4 id="主要工作总结"><a href="#主要工作总结" class="headerlink" title="主要工作总结"></a>主要工作总结</h4><ol>
+<li><span id="more"></span>
+</li>
+</ol>
+<hr>
+<h3 id="2023-08-08"><a href="#2023-08-08" class="headerlink" title="2023.08.08"></a>2023.08.08</h3><h4 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h4><p><strong>欧拉角</strong>（Euler angle）指的是绕参考<a target="_blank" rel="noopener" href="https://sat.huijiwiki.com/wiki/坐标系">坐标系</a>主轴（x,y,z）之一旋转的角度。</p>
+<p>也就是说，若新的坐标系是绕旧的坐标系的主轴（x,y,z）之一旋转形成的，那么这个旋转角就是欧拉角。</p>
+<h4 id="旋转矩阵-姿态"><a href="#旋转矩阵-姿态" class="headerlink" title="旋转矩阵 / 姿态"></a>旋转矩阵 / 姿态</h4><p>用标准正交基 $(e^a_1, e^a_2, e^a_3)$ 表示坐标系 $\{a\}$</p>
+<p>用 $R_{ab}$ 表示坐标系 $\{b\}$ 相对坐标系 $\{a\}$ 的姿态</p>
+<p>坐标系 $\{b\}$ 的标准正交基在坐标系 $\{a\}$ 下的表示为</p>
+<script type="math/tex; mode=display">
+(e^b_1, e^b_2, e^b_3)=(e^a_1, e^a_2, e^a_3)R_{ab}</script><h4 id="变换参考坐标系"><a href="#变换参考坐标系" class="headerlink" title="变换参考坐标系"></a>变换参考坐标系</h4><p>坐标系姿态参考坐标系的变换</p>
+<script type="math/tex; mode=display">
+R_{ac}=R_{ab}R_{bc}</script><p>向量参考坐标系的变换</p>
+<script type="math/tex; mode=display">
+R_{ab}\eta_b=\eta_a</script><h4 id="旋转矩阵的正交性"><a href="#旋转矩阵的正交性" class="headerlink" title="旋转矩阵的正交性"></a>旋转矩阵的正交性</h4><script type="math/tex; mode=display">
+R_{ba}=R_{ab}^T</script><h4 id="旋转某个向量"><a href="#旋转某个向量" class="headerlink" title="旋转某个向量"></a>旋转某个向量</h4><script type="math/tex; mode=display">
+\gamma^a=Rot(X)Rot(Y)Rot(Z)\eta^a</script><h4 id="一般位姿变换矩阵"><a href="#一般位姿变换矩阵" class="headerlink" title="一般位姿变换矩阵"></a>一般位姿变换矩阵</h4><script type="math/tex; mode=display">
+\begin{bmatrix}
+P^a_{3\cross1}\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+R_{ab}& P^{a}_{BORG} \\
+0&1
+\end{bmatrix}
+=
+\begin{bmatrix}
+P^b_{3\cross1}\\
+1
+\end{bmatrix}</script><p>也即</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+P^{a}&=R_{ab}P^{b}+P^{a}_{BORG}\\
+1&=1
+\end{aligned}</script><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/617978059">矩阵乘法与位姿矩阵的理解</a></p>
+<p>基于全局坐标系(固定坐标系)的旋转变换<strong>左乘</strong>旋转矩阵，基于自身坐标系(动坐标系)的旋转变换<strong>右乘</strong>旋转矩阵</p>
+<p>对于左乘和右乘，可以理解为左乘通常做的是坐标变换，针对的是坐标。右乘做的是基变换，针对的是坐标系</p>
+<h4 id="基变换-坐标变换"><a href="#基变换-坐标变换" class="headerlink" title="基变换 / 坐标变换"></a>基变换 / 坐标变换</h4><p>世界坐标系的基（列向量）：$e^w_1=(1,0,0)^T$，$e^w_2=(0,1,0)^T$，$e^w_3=(0,0,1)^T$</p>
+<p>机体系的基（列向量）：$e^b_1$，$e^b_2$，$e^b_3$</p>
+<p>坐标系变变换（右乘变换矩阵）：$(e^b_1,e^b_2,e^b_3)=(e^w_1,e^w_2,e^w_3)Rot(Z)Rot(Y)Rot(X)$</p>
+<p>坐标变换</p>
+<ul>
+<li><p>机体系下表示的向量</p>
+<script type="math/tex; mode=display">
+\eta =(e^b_1,e^b_2,e^b_3)\begin{bmatrix}
+x^b \\
+y^b \\
+z^b
+\end{bmatrix}</script></li>
+<li><p>将上述向量在世界系下进行表示</p>
+<script type="math/tex; mode=display">
+\eta 
+=(e^b_1,e^b_2,e^b_3)
+\begin{bmatrix}
+x^b \\
+y^b \\
+z^b
+\end{bmatrix}
+=(e^w_1,e^w_2,e^w_3)R_{wb}
+\begin{bmatrix}
+x^b \\
+y^b \\
+z^b
+\end{bmatrix}
+=(e^w_1,e^w_2,e^w_3)
+\begin{bmatrix}
+x^w \\
+y^w \\
+z^w
+\end{bmatrix}</script></li>
+</ul>
+<p>将世界系下的向量作与机体系姿态相应的旋转，使得旋转前后的向量在两个坐标系下的表示方法相同</p>
+<ul>
+<li><p>世界系下的一个向量</p>
+<script type="math/tex; mode=display">
+\eta =(e^w_1,e^w_2,e^w_3)\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}</script></li>
+<li><p>对向量绕 z, y, x 轴旋转</p>
+<script type="math/tex; mode=display">
+\gamma = R_zR_yR_x \eta</script></li>
+<li><p>新向量在机体系下的坐标应与</p>
+<script type="math/tex; mode=display">
+\gamma = R_zR_yR_x \eta
+=(e^w_1,e^w_2,e^w_3)R_zR_yR_x
+\begin{bmatrix}
+x^w \\
+y^w \\
+z^w
+\end{bmatrix}
+=(e^b_1,e^b_2,e^b_3)
+\begin{bmatrix}
+x^b \\
+y^b \\
+z^b
+\end{bmatrix}</script></li>
+</ul>
+<h4 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h4><p><img src="/2023/08/08/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-8-Week-2/image-20230808112656529.png" alt="image-20230808112656529" style="zoom:50%;"></p>
+<p>The rotation axis of the hip joint is the x-axis, and the rotation axis of the thigh and calf joints is the y-axis, and the positive rotation direction conforms to the right-hand rule.</p>
+<p>机身关节旋转轴为 x 轴，大腿关节和小腿关节的旋转轴为 y 轴，旋转正方向符合右手定则。</p>
+<p>The zero points of each coordinate are shown above. Red is the x-axis, green is the y-axis, and blue is the z-axis. Due to the limit of the calf joint, this position cannot actually be reached. It can be seen that the initial posture of each joint coordinate system is the same, but the position and rotation axis are different.</p>
+<p>当各个关节均为零度时，各坐标系如上图。红色为 x 轴，绿色为 y 轴，蓝色为 z 轴。小腿关节由于限 位，实际到不了这个位置，这里仅为了指明零点位置。可以看出，各个关节坐标系的初始姿态都是一致的， 只是位置和旋转轴不同。</p>
+<h5 id="左侧腿运动学方程"><a href="#左侧腿运动学方程" class="headerlink" title="左侧腿运动学方程"></a>左侧腿运动学方程</h5><p>假设各个关节角度为 $\theta_0,\theta_1,\theta_2$，连杆长度分别为 $L_0,L_1,L_2$ ( hip / joint / calf )</p>
+<p>$(x_{03},y_{03},z_{03})$ 表示足端相对髋关节的位置</p>
+<p>先考虑第 2、3 个关节，足端在大腿关节的表示为</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+s&= L_1\sin(\theta_1)+L_2\sin(\theta_1+\theta_2)\\
+h&= L_1\cos(\theta_1)+L_2\cos(\theta_1+\theta_2)\\
+x_{13}&= -s = -L_1\sin(\theta_1)-L_2\sin(\theta_1+\theta_2)\\
+z_{13}&= -h = -L_1\cos(\theta_1)-L_2\cos(\theta_1+\theta_2)
+\end{aligned}</script><p>再考虑第 1 个关节，足端在髋关节下的表示为</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+x_{03}&= x_{13}\\
+y_{03}&= L_0\cos(\theta_0) + h\sin(\theta_0)\\
+z_{03}&= L_0\sin(\theta_0) - h\cos(\theta_0)
+\end{aligned}</script><p>综上</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+x_{03}&= -L_1\sin(\theta_1)-L_2\sin(\theta_1+\theta_2)\\
+y_{03}&= L_0\cos(\theta_0) + \sin(\theta_0)[L_1\cos(\theta_1)+L_2\cos(\theta_1+\theta_2)]\\
+z_{03}&= L_0\sin(\theta_0) - \cos(\theta_0)[L_1\cos(\theta_1)+L_2\cos(\theta_1+\theta_2)]
+\end{aligned}</script><h5 id="右侧腿运动学方程"><a href="#右侧腿运动学方程" class="headerlink" title="右侧腿运动学方程"></a>右侧腿运动学方程</h5><p>同理</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+x_{03}&= -L_1\sin(\theta_1)-L_2\sin(\theta_1+\theta_2)\\
+y_{03}&= -L_0\cos(\theta_0) + \sin(\theta_0)[L_1\cos(\theta_1)+L_2\cos(\theta_1+\theta_2)]\\
+z_{03}&= L_0\sin(\theta_0) - \cos(\theta_0)[L_1\cos(\theta_1)+L_2\cos(\theta_1+\theta_2)]
+\end{aligned}</script><h4 id="逆运动学"><a href="#逆运动学" class="headerlink" title="逆运动学"></a>逆运动学</h4><p>建立运动学方程，描述<strong>足端相对机身的位置</strong>与<strong>各个关节角度</strong>之间的关系</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+x &= f(\theta) \\
+\dot{x} &= \frac{\partial f(\theta)}{\partial \theta} \dot{\theta} = J(\theta)\dot{\theta}
+\end{aligned}</script><h5 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h5><p>给定 $x_d$ 以及正运动学方程 $x = f(\theta)$</p>
+<p>初始化 $\theta_0$</p>
+<p>While 循环</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+e & = x_d - f(\theta_k)\\
+\theta_{k+1}& = \theta_k + J^{-1}(\theta_k)e\\
+k &\leftarrow k+1
+\end{aligned}</script><p>当  $||e||&lt;\epsilon$ 时结束循环，并获得 $\hat{\theta}_d$</p>
+<h5 id="Cyclic-Coordinate-Descent"><a href="#Cyclic-Coordinate-Descent" class="headerlink" title="Cyclic Coordinate Descent"></a>Cyclic Coordinate Descent</h5><p><img src="/2023/08/08/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-8-Week-2/image-20230809203527733.png" alt="image-20230809203527733"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for i = 1,…,k do</span><br><span class="line">	q(i) ← q(i−1)</span><br><span class="line">	# 对每个关节分别进行优化</span><br><span class="line">  	for all joints j = 1,...,n do</span><br><span class="line"> 		Compute q*(j) = argmin||f(q(i))||</span><br><span class="line"> 		Set q(i,j) ← q*(j)</span><br><span class="line">return  q(k)</span><br></pre></td></tr></table></figure>
+<h5 id="Algorithm-1"><a href="#Algorithm-1" class="headerlink" title="Algorithm?"></a>Algorithm?</h5><p>给定序列 $\{x_t\}_{t\in T}$ 以及 $\theta_0$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\Delta x &= x_{t+1} - x_{t} \\
+\Delta \theta &= J^{-1}(\theta_t)\Delta x \\
+\theta_{t+1} &= \theta_t + \Delta\theta
+\end{aligned}</script><h4 id="J-的选取"><a href="#J-的选取" class="headerlink" title="J 的选取"></a>J 的选取</h4><h5 id="阻尼最小二乘法"><a href="#阻尼最小二乘法" class="headerlink" title="阻尼最小二乘法"></a>阻尼最小二乘法</h5><script type="math/tex; mode=display">
+\min_{\dot{q}}||J\dot{q}-\dot{x}||^2+\lambda^2||\dot{q}||^2</script><p>求解上述优化问题得到</p>
+<script type="math/tex; mode=display">
+\dot{q}=(J^TJ+\lambda^2I)^{-1}J^T\dot{x}</script><h5 id="冗余雅可比矩阵求逆"><a href="#冗余雅可比矩阵求逆" class="headerlink" title="冗余雅可比矩阵求逆"></a>冗余雅可比矩阵求逆</h5><script type="math/tex; mode=display">
+\min_{\dot{q}}||\dot{q}||^2\\s.t.\quad \dot{x}=J\dot{q}</script><h5 id="雅可比矩阵转置法"><a href="#雅可比矩阵转置法" class="headerlink" title="雅可比矩阵转置法"></a>雅可比矩阵转置法</h5><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/617978059">矩阵乘法与位姿矩阵的理解</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/555283623">Matrix | 旋转矩阵</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ijstr.org/final-print/sep2017/Inverse-Kinematic-Analysis-Of-A-Quadruped-Robot.pdf">Inverse-Kinematic-Analysis-Of-A-Quadruped-Robot.pdf</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/21207-iHome/p/5948976.html">V-rep 机器人逆运动学数值解法 (Damped Least Squares / Levenberg-Marquardt Method) XXX已失联</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/wohu1104/article/details/107292195">Tensor 比较运算 torch.gt、lt、ge、le、eq、ne、torch.topk、torch.sort、torch.max、torch.min | wohu007 的博客</a></li>
+</ol>
+</blockquote>
+<h3 id="2023-08-10"><a href="#2023-08-10" class="headerlink" title="2023.08.10"></a>2023.08.10</h3><h4 id="Forward-Inverse-Kinematics"><a href="#Forward-Inverse-Kinematics" class="headerlink" title="Forward / Inverse Kinematics"></a>Forward / Inverse Kinematics</h4><ol>
+<li>Forward Kinematics Equations for left / right side legs (relative to hip joint / base pos)</li>
+<li>Compute Jacobian</li>
+<li>Inverse Kinematics</li>
+</ol>
+<h4 id="Motion-Imitation"><a href="#Motion-Imitation" class="headerlink" title="Motion Imitation"></a>Motion Imitation</h4><p><a target="_blank" rel="noopener" href="https://github.com/erwincoumans/motion_imitation/tree/master/motion_imitation/robots">motion_imitation/motion_imitation/robots at master · erwincoumans/motion_imitation</a></p>
+<h4 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h4><p>torch.mul 按元素相乘 <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.mul.html#torch.mul">*</a></p>
+<p>torch.div 按元素相除 <a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.div.html?highlight=torch+div#torch.div">*</a></p>
+<p>torch.square 平方 <a href="[torch.square — PyTorch 2.0 documentation](https://pytorch.org/docs/stable/generated/torch.square.html?highlight=square#torch.square">*</a>)</p>
+<p>torch.dot 点乘 <a href="[torch.dot — PyTorch 2.0 documentation](https://pytorch.org/docs/stable/generated/torch.dot.html?highlight=dot#torch.dot">*</a>)</p>
+<p>torch.sum 求和 <a href="[torch.sum — PyTorch 2.0 documentation](https://pytorch.org/docs/stable/generated/torch.sum.html?highlight=sum#torch.sum">*</a>) <code>dim</code> <code>keepdim</code></p>
+<h4 id="交流"><a href="#交流" class="headerlink" title="交流"></a>交流</h4><p><a target="_blank" rel="noopener" href="https://panweihit.github.io/">About me - Wei Pan</a></p>
+<blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/leoking01/p/13579819.html">Linux访问window下的磁盘分区出现“Error mounting /dev/sda5 at/media”错误的解决方法 - leoking01</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41648043/article/details/85544473">Ubuntu不能挂载移动硬盘问题Error mounting /dev/sda1 at /media/XXXX: Command-line `mount -t “ntfs” -o</a></li>
+</ol>
+</blockquote>
+<h3 id="2023-08-12"><a href="#2023-08-12" class="headerlink" title="2023.08.12"></a>2023.08.12</h3><h4 id="Isaac-Gym-迁移"><a href="#Isaac-Gym-迁移" class="headerlink" title="Isaac Gym 迁移"></a>Isaac Gym 迁移</h4><p>略</p>
+<h4 id="精读-EASpace-Enhanced-Action-Space"><a href="#精读-EASpace-Enhanced-Action-Space" class="headerlink" title="精读 EASpace (Enhanced Action Space)"></a>精读 EASpace (Enhanced Action Space)</h4><h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39910711/article/details/124428444">机器学习算法（三十）：强化学习 (Reinforcement Learning) | 意念回复的博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/551221099">「深度分层强化学习DHRL」最新 2022 研究与进展综述</a></p>
+<p>分层强化学习 (hierarchical reinforcement learning, HRL)</p>
+<p>以半马尔可夫决策过程 (semi-markov decision process, SMDP)为理论基础，基于分层抽象技术，从结构上对 RL 进行改进，重点关注 RL 难以解决的稀疏奖励、顺序决策和弱迁移能力等问题，实现了更强的探索能力和迁移能力</p>
+<ul>
+<li>稀疏奖励</li>
+<li>顺序决策</li>
+<li>弱迁移能力</li>
+</ul>
+<p>基于分层抽象技术，学者们提出了丰富多样的 DHRL 方法，根据求解思路的差异，我们将它们分为: </p>
+<p><strong>(1) 基于技能的深度分层强化学习框架</strong> (option-based DHRL, O-DHRL) (option 在 O-DHRL 中常被称为技能(skill)，为保证符号的统一，下文依然用符号 o 来表示)。下层网络学习一组技能，然后由上层网络调用这些技能，使用不同的组合技能来解决下游任务</p>
+<p><strong>(2) 基于子目标的深度分层强化学习框架</strong> (subgoal-based DHRL, G-DHRL)。利用神经网络提取状态特征,然后将状态特征作为子目标空间。上层网络学习产生子目标，下层网络根据内部驱动来实现子目标</p>
+<p>O-DHRL 与 SMDP 密不可分，而求解 SMDP 问题的关键在于如何定义和寻找 option。从内容上看，option 既可以由先验知识定义，也可以由算法学习产生。从形式上看，option 既可以是单步的基础动作，也可以是一组动作序列，或是另一组 option。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_48948682/article/details/125890917">【论文笔记】基于分层深度强化学习的移动机器人导航方法 d3qn 论文 | Ctrl+Alt+L 的博客</a></p>
+<p>现有 DRL 导航方法的研究：</p>
+<ol>
+<li>将导航任务视为<strong>避障</strong>与<strong>目标接近</strong>两个子任务的结合</li>
+<li>分别设计奖励函数, 引导移动机器人在<strong>避开障碍</strong>的同时<strong>接近目标点</strong>，但是设计奖励函数需要较多的先验知识</li>
+<li>在长廊、死角处容易出现<strong>局部最小</strong></li>
+</ol>
+<p>本文主要工作叙述：</p>
+<ol>
+<li>采用基于 option-based HDRL 的模型框架</li>
+<li>通过设计基于规则的目标驱动控制模型和基于 DRL 的避障控制模型, 分别实现目标接近与避障两种低层行为策略</li>
+<li>利用基于 DRL 的行为选择模型学习稳定、可靠的高层行为选择策略, 有效避免了对人为设计调控规则的依赖</li>
+<li>在训练避障控制模型的同时训练行为选择模型, 并将接近行为的经验数据也存入避障控制模型的经验池</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/501932920">【分层强化学习】关于分层强化学习的总结与思考</a></p>
+<p>实际上，分层强化学习解决的是强化学习中的 <strong>稀疏奖励（sparse reward）</strong>问题：当环境奖励过于稀疏时，智能体可能长期都没有办法获得具有正奖励的样本，给值函数和策略的学习带来了困难。通过分层把策略分为不同层级的子策略，每个子策略在学习的过程中会得到来自上一层级传递来的奖励，这样可以大大提升 <strong>样本的利用效率（sample efficiency）</strong>。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/430471198">【分层强化学习】The Option-Critic Architecture 阅读笔记</a></p>
+<p>一个马尔科夫<strong>选项（option）</strong></p>
+<p>option的存在使得 MDP 变成了 <strong>半马尔科夫过程（Semi-Markov Decision Process）</strong></p>
+<p>在该设定下，需要解决的问题有：<strong>学习option上的价值函数与策略（value function and policy over options）以及学习option内的策略与终止函数（intra-option policies and termination functions）</strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/" rel="tag"># 项目工作总结</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/07/31/%E5%9B%9B%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-Month-8-Week-1/" rel="prev" title="四足机器人科研项目工作总结 Month 8 Week 1">
+      <i class="fa fa-chevron-left"></i> 四足机器人科研项目工作总结 Month 8 Week 1
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%91%A8%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">本周总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93"><span class="nav-number">1.1.</span> <span class="nav-text">主要工作总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-08-08"><span class="nav-number">2.</span> <span class="nav-text">2023.08.08</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AC%A7%E6%8B%89%E8%A7%92"><span class="nav-number">2.1.</span> <span class="nav-text">欧拉角</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5-%E5%A7%BF%E6%80%81"><span class="nav-number">2.2.</span> <span class="nav-text">旋转矩阵 &#x2F; 姿态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%98%E6%8D%A2%E5%8F%82%E8%80%83%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-number">2.3.</span> <span class="nav-text">变换参考坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5%E7%9A%84%E6%AD%A3%E4%BA%A4%E6%80%A7"><span class="nav-number">2.4.</span> <span class="nav-text">旋转矩阵的正交性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E6%9F%90%E4%B8%AA%E5%90%91%E9%87%8F"><span class="nav-number">2.5.</span> <span class="nav-text">旋转某个向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E4%BD%8D%E5%A7%BF%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5"><span class="nav-number">2.6.</span> <span class="nav-text">一般位姿变换矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E5%8F%98%E6%8D%A2-%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2"><span class="nav-number">2.7.</span> <span class="nav-text">基变换 &#x2F; 坐标变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-number">2.8.</span> <span class="nav-text">坐标系</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%A6%E4%BE%A7%E8%85%BF%E8%BF%90%E5%8A%A8%E5%AD%A6%E6%96%B9%E7%A8%8B"><span class="nav-number">2.8.1.</span> <span class="nav-text">左侧腿运动学方程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%B3%E4%BE%A7%E8%85%BF%E8%BF%90%E5%8A%A8%E5%AD%A6%E6%96%B9%E7%A8%8B"><span class="nav-number">2.8.2.</span> <span class="nav-text">右侧腿运动学方程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%86%E8%BF%90%E5%8A%A8%E5%AD%A6"><span class="nav-number">2.9.</span> <span class="nav-text">逆运动学</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Algorithm"><span class="nav-number">2.9.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cyclic-Coordinate-Descent"><span class="nav-number">2.9.2.</span> <span class="nav-text">Cyclic Coordinate Descent</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Algorithm-1"><span class="nav-number">2.9.3.</span> <span class="nav-text">Algorithm?</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#J-%E7%9A%84%E9%80%89%E5%8F%96"><span class="nav-number">2.10.</span> <span class="nav-text">J 的选取</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%98%BB%E5%B0%BC%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95"><span class="nav-number">2.10.1.</span> <span class="nav-text">阻尼最小二乘法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%86%97%E4%BD%99%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5%E6%B1%82%E9%80%86"><span class="nav-number">2.10.2.</span> <span class="nav-text">冗余雅可比矩阵求逆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE%E6%B3%95"><span class="nav-number">2.10.3.</span> <span class="nav-text">雅可比矩阵转置法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-08-10"><span class="nav-number">3.</span> <span class="nav-text">2023.08.10</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Forward-Inverse-Kinematics"><span class="nav-number">3.1.</span> <span class="nav-text">Forward &#x2F; Inverse Kinematics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Motion-Imitation"><span class="nav-number">3.2.</span> <span class="nav-text">Motion Imitation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PyTorch"><span class="nav-number">3.3.</span> <span class="nav-text">PyTorch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%A4%E6%B5%81"><span class="nav-number">3.4.</span> <span class="nav-text">交流</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2023-08-12"><span class="nav-number">4.</span> <span class="nav-text">2023.08.12</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Isaac-Gym-%E8%BF%81%E7%A7%BB"><span class="nav-number">4.1.</span> <span class="nav-text">Isaac Gym 迁移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B2%BE%E8%AF%BB-EASpace-Enhanced-Action-Space"><span class="nav-number">4.2.</span> <span class="nav-text">精读 EASpace (Enhanced Action Space)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">4.2.1.</span> <span class="nav-text">概念</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shaw"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Shaw</p>
+  <div class="site-description" itemprop="description">Was mich nicht umbringt, macht mich stärker</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-10 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shaw</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
